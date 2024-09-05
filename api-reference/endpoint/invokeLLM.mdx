@@ -1,0 +1,90 @@
+---
+title: "Invoke LLM"
+openapi: "POST /api/v1/invoke_llm"
+---
+
+### Description
+
+This endpoint allows you to invoke a language model using specific parameters, such as the expert and model IDs, input data, and additional configuration options.
+Request Headers
+bbot-api-key: Your API key, which can be generated from the Profile section of the B-Bot hub.
+Request Body
+The request body should be a JSON object with the following structure:
+
+```
+{
+    "expert_id": 37,
+    "model_id": 6,
+    "input_data": [
+        {"role": "user", "content": "Hello!"}
+    ],
+    "temperature": 1,
+    "max_tokens": 250
+}
+```
+
+### Example Request
+
+```
+bashCode kopieren
+curl -X POST https://your-api-url.com/api/v1/invoke_llm \
+-H "Content-Type: application/json" \
+-H "bbot-api-key: YOUR_API_KEY_HERE" \
+-d '{
+    "expert_id": 37,
+    "model_id": 6,
+    "input_data": [
+        {"role": "user", "content": "Hello!"}
+    ],
+    "temperature": 1,
+    "max_tokens": 250
+}'
+
+
+```
+
+### Example Response
+
+```
+jsonCode kopieren
+{
+    "response": {
+        "id": "chatcmpl-9kCotn4TY5OcxYc8qFlulso5v8BpC",
+        "choices": [
+            {
+                "finish_reason": "stop",
+                "index": 0,
+                "logprobs": null,
+                "message": {
+                    "content": "Hello! How can I assist you today in the realm of marketing psychology for your business?",
+                    "role": "assistant",
+                    "function_call": null,
+                    "tool_calls": null}
+            }
+        ],
+        "created": 1720799395,
+        "model": "gpt-3.5-turbo-0125",
+        "object": "chat.completion",
+        "system_fingerprint": null,
+        "usage": {
+            "completion_tokens": 18,
+            "prompt_tokens": 40,
+            "total_tokens": 58
+        }
+    }
+}
+
+```
+
+<Note>
+  Ensure that you replace `YOUR_API_KEY_HERE` with the actual API key generated
+  from your profile in the B-Bot hub.
+</Note>
+<Note>
+  The `temperature` parameter is optional. If not provided, a default value will
+  be used.
+</Note>
+<Note>
+  The `max_tokens` parameter is optional. If not provided, a default value will
+  be used.
+</Note>
