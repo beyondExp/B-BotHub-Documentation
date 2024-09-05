@@ -23,16 +23,6 @@ The request body should be a JSON object with the following structure:
 }
 ```
 
-### Parameters
-
-- `expert_id` (integer): The ID of the expert you want to invoke.
-- `model_id` (integer): The ID of the language model to be used.
-- `input_data` (array): A list of message objects containing the role and content of the input data.
-  - `role` (string): The role of the message sender, typically "user" or "system".
-  - `content` (string): The content of the message.
-- `temperature` (float): The sampling temperature, which controls the randomness of the model's outputs. Higher values (e.g., 1.0) make the output more random, while lower values (e.g., 0.2) make it more deterministic.
-- `max_tokens` (integer): The maximum number of tokens (words or word pieces) to generate in the response.
-
 ### Example Request
 
 ```
@@ -86,37 +76,15 @@ jsonCode kopieren
 
 ```
 
-### Response Fields
-
-- `response`: The main response object.
-  - `id` (string): The unique identifier for the chat completion.
-  - `choices` (array): A list of generated response choices.
-    - `finish_reason` (string): The reason the completion ended (e.g., "stop").
-    - `index` (integer): The index of the response choice.
-    - `logprobs` (null): The log probabilities (if any).
-    - `message` (object): The generated message object.
-      - `content` (string): The content of the message.
-      - `role` (string): The role of the message sender (e.g., "assistant").
-      - `function_call` (null): Any function calls made by the assistant.
-      - `tool_calls` (null): Any tool calls made by the assistant.
-  - `created` (integer): The timestamp when the response was created.
-  - `model` (string): The model used for the completion.
-  - `object` (string): The type of response object (e.g., "chat.completion").
-  - `system_fingerprint` (null): The system fingerprint (if any).
-  - `usage` (object): Information about token usage.
-    - `completion_tokens` (integer): The number of tokens generated in the completion.
-    - `prompt_tokens` (integer): The number of tokens in the prompt.
-    - `total_tokens` (integer): The total number of tokens used.
-
-### Response Codes
-
-- `200 OK`: The request was successful, and the model generated a response.
-- `400 Bad Request`: The request was invalid or missing required parameters.
-- `401 Unauthorized`: The provided API key was invalid or missing.
-- `500 Internal Server Error`: An error occurred on the server side.
-
-### Notes
-
-- Ensure that you replace `YOUR_API_KEY_HERE` with the actual API key generated from your profile in the B-Bot hub.
-- The `temperature` parameter is optional. If not provided, a default value will be used.
-- The `max_tokens` parameter is optional. If not provided, a default value will be used.
+<Note>
+  Ensure that you replace `YOUR_API_KEY_HERE` with the actual API key generated
+  from your profile in the B-Bot hub.
+</Note>
+<Note>
+  The `temperature` parameter is optional. If not provided, a default value will
+  be used.
+</Note>
+<Note>
+  The `max_tokens` parameter is optional. If not provided, a default value will
+  be used.
+</Note>
