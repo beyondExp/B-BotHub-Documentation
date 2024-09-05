@@ -137,7 +137,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+                "$ref": "#/components/schemas/InvokeLanguageModel"
               }
             }
           },
@@ -145,21 +145,41 @@
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "Successful response with generated content",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/LLMResponse200"
                 }
               }
             }
           },
           "400": {
-            "description": "unexpected error",
+            "description": "Bad request due to invalid parameters",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/LLMErrorResponse400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The provided API key was invalid or missing.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LLMErrorResponse401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An error occurred on the server side.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LLMErrorResponse500"
                 }
               }
             }
@@ -171,9 +191,7 @@
   "components": {
     "schemas": {
       "Plant": {
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "type": "object",
         "properties": {
           "name": {
@@ -192,9 +210,7 @@
             "$ref": "#/components/schemas/Plant"
           },
           {
-            "required": [
-              "id"
-            ],
+            "required": ["id"],
             "type": "object",
             "properties": {
               "id": {
@@ -206,11 +222,114 @@
           }
         ]
       },
+      "InvokeLanguageModel": {
+        "type": "object",
+        "properties": {
+          "expert_id": {
+            "type": "integer",
+            "description": "The ID of the expert you want to invoke."
+          },
+          "model_id": {
+            "type": "integer",
+            "description": "The ID of the language model to be used."
+          },
+          "input_data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "string",
+                  "enum": ["user", "system"],
+                  "description": "The role of the message sender, typically 'user' or 'system'."
+                },
+                "content": {
+                  "type": "string",
+                  "description": "The content of the message."
+                }
+              },
+              "required": ["role", "content"]
+            },
+            "description": "A list of message objects containing the role and content of the input data."
+          },
+          "temperature": {
+            "type": "number",
+            "format": "float",
+            "description": "The sampling temperature, which controls the randomness of the model's outputs."
+          },
+          "max_tokens": {
+            "type": "integer",
+            "description": "The maximum number of tokens (words or word pieces) to generate in the response."
+          }
+        },
+        "required": ["expert_id", "model_id", "input_data"]
+      },
+      "LLMResponse200": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "example": 200
+          },
+          "message": {
+            "type": "string",
+            "example": "The request was successful, and the model generated a response."
+          }
+        },
+        "required": ["code", "message"]
+      },
+      "LLMErrorResponse400": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "example": 400
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid parameters provided."
+          },
+          "details": {
+            "type": "string",
+            "example": "The 'input_data' field is required."
+          }
+        },
+        "required": ["code", "message"]
+      },
+      "LLMErrorResponse401": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "example": 401
+          },
+          "message": {
+            "type": "string",
+            "example": "Unauthorized access. API key is missing or invalid."
+          }
+        },
+        "required": ["code", "message"]
+      },
+      "LLMErrorResponse500": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "example": 500
+          },
+          "message": {
+            "type": "string",
+            "example": "An unexpected error occurred on the server."
+          },
+          "details": {
+            "type": "string",
+            "example": "Please try again later."
+          }
+        },
+        "required": ["code", "message"]
+      },
       "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
+        "required": ["error", "message"],
         "type": "object",
         "properties": {
           "error": {
