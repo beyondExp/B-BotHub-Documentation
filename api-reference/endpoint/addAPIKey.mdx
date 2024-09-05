@@ -22,3 +22,36 @@ To use the B-Bot API, you need to generate an API key from your profile. Follow 
 
 1. When making requests to the B-Bot API, include the API key in the request headers.
 2. The header should be formatted as follows:
+
+   ```makefile
+   bbot-api-key: YOUR_API_KEY_HERE
+
+   ```
+
+### Example of Adding the API Key to a Request
+
+Here is an example of how to include the API key in a cURL request to the `api/v1/invoke_llm` endpoint:
+
+```bash
+bashCode kopieren
+curl -X POST https://your-api-url.com/api/v1/invoke_llm \
+-H "Content-Type: application/json" \
+-H "bbot-api-key: YOUR_API_KEY_HERE" \
+-d '{
+    "expert_id": 37,
+    "model_id": 6,
+    "input_data": [
+        {"role": "user", "content": "Hello!"}
+    ],
+    "temperature": 1,
+    "msx_tokens": 250
+}'
+
+```
+
+Replace `YOUR_API_KEY_HERE` with the API key you generated from your profile.
+
+### Security Note
+
+- Keep your API key secure and do not share it publicly.
+- If you believe your API key has been compromised, you can regenerate a new key from the Profile section by following the same steps.

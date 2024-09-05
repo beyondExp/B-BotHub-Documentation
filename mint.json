@@ -86,7 +86,6 @@
         "api-reference/endpoint/getExpertsEndpoints",
         "api-reference/endpoint/getUser",
         "api-reference/endpoint/invokeAgentCall"
-        
       ]
     }
   ],
