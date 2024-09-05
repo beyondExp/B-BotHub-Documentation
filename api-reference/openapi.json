@@ -128,6 +128,44 @@
           }
         }
       }
+    },
+    "/api/v1/invoke_llm": {
+      "post": {
+        "description": "Invoke Large Language Model",
+        "requestBody": {
+          "description": "This endpoint allows you to invoke a language model using specific parameters, such as the expert and model IDs, input data, and additional configuration options.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPlant"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "plant response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Plant"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
