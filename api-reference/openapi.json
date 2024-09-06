@@ -131,7 +131,7 @@
     },
     "/api/v1/invoke_llm": {
       "post": {
-        "description": "Invoke Large Language Model",
+        "description": "This endpoint allows you to invoke a language model using specific parameters, such as the expert and model IDs, input data, and additional configuration options.",
         "requestBody": {
           "description": "This endpoint allows you to invoke a language model using specific parameters, such as the expert and model IDs, input data, and additional configuration options.",
           "content": {
@@ -328,10 +328,12 @@
         "properties": {
           "expert_id": {
             "type": "integer",
+            "example": 37,
             "description": "The ID of the expert you want to invoke."
           },
           "model_id": {
             "type": "integer",
+            "example": 6,
             "description": "The ID of the language model to be used."
           },
           "input_data": {
@@ -341,25 +343,27 @@
               "properties": {
                 "role": {
                   "type": "string",
-                  "enum": ["user", "system"],
+                  "example": "user",
                   "description": "The role of the message sender, typically 'user' or 'system'."
                 },
                 "content": {
                   "type": "string",
+                  "example": "Hello!",
                   "description": "The content of the message."
                 }
-              },
-              "required": ["role", "content"]
+              }
             },
             "description": "A list of message objects containing the role and content of the input data."
           },
           "temperature": {
             "type": "number",
             "format": "float",
+            "example": 1.0,
             "description": "The sampling temperature, which controls the randomness of the model's outputs."
           },
           "max_tokens": {
             "type": "integer",
+            "example": 250,
             "description": "The maximum number of tokens (words or word pieces) to generate in the response."
           }
         },
@@ -368,16 +372,105 @@
       "LLMResponse200": {
         "type": "object",
         "properties": {
-          "code": {
-            "type": "integer",
-            "example": 200
-          },
-          "message": {
-            "type": "string",
-            "example": "The request was successful, and the model generated a response."
+          "response": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "chatcmpl-9kCotn4TY5OcxYc8qFlulso5v8BpC",
+                "description": "The unique identifier for the chat completion."
+              },
+              "choices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "finish_reason": {
+                      "type": "string",
+                      "example": "stop",
+                      "description": "The reason the completion ended."
+                    },
+                    "index": {
+                      "type": "integer",
+                      "example": 0,
+                      "description": "The index of the response choice."
+                    },
+                    "logprobs": {
+                      "type": "object",
+                      "example": null,
+                      "description": "The log probabilities (if any)."
+                    },
+                    "message": {
+                      "type": "object",
+                      "properties": {
+                        "content": {
+                          "type": "string",
+                          "example": "Hello! How can I assist you today in the realm of marketing psychology for your business?",
+                          "description": "The content of the message."
+                        },
+                        "role": {
+                          "type": "string",
+                          "example": "assistant",
+                          "description": "The role of the message sender."
+                        },
+                        "function_call": {
+                          "type": "object",
+                          "example": null,
+                          "description": "Any function calls made by the assistant."
+                        },
+                        "tool_calls": {
+                          "type": "object",
+                          "example": null,
+                          "description": "Any tool calls made by the assistant."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "created": {
+                "type": "integer",
+                "example": 1720799395,
+                "description": "The timestamp when the response was created."
+              },
+              "model": {
+                "type": "string",
+                "example": "gpt-3.5-turbo-0125",
+                "description": "The model used for the completion."
+              },
+              "object": {
+                "type": "string",
+                "example": "chat.completion",
+                "description": "The type of response object."
+              },
+              "system_fingerprint": {
+                "type": "object",
+                "example": null,
+                "description": "The system fingerprint (if any)."
+              },
+              "usage": {
+                "type": "object",
+                "properties": {
+                  "completion_tokens": {
+                    "type": "integer",
+                    "example": 18,
+                    "description": "The number of tokens generated in the completion."
+                  },
+                  "prompt_tokens": {
+                    "type": "integer",
+                    "example": 40,
+                    "description": "The number of tokens in the prompt."
+                  },
+                  "total_tokens": {
+                    "type": "integer",
+                    "example": 58,
+                    "description": "The total number of tokens used."
+                  }
+                }
+              }
+            }
           }
-        },
-        "required": ["code", "message"]
+        }
       },
       "LLMErrorResponse400": {
         "type": "object",
