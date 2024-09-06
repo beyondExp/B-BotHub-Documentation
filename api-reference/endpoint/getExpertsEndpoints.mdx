@@ -1,4 +1,15 @@
 ---
 title: "Get Experts Endpoint"
-openapi: "GET /plants"
+openapi: "GET /api/v1/get_experts"
 ---
+
+<Note>
+  The `experts` array may contain multiple expert objects. Each object provides
+  comprehensive information about an expert, including their abilities and
+  associated language models.
+</Note>
+<Note>The timestamps are in ISO 8601 format.</Note>
+<Note>
+  The `locale` attribute denotes the language setting for both experts and their
+  abilities/models.
+</Note>
