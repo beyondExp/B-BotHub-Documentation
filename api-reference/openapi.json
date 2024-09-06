@@ -257,6 +257,36 @@
           }
         }
       }
+    },
+    "/api/v1/get_user": {
+      "get": {
+        "description": "asdfThis endpoint retrieves detailed information about the authenticated user. It provides various details including the user's email, name, associated identities, metadata, and more.",
+        "responses": {
+          "200": {
+            "description": "Get User response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetUserResponse200"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -711,6 +741,180 @@
               }
             },
             "description": "An array of expert objects."
+          }
+        }
+      },
+      "GetUserResponse200": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object",
+            "properties": {
+              "user_id": {
+                "type": "string",
+                "example": "google-oauth2|123456789012345678901",
+                "description": "Unique identifier of the user."
+              },
+              "email": {
+                "type": "string",
+                "example": "example.user@gmail.com",
+                "description": "User's email address."
+              },
+              "given_name": {
+                "type": "string",
+                "example": "John",
+                "description": "User's given (first) name."
+              },
+              "email_verified": {
+                "type": "boolean",
+                "example": true,
+                "description": "Whether the user's email is verified."
+              },
+              "updated_at": {
+                "type": "string",
+                "example": "2024-07-28T18:16:33.568Z",
+                "description": "Timestamp when the user was last updated."
+              },
+              "identities": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string",
+                      "example": "ya29.a0AXyoCgtJQY6FVBiPDTJq...",
+                      "description": "Access token for the identity."
+                    },
+                    "expires_in": {
+                      "type": "integer",
+                      "example": 3599,
+                      "description": "Expiration time of the access token in seconds."
+                    },
+                    "connection": {
+                      "type": "string",
+                      "example": "google-oauth2",
+                      "description": "Connection type."
+                    },
+                    "user_id": {
+                      "type": "string",
+                      "example": "123456789012345678901",
+                      "description": "User ID within the connection."
+                    },
+                    "provider": {
+                      "type": "string",
+                      "example": "google-oauth2",
+                      "description": "Provider of the connection."
+                    },
+                    "isSocial": {
+                      "type": "boolean",
+                      "example": true,
+                      "description": "Whether the connection is social."
+                    }
+                  }
+                },
+                "description": "List of identity objects associated with the user."
+              },
+              "created_at": {
+                "type": "string",
+                "example": "2024-03-18T17:08:05.432Z",
+                "description": "Timestamp when the user was created."
+              },
+              "user_metadata": {
+                "type": "object",
+                "properties": {
+                  "message_me": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "User preference for receiving messages."
+                  },
+                  "newsletter": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "User subscription status for newsletters."
+                  },
+                  "api_keys": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "bbot_abcdefghij1234567890"
+                    },
+                    "description": "List of API keys associated with the user."
+                  },
+                  "updates": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "User preference for receiving updates."
+                  },
+                  "features": {
+                    "type": "boolean",
+                    "example": true,
+                    "description": "User preference for receiving feature updates."
+                  },
+                  "apps": {
+                    "type": "object",
+                    "example": {},
+                    "description": "Custom app data associated with the user."
+                  },
+                  "tokens": {
+                    "type": "integer",
+                    "example": 500,
+                    "description": "Number of tokens the user has."
+                  },
+                  "follows_me": {
+                    "type": "boolean",
+                    "example": true,
+                    "description": "Whether the user follows me."
+                  },
+                  "mentions_me": {
+                    "type": "boolean",
+                    "example": true,
+                    "description": "Whether the user mentions me."
+                  }
+                },
+                "description": "Custom metadata associated with the user."
+              },
+              "name": {
+                "type": "string",
+                "example": "John Doe",
+                "description": "Full name of the user."
+              },
+              "nickname": {
+                "type": "string",
+                "example": "john.doe",
+                "description": "User's nickname."
+              },
+              "picture": {
+                "type": "string",
+                "example": "https://lh3.googleusercontent.com/a/ACg8ocL54DkmYmCmnGDiKfGJ2zv...",
+                "description": "URL of the user's profile picture."
+              },
+              "family_name": {
+                "type": "string",
+                "example": "Doe",
+                "description": "User's family (last) name."
+              },
+              "last_login": {
+                "type": "string",
+                "example": "2024-07-28T18:16:16.163Z",
+                "description": "Timestamp of the user's last login."
+              },
+              "last_ip": {
+                "type": "string",
+                "example": "192.168.1.1",
+                "description": "IP address used during the user's last login."
+              },
+              "logins_count": {
+                "type": "integer",
+                "example": 125,
+                "description": "Total number of logins by the user."
+              },
+              "app_metadata": {
+                "type": "object",
+                "example": {},
+                "description": "Additional metadata associated with the user's apps."
+              }
+            },
+            "description": "The authenticated user's details."
           }
         }
       },
