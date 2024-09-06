@@ -287,6 +287,44 @@
           }
         }
       }
+    },
+    "/api/v1/invoke_agent": {
+      "post": {
+        "description": "Creates a new plant in the store",
+        "requestBody": {
+          "description": "Plant to add to the store",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvokeAgent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "plant response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvokeAgentResponse200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1011,6 +1049,225 @@
           }
         }
       },
+      "InvokeAgent": {
+        "type": "object",
+        "properties": {
+          "expert_id": {
+            "type": "integer",
+            "example": 37,
+            "description": "The ID of the expert you want to invoke."
+          },
+          "ability_id": {
+            "type": "integer",
+            "example": 80,
+            "description": "The ID of the ability to be used by the agent."
+          },
+          "model_id": {
+            "type": "integer",
+            "example": 6,
+            "description": "The ID of the language model to be used."
+          },
+          "session_id": {
+            "type": "string",
+            "example": "12333333",
+            "description": "The session ID for tracking the interaction."
+          },
+          "input_data": {
+            "type": "string",
+            "example": "use the Assistant Consultation Tool to call an Assistant for help regarding a question",
+            "description": "The input query or command for the agent."
+          },
+          "temperature": {
+            "type": "integer",
+            "example": 0,
+            "description": "The temperature the Agent should work on."
+          },
+          "user_id": {
+            "type": "string",
+            "example": "123",
+            "description": "The ID of the user making the request."
+          },
+          "document_urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of document URLs to be used by the agent."
+          },
+          "conversation_history": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "string",
+                  "description": "The role of the message sender."
+                },
+                "content": {
+                  "type": "string",
+                  "description": "The content of the message."
+                }
+              }
+            },
+            "description": "A list of previous interactions with the agent."
+          },
+          "tool_config": {
+            "type": "object",
+            "properties": {
+              "tavily_max_results": {
+                "type": "integer",
+                "example": 1,
+                "description": "The maximum number of results from the Tavily tool."
+              }
+            },
+            "description": "Configuration options for various tools available to the agent."
+          },
+          "tool_activation": {
+            "type": "object",
+            "properties": {
+              "tavily_search": {
+                "type": "boolean",
+                "example": true,
+                "description": "Whether to activate Tavily search."
+              },
+              "wolfram_alpha": {
+                "type": "boolean",
+                "example": true,
+                "description": "Whether to activate Wolfram Alpha."
+              },
+              "document_retriever": {
+                "type": "boolean",
+                "example": false,
+                "description": "Whether to activate the document retriever."
+              },
+              "notion_connector": {
+                "type": "boolean",
+                "example": false,
+                "description": "Whether to activate the Notion connector."
+              }
+            },
+            "description": "Activation options for various tools."
+          }
+        }
+      },
+      "InvokeAgentResponse200": {
+        "type": "object",
+
+        "properties": {
+          "input": {
+            "type": "string",
+            "example": "use the Assistant Consultation Tool to call an Assistant for help regarding a question",
+            "description": "The input command for the assistant."
+          },
+          "chat_history": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "string",
+                  "description": "The role of the message sender."
+                },
+                "content": {
+                  "type": "string",
+                  "description": "The content of the message."
+                }
+              }
+            },
+            "description": "A list of previous chat interactions."
+          },
+          "output": {
+            "type": "string",
+            "example": "### Marketing Strategy Improvement Tips:\n- **Set Objectives Right Away:** Setting clear objectives is crucial...",
+            "description": "The output generated by the agent."
+          },
+          "intermediate_steps": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "tool": {
+                    "type": "string",
+                    "description": "The tool being invoked."
+                  },
+                  "tool_input": {
+                    "type": "object",
+                    "properties": {
+                      "query": {
+                        "type": "string",
+                        "description": "The query sent to the tool."
+                      }
+                    }
+                  },
+                  "log": {
+                    "type": "string",
+                    "description": "Log information for the tool invocation."
+                  },
+                  "message_log": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "content": {
+                          "type": "string",
+                          "description": "The content of the message."
+                        },
+                        "additional_kwargs": {
+                          "type": "object",
+                          "properties": {
+                            "tool_calls": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "index": {
+                                    "type": "integer",
+                                    "description": "The index of the tool call."
+                                  },
+                                  "id": {
+                                    "type": "string",
+                                    "description": "The ID of the tool call."
+                                  },
+                                  "function": {
+                                    "type": "object",
+                                    "properties": {
+                                      "arguments": {
+                                        "type": "string",
+                                        "description": "Arguments for the function call."
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "description": "The name of the function."
+                                      }
+                                    }
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "description": "The type of the tool call."
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "description": "Logs of messages during the tool invocation."
+                  },
+                  "tool_call_id": {
+                    "type": "string",
+                    "description": "The ID of the tool call."
+                  }
+                }
+              }
+            },
+            "description": "A list of intermediate steps taken by the agent."
+          }
+        }
+      },
+
       "Error": {
         "required": ["error", "message"],
         "type": "object",
