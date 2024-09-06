@@ -186,6 +186,47 @@
           }
         }
       }
+    },
+    "/api/v1/get_expert/:id": {
+      "get": {
+        "description": "This endpoint retrieves detailed information about a specific expert on the B-Bot platform based on the expert's unique identifier.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The unique identifier of the expert to retrieve.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get a single Expert response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SingleExpertResponse200"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -327,6 +368,159 @@
           }
         },
         "required": ["code", "message"]
+      },
+      "SingleExpertResponse200": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 37,
+            "description": "Unique identifier of the expert."
+          },
+          "name": {
+            "type": "string",
+            "example": "Martina Lehmann",
+            "description": "Name of the expert."
+          },
+          "description": {
+            "type": "string",
+            "example": "Martina Lehmann is a seasoned Business Development Manager with 15 years of experience in strategic planning and market analysis.",
+            "description": "Detailed description of the expert's background and expertise."
+          },
+          "function_name": {
+            "type": "string",
+            "example": "Psychological Marketing Insights with Consumer Behavior Expert",
+            "description": "Title or role of the expert."
+          },
+          "function_description": {
+            "type": "string",
+            "example": "Martina Lehmann provides expert guidance on incorporating psychology into marketing strategies.",
+            "description": "Description of the expert's function and how they can assist clients."
+          },
+          "system_message": {
+            "type": "string",
+            "example": "Act as the Co-Founder and CMO of B-Bot, offering insights into Marketing Psychology.",
+            "description": "Message to set the context for the expert's role in the system."
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2024-05-01T14:20:57.856Z",
+            "description": "Timestamp when the expert was created."
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "2024-07-08T17:56:35.652Z",
+            "description": "Timestamp when the expert was last updated."
+          },
+          "publishedAt": {
+            "type": "string",
+            "example": "2024-05-01T14:20:57.835Z",
+            "description": "Timestamp when the expert was published."
+          },
+          "locale": {
+            "type": "string",
+            "example": "en",
+            "description": "Locale setting of the expert."
+          },
+          "profession": {
+            "type": "string",
+            "example": "Business Development Manager",
+            "description": "Profession of the expert."
+          },
+          "apps": {
+            "type": "object",
+            "example": {},
+            "description": "Information about apps the expert is associated with."
+          },
+          "expert_llm_models": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 6,
+                  "description": "Unique identifier of the LLM model."
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Base Model Janina",
+                  "description": "Name of the LLM model."
+                },
+                "identifier": {
+                  "type": "string",
+                  "example": "gpt-3.5-turbo-0125",
+                  "description": "Identifier of the LLM model."
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2024-05-01T14:20:57.904Z",
+                  "description": "Timestamp when the LLM model was created."
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2024-05-01T15:35:57.662Z",
+                  "description": "Timestamp when the LLM model was last updated."
+                },
+                "publishedAt": {
+                  "type": "string",
+                  "example": "2024-05-01T14:50:16.311Z",
+                  "description": "Timestamp when the LLM model was published."
+                },
+                "locale": {
+                  "type": "string",
+                  "example": "en",
+                  "description": "Locale setting of the LLM model."
+                }
+              }
+            },
+            "description": "Array of LLM models associated with the expert."
+          },
+          "abilities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 80,
+                  "description": "Unique identifier of the ability."
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Ability",
+                  "description": "Name of the ability."
+                },
+                "text": {
+                  "type": "string",
+                  "example": "Skilled in strategic planning and execution.",
+                  "description": "Detailed description of the ability."
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2024-06-12T19:45:02.098Z",
+                  "description": "Timestamp when the ability was created."
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2024-06-28T14:12:13.933Z",
+                  "description": "Timestamp when the ability was last updated."
+                },
+                "publishedAt": {
+                  "type": "string",
+                  "example": "2024-06-12T19:45:02.085Z",
+                  "description": "Timestamp when the ability was published."
+                },
+                "locale": {
+                  "type": "string",
+                  "example": "en",
+                  "description": "Locale setting of the ability."
+                }
+              }
+            },
+            "description": "Array of abilities describing the expert's skills."
+          }
+        }
       },
       "Error": {
         "required": ["error", "message"],
