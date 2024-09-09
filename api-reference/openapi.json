@@ -260,7 +260,7 @@
     },
     "/api/v1/get_user": {
       "get": {
-        "description": "asdfThis endpoint retrieves detailed information about the authenticated user. It provides various details including the user's email, name, associated identities, metadata, and more.",
+        "description": "This endpoint retrieves detailed information about the authenticated user. It provides various details including the user's email, name, associated identities, metadata, and more.",
         "responses": {
           "200": {
             "description": "Get User response",
