@@ -1,4 +1,17 @@
 ---
 title: "Get User"
-openapi: "GET /plants"
+openapi: "GET /api/v1/get_user"
 ---
+
+<Note>
+  The response provides comprehensive information about the authenticated user.
+</Note>
+<Note>The timestamps are in ISO 8601 format.</Note>
+<Note>
+  The `identities` array contains details about the user's authentication
+  identities, including access tokens and their expiration.
+</Note>
+<Note>
+  The `user_metadata` and `app_metadata` objects can include various custom data
+  associated with the user.
+</Note>

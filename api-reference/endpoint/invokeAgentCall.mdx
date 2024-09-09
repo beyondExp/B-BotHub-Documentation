@@ -1,4 +1,16 @@
 ---
 title: "Invoke Agent Call"
-openapi: "POST /plants"
+openapi: "POST /api/v1/invoke_agent"
 ---
+
+<Note>
+  Ensure that the correct `bbot-api-key` is included in the request header.
+</Note>
+<Note>
+  The `input_data` should be crafted based on the specific use case and the
+  abilities of the agent being invoked.
+</Note>
+<Note>
+  The `tool_config` and `tool_activation` settings should be configured based on
+  the desired tools and functionalities for the agent.
+</Note>

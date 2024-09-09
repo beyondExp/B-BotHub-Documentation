@@ -1,4 +1,18 @@
 ---
 title: "Get a single Endpoint"
-openapi: "GET /plants"
+openapi: "GET /api/v1/get_expert/:id"
 ---
+
+<Note>
+  The `id` parameter in the endpoint URL must match the unique identifier of the
+  expert you want to retrieve.
+</Note>
+<Note>
+  The response provides a comprehensive overview of the expert, including their
+  skills, associated language models, and other relevant details.
+</Note>
+<Note>The timestamps are in ISO 8601 format.</Note>
+<Note>
+  The `locale` attribute denotes the language setting for both the expert and
+  their abilities/models.
+</Note>

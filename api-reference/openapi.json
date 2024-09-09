@@ -131,7 +131,7 @@
     },
     "/api/v1/invoke_llm": {
       "post": {
-        "description": "Invoke Large Language Model",
+        "description": "This endpoint allows you to invoke a language model using specific parameters, such as the expert and model IDs, input data, and additional configuration options.",
         "requestBody": {
           "description": "This endpoint allows you to invoke a language model using specific parameters, such as the expert and model IDs, input data, and additional configuration options.",
           "content": {
@@ -186,6 +186,145 @@
           }
         }
       }
+    },
+    "/api/v1/get_expert/:id": {
+      "get": {
+        "description": "This endpoint retrieves detailed information about a specific expert on the B-Bot platform based on the expert's unique identifier.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The unique identifier of the expert to retrieve.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get a single Expert response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SingleExpertResponse200"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/get_experts": {
+      "get": {
+        "description": "This endpoint retrieves a list of expert agents available on the B-Bot platform. Each expert is described with various attributes such as their name, profession, description, and abilities.",
+        "responses": {
+          "200": {
+            "description": "Get a single Expert response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExpertResponse200"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/get_user": {
+      "get": {
+        "description": "This endpoint retrieves detailed information about the authenticated user. It provides various details including the user's email, name, associated identities, metadata, and more.",
+        "responses": {
+          "200": {
+            "description": "Get User response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetUserResponse200"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/invoke_agent": {
+      "post": {
+        "description": "Creates a new plant in the store",
+        "requestBody": {
+          "description": "Plant to add to the store",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvokeAgent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "plant response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvokeAgentResponse200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -227,10 +366,12 @@
         "properties": {
           "expert_id": {
             "type": "integer",
+            "example": 37,
             "description": "The ID of the expert you want to invoke."
           },
           "model_id": {
             "type": "integer",
+            "example": 6,
             "description": "The ID of the language model to be used."
           },
           "input_data": {
@@ -240,25 +381,27 @@
               "properties": {
                 "role": {
                   "type": "string",
-                  "enum": ["user", "system"],
+                  "example": "user",
                   "description": "The role of the message sender, typically 'user' or 'system'."
                 },
                 "content": {
                   "type": "string",
+                  "example": "Hello!",
                   "description": "The content of the message."
                 }
-              },
-              "required": ["role", "content"]
+              }
             },
             "description": "A list of message objects containing the role and content of the input data."
           },
           "temperature": {
             "type": "number",
             "format": "float",
+            "example": 1.0,
             "description": "The sampling temperature, which controls the randomness of the model's outputs."
           },
           "max_tokens": {
             "type": "integer",
+            "example": 250,
             "description": "The maximum number of tokens (words or word pieces) to generate in the response."
           }
         },
@@ -267,16 +410,105 @@
       "LLMResponse200": {
         "type": "object",
         "properties": {
-          "code": {
-            "type": "integer",
-            "example": 200
-          },
-          "message": {
-            "type": "string",
-            "example": "The request was successful, and the model generated a response."
+          "response": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "chatcmpl-9kCotn4TY5OcxYc8qFlulso5v8BpC",
+                "description": "The unique identifier for the chat completion."
+              },
+              "choices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "finish_reason": {
+                      "type": "string",
+                      "example": "stop",
+                      "description": "The reason the completion ended."
+                    },
+                    "index": {
+                      "type": "integer",
+                      "example": 0,
+                      "description": "The index of the response choice."
+                    },
+                    "logprobs": {
+                      "type": "object",
+                      "example": null,
+                      "description": "The log probabilities (if any)."
+                    },
+                    "message": {
+                      "type": "object",
+                      "properties": {
+                        "content": {
+                          "type": "string",
+                          "example": "Hello! How can I assist you today in the realm of marketing psychology for your business?",
+                          "description": "The content of the message."
+                        },
+                        "role": {
+                          "type": "string",
+                          "example": "assistant",
+                          "description": "The role of the message sender."
+                        },
+                        "function_call": {
+                          "type": "object",
+                          "example": null,
+                          "description": "Any function calls made by the assistant."
+                        },
+                        "tool_calls": {
+                          "type": "object",
+                          "example": null,
+                          "description": "Any tool calls made by the assistant."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "created": {
+                "type": "integer",
+                "example": 1720799395,
+                "description": "The timestamp when the response was created."
+              },
+              "model": {
+                "type": "string",
+                "example": "gpt-3.5-turbo-0125",
+                "description": "The model used for the completion."
+              },
+              "object": {
+                "type": "string",
+                "example": "chat.completion",
+                "description": "The type of response object."
+              },
+              "system_fingerprint": {
+                "type": "object",
+                "example": null,
+                "description": "The system fingerprint (if any)."
+              },
+              "usage": {
+                "type": "object",
+                "properties": {
+                  "completion_tokens": {
+                    "type": "integer",
+                    "example": 18,
+                    "description": "The number of tokens generated in the completion."
+                  },
+                  "prompt_tokens": {
+                    "type": "integer",
+                    "example": 40,
+                    "description": "The number of tokens in the prompt."
+                  },
+                  "total_tokens": {
+                    "type": "integer",
+                    "example": 58,
+                    "description": "The total number of tokens used."
+                  }
+                }
+              }
+            }
           }
-        },
-        "required": ["code", "message"]
+        }
       },
       "LLMErrorResponse400": {
         "type": "object",
@@ -328,6 +560,714 @@
         },
         "required": ["code", "message"]
       },
+      "SingleExpertResponse200": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 37,
+            "description": "Unique identifier of the expert."
+          },
+          "name": {
+            "type": "string",
+            "example": "Martina Lehmann",
+            "description": "Name of the expert."
+          },
+          "description": {
+            "type": "string",
+            "example": "Martina Lehmann is a seasoned Business Development Manager with 15 years of experience in strategic planning and market analysis.",
+            "description": "Detailed description of the expert's background and expertise."
+          },
+          "function_name": {
+            "type": "string",
+            "example": "Psychological Marketing Insights with Consumer Behavior Expert",
+            "description": "Title or role of the expert."
+          },
+          "function_description": {
+            "type": "string",
+            "example": "Martina Lehmann provides expert guidance on incorporating psychology into marketing strategies.",
+            "description": "Description of the expert's function and how they can assist clients."
+          },
+          "system_message": {
+            "type": "string",
+            "example": "Act as the Co-Founder and CMO of B-Bot, offering insights into Marketing Psychology.",
+            "description": "Message to set the context for the expert's role in the system."
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2024-05-01T14:20:57.856Z",
+            "description": "Timestamp when the expert was created."
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "2024-07-08T17:56:35.652Z",
+            "description": "Timestamp when the expert was last updated."
+          },
+          "publishedAt": {
+            "type": "string",
+            "example": "2024-05-01T14:20:57.835Z",
+            "description": "Timestamp when the expert was published."
+          },
+          "locale": {
+            "type": "string",
+            "example": "en",
+            "description": "Locale setting of the expert."
+          },
+          "profession": {
+            "type": "string",
+            "example": "Business Development Manager",
+            "description": "Profession of the expert."
+          },
+          "apps": {
+            "type": "object",
+            "example": {},
+            "description": "Information about apps the expert is associated with."
+          },
+          "expert_llm_models": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 6,
+                  "description": "Unique identifier of the LLM model."
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Base Model Janina",
+                  "description": "Name of the LLM model."
+                },
+                "identifier": {
+                  "type": "string",
+                  "example": "gpt-3.5-turbo-0125",
+                  "description": "Identifier of the LLM model."
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2024-05-01T14:20:57.904Z",
+                  "description": "Timestamp when the LLM model was created."
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2024-05-01T15:35:57.662Z",
+                  "description": "Timestamp when the LLM model was last updated."
+                },
+                "publishedAt": {
+                  "type": "string",
+                  "example": "2024-05-01T14:50:16.311Z",
+                  "description": "Timestamp when the LLM model was published."
+                },
+                "locale": {
+                  "type": "string",
+                  "example": "en",
+                  "description": "Locale setting of the LLM model."
+                }
+              }
+            },
+            "description": "Array of LLM models associated with the expert."
+          },
+          "abilities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 80,
+                  "description": "Unique identifier of the ability."
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Ability",
+                  "description": "Name of the ability."
+                },
+                "text": {
+                  "type": "string",
+                  "example": "Skilled in strategic planning and execution.",
+                  "description": "Detailed description of the ability."
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2024-06-12T19:45:02.098Z",
+                  "description": "Timestamp when the ability was created."
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2024-06-28T14:12:13.933Z",
+                  "description": "Timestamp when the ability was last updated."
+                },
+                "publishedAt": {
+                  "type": "string",
+                  "example": "2024-06-12T19:45:02.085Z",
+                  "description": "Timestamp when the ability was published."
+                },
+                "locale": {
+                  "type": "string",
+                  "example": "en",
+                  "description": "Locale setting of the ability."
+                }
+              }
+            },
+            "description": "Array of abilities describing the expert's skills."
+          }
+        }
+      },
+      "ExpertResponse200": {
+        "type": "object",
+        "properties": {
+          "experts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 37,
+                  "description": "Unique identifier of the expert."
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Martina Lehmann",
+                  "description": "Name of the expert."
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Martina Lehmann is a seasoned Business Development Manager with 15 years of experience in strategic planning and market analysis.",
+                  "description": "Detailed description of the expert's background and expertise."
+                },
+                "function_name": {
+                  "type": "string",
+                  "example": "Psychological Marketing Insights with Consumer Behavior Expert",
+                  "description": "Title or role of the expert."
+                },
+                "function_description": {
+                  "type": "string",
+                  "example": "Martina Lehmann provides expert guidance on incorporating psychology into marketing strategies.",
+                  "description": "Description of the expert's function and how they can assist clients."
+                },
+                "system_message": {
+                  "type": "string",
+                  "example": "Act as the Co-Founder and CMO of B-Bot, offering insights into Marketing Psychology.",
+                  "description": "Message to set the context for the expert's role in the system."
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2024-05-01T14:20:57.856Z",
+                  "description": "Timestamp when the expert was created."
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2024-07-08T17:56:35.652Z",
+                  "description": "Timestamp when the expert was last updated."
+                },
+                "publishedAt": {
+                  "type": "string",
+                  "example": "2024-05-01T14:20:57.835Z",
+                  "description": "Timestamp when the expert was published."
+                },
+                "locale": {
+                  "type": "string",
+                  "example": "en",
+                  "description": "Locale setting of the expert."
+                },
+                "profession": {
+                  "type": "string",
+                  "example": "Business Development Manager",
+                  "description": "Profession of the expert."
+                },
+                "apps": {
+                  "type": "object",
+                  "example": {},
+                  "description": "Information about apps the expert is associated with."
+                },
+                "expert_llm_models": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 6,
+                        "description": "Unique identifier of the LLM model."
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Base Model Janina",
+                        "description": "Name of the LLM model."
+                      },
+                      "identifier": {
+                        "type": "string",
+                        "example": "gpt-3.5-turbo-0125",
+                        "description": "Identifier of the LLM model."
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "example": "2024-05-01T14:20:57.904Z",
+                        "description": "Timestamp when the LLM model was created."
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "2024-05-01T15:35:57.662Z",
+                        "description": "Timestamp when the LLM model was last updated."
+                      },
+                      "publishedAt": {
+                        "type": "string",
+                        "example": "2024-05-01T14:50:16.311Z",
+                        "description": "Timestamp when the LLM model was published."
+                      },
+                      "locale": {
+                        "type": "string",
+                        "example": "en",
+                        "description": "Locale setting of the LLM model."
+                      }
+                    }
+                  },
+                  "description": "Array of LLM models associated with the expert."
+                },
+                "abilities": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 80,
+                        "description": "Unique identifier of the ability."
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Ability",
+                        "description": "Name of the ability."
+                      },
+                      "text": {
+                        "type": "string",
+                        "example": "Skilled in strategic planning and execution.",
+                        "description": "Detailed description of the ability."
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "example": "2024-06-12T19:45:02.098Z",
+                        "description": "Timestamp when the ability was created."
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "2024-06-28T14:12:13.933Z",
+                        "description": "Timestamp when the ability was last updated."
+                      },
+                      "publishedAt": {
+                        "type": "string",
+                        "example": "2024-06-12T19:45:02.085Z",
+                        "description": "Timestamp when the ability was published."
+                      },
+                      "locale": {
+                        "type": "string",
+                        "example": "en",
+                        "description": "Locale setting of the ability."
+                      }
+                    }
+                  },
+                  "description": "Array of abilities describing the expert's skills."
+                }
+              }
+            },
+            "description": "An array of expert objects."
+          }
+        }
+      },
+      "GetUserResponse200": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object",
+            "properties": {
+              "user_id": {
+                "type": "string",
+                "example": "google-oauth2|123456789012345678901",
+                "description": "Unique identifier of the user."
+              },
+              "email": {
+                "type": "string",
+                "example": "example.user@gmail.com",
+                "description": "User's email address."
+              },
+              "given_name": {
+                "type": "string",
+                "example": "John",
+                "description": "User's given (first) name."
+              },
+              "email_verified": {
+                "type": "boolean",
+                "example": true,
+                "description": "Whether the user's email is verified."
+              },
+              "updated_at": {
+                "type": "string",
+                "example": "2024-07-28T18:16:33.568Z",
+                "description": "Timestamp when the user was last updated."
+              },
+              "identities": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string",
+                      "example": "ya29.a0AXyoCgtJQY6FVBiPDTJq...",
+                      "description": "Access token for the identity."
+                    },
+                    "expires_in": {
+                      "type": "integer",
+                      "example": 3599,
+                      "description": "Expiration time of the access token in seconds."
+                    },
+                    "connection": {
+                      "type": "string",
+                      "example": "google-oauth2",
+                      "description": "Connection type."
+                    },
+                    "user_id": {
+                      "type": "string",
+                      "example": "123456789012345678901",
+                      "description": "User ID within the connection."
+                    },
+                    "provider": {
+                      "type": "string",
+                      "example": "google-oauth2",
+                      "description": "Provider of the connection."
+                    },
+                    "isSocial": {
+                      "type": "boolean",
+                      "example": true,
+                      "description": "Whether the connection is social."
+                    }
+                  }
+                },
+                "description": "List of identity objects associated with the user."
+              },
+              "created_at": {
+                "type": "string",
+                "example": "2024-03-18T17:08:05.432Z",
+                "description": "Timestamp when the user was created."
+              },
+              "user_metadata": {
+                "type": "object",
+                "properties": {
+                  "message_me": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "User preference for receiving messages."
+                  },
+                  "newsletter": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "User subscription status for newsletters."
+                  },
+                  "api_keys": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "bbot_abcdefghij1234567890"
+                    },
+                    "description": "List of API keys associated with the user."
+                  },
+                  "updates": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "User preference for receiving updates."
+                  },
+                  "features": {
+                    "type": "boolean",
+                    "example": true,
+                    "description": "User preference for receiving feature updates."
+                  },
+                  "apps": {
+                    "type": "object",
+                    "example": {},
+                    "description": "Custom app data associated with the user."
+                  },
+                  "tokens": {
+                    "type": "integer",
+                    "example": 500,
+                    "description": "Number of tokens the user has."
+                  },
+                  "follows_me": {
+                    "type": "boolean",
+                    "example": true,
+                    "description": "Whether the user follows me."
+                  },
+                  "mentions_me": {
+                    "type": "boolean",
+                    "example": true,
+                    "description": "Whether the user mentions me."
+                  }
+                },
+                "description": "Custom metadata associated with the user."
+              },
+              "name": {
+                "type": "string",
+                "example": "John Doe",
+                "description": "Full name of the user."
+              },
+              "nickname": {
+                "type": "string",
+                "example": "john.doe",
+                "description": "User's nickname."
+              },
+              "picture": {
+                "type": "string",
+                "example": "https://lh3.googleusercontent.com/a/ACg8ocL54DkmYmCmnGDiKfGJ2zv...",
+                "description": "URL of the user's profile picture."
+              },
+              "family_name": {
+                "type": "string",
+                "example": "Doe",
+                "description": "User's family (last) name."
+              },
+              "last_login": {
+                "type": "string",
+                "example": "2024-07-28T18:16:16.163Z",
+                "description": "Timestamp of the user's last login."
+              },
+              "last_ip": {
+                "type": "string",
+                "example": "192.168.1.1",
+                "description": "IP address used during the user's last login."
+              },
+              "logins_count": {
+                "type": "integer",
+                "example": 125,
+                "description": "Total number of logins by the user."
+              },
+              "app_metadata": {
+                "type": "object",
+                "example": {},
+                "description": "Additional metadata associated with the user's apps."
+              }
+            },
+            "description": "The authenticated user's details."
+          }
+        }
+      },
+      "InvokeAgent": {
+        "type": "object",
+        "properties": {
+          "expert_id": {
+            "type": "integer",
+            "example": 37,
+            "description": "The ID of the expert you want to invoke."
+          },
+          "ability_id": {
+            "type": "integer",
+            "example": 80,
+            "description": "The ID of the ability to be used by the agent."
+          },
+          "model_id": {
+            "type": "integer",
+            "example": 6,
+            "description": "The ID of the language model to be used."
+          },
+          "session_id": {
+            "type": "string",
+            "example": "12333333",
+            "description": "The session ID for tracking the interaction."
+          },
+          "input_data": {
+            "type": "string",
+            "example": "use the Assistant Consultation Tool to call an Assistant for help regarding a question",
+            "description": "The input query or command for the agent."
+          },
+          "temperature": {
+            "type": "integer",
+            "example": 0,
+            "description": "The temperature the Agent should work on."
+          },
+          "user_id": {
+            "type": "string",
+            "example": "123",
+            "description": "The ID of the user making the request."
+          },
+          "document_urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of document URLs to be used by the agent."
+          },
+          "conversation_history": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "string",
+                  "description": "The role of the message sender."
+                },
+                "content": {
+                  "type": "string",
+                  "description": "The content of the message."
+                }
+              }
+            },
+            "description": "A list of previous interactions with the agent."
+          },
+          "tool_config": {
+            "type": "object",
+            "properties": {
+              "tavily_max_results": {
+                "type": "integer",
+                "example": 1,
+                "description": "The maximum number of results from the Tavily tool."
+              }
+            },
+            "description": "Configuration options for various tools available to the agent."
+          },
+          "tool_activation": {
+            "type": "object",
+            "properties": {
+              "tavily_search": {
+                "type": "boolean",
+                "example": true,
+                "description": "Whether to activate Tavily search."
+              },
+              "wolfram_alpha": {
+                "type": "boolean",
+                "example": true,
+                "description": "Whether to activate Wolfram Alpha."
+              },
+              "document_retriever": {
+                "type": "boolean",
+                "example": false,
+                "description": "Whether to activate the document retriever."
+              },
+              "notion_connector": {
+                "type": "boolean",
+                "example": false,
+                "description": "Whether to activate the Notion connector."
+              }
+            },
+            "description": "Activation options for various tools."
+          }
+        }
+      },
+      "InvokeAgentResponse200": {
+        "type": "object",
+
+        "properties": {
+          "input": {
+            "type": "string",
+            "example": "use the Assistant Consultation Tool to call an Assistant for help regarding a question",
+            "description": "The input command for the assistant."
+          },
+          "chat_history": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "string",
+                  "description": "The role of the message sender."
+                },
+                "content": {
+                  "type": "string",
+                  "description": "The content of the message."
+                }
+              }
+            },
+            "description": "A list of previous chat interactions."
+          },
+          "output": {
+            "type": "string",
+            "example": "### Marketing Strategy Improvement Tips:\n- **Set Objectives Right Away:** Setting clear objectives is crucial...",
+            "description": "The output generated by the agent."
+          },
+          "intermediate_steps": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "tool": {
+                    "type": "string",
+                    "description": "The tool being invoked."
+                  },
+                  "tool_input": {
+                    "type": "object",
+                    "properties": {
+                      "query": {
+                        "type": "string",
+                        "description": "The query sent to the tool."
+                      }
+                    }
+                  },
+                  "log": {
+                    "type": "string",
+                    "description": "Log information for the tool invocation."
+                  },
+                  "message_log": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "content": {
+                          "type": "string",
+                          "description": "The content of the message."
+                        },
+                        "additional_kwargs": {
+                          "type": "object",
+                          "properties": {
+                            "tool_calls": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "index": {
+                                    "type": "integer",
+                                    "description": "The index of the tool call."
+                                  },
+                                  "id": {
+                                    "type": "string",
+                                    "description": "The ID of the tool call."
+                                  },
+                                  "function": {
+                                    "type": "object",
+                                    "properties": {
+                                      "arguments": {
+                                        "type": "string",
+                                        "description": "Arguments for the function call."
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "description": "The name of the function."
+                                      }
+                                    }
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "description": "The type of the tool call."
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "description": "Logs of messages during the tool invocation."
+                  },
+                  "tool_call_id": {
+                    "type": "string",
+                    "description": "The ID of the tool call."
+                  }
+                }
+              }
+            },
+            "description": "A list of intermediate steps taken by the agent."
+          }
+        }
+      },
+
       "Error": {
         "required": ["error", "message"],
         "type": "object",
