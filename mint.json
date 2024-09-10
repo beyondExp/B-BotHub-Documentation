@@ -7,23 +7,23 @@
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#731f7d",
+    "light": "#731f7d",
+    "dark": "#731f7d",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#731f7d",
+      "to": "#731f7d"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:info@b-bot.ch"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "HUB",
+    "url": "https://hub.b-bot.space"
   },
   "tabs": [
     {
@@ -35,17 +35,17 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "https://docs.b-bot.space"
     },
     {
       "name": "Community",
       "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "url": "https://chat.whatsapp.com/G29HAcsk0rU2ZeAElznxQ0"
     },
     {
-      "name": "Blog",
+      "name": "Dev-Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://beyond-bot.ai/blogs/developer-blog"
     }
   ],
   "navigation": [
@@ -56,12 +56,19 @@
     {
       "group": "Essentials",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "essentials/create-expert",
+        "essentials/edit-expert",
+        "essentials/chat",
+        "essentials/dashboard",
+        "essentials/markdown"
+      ]
+    },
+    {
+      "group": "Pricing",
+      "pages": [
+        "pricing/b-bot-tokens",
+        "pricing/openai",
+        "pricing/azure"
       ]
     },
     {
