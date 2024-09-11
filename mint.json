@@ -27,6 +27,10 @@
   },
   "tabs": [
     {
+      "name": "Concepts",
+      "url": "concepts"
+    },
+    {
       "name": "API Reference",
       "url": "api-reference"
     }
@@ -39,7 +43,7 @@
     },
     {
       "name": "Community",
-      "icon": "slack",
+      "icon": "whatsapp",
       "url": "https://chat.whatsapp.com/G29HAcsk0rU2ZeAElznxQ0"
     },
     {
@@ -51,7 +55,10 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "pages": [
+        "introduction",
+        "concepts"
+      ]
     },
     {
       "group": "Essentials",
@@ -69,6 +76,22 @@
         "pricing/b-bot-tokens",
         "pricing/openai",
         "pricing/azure"
+      ]
+    },
+    {
+      "group": "Concepts",
+      "pages": ["concepts/introduction"]
+    },
+    {
+      "group": "Key Concepts",
+      "pages": [
+        "concepts/basics"
+      ]
+    },
+    {
+      "group": "Best practices",
+      "pages": [
+        "concepts/best_practices/ai-persona-with-b-bot"
       ]
     },
     {
