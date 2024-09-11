@@ -15,7 +15,7 @@
   ],
   "security": [
     {
-      "bearerAuth": []
+      "apiKey": []
     }
   ],
   "paths": {
@@ -1286,6 +1286,12 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer"
+      },
+      "apiKey": {
+        "type": "apiKey",
+        "name": "bbot-api-key",
+        "in": "header",
+        "description": "API key for authentication"
       }
     }
   }
