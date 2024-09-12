@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "https://hub.b-bot.space"
+      "url": "https://api.b-bot.space"
     }
   ],
   "security": [
