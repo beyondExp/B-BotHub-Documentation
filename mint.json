@@ -68,6 +68,8 @@
         "essentials/chat",
         "essentials/training",
         "essentials/dashboard",
+        "essentials/apps",
+        "essentials/profile",
         "essentials/markdown"
       ]
     },
