@@ -66,6 +66,7 @@
         "essentials/create-expert",
         "essentials/edit-expert",
         "essentials/chat",
+        "essentials/training",
         "essentials/dashboard",
         "essentials/markdown"
       ]
