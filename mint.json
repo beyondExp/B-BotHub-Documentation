@@ -74,11 +74,12 @@
       ]
     },
     {
-      "group": "Pricing",
+      "group": "Declarations",
       "pages": [
-        "pricing/b-bot-tokens",
-        "pricing/openai",
-        "pricing/azure"
+        "declarations/b-bot-tokens",
+        "declarations/openai",
+        "declarations/azure",
+        "declarations/hosting"
       ]
     },
     {

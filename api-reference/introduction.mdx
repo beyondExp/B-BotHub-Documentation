@@ -4,30 +4,54 @@ description: 'Example section for showcasing API endpoints'
 ---
 
 <Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
+  If you are looking into creating an own App with our API, we recommend to use the infinite ABO, where you can test and deploy your App without any restrictions.
 </Note>
 
 ## Welcome
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+Welcome to our Api Docuumetation. Here you can find all the endpoints you need to create your own App with our API.
+
+it's easy tp start if you first build your expert in the hub.
+After that you can get all of the needed infos from Get Experts.
+
+Step 1: Create your Expert
 
 <Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
+  title="Create your Expert"
+  icon="plus"
+  href="essentials/create-expert"
 >
   View the OpenAPI specification file
 </Card>
 
+Step 2: Get your Expert
+
+<Card
+  title="Get Experts"
+  icon="plus"
+  href="api-reference/endpoint/getExpertsEndpoints"
+>
+  How to get the List of Experts
+</Card>
+
+Step 2: Get your Expert
+
+<Card
+  title="Invoke  Agent"
+  icon="plus"
+  href="api-reference/endpoint/invokeAgentCall"
+>
+    How to invoke the Agent
+</Card>
+
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API endpoints are authenticated using BBot Api Keys and picked up from the specification file.
 
 ```json
-"security": [
+"header": [
   {
-    "bearerAuth": []
+    "bbot-api-key": []
   }
 ]
 ```
