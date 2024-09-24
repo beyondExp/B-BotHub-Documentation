@@ -1,0 +1,50 @@
+---
+title: 'Service Hosting Declaration'
+description: 'Service Hosting Declaration'
+icon: 'bell-concierge'
+---
+
+**1. API Hosting**
+
+- **Provider**: Railway
+- **Region**: EU West (Amsterdam, Netherlands)
+
+**2. Frontend Hosting**
+
+- **Provider**: Netlify
+- **Global Nodes**: Netlify uses a globally distributed network of nodes to ensure fast and reliable access to the frontend. The nodes are strategically located in the following regions:
+    - Central Europe: Frankfurt, Germany
+    - South America: São Paulo, Brazil
+    - Eastern US: Virginia, USA
+    - Western US: San Francisco, USA
+    - Asia: Singapore, Republic of Singapore
+    - Oceania: Sydney, Australia
+
+**3. Serverless Functions Hosting**
+
+- **Region**: EU (Frankfurt) - eu-central-1
+
+**4. Datacenter Hosting**
+
+- **Technology**: Strapi Docker Container
+- **Cloud Provider**: Strapi Cloud
+- **Location**: Europe (Amsterdam, Netherlands)
+
+    *Note*: For Enterprise Partners requiring enhanced data security, we offer the option to host the Strapi Docker container on their own infrastructure. This allows for greater control over their data, although some platform features may be unavailable in this configuration.
+
+
+**5. Large Language Models (LLMs) Hosting**
+
+- **Providers**:
+    - **OpenAI**: Servers located in the United States.
+    - **Azure (OpenAI Models)**: Currently located in Sweden. Future updates will allow for customizable deployment locations.
+
+**6. Identity Provider (IdP) Hosting**
+
+- **Provider**: Auth0
+- **Region**: Frankfurt, Germany
+
+**7. Payment Services Hosting**
+
+- **Provider**: Stripe
+- **Server Locations**: Worldwide. Stripe dynamically selects the closest server based on the user's location, similar to Netlify's node distribution. For example, a user near Frankfurt, Germany, would connect to a server in that region.
