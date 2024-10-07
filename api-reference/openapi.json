@@ -195,9 +195,10 @@
             "name": "id",
             "in": "query",
             "description": "The unique identifier of the expert to retrieve.",
+            "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "example": "1"
             }
           }
         ],
@@ -1264,6 +1265,16 @@
               }
             },
             "description": "A list of intermediate steps taken by the agent."
+          }
+        }
+      },
+      "singleExpert": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 37,
+            "description": "The ID of the expert you want to invoke."
           }
         }
       },

@@ -55,10 +55,7 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": [
-        "introduction",
-        "concepts"
-      ]
+      "pages": ["introduction", "concepts"]
     },
     {
       "group": "Essentials",
@@ -74,11 +71,12 @@
       ]
     },
     {
-      "group": "Pricing",
+      "group": "Declarations",
       "pages": [
-        "pricing/b-bot-tokens",
-        "pricing/openai",
-        "pricing/azure"
+        "declarations/b-bot-tokens",
+        "declarations/openai",
+        "declarations/azure",
+        "declarations/hosting"
       ]
     },
     {
@@ -87,15 +85,11 @@
     },
     {
       "group": "Key Concepts",
-      "pages": [
-        "concepts/basics"
-      ]
+      "pages": ["concepts/basics"]
     },
     {
       "group": "Best practices",
-      "pages": [
-        "concepts/best_practices/ai-persona-with-b-bot"
-      ]
+      "pages": ["concepts/best_practices/ai-persona-with-b-bot"]
     },
     {
       "group": "API Documentation",
