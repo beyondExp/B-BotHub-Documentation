@@ -1,0 +1,235 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Starter Kit",
+  "colors": {
+    "primary": "#731f7d",
+    "light": "#731f7d",
+    "dark": "#731f7d"
+  },
+  "appearance": {
+    "default": "light",
+    "strict": true
+  },
+  "favicon": "/favicon.png",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "roadmap"
+            ]
+          },
+          {
+            "group": "Essentials",
+            "pages": [
+              "essentials/create-expert",
+              "essentials/edit-expert",
+              "essentials/chat",
+              "essentials/training",
+              "essentials/dashboard",
+              "essentials/apps",
+              "essentials/profile",
+              "essentials/markdown"
+            ]
+          },
+          {
+            "group": "Declarations",
+            "pages": [
+              "declarations/b-bot-tokens",
+              "declarations/openai",
+              "declarations/azure",
+              "declarations/hosting"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Concepts",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "concepts"
+            ]
+          },
+          {
+            "group": "Concepts",
+            "pages": [
+              "concepts/introduction"
+            ]
+          },
+          {
+            "group": "Key Concepts",
+            "pages": [
+              "concepts/basics"
+            ]
+          },
+          {
+            "group": "Use Cases",
+            "pages": [
+              "concepts/use_cases/schools"
+            ]
+          },
+          {
+            "group": "Architecture",
+            "pages": [
+              "concepts/architecture/agent-architecture"
+            ]
+          },
+          {
+            "group": "Best practices",
+            "pages": [
+              "concepts/best_practices/ai-persona-with-b-bot"
+            ]
+          }
+        ]
+      },
+      
+      {
+        "tab": "Main API",
+        "groups": [
+          {
+            "group": "Assistants",
+            "pages": [
+              "mainapi-reference/assistants/create-assistant",
+              "mainapi-reference/assistants/search-assistants",
+              "mainapi-reference/assistants/count-assistants",
+              "mainapi-reference/assistants/get-assistant",
+              "mainapi-reference/assistants/delete-assistant",
+              "mainapi-reference/assistants/patch-assistant",
+              "mainapi-reference/assistants/get-assistant-graph",
+              "mainapi-reference/assistants/get-assistant-subgraphs",
+              "mainapi-reference/assistants/get-assistant-subgraphs-by-namespace",
+              "mainapi-reference/assistants/get-assistant-schemas",
+              "mainapi-reference/assistants/get-assistant-versions",
+              "mainapi-reference/assistants/set-latest-assistant-version"
+            ]
+          },
+          {
+            "group": "Threads",
+            "pages": [
+              "mainapi-reference/threads/create-thread",
+              "mainapi-reference/threads/search-threads",
+              "mainapi-reference/threads/count-threads",
+              "mainapi-reference/threads/get-thread-state",
+              "mainapi-reference/threads/update-thread-state",
+              "mainapi-reference/threads/get-thread-state-at-checkpoint",
+              "mainapi-reference/threads/get-thread-state-at-checkpoint-1",
+              "mainapi-reference/threads/get-thread-history",
+              "mainapi-reference/threads/get-thread-history-post",
+              "mainapi-reference/threads/copy-thread",
+              "mainapi-reference/threads/get-thread",
+              "mainapi-reference/threads/delete-thread",
+              "mainapi-reference/threads/patch-thread",
+              "mainapi-reference/threads/join-thread-stream"
+            ]
+          },
+          {
+            "group": "Thread Runs",
+            "pages": [
+              "mainapi-reference/thread-runs/list-runs",
+              "mainapi-reference/thread-runs/create-background-run",
+              "mainapi-reference/thread-runs/create-run-stream-output",
+              "mainapi-reference/thread-runs/create-run-wait-for-output",
+              "mainapi-reference/thread-runs/get-run",
+              "mainapi-reference/thread-runs/delete-run",
+              "mainapi-reference/thread-runs/join-run",
+              "mainapi-reference/thread-runs/join-run-stream",
+              "mainapi-reference/thread-runs/cancel-run",
+              "mainapi-reference/thread-runs/cancel-runs"
+            ]
+          },
+          {
+            "group": "Stateless Runs",
+            "pages": [
+              "mainapi-reference/stateless-runs/create-run-stream-output",
+              "mainapi-reference/stateless-runs/create-run-wait-for-output",
+              "mainapi-reference/stateless-runs/create-background-run",
+              "mainapi-reference/stateless-runs/create-run-batch"
+            ]
+          },
+          {
+            "group": "Store",
+            "pages": [
+              "mainapi-reference/store/retrieve-a-single-item",
+              "mainapi-reference/store/store-or-update-an-item",
+              "mainapi-reference/store/delete-an-item",
+              "mainapi-reference/store/search-for-items-within-a-namespace-prefix",
+              "mainapi-reference/store/list-namespaces-with-optional-match-conditions"
+            ]
+          },
+          {
+            "group": "A2A",
+            "pages": [
+              "mainapi-reference/a2a/a2a-post"
+            ]
+          },
+          {
+            "group": "MCP",
+            "pages": [
+              "mainapi-reference/mcp/mcp-get",
+              "mainapi-reference/mcp/mcp-post",
+              "mainapi-reference/mcp/terminate-session"
+            ]
+          },
+          {
+            "group": "System",
+            "pages": [
+              "mainapi-reference/system/server-information",
+              "mainapi-reference/system/system-metrics",
+              "mainapi-reference/system/health-check"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Documentation",
+          "href": "https://docs.b-bot.space",
+          "icon": "book-open-cover"
+        },
+        {
+          "anchor": "Community",
+          "href": "https://chat.whatsapp.com/G29HAcsk0rU2ZeAElznxQ0",
+          "icon": "whatsapp"
+        },
+        {
+          "anchor": "Dev-Blog",
+          "href": "https://beyond-bot.ai/blogs/developer-blog",
+          "icon": "newspaper"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:info@b-bot.ch"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "HUB",
+      "href": "https://hub.b-bot.space"
+    }
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/beyondExp",
+      "linkedin": "https://www.linkedin.com/company/b-bot-official",
+      "youtube": "https://www.youtube.com/@b-bot-official"
+    }
+  }
+}
