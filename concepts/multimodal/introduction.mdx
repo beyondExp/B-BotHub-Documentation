@@ -1,0 +1,511 @@
+---
+title: 'Multimodal AI Introduction'
+description: 'Understanding multimodal capabilities in B-Bot Hub'
+icon: 'layer-group'
+---
+
+# Multimodal AI in B-Bot Hub
+
+Multimodal AI goes beyond text-only interactions, enabling experts to process and generate multiple types of content including voice, images, documents, and structured data.
+
+## What is Multimodal AI?
+
+Traditional AI chatbots handle only text. Multimodal AI can:
+
+<CardGroup cols={3}>
+  <Card title="Understand" icon="brain">
+    Process text, voice, images, and files
+  </Card>
+  <Card title="Generate" icon="wand-magic-sparkles">
+    Create text, voice, images, and code
+  </Card>
+  <Card title="Combine" icon="layer-group">
+    Work with multiple modalities simultaneously
+  </Card>
+</CardGroup>
+
+## Supported Modalities
+
+### Input Modalities
+
+**What your expert can receive:**
+
+<Tabs>
+  <Tab title="Text">
+    **Traditional text input**
+    - Typed messages
+    - Pasted content
+    - Formatted text
+    - Code snippets
+    - URLs
+    
+    **Use for:**
+    - Questions and instructions
+    - Code review
+    - Text editing
+    - General conversation
+  </Tab>
+  
+  <Tab title="Voice">
+    **Speech-to-text input**
+    - Real-time voice recording
+    - Audio file uploads
+    - Multiple languages
+    - Continuous transcription
+    
+    **Powered by:**
+    - OpenAI Whisper
+    - Google Speech-to-Text
+    - Azure Speech
+    - Browser native
+    
+    **Use for:**
+    - Hands-free operation
+    - Accessibility
+    - Mobile interaction
+    - Voice dictation
+  </Tab>
+  
+  <Tab title="Images">
+    **Visual content understanding**
+    - Image uploads
+    - Screenshots
+    - Diagrams
+    - Photos
+    - Charts and graphs
+    
+    **Capabilities:**
+    - Object recognition
+    - Text extraction (OCR)
+    - Scene understanding
+    - Image analysis
+    - Visual Q&A
+    
+    **Use for:**
+    - "What's in this image?"
+    - Code from screenshots
+    - Diagram analysis
+    - Document scanning
+  </Tab>
+  
+  <Tab title="Files">
+    **Document processing**
+    
+    **Supported formats:**
+    - PDF documents
+    - Word docs (.docx)
+    - Excel sheets (.xlsx)
+    - CSV data
+    - JSON/XML
+    - Source code files
+    - Markdown
+    
+    **Capabilities:**
+    - Extract content
+    - Analyze data
+    - Process documents
+    - Code review
+    
+    **Use for:**
+    - Document Q&A
+    - Data analysis
+    - Code review
+    - Content extraction
+  </Tab>
+</Tabs>
+
+### Output Modalities
+
+**What your expert can produce:**
+
+<Tabs>
+  <Tab title="Text">
+    **Written responses**
+    - Natural language
+    - Formatted markdown
+    - Code blocks
+    - Lists and tables
+    - Links and citations
+    
+    **Streaming:** Real-time generation
+  </Tab>
+  
+  <Tab title="Voice/Audio">
+    **Text-to-speech output**
+    
+    **Providers:**
+    - OpenAI TTS: Natural voices
+    - ElevenLabs: Ultra-realistic
+    - Google TTS: Multi-language
+    - Azure Speech: Neural voices
+    - Browser: Built-in synthesis
+    
+    **Features:**
+    - Multiple voices
+    - Speed control
+    - Emotion/tone
+    - Streaming audio
+    - Auto-play option
+    
+    **Use for:**
+    - Accessibility
+    - Multitasking
+    - Language learning
+    - Voice-first apps
+  </Tab>
+  
+  <Tab title="Images">
+    **Visual generation**
+    
+    **Capabilities:**
+    - Profile pictures (BFL FLUX)
+    - Diagrams and charts
+    - Illustrations
+    - Image editing
+    
+    **Providers:**
+    - OpenAI DALL-E
+    - Stability AI
+    - Midjourney
+    - BFL FLUX
+    
+    **Use for:**
+    - Profile images
+    - Visual content
+    - Presentations
+    - Marketing materials
+  </Tab>
+  
+  <Tab title="Files">
+    **Document generation**
+    
+    **Can create:**
+    - Code files
+    - Documents
+    - Data files
+    - Configuration files
+    - Reports
+    
+    **Stored in:**
+    - DeepAgents workspace
+    - Download directly
+    - Send via webhook
+    
+    **Use for:**
+    - Application code
+    - Reports
+    - Data exports
+    - Documentation
+  </Tab>
+</Tabs>
+
+## Multimodal Combinations
+
+### Common Patterns
+
+<AccordionGroup>
+  <Accordion title="Voice + Text" icon="microphone">
+    **Input:** Voice question
+    **Output:** Text + Audio response
+    
+    **Example:**
+    ```
+    User: [Voice] "What's the weather today?"
+    Expert: [Text + Audio] "Today's weather is sunny..."
+    ```
+    
+    **Use cases:**
+    - Hands-free interaction
+    - Accessibility
+    - Voice assistants
+    - Mobile apps
+  </Accordion>
+  
+  <Accordion title="Image + Text" icon="image">
+    **Input:** Image + Text question
+    **Output:** Text analysis
+    
+    **Example:**
+    ```
+    User: [Image] chart.png
+    User: [Text] "What trends do you see?"
+    Expert: [Text] "The chart shows an upward trend..."
+    ```
+    
+    **Use cases:**
+    - Image analysis
+    - OCR and text extraction
+    - Visual Q&A
+    - Diagram explanation
+  </Accordion>
+  
+  <Accordion title="File + Generation" icon="file-code">
+    **Input:** Document/Data file
+    **Output:** Processed files
+    
+    **Example:**
+    ```
+    User: [File] data.csv
+    User: [Text] "Analyze and create a report"
+    Expert: Creates:
+      - analysis.py
+      - cleaned_data.csv
+      - report.md
+      - charts.png
+    ```
+    
+    **Use cases:**
+    - Data processing
+    - Report generation
+    - Code generation
+    - Document transformation
+  </Accordion>
+  
+  <Accordion title="Multimodal Chain" icon="link">
+    **Input:** Multiple types
+    **Output:** Multiple types
+    
+    **Example:**
+    ```
+    User: [Voice] "Make a landing page"
+    User: [Image] sketch.jpg
+    User: [File] brand_colors.json
+    Expert: Creates:
+      - index.html [File]
+      - styles.css [File]
+      - preview.png [Image]
+      - explanation [Text + Audio]
+    ```
+    
+    **Use cases:**
+    - Complex projects
+    - Rich interactions
+    - Full workflows
+    - Creative work
+  </Accordion>
+</AccordionGroup>
+
+## Technical Architecture
+
+### Input Processing Pipeline
+
+```
+User Input
+    ↓
+┌──────────────────┐
+│ Modality Router  │ Detect input type(s)
+└────────┬─────────┘
+         ↓
+   ┌────┴────┐
+   │         │
+[Text]   [Voice]   [Image]   [File]
+   │         │         │         │
+   │    Whisper    Vision    Parser
+   │      API      Model      API
+   │         │         │         │
+   └────┬────┴────┬────┴────┬────┘
+        │         │         │
+    ┌───┴─────────┴─────────┴───┐
+    │   Unified Representation   │
+    └──────────────┬──────────────┘
+                   ↓
+              LLM Processing
+```
+
+### Output Generation Pipeline
+
+```
+LLM Response
+    ↓
+┌──────────────────┐
+│ Output Analyzer  │ Determine what to generate
+└────────┬─────────┘
+         ↓
+   ┌────┴────┐
+   │         │
+[Text]   [Audio]   [Image]   [Files]
+   │         │         │         │
+Stream    TTS API   DALL-E   Workspace
+   │         │         │         │
+   └────┬────┴────┬────┴────┬────┘
+        │         │         │
+    ┌───┴─────────┴─────────┴───┐
+    │    Delivery to User        │
+    └────────────────────────────┘
+```
+
+## Configuration
+
+### Setting Up Modalities
+
+<Steps>
+  <Step title="Configure Providers">
+    Set up API keys for voice and image providers
+    
+    See: [Provider Keys Management](/essentials/provider-keys)
+  </Step>
+  
+  <Step title="Configure Input">
+    Enable voice input and file uploads
+    
+    See: [Input Modalities](/essentials/modalities#input-modalities)
+  </Step>
+  
+  <Step title="Configure Output">
+    Set up TTS and image generation
+    
+    See: [Output Modalities](/essentials/modalities#output-modalities)
+  </Step>
+  
+  <Step title="Test">
+    Try different combinations to ensure everything works
+  </Step>
+</Steps>
+
+### Per-Expert Configuration
+
+Each expert can have different modality settings:
+
+```javascript
+Expert 1: "Voice Assistant"
+├── Input: Voice (Whisper)
+└── Output: Audio (ElevenLabs)
+
+Expert 2: "Data Analyst"
+├── Input: Text + Files (CSV, Excel)
+└── Output: Text + Files (Reports, Charts)
+
+Expert 3: "Creative Designer"
+├── Input: Text + Images
+└── Output: Text + Images (Generated art)
+```
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Choose Right Modalities" icon="sliders">
+    **Match modality to use case:**
+    
+    - Customer service → Voice I/O
+    - Data analysis → File I/O
+    - Creative work → Image I/O
+    - General chat → Text
+    - Accessibility → Voice I/O
+  </Card>
+  
+  <Card title="Cost Management" icon="money-bill">
+    **Understand costs:**
+    
+    - Voice: ~$0.006/minute (Whisper)
+    - TTS: ~$15/1M chars (OpenAI)
+    - Images: ~$0.04/image (DALL-E 3)
+    - Text: ~$0.01-0.06/1K tokens
+    
+    **Optimize:**
+    - Use appropriate quality
+    - Consider browser native for voice
+    - Batch operations
+    - Cache when possible
+  </Card>
+  
+  <Card title="User Experience" icon="heart">
+    **Enhance UX:**
+    
+    - Provide clear modality indicators
+    - Show processing states
+    - Enable/disable as needed
+    - Offer quality settings
+    - Test across devices
+  </Card>
+  
+  <Card title="Error Handling" icon="triangle-exclamation">
+    **Handle failures gracefully:**
+    
+    - Voice: Fall back to text
+    - Image: Provide text alternative
+    - Files: Show error messages
+    - Network: Retry logic
+    - Permissions: Clear instructions
+  </Card>
+</CardGroup>
+
+## Use Cases by Industry
+
+### Healthcare
+
+- **Voice**: Medical dictation
+- **Image**: X-ray/scan analysis
+- **Files**: Patient record processing
+- **Output**: Audio instructions for patients
+
+### Education
+
+- **Voice**: Language learning
+- **Image**: Diagram explanations
+- **Files**: Assignment grading
+- **Output**: Audio lessons
+
+### E-commerce
+
+- **Voice**: Product search
+- **Image**: Visual product search
+- **Files**: Inventory data
+- **Output**: Product recommendations
+
+### Customer Support
+
+- **Voice**: Phone support automation
+- **Image**: Screenshot troubleshooting
+- **Files**: Log file analysis
+- **Output**: Audio responses
+
+## Future Directions
+
+<CardGroup cols={2}>
+  <Card title="Video Understanding" icon="video">
+    Processing and analyzing video content
+  </Card>
+  <Card title="Real-time Translation" icon="language">
+    Live translation across modalities
+  </Card>
+  <Card title="3D Generation" icon="cube">
+    Creating 3D models and environments
+  </Card>
+  <Card title="Multimodal RAG" icon="database">
+    Retrieval across all content types
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Configure Modalities"
+    icon="sliders"
+    href="/essentials/modalities"
+  >
+    Set up input and output modalities
+  </Card>
+  <Card
+    title="Provider Keys"
+    icon="key"
+    href="/essentials/provider-keys"
+  >
+    Add API keys for modality providers
+  </Card>
+  <Card
+    title="AI Image Generation"
+    icon="image"
+    href="/essentials/ai-image-generation"
+  >
+    Generate profile pictures and images
+  </Card>
+  <Card
+    title="Chat Features"
+    icon="comments"
+    href="/essentials/chat"
+  >
+    Use multimodal features in chat
+  </Card>
+</CardGroup>
+

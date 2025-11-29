@@ -1,0 +1,496 @@
+---
+title: 'Customer Support Use Case'
+description: 'Build AI-powered customer support with B-Bot Hub'
+icon: 'headset'
+---
+
+# AI-Powered Customer Support
+
+Transform your customer support operations with AI experts that provide 24/7 assistance, reduce response times, and scale effortlessly. This guide shows you how to build a complete customer support solution using B-Bot Hub.
+
+## Overview
+
+**What you'll build:**
+- 24/7 automated support expert
+- Multi-channel deployment (website, chat, API)
+- Knowledge base integration
+- Ticket system integration
+- Escalation to human agents when needed
+
+**Results:**
+- 70-90% ticket deflection rate
+- Sub-second response times
+- 24/7 availability
+- Significant cost savings
+- Improved customer satisfaction
+
+## Architecture
+
+```
+Customer Question
+    ↓
+[Distribution Channels]
+├─ Website Chat Widget
+├─ Mobile App (API)
+└─ Internal Chat Interface
+    ↓
+[Support Expert]
+├─ Fine-tuned for your products
+├─ Connected to knowledge base
+├─ Integrated with ticket system
+└─ Voice-enabled (optional)
+    ↓
+[Response or Escalation]
+├─ Direct answer (80%)
+├─ Step-by-step guide (15%)
+└─ Escalate to human (5%)
+```
+
+## Step-by-Step Implementation
+
+### 1. Create Your Support Expert
+
+<Steps>
+  <Step title="Basic Configuration">
+    **Expert Setup:**
+    - Name: "Support Assistant"
+    - Profession: "Customer Support Specialist"
+    - Description: "Helps customers with product questions, troubleshooting, and account issues"
+    
+    **System Prompt:**
+    ```
+    You are a friendly, professional customer support specialist for [Company Name].
+    Your goal is to help customers quickly and effectively.
+    
+    Guidelines:
+    - Be empathetic and patient
+    - Provide clear, step-by-step solutions
+    - If you don't know something, be honest
+    - Escalate complex issues to human agents
+    - Always maintain a positive, helpful tone
+    ```
+  </Step>
+  
+  <Step title="Add Abilities">
+    **Create specific support modes:**
+    
+    - "Help with account issues and billing"
+    - "Troubleshoot technical problems"
+    - "Explain product features and how-tos"
+    - "Process returns and refunds"
+    - "Handle complaints with empathy"
+  </Step>
+  
+  <Step title="Add Quick Templates">
+    **Common questions users can click:**
+    
+    - "How do I reset my password?"
+    - "What's your return policy?"
+    - "I need help with billing"
+    - "The app isn't working correctly"
+    - "How do I upgrade my plan?"
+  </Step>
+  
+  <Step title="Configure Voice (Optional)">
+    **For phone support:**
+    - Input: OpenAI Whisper (speech-to-text)
+    - Output: ElevenLabs or OpenAI TTS (text-to-speech)
+    - Choose a friendly, professional voice
+  </Step>
+</Steps>
+
+### 2. Connect Knowledge Sources
+
+<AccordionGroup>
+  <Accordion title="Documentation Integration" icon="book">
+    **Connect your help center:**
+    
+    Options:
+    - Web scraping tool for documentation
+    - Direct file upload (PDFs, docs)
+    - API integration with help desk
+    - Google Drive connection
+    
+    **Best practice:**
+    Upload core documentation as files the expert can reference during conversations.
+  </Accordion>
+  
+  <Accordion title="Ticket System Integration" icon="ticket">
+    **Connect to your helpdesk:**
+    
+    Supported integrations:
+    - Zendesk
+    - Freshdesk
+    - Intercom
+    - Help Scout
+    - Custom API
+    
+    **Capabilities:**
+    - Search past tickets
+    - Create new tickets
+    - Update ticket status
+    - Check ticket history
+  </Accordion>
+  
+  <Accordion title="CRM Integration" icon="users">
+    **Customer context:**
+    
+    Connect to:
+    - Salesforce
+    - HubSpot
+    - Custom CRM
+    
+    **Benefits:**
+    - Personalized responses
+    - Account history
+    - Subscription details
+    - Previous interactions
+  </Accordion>
+  
+  <Accordion title="Product Database" icon="box">
+    **Product information:**
+    
+    - Pricing details
+    - Feature availability
+    - Compatibility info
+    - Known issues
+    - Release notes
+  </Accordion>
+</AccordionGroup>
+
+### 3. Fine-Tune for Quality
+
+**Collect Training Data:**
+
+<Steps>
+  <Step title="Mark Perfect Responses">
+    As you test the expert:
+    1. Have real conversations
+    2. When response is perfect → QA mark it
+    3. When response needs work → edit, then mark
+    4. Build dataset of 200-500 examples
+  </Step>
+  
+  <Step title="Include Edge Cases">
+    **Train on challenging scenarios:**
+    - Angry customers
+    - Complex technical issues
+    - Billing disputes
+    - Return requests
+    - Feature requests
+    - Complaints
+  </Step>
+  
+  <Step title="Train Custom Model">
+    Once you have 200+ examples:
+    1. Go to Training section
+    2. Review your dataset
+    3. Start training job
+    4. Wait 30-60 minutes
+    5. Test fine-tuned version
+    6. Deploy if better
+  </Step>
+</Steps>
+
+**Or use Model Distillation:**
+
+Generate 1000 support scenarios with GPT-4, train GPT-3.5, save 93% on costs while maintaining quality.
+
+### 4. Deploy Multi-Channel
+
+<Tabs>
+  <Tab title="Website Widget">
+    **For website visitors:**
+    
+    ```html
+    <!-- Add to your website -->
+    <script>
+      bbot('init', {
+        assistantId: 'your_support_expert',
+        style: 'bubble',
+        color: '#your-brand-color',
+        position: 'bottom-right',
+        greeting: 'Hi! How can I help you today?'
+      });
+    </script>
+    ```
+    
+    **Configuration:**
+    - Match your brand colors
+    - Custom greeting message
+    - Proactive engagement after 30s
+    - Mobile responsive
+  </Tab>
+  
+  <Tab title="Mobile App">
+    **API Integration:**
+    
+    ```javascript
+    // In your mobile app
+    const response = await fetch('https://api.b-bot.ai/v1/threads', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer YOUR_API_KEY',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        assistant_id: 'support_expert_id',
+        messages: [{
+          role: 'user',
+          content: userQuestion
+        }]
+      })
+    });
+    ```
+  </Tab>
+  
+  <Tab title="Internal Dashboard">
+    **For support team:**
+    
+    Deploy via B-Bot Chat:
+    - Team members can use it for quick answers
+    - Check knowledge base instantly
+    - Draft responses to complex tickets
+    - Train new team members
+  </Tab>
+  
+  <Tab title="Email Support">
+    **Automated email responses:**
+    
+    Integrate with email:
+    - Parse incoming support emails
+    - Generate draft responses
+    - Human review and send
+    - Or fully automate simple cases
+  </Tab>
+</Tabs>
+
+### 5. Set Up Escalation Rules
+
+**When to escalate to humans:**
+
+<AccordionGroup>
+  <Accordion title="Complexity Triggers" icon="exclamation">
+    **Automatic escalation when:**
+    - Customer explicitly asks for human
+    - Issue requires account access
+    - Refund over certain amount
+    - Legal or compliance matter
+    - Multiple failed resolution attempts
+  </Accordion>
+  
+  <Accordion title="Sentiment Analysis" icon="face-frown">
+    **Detect frustrated customers:**
+    - Negative sentiment score
+    - Use of certain keywords (frustrated, angry, cancel)
+    - Caps lock usage
+    - Escalate immediately
+  </Accordion>
+  
+  <Accordion title="Confidence Threshold" icon="gauge">
+    **When expert isn't sure:**
+    - Low confidence in answer
+    - No relevant knowledge found
+    - Ambiguous question
+    - Pass to human agent
+  </Accordion>
+</AccordionGroup>
+
+**Escalation flow:**
+```
+Expert detects escalation needed
+    ↓
+Create ticket in helpdesk system
+    ↓
+Notify available agent
+    ↓
+Transfer conversation context
+    ↓
+Human takes over seamlessly
+```
+
+## Real-World Example
+
+**Company:** SaaS project management tool (5,000 customers)
+
+**Before B-Bot:**
+- 500 tickets/day
+- 4-hour average response time
+- 10 support agents
+- 60% first-contact resolution
+- Cost: $50K/month
+
+**Implementation:**
+1. Created support expert
+2. Fine-tuned on 300 past tickets
+3. Connected to help center docs
+4. Deployed on website + mobile app
+5. Monitored for 2 weeks
+6. Refined based on feedback
+
+**After B-Bot:**
+- 500 questions/day
+- 400 handled by AI (80%)
+- 100 escalated to humans (20%)
+- Sub-second response time
+- 85% first-contact resolution
+- 6 support agents (4 reassigned to complex issues)
+- Cost: $32K/month ($18K saved)
+
+**Additional benefits:**
+- 24/7 availability
+- Consistent answers
+- Instant responses
+- Happy customers (CSAT up 25%)
+- Agents focus on complex issues
+
+## Optimization Tips
+
+<CardGroup cols={2}>
+  <Card title="Monitor Performance" icon="chart-line">
+    **Track key metrics:**
+    - Resolution rate
+    - Escalation rate
+    - Customer satisfaction
+    - Response accuracy
+    - Common issues
+    
+    **Adjust based on data:**
+    - Add training examples for missed questions
+    - Update knowledge base
+    - Refine escalation rules
+  </Card>
+  
+  <Card title="Continuous Learning" icon="rotate">
+    **Improve over time:**
+    - Weekly review of escalated tickets
+    - Mark good AI responses
+    - Add to training dataset
+    - Retrain monthly
+    - Deploy improved version
+    
+    **Each month gets better!**
+  </Card>
+  
+  <Card title="Knowledge Base Updates" icon="book-open">
+    **Keep current:**
+    - Update for new features
+    - Add FAQs from common questions
+    - Document solutions to new issues
+    - Remove outdated information
+    - Version control changes
+  </Card>
+  
+  <Card title="Team Collaboration" icon="users">
+    **Involve your team:**
+    - Support agents mark good responses
+    - Product team updates feature docs
+    - Developers document technical issues
+    - Everyone contributes to improvement
+  </Card>
+</CardGroup>
+
+## Common Challenges & Solutions
+
+<AccordionGroup>
+  <Accordion title="Challenge: Too Many Escalations" icon="arrow-trend-up">
+    **Problem:** 40%+ escalation rate (goal: <20%)
+    
+    **Solutions:**
+    - Expand knowledge base coverage
+    - Add more training examples
+    - Improve product documentation
+    - Train on escalated tickets
+    - Review confidence thresholds
+  </Accordion>
+  
+  <Accordion title="Challenge: Incorrect Answers" icon="circle-xmark">
+    **Problem:** Expert giving wrong information
+    
+    **Solutions:**
+    - Update knowledge base immediately
+    - Add corrected examples to training
+    - Review system prompt clarity
+    - Add validation rules
+    - Implement human review for sensitive topics
+  </Accordion>
+  
+  <Accordion title="Challenge: Inconsistent Tone" icon="masks-theater">
+    **Problem:** Sometimes too formal, sometimes too casual
+    
+    **Solutions:**
+    - Fine-tune on tone-consistent examples
+    - Strengthen system prompt guidelines
+    - Add tone examples to abilities
+    - Review and mark good tone responses
+  </Accordion>
+  
+  <Accordion title="Challenge: Can't Handle Complex Issues" icon="puzzle-piece">
+    **Problem:** Expert struggles with multi-step problems
+    
+    **Solutions:**
+    - Enable DeepAgents mode
+    - Break problems into subtasks
+    - Use task management features
+    - Train on complex scenarios
+    - Lower escalation threshold for complex issues
+  </Accordion>
+</AccordionGroup>
+
+## Cost Analysis
+
+**Typical costs for 10,000 monthly support interactions:**
+
+**Traditional support:**
+- 10 agents × $3,500/month = $35,000
+- Tools and infrastructure = $2,000
+- **Total: $37,000/month**
+
+**With B-Bot (80% automation):**
+- AI handles 8,000 interactions
+- 4 agents × $3,500 = $14,000
+- B-Bot subscription + API costs = $3,000
+- Tools and infrastructure = $2,000
+- **Total: $19,000/month**
+
+**Savings: $18,000/month ($216,000/year)**
+
+Plus:
+- 24/7 availability (no overtime costs)
+- Instant scaling (no hiring delays)
+- Consistent quality
+- Agent job satisfaction (more interesting work)
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Create Support Expert"
+    icon="plus"
+    href="/essentials/create-expert"
+  >
+    Start building your support expert
+  </Card>
+  <Card
+    title="Fine-Tuning Guide"
+    icon="brain"
+    href="/concepts/fine-tuning/introduction"
+  >
+    Train on your support data
+  </Card>
+  <Card
+    title="Distribution Channels"
+    icon="share-nodes"
+    href="/essentials/distribution-channels"
+  >
+    Deploy across channels
+  </Card>
+  <Card
+    title="Apps Integration"
+    icon="plug"
+    href="/essentials/apps"
+  >
+    Connect your support tools
+  </Card>
+</CardGroup>
+

@@ -1,0 +1,492 @@
+---
+title: 'Input & Output Modalities'
+description: 'Configure voice input and audio output for your experts'
+icon: 'microphone-lines'
+---
+
+# Input & Output Modalities
+
+Modalities allow your experts to interact through multiple channels beyond text. Configure voice input (speech-to-text) and audio output (text-to-speech) to create rich, multimodal conversational experiences.
+
+## Overview
+
+B-Bot Hub supports:
+- **Input Modalities**: How users communicate with your expert (voice, text, files)
+- **Output Modalities**: How your expert responds (text, voice, images)
+
+## Accessing Modality Settings
+
+Configure modalities when:
+- **Creating an expert** (Step 5: Models)
+- **Creating an assistant** (Model configuration step)
+- **In chat settings** (during conversations)
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/modalities-overview.png"
+  alt="Modalities Configuration"
+/>
+
+## Input Modalities
+
+### Voice Input (Speech-to-Text)
+
+Enable voice input to allow users to speak to your expert instead of typing.
+
+<Steps>
+  <Step title="Enable Voice Input">
+    Click **Configure Input Modalities** in the model selection step
+  </Step>
+  
+  <Step title="Select Provider">
+    Choose your speech-to-text provider:
+    - **Browser Native**: Uses the browser's built-in speech recognition (free)
+    - **OpenAI Whisper**: High-accuracy transcription
+    - **Google Speech-to-Text**: Multi-language support
+    - **Azure Speech**: Enterprise-grade recognition
+  </Step>
+  
+  <Step title="Configure Settings">
+    - **Language**: Select primary language for recognition
+    - **Continuous**: Enable continuous listening mode
+    - **Interim Results**: Show transcription as user speaks
+  </Step>
+  
+  <Step title="Test">
+    Use the test button to verify voice input is working
+  </Step>
+</Steps>
+
+### Supported Input Types
+
+<CardGroup cols={3}>
+  <Card title="Voice" icon="microphone">
+    Real-time voice recording and transcription
+  </Card>
+  <Card title="Files" icon="file">
+    Upload documents, images, audio files
+  </Card>
+  <Card title="Text" icon="keyboard">
+    Traditional text input (always available)
+  </Card>
+</CardGroup>
+
+## Output Modalities
+
+### Text-to-Speech (Audio Output)
+
+Enable audio output to have your expert speak responses aloud.
+
+<Steps>
+  <Step title="Open Output Modalities">
+    Click **Configure Output Modalities** in the model settings
+  </Step>
+  
+  <Step title="Choose TTS Provider">
+    Select from available providers:
+    - **OpenAI TTS**: Natural-sounding voices with emotion
+    - **ElevenLabs**: Ultra-realistic voice synthesis
+    - **Google TTS**: WaveNet voices, multi-language
+    - **Azure Speech**: Neural voices with customization
+    - **Browser Native**: Built-in browser synthesis (free, basic)
+  </Step>
+  
+  <Step title="Select Voice">
+    Each provider offers different voices:
+    - **OpenAI**: Alloy, Echo, Fable, Onyx, Nova, Shimmer
+    - **ElevenLabs**: 100+ premium voices
+    - **Google**: Standard and WaveNet voices
+    - **Azure**: Neural voices in 100+ languages
+  </Step>
+  
+  <Step title="Configure Playback">
+    - **Auto-play**: Automatically play audio when response completes
+    - **Streaming TTS**: Stream audio as text generates (where supported)
+    - **Speed**: Adjust playback speed (0.5x to 2.0x)
+  </Step>
+</Steps>
+
+### Voice Configuration
+
+<Tabs>
+  <Tab title="OpenAI TTS">
+    **Models:**
+    - `tts-1`: Standard quality, fast
+    - `tts-1-hd`: High definition, slower
+    
+    **Voices:**
+    - **Alloy**: Neutral, balanced
+    - **Echo**: Male, clear
+    - **Fable**: British accent, expressive
+    - **Onyx**: Deep, authoritative
+    - **Nova**: Female, energetic
+    - **Shimmer**: Soft, warm
+    
+    **Features:**
+    - Real-time streaming
+    - Multiple languages
+    - Emotion in voice
+    - Fast generation
+    
+    **Best for:** General use, conversational AI
+  </Tab>
+  
+  <Tab title="ElevenLabs">
+    **Models:**
+    - `eleven_multilingual_v2`: Best quality, 29 languages
+    - `eleven_turbo_v2`: Fast, English only
+    - `eleven_monolingual_v1`: Classic, English
+    
+    **Voices:**
+    - 100+ pre-made voices
+    - Voice cloning available
+    - Custom voice profiles
+    - Professional actors
+    
+    **Features:**
+    - Highest quality synthesis
+    - Emotional range
+    - Voice consistency
+    - Multi-language support
+    
+    **Best for:** Premium experiences, customer-facing applications
+  </Tab>
+  
+  <Tab title="Google TTS">
+    **Voice Types:**
+    - **Standard**: Clear, natural
+    - **WaveNet**: Enhanced, expressive
+    - **Neural2**: Latest, most natural
+    
+    **Languages:**
+    - 220+ voices
+    - 40+ languages
+    - Regional accents
+    
+    **Features:**
+    - SSML support
+    - Pitch control
+    - Speed control
+    - Emphasis and pauses
+    
+    **Best for:** Multi-language applications, accessibility
+  </Tab>
+  
+  <Tab title="Azure Speech">
+    **Voice Types:**
+    - **Neural**: High-quality, natural
+    - **Standard**: Basic, functional
+    
+    **Languages:**
+    - 100+ languages
+    - 400+ voices
+    - Regional variants
+    
+    **Features:**
+    - Custom neural voices
+    - SSML customization
+    - Speaking styles
+    - Emotions and accents
+    
+    **Best for:** Enterprise applications, global reach
+  </Tab>
+  
+  <Tab title="Browser Native">
+    **Features:**
+    - Built into browser
+    - No API key required
+    - Free to use
+    - Basic quality
+    
+    **Limitations:**
+    - Limited voices
+    - Inconsistent across browsers
+    - No emotion or customization
+    - Variable quality
+    
+    **Best for:** Testing, demos, low-budget projects
+  </Tab>
+</Tabs>
+
+## Advanced Configuration
+
+### API Key Selection
+
+<Info>
+  You can use different API keys for TTS than your main model key!
+</Info>
+
+For example:
+```
+Main Model: GPT-4 (Production OpenAI key)
+Voice Output: ElevenLabs (Personal ElevenLabs key)
+```
+
+This allows you to:
+- Separate billing for different services
+- Use specialized accounts for voice
+- Manage rate limits independently
+
+### Streaming TTS
+
+<AccordionGroup>
+  <Accordion title="What is Streaming TTS?" icon="wave-square">
+    Streaming TTS generates and plays audio **as the text is being generated**, rather than waiting for the complete response.
+    
+    **Benefits:**
+    - Faster time-to-first-audio
+    - More natural conversation flow
+    - Better user experience
+    - Reduced perceived latency
+  </Accordion>
+  
+  <Accordion title="Supported Providers" icon="check-circle">
+    Currently streaming TTS is supported by:
+    - ✅ OpenAI TTS
+    - ✅ ElevenLabs (with turbo models)
+    - ⚠️ Google TTS (partial support)
+    - ❌ Azure Speech (coming soon)
+    - ❌ Browser Native (not supported)
+  </Accordion>
+  
+  <Accordion title="How to Enable" icon="toggle-on">
+    1. Open Output Modalities configuration
+    2. Select a supported provider
+    3. Toggle **"Stream audio as text generates"**
+    4. Save configuration
+    
+    The audio will now start playing before the full response is complete.
+  </Accordion>
+</AccordionGroup>
+
+### Auto-Play Settings
+
+<Tabs>
+  <Tab title="Always On">
+    Audio plays automatically for every response.
+    
+    **Best for:**
+    - Voice-first applications
+    - Accessibility features
+    - Hands-free use cases
+    - Customer service bots
+  </Tab>
+  
+  <Tab title="User Controlled">
+    User clicks a play button to hear the response.
+    
+    **Best for:**
+    - Mixed-mode interfaces
+    - Public environments
+    - Battery conservation
+    - Quiet settings
+  </Tab>
+</Tabs>
+
+## Using Voice in Chat
+
+### Voice Input
+
+<Steps>
+  <Step title="Enable Voice Mode">
+    Click the **microphone icon** in the chat input area to enable voice mode
+  </Step>
+  
+  <Step title="Hold to Record">
+    Press and hold the microphone button while speaking
+  </Step>
+  
+  <Step title="Release to Send">
+    Release the button when done. Your speech will be transcribed and sent automatically.
+  </Step>
+</Steps>
+
+**Tips for better recognition:**
+- Speak clearly and at a normal pace
+- Minimize background noise
+- Use a good microphone
+- Wait for the transcription to complete
+
+### Audio Output
+
+When TTS is enabled:
+1. Expert's text response appears as normal
+2. Audio player appears below the message
+3. If auto-play is on, audio starts automatically
+4. Controls available: play/pause, speed, volume
+
+## Multimodal Content
+
+Your experts can handle multiple content types in a single message:
+
+<CardGroup cols={2}>
+  <Card title="Voice + Text" icon="comment-dots">
+    User speaks a question, expert responds with text and audio
+  </Card>
+  <Card title="Image + Voice" icon="image">
+    User uploads an image and asks about it via voice
+  </Card>
+  <Card title="File + Text" icon="file-lines">
+    User uploads a document and types a question
+  </Card>
+  <Card title="Mixed Media" icon="layer-group">
+    Combine any input types in a single interaction
+  </Card>
+</CardGroup>
+
+## Best Practices
+
+### Voice Selection
+
+<AccordionGroup>
+  <Accordion title="Match Expert Personality" icon="masks-theater">
+    Choose voices that align with your expert's role:
+    - **Professional**: Clear, authoritative (Onyx, Echo)
+    - **Friendly**: Warm, approachable (Nova, Shimmer)
+    - **Technical**: Neutral, precise (Alloy)
+    - **Customer Service**: Empathetic, patient (Fable)
+  </Accordion>
+  
+  <Accordion title="Consider Your Audience" icon="users">
+    - **Global**: Use multi-language TTS providers
+    - **Accessibility**: Enable voice input and output by default
+    - **Professional**: Use high-quality voices (ElevenLabs, Azure Neural)
+    - **Cost-Conscious**: Browser native or OpenAI standard
+  </Accordion>
+  
+  <Accordion title="Test Across Devices" icon="mobile-screen">
+    Voice performance varies:
+    - Desktop browsers have better native support
+    - Mobile may have data usage considerations
+    - Test auto-play on mobile (may be blocked)
+    - Consider bandwidth limitations
+  </Accordion>
+</AccordionGroup>
+
+### Performance Optimization
+
+<CardGroup cols={2}>
+  <Card title="Speed vs Quality" icon="gauge-high">
+    **Fast (tts-1, turbo):**
+    - Lower latency
+    - Good for chat
+    - Less compute intensive
+    
+    **High Quality (tts-1-hd, neural):**
+    - Better sound
+    - More natural
+    - Slightly slower
+  </Card>
+  
+  <Card title="Streaming vs Buffered" icon="circle-play">
+    **Streaming:**
+    - Faster start
+    - Better UX
+    - More complex
+    
+    **Buffered:**
+    - Complete audio
+    - Simpler
+    - Small delay
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Microphone Not Working" icon="microphone-slash">
+    **Check:**
+    1. Browser permissions granted?
+    2. Microphone connected and working?
+    3. Try browser native option first
+    4. Check browser console for errors
+    
+    **Common fixes:**
+    - Reload page and grant permissions
+    - Check system microphone settings
+    - Try a different browser
+    - Use HTTPS (required for mic access)
+  </Accordion>
+  
+  <Accordion title="Audio Not Playing" icon="volume-xmark">
+    **Check:**
+    1. Volume not muted?
+    2. Auto-play enabled?
+    3. Provider API key valid?
+    4. Browser allows audio playback?
+    
+    **Common fixes:**
+    - Click play button manually
+    - Check provider key in settings
+    - Try different TTS provider
+    - Check browser audio settings
+  </Accordion>
+  
+  <Accordion title="Poor Voice Quality" icon="face-frown">
+    **Solutions:**
+    - Switch to HD model (tts-1-hd)
+    - Try ElevenLabs for premium quality
+    - Use neural voices (Azure, Google)
+    - Check internet connection speed
+    - Reduce playback speed if garbled
+  </Accordion>
+  
+  <Accordion title="High Costs" icon="money-bill">
+    **Cost-saving tips:**
+    - Use browser native for testing
+    - Choose standard models over HD
+    - Disable auto-play (user controlled)
+    - Use OpenAI over ElevenLabs for lower cost
+    - Monitor usage in provider dashboard
+  </Accordion>
+</AccordionGroup>
+
+## Cost Comparison
+
+| Provider | Quality | Speed | Cost (per 1M chars) | Best For |
+|----------|---------|-------|---------------------|----------|
+| Browser | ⭐⭐ | ⚡⚡⚡ | Free | Testing, demos |
+| OpenAI tts-1 | ⭐⭐⭐ | ⚡⚡⚡ | $15 | General use |
+| OpenAI tts-1-hd | ⭐⭐⭐⭐ | ⚡⚡ | $30 | High quality |
+| ElevenLabs | ⭐⭐⭐⭐⭐ | ⚡⚡ | $30-120 | Premium |
+| Google Standard | ⭐⭐⭐ | ⚡⚡ | $4 | Budget |
+| Google WaveNet | ⭐⭐⭐⭐ | ⚡⚡ | $16 | Value |
+| Azure Neural | ⭐⭐⭐⭐ | ⚡⚡ | $15 | Enterprise |
+
+<Info>
+  Prices are approximate and may vary. Check provider websites for current pricing.
+</Info>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Provider Keys"
+    icon="key"
+    href="/essentials/provider-keys"
+  >
+    Set up API keys for voice providers
+  </Card>
+  <Card
+    title="Create Expert"
+    icon="user-plus"
+    href="/essentials/create-expert"
+  >
+    Create an expert with voice capabilities
+  </Card>
+  <Card
+    title="Chat Features"
+    icon="comments"
+    href="/essentials/chat"
+  >
+    Learn about using voice in conversations
+  </Card>
+  <Card
+    title="Custom Models"
+    icon="sliders"
+    href="/essentials/custom-models"
+  >
+    Configure custom voice models
+  </Card>
+</CardGroup>
+

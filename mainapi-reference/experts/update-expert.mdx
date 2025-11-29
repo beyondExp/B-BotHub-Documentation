@@ -1,0 +1,13 @@
+---
+openapi: put /v1/experts/{expert_id}
+---
+
+<Note>
+**Permission Required:** This endpoint is only available for **Agencies** and **Middleware Partners**.
+</Note>
+
+## Partial Updates Supported
+
+Both `PUT` and `PATCH` methods support partial updates. You only need to include the fields you want to change.
+
+The API automatically validates ownership - you can only update experts you own.

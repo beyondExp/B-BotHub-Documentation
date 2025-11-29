@@ -6,13 +6,22 @@
   },
   "servers": [
     {
-      "url": "https://api.b-bot.space/v2/"
+      "url": "https://api.b-bot.space/api/v2/"
+    }
+  ],
+  "security": [
+    {
+      "apiKey": []
     }
   ],
   "tags": [
     {
-      "name": "Assistants",
-      "description": "An assistant is a configured instance of a graph."
+      "name": "Distribution Channels",
+      "description": "A distribution channel is a configured instance of a graph. Distribution channels control where and how your AI agents are deployed (Chat, Embed, Template, etc.)."
+    },
+    {
+      "name": "Experts",
+      "description": "Expert CRUD operations for managing AI experts. Only available for Agencies and Middleware Partners."
     },
     {
       "name": "Threads",
@@ -48,14 +57,14 @@
     }
   ],
   "paths": {
-    "/assistants": {
+    "/distribution-channels": {
       "post": {
         "tags": [
-          "Assistants"
+          "Distribution Channels"
         ],
-        "summary": "Create Assistant",
-        "description": "Create an assistant.\n\nAn initial version of the assistant will be created and the assistant is set to that version. To change versions, use the `POST /assistants/{assistant_id}/latest` endpoint.",
-        "operationId": "create_assistant_assistants_post",
+        "summary": "Create Distribution Channel",
+        "description": "Create a distribution channel.\n\nAn initial version of the distribution channel will be created and the channel is set to that version. To change versions, use the `POST /distribution-channels/{channel_id}/latest` endpoint.",
+        "operationId": "create_distribution_channel_distribution_channels_post",
         "requestBody": {
           "content": {
             "application/json": {
@@ -110,14 +119,14 @@
         }
       }
     },
-    "/assistants/search": {
+    "/distribution-channels/search": {
       "post": {
         "tags": [
-          "Assistants"
+          "Distribution Channels"
         ],
-        "summary": "Search Assistants",
-        "description": "Search for assistants.\n\nThis endpoint also functions as the endpoint to list all assistants.",
-        "operationId": "search_assistants_assistants_search_post",
+        "summary": "Search Distribution Channels",
+        "description": "Search for distribution channels.\n\nThis endpoint also functions as the endpoint to list all distribution channels.",
+        "operationId": "search_distribution_channels_distribution_channels_search_post",
         "requestBody": {
           "content": {
             "application/json": {
@@ -138,7 +147,7 @@
                     "$ref": "#/components/schemas/Assistant"
                   },
                   "type": "array",
-                  "title": "Response Search Assistants Assistants Search Post"
+                  "title": "Response Search Distribution Channels"
                 }
               }
             }
@@ -166,14 +175,14 @@
         }
       }
     },
-    "/assistants/count": {
+    "/distribution-channels/count": {
       "post": {
         "tags": [
-          "Assistants"
+          "Distribution Channels"
         ],
-        "summary": "Count Assistants",
-        "description": "Get the count of assistants matching the specified criteria.",
-        "operationId": "count_assistants_assistants_count_post",
+        "summary": "Count Distribution Channels",
+        "description": "Get the count of distribution channels matching the specified criteria.",
+        "operationId": "count_distribution_channels_distribution_channels_count_post",
         "requestBody": {
           "content": {
             "application/json": {
@@ -219,25 +228,25 @@
         }
       }
     },
-    "/assistants/{assistant_id}": {
+    "/distribution-channels/{channel_id}": {
       "get": {
         "tags": [
-          "Assistants"
+          "Distribution Channels"
         ],
-        "summary": "Get Assistant",
-        "description": "Get an assistant by ID.",
-        "operationId": "get_assistant_assistants__assistant_id__get",
+        "summary": "Get Distribution Channel",
+        "description": "Get a distribution channel by ID.",
+        "operationId": "get_distribution_channel_distribution_channels__channel_id__get",
         "parameters": [
           {
-            "description": "The ID of the assistant.",
+            "description": "The ID of the distribution channel.",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid",
-              "title": "Assistant ID",
-              "description": "The ID of the assistant."
+            "type": "string",
+            "format": "uuid",
+            "title": "Channel ID",
+            "description": "The ID of the distribution channel."
             },
-            "name": "assistant_id",
+            "name": "channel_id",
             "in": "path"
           }
         ],
@@ -266,22 +275,22 @@
       },
       "delete": {
         "tags": [
-          "Assistants"
+          "Distribution Channels"
         ],
-        "summary": "Delete Assistant",
-        "description": "Delete an assistant by ID.\n\nAll versions of the assistant will be deleted as well.",
-        "operationId": "delete_assistant_assistants__assistant_id__delete",
+        "summary": "Delete Distribution Channel",
+        "description": "Delete a distribution channel by ID.\n\nAll versions of the distribution channel will be deleted as well.",
+        "operationId": "delete_distribution_channel_distribution_channels__channel_id__delete",
         "parameters": [
           {
-            "description": "The ID of the assistant.",
+            "description": "The ID of the distribution channel.",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid",
-              "title": "Assistant ID",
-              "description": "The ID of the assistant."
+            "type": "string",
+            "format": "uuid",
+            "title": "Channel ID",
+            "description": "The ID of the distribution channel."
             },
-            "name": "assistant_id",
+            "name": "channel_id",
             "in": "path"
           }
         ],
@@ -318,22 +327,22 @@
       },
       "patch": {
         "tags": [
-          "Assistants"
+          "Distribution Channels"
         ],
-        "summary": "Patch Assistant",
-        "description": "Update an assistant.",
-        "operationId": "patch_assistant_assistants__assistant_id__patch",
+        "summary": "Patch Distribution Channel",
+        "description": "Update a distribution channel.",
+        "operationId": "patch_distribution_channel_distribution_channels__channel_id__patch",
         "parameters": [
           {
-            "description": "The ID of the assistant.",
+            "description": "The ID of the distribution channel.",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid",
-              "title": "Assistant ID",
-              "description": "The ID of the assistant."
+            "type": "string",
+            "format": "uuid",
+            "title": "Channel ID",
+            "description": "The ID of the distribution channel."
             },
-            "name": "assistant_id",
+            "name": "channel_id",
             "in": "path"
           }
         ],
@@ -381,25 +390,25 @@
         }
       }
     },
-    "/assistants/{assistant_id}/graph": {
+    "/distribution-channels/{channel_id}/graph": {
       "get": {
         "tags": [
-          "Assistants"
+          "Distribution Channels"
         ],
-        "summary": "Get Assistant Graph",
-        "description": "Get an assistant by ID.",
-        "operationId": "get_assistant_graph_assistants__assistant_id__graph_get",
+        "summary": "Get Distribution Channel Graph",
+        "description": "Get a distribution channel's graph by ID.",
+        "operationId": "get_distribution_channel_graph_distribution_channels__channel_id__graph_get",
         "parameters": [
           {
-            "description": "The ID of the assistant.",
+            "description": "The ID of the distribution channel.",
             "required": true,
             "schema": {
               "anyOf": [
                 {
-                  "type": "string",
-                  "format": "uuid",
-                  "title": "Assistant ID",
-                  "description": "The ID of the assistant."
+            "type": "string",
+            "format": "uuid",
+            "title": "Channel ID",
+            "description": "The ID of the distribution channel."
                 },
                 {
                   "type": "string",
@@ -408,7 +417,7 @@
                 }
               ]
             },
-            "name": "assistant_id",
+            "name": "channel_id",
             "in": "path"
           },
           {
@@ -444,7 +453,7 @@
                     "type": "array"
                   },
                   "type": "object",
-                  "title": "Response Get Assistant Graph Assistants  Assistant Id  Graph Get"
+                  "title": "Response Get Distribution Channel Graph"
                 }
               }
             }
@@ -472,24 +481,24 @@
         }
       }
     },
-    "/assistants/{assistant_id}/subgraphs": {
+    "/distribution-channels/{channel_id}/subgraphs": {
       "get": {
         "tags": [
-          "Assistants"
+          "Distribution Channels"
         ],
-        "summary": "Get Assistant Subgraphs",
-        "description": "Get an assistant's subgraphs.",
-        "operationId": "get_assistant_subgraphs_assistants__assistant_id__subgraphs_get",
+        "summary": "Get Distribution Channel Subgraphs",
+        "description": "Get a distribution channel's subgraphs.",
+        "operationId": "get_distribution_channel_subgraphs_distribution_channels__channel_id__subgraphs_get",
         "parameters": [
           {
-            "description": "The ID of the assistant.",
+            "description": "The ID of the distribution channel.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid",
-              "title": "Assistant Id"
+              "title": "Channel Id"
             },
-            "name": "assistant_id",
+            "name": "channel_id",
             "in": "path"
           },
           {
@@ -538,24 +547,24 @@
         }
       }
     },
-    "/assistants/{assistant_id}/subgraphs/{namespace}": {
+    "/distribution-channels/{channel_id}/subgraphs/{namespace}": {
       "get": {
         "tags": [
-          "Assistants"
+          "Distribution Channels"
         ],
-        "summary": "Get Assistant Subgraphs by Namespace",
-        "description": "Get an assistant's subgraphs filtered by namespace.",
-        "operationId": "get_assistant_subgraphs_assistants__assistant_id__subgraphs__namespace__get",
+        "summary": "Get Distribution Channel Subgraphs by Namespace",
+        "description": "Get a distribution channel's subgraphs filtered by namespace.",
+        "operationId": "get_distribution_channel_subgraphs_by_namespace_distribution_channels__channel_id__subgraphs__namespace__get",
         "parameters": [
           {
-            "description": "The ID of the assistant.",
+            "description": "The ID of the distribution channel.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid",
-              "title": "Assistant Id"
+              "title": "Channel Id"
             },
-            "name": "assistant_id",
+            "name": "channel_id",
             "in": "path"
           },
           {
@@ -604,25 +613,25 @@
         }
       }
     },
-    "/assistants/{assistant_id}/schemas": {
+    "/distribution-channels/{channel_id}/schemas": {
       "get": {
         "tags": [
-          "Assistants"
+          "Distribution Channels"
         ],
-        "summary": "Get Assistant Schemas",
-        "description": "Get an assistant by ID.",
-        "operationId": "get_assistant_schemas_assistants__assistant_id__schemas_get",
+        "summary": "Get Distribution Channel Schemas",
+        "description": "Get a distribution channel's schemas by ID.",
+        "operationId": "get_distribution_channel_schemas_distribution_channels__channel_id__schemas_get",
         "parameters": [
           {
-            "description": "The ID of the assistant.",
+            "description": "The ID of the distribution channel.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid",
-              "title": "Assistant Id",
-              "description": "The ID of the assistant."
+              "title": "Channel Id",
+              "description": "The ID of the distribution channel."
             },
-            "name": "assistant_id",
+            "name": "channel_id",
             "in": "path"
           }
         ],
@@ -660,25 +669,25 @@
         }
       }
     },
-    "/assistants/{assistant_id}/versions": {
+    "/distribution-channels/{channel_id}/versions": {
       "post": {
         "tags": [
-          "Assistants"
+          "Distribution Channels"
         ],
-        "summary": "Get Assistant Versions",
-        "description": "Get all versions of an assistant.",
-        "operationId": "get_assistant_versions_assistants__assistant_id__versions_get",
+        "summary": "Get Distribution Channel Versions",
+        "description": "Get all versions of a distribution channel.",
+        "operationId": "get_distribution_channel_versions_distribution_channels__channel_id__versions_get",
         "parameters": [
           {
-            "description": "The ID of the assistant.",
+            "description": "The ID of the distribution channel.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid",
-              "title": "Assistant Id",
-              "description": "The ID of the assistant."
+              "title": "Channel Id",
+              "description": "The ID of the distribution channel."
             },
-            "name": "assistant_id",
+            "name": "channel_id",
             "in": "path"
           }
         ],
@@ -692,7 +701,7 @@
                     "$ref": "#/components/schemas/Assistant"
                   },
                   "type": "array",
-                  "title": "Response Search Assistants Assistants Search Post"
+                  "title": "Response Search Distribution Channels"
                 }
               }
             }
@@ -710,25 +719,25 @@
         }
       }
     },
-    "/assistants/{assistant_id}/latest": {
+    "/distribution-channels/{channel_id}/latest": {
       "post": {
         "tags": [
-          "Assistants"
+          "Distribution Channels"
         ],
-        "summary": "Set Latest Assistant Version",
-        "description": "Set the latest version for an assistant.",
-        "operationId": "set_latest_assistant_version_assistants__assistant_id__versions_post",
+        "summary": "Set Latest Distribution Channel Version",
+        "description": "Set the latest version for a distribution channel.",
+        "operationId": "set_latest_distribution_channel_version_distribution_channels__channel_id__versions_post",
         "parameters": [
           {
-            "description": "The ID of the assistant.",
+            "description": "The ID of the distribution channel.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid",
-              "title": "Assistant Id",
-              "description": "The ID of the assistant."
+              "title": "Channel Id",
+              "description": "The ID of the distribution channel."
             },
-            "name": "assistant_id",
+            "name": "channel_id",
             "in": "path"
           },
           {
@@ -737,7 +746,7 @@
             "schema": {
               "type": "integer",
               "title": "Version",
-              "description": "The version of the assistant to change to."
+              "description": "The version of the distribution channel to change to."
             },
             "name": "version",
             "in": "query"
@@ -766,6 +775,631 @@
           },
           "422": {
             "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/get_experts": {
+      "get": {
+        "tags": [
+          "Experts"
+        ],
+        "summary": "Get All Experts",
+        "description": "Retrieve all experts associated with the authenticated user. Only available for Agencies and Middleware Partners.",
+        "operationId": "get_experts_v1_get_experts_get",
+        "parameters": [
+          {
+            "name": "bbot_api_key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "B-Bot API Key",
+              "description": "API Key for authentication"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "experts": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Expert"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found or no experts found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/get_expert/{expert_id}": {
+      "get": {
+        "tags": [
+          "Experts"
+        ],
+        "summary": "Get Expert by ID",
+        "description": "Retrieve a specific expert by its ID. Only available for Agencies and Middleware Partners.",
+        "operationId": "get_expert_v1_get_expert__expert_id__get",
+        "parameters": [
+          {
+            "name": "expert_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Expert ID",
+              "description": "The unique identifier of the expert"
+            }
+          },
+          {
+            "name": "bbot_api_key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "B-Bot API Key",
+              "description": "API Key for authentication"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "expert": {
+                      "$ref": "#/components/schemas/ExpertDetailed"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Invalid API key or insufficient permissions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Expert not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/create_expert": {
+      "post": {
+        "tags": [
+          "Experts"
+        ],
+        "summary": "Create Expert",
+        "description": "Create a new expert in the B-Bot system. Only available for Agencies and Middleware Partners.",
+        "operationId": "create_expert_v1_create_expert_post",
+        "parameters": [
+          {
+            "name": "bbot_api_key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "B-Bot API Key",
+              "description": "API Key for authentication"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpertCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Created expert ID"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "description": "Expert attributes"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing required fields or invalid data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Invalid API key or insufficient permissions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found in datacenter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to create expert",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/experts/{expert_id}": {
+      "put": {
+        "tags": [
+          "Experts"
+        ],
+        "summary": "Update Expert (PUT)",
+        "description": "Update an existing expert's configuration using PUT. Only available for Agencies and Middleware Partners.",
+        "operationId": "update_expert_put_v1_experts__expert_id__put",
+        "parameters": [
+          {
+            "name": "expert_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Expert ID",
+              "description": "The unique identifier of the expert to update"
+            }
+          },
+          {
+            "name": "bbot_api_key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "B-Bot API Key",
+              "description": "API Key for authentication"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpertUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Updated expert ID"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "description": "Updated expert attributes"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "No fields to update or invalid data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Invalid API key, insufficient permissions, or you don't own this expert",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Expert not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to update expert",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Experts"
+        ],
+        "summary": "Update Expert (PATCH)",
+        "description": "Update an existing expert's configuration using PATCH. Only available for Agencies and Middleware Partners.",
+        "operationId": "update_expert_patch_v1_experts__expert_id__patch",
+        "parameters": [
+          {
+            "name": "expert_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Expert ID",
+              "description": "The unique identifier of the expert to update"
+            }
+          },
+          {
+            "name": "bbot_api_key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "B-Bot API Key",
+              "description": "API Key for authentication"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpertUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Updated expert ID"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "description": "Updated expert attributes"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "No fields to update or invalid data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Invalid API key, insufficient permissions, or you don't own this expert",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Expert not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to update expert",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Experts"
+        ],
+        "summary": "Delete Expert",
+        "description": "Permanently delete an expert from the system. This action is irreversible. Only available for Agencies and Middleware Partners.",
+        "operationId": "delete_expert_v1_experts__expert_id__delete",
+        "parameters": [
+          {
+            "name": "expert_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Expert ID",
+              "description": "The unique identifier of the expert to delete"
+            }
+          },
+          {
+            "name": "bbot_api_key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "B-Bot API Key",
+              "description": "API Key for authentication"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Deleted expert ID"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Confirmation message"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Invalid API key, insufficient permissions, or you don't own this expert",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Expert not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to delete expert",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/get_template_experts": {
+      "get": {
+        "tags": [
+          "Experts"
+        ],
+        "summary": "Get Template Experts",
+        "description": "Retrieve publicly available expert templates for installation. Only available for Agencies and Middleware Partners.",
+        "operationId": "get_template_experts_v1_get_template_experts_get",
+        "parameters": [
+          {
+            "name": "bbot_api_key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "B-Bot API Key",
+              "description": "API Key for authentication"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Category",
+              "description": "Filter templates by category (e.g., \"Sales & Marketing\", \"Customer Support\")"
+            }
+          },
+          {
+            "name": "featured",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Featured",
+              "description": "Filter to show only featured templates"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "templates": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TemplateExpert"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Invalid API key or insufficient permissions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No templates found matching the criteria",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
             "content": {
               "application/json": {
                 "schema": {
@@ -1694,7 +2328,7 @@
                 "enum": [
                   "run_id",
                   "thread_id",
-                  "assistant_id",
+                  "channel_id",
                   "created_at",
                   "updated_at",
                   "status",
@@ -3208,7 +3842,7 @@
         "description": "Communicate with an assistant using the Agent-to-Agent Protocol.\nSends a JSON-RPC 2.0 message to the assistant.\n\n- **Request**: Provide an object with `jsonrpc`, `id`, `method`, and optional `params`.\n- **Response**: Returns a JSON-RPC response with task information or error.\n\n**Supported Methods:**\n- `message/send`: Send a message to the assistant\n- `tasks/get`: Get the status and result of a task\n\n**Notes:**\n- Supports threaded conversations via thread context\n- Messages can contain text and data parts\n- Tasks run asynchronously and return completion status\n",
         "parameters": [
           {
-            "name": "assistant_id",
+            "name": "channel_id",
             "in": "path",
             "required": true,
             "schema": {
@@ -3690,11 +4324,11 @@
     "schemas": {
       "Assistant": {
         "properties": {
-          "assistant_id": {
+          "channel_id": {
             "type": "string",
             "format": "uuid",
-            "title": "Assistant Id",
-            "description": "The ID of the assistant."
+            "title": "Channel Id",
+            "description": "The ID of the distribution channel."
           },
           "graph_id": {
             "type": "string",
@@ -3766,7 +4400,7 @@
         },
         "type": "object",
         "required": [
-          "assistant_id",
+          "channel_id",
           "graph_id",
           "config",
           "created_at",
@@ -3777,16 +4411,16 @@
       },
       "AssistantCreate": {
         "properties": {
-          "assistant_id": {
+          "channel_id": {
             "type": "string",
             "format": "uuid",
-            "title": "Assistant Id",
+            "title": "Channel Id",
             "description": "The ID of the assistant. If not provided, a random UUID will be generated."
           },
           "graph_id": {
             "type": "string",
             "title": "Graph Id",
-            "description": "The ID of the graph the assistant should use. The graph ID is normally set in your langgraph.json configuration."
+            "description": "The ID of the graph the distribution channel should use. The graph ID is normally set in your langgraph.json configuration."
           },
           "config": {
             "type": "object",
@@ -3839,7 +4473,7 @@
           "graph_id": {
             "type": "string",
             "title": "Graph Id",
-            "description": "The ID of the graph the assistant should use. The graph ID is normally set in your langgraph.json configuration. If not provided, assistant will keep pointing to same graph."
+            "description": "The ID of the graph the distribution channel should use. The graph ID is normally set in your langgraph.json configuration. If not provided, the distribution channel will keep pointing to same graph."
           },
           "config": {
             "type": "object",
@@ -3912,14 +4546,14 @@
             "title": "Cron Id",
             "description": "The ID of the cron."
           },
-          "assistant_id": {
+          "channel_id": {
             "type": [
               "string",
               "null"
             ],
             "format": "uuid",
-            "title": "Assistant Id",
-            "description": "The ID of the assistant."
+            "title": "Channel Id",
+            "description": "The ID of the distribution channel."
           },
           "thread_id": {
             "type": "string",
@@ -4004,19 +4638,19 @@
             "title": "End Time",
             "description": "The end date to stop running the cron."
           },
-          "assistant_id": {
+          "channel_id": {
             "anyOf": [
               {
                 "type": "string",
                 "format": "uuid",
-                "title": "Assistant Id"
+                "title": "Channel Id"
               },
               {
                 "type": "string",
                 "title": "Graph Id"
               }
             ],
-            "description": "The assistant ID or graph name to run. If using graph name, will default to the assistant automatically created from that graph by the server."
+            "description": "The distribution channel ID or graph name to run. If using graph name, will default to the distribution channel automatically created from that graph by the server."
           },
           "input": {
             "anyOf": [
@@ -4124,7 +4758,7 @@
         },
         "type": "object",
         "required": [
-          "assistant_id",
+          "channel_id",
           "schedule"
         ],
         "title": "CronCreate",
@@ -4132,11 +4766,11 @@
       },
       "CronSearch": {
         "properties": {
-          "assistant_id": {
+          "channel_id": {
             "type": "string",
             "format": "uuid",
-            "title": "Assistant Id",
-            "description": "The assistant ID or graph name to filter by using exact match."
+            "title": "Channel Id",
+            "description": "The distribution channel ID or graph name to filter by using exact match."
           },
           "thread_id": {
             "type": "string",
@@ -4166,7 +4800,7 @@
             "default": "created_at",
             "enum": [
               "cron_id",
-              "assistant_id",
+              "channel_id",
               "thread_id",
               "next_run_date",
               "end_time",
@@ -4190,7 +4824,7 @@
               "type": "string",
               "enum": [
                 "cron_id",
-                "assistant_id",
+                "channel_id",
                 "thread_id",
                 "end_time",
                 "schedule",
@@ -4214,11 +4848,11 @@
       },
       "CronCountRequest": {
         "properties": {
-          "assistant_id": {
+          "channel_id": {
             "type": "string",
             "format": "uuid",
-            "title": "Assistant Id",
-            "description": "The assistant ID or graph name to search for."
+            "title": "Channel Id",
+            "description": "The distribution channel ID or graph name to search for."
           },
           "thread_id": {
             "type": "string",
@@ -4331,10 +4965,10 @@
             "title": "Thread Id",
             "description": "The ID of the thread."
           },
-          "assistant_id": {
+          "channel_id": {
             "type": "string",
             "format": "uuid",
-            "title": "Assistant Id",
+            "title": "Channel Id",
             "description": "The assistant that was used for this run."
           },
           "created_at": {
@@ -4387,7 +5021,7 @@
         "required": [
           "run_id",
           "thread_id",
-          "assistant_id",
+          "channel_id",
           "created_at",
           "updated_at",
           "status",
@@ -4482,19 +5116,19 @@
       },
       "RunCreateStateful": {
         "properties": {
-          "assistant_id": {
+          "channel_id": {
             "anyOf": [
               {
                 "type": "string",
                 "format": "uuid",
-                "title": "Assistant Id"
+                "title": "Channel Id"
               },
               {
                 "type": "string",
                 "title": "Graph Id"
               }
             ],
-            "description": "The assistant ID or graph name to run. If using graph name, will default to first assistant created from that graph."
+            "description": "The distribution channel ID or graph name to run. If using graph name, will default to first distribution channel created from that graph."
           },
           "checkpoint": {
             "type": "object",
@@ -4731,7 +5365,7 @@
         },
         "type": "object",
         "required": [
-          "assistant_id"
+          "channel_id"
         ],
         "title": "RunCreateStateful",
         "description": "Payload for creating a run."
@@ -4747,19 +5381,19 @@
       },
       "RunCreateStateless": {
         "properties": {
-          "assistant_id": {
+          "channel_id": {
             "anyOf": [
               {
                 "type": "string",
                 "format": "uuid",
-                "title": "Assistant Id"
+                "title": "Channel Id"
               },
               {
                 "type": "string",
                 "title": "Graph Id"
               }
             ],
-            "description": "The assistant ID or graph name to run. If using graph name, will default to first assistant created from that graph."
+            "description": "The distribution channel ID or graph name to run. If using graph name, will default to first distribution channel created from that graph."
           },
           "input": {
             "anyOf": [
@@ -4978,7 +5612,7 @@
         },
         "type": "object",
         "required": [
-          "assistant_id"
+          "channel_id"
         ],
         "title": "RunCreateStateless",
         "description": "Payload for creating a run."
@@ -5013,7 +5647,7 @@
           "sort_by": {
             "type": "string",
             "enum": [
-              "assistant_id",
+              "channel_id",
               "created_at",
               "updated_at",
               "name",
@@ -5036,7 +5670,7 @@
             "items": {
               "type": "string",
               "enum": [
-                "assistant_id",
+                "channel_id",
                 "graph_id",
                 "name",
                 "description",
@@ -5869,6 +6503,299 @@
           }
         }
       },
+      "Expert": {
+        "type": "object",
+        "title": "Expert",
+        "description": "Basic expert information",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique expert identifier"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Expert name"
+              },
+              "description": {
+                "type": "string",
+                "description": "Expert description"
+              },
+              "profession": {
+                "type": "string",
+                "description": "Expert profession/role"
+              },
+              "system_message": {
+                "type": "string",
+                "description": "System instructions for the expert"
+              },
+              "function_description": {
+                "type": "string",
+                "description": "Description of expert's function"
+              },
+              "function_name": {
+                "type": "string",
+                "description": "Function name for API routing"
+              },
+              "apps": {
+                "type": "array",
+                "description": "Connected applications"
+              },
+              "experts": {
+                "type": "array",
+                "description": "Team member expert IDs"
+              },
+              "abilities": {
+                "type": "array",
+                "description": "Expert abilities/skills"
+              },
+              "templates": {
+                "type": "array",
+                "description": "Quick action templates"
+              },
+              "knowledge_containers": {
+                "type": "array",
+                "description": "Linked knowledge bases"
+              },
+              "owner": {
+                "type": "integer",
+                "description": "Owner user ID"
+              },
+              "locale": {
+                "type": "string",
+                "description": "Localization setting"
+              },
+              "version": {
+                "type": "string",
+                "description": "Expert version"
+              },
+              "task_assistant_id": {
+                "type": "string",
+                "description": "Linked task assistant ID"
+              }
+            }
+          }
+        }
+      },
+      "ExpertDetailed": {
+        "type": "object",
+        "title": "Expert Detailed",
+        "description": "Detailed expert information with full relations",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Expert"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "owner": {
+                    "type": "object",
+                    "description": "Owner user information",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "username": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "profile_picture": {
+                    "type": "object",
+                    "description": "Profile picture metadata",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ExpertCreate": {
+        "type": "object",
+        "title": "Expert Create",
+        "description": "Schema for creating a new expert",
+        "required": [
+          "name",
+          "description",
+          "profession",
+          "system_message"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The expert's name"
+          },
+          "description": {
+            "type": "string",
+            "description": "A description of the expert's purpose"
+          },
+          "profession": {
+            "type": "string",
+            "description": "The expert's profession or role"
+          },
+          "system_message": {
+            "type": "string",
+            "description": "System-level instructions"
+          },
+          "function_description": {
+            "type": "string",
+            "description": "Description of the expert's main function"
+          },
+          "function_name": {
+            "type": "string",
+            "description": "Function name identifier"
+          },
+          "apps": {
+            "type": "array",
+            "description": "Connected applications array"
+          },
+          "experts": {
+            "type": "array",
+            "description": "Team member expert IDs array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "profile_picture": {
+            "type": "integer",
+            "description": "Media library ID of the profile picture"
+          },
+          "expert_llm_models": {
+            "type": "array",
+            "description": "LLM model configurations"
+          }
+        }
+      },
+      "ExpertUpdate": {
+        "type": "object",
+        "title": "Expert Update",
+        "description": "Schema for updating an existing expert (all fields optional)",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Update the expert's name"
+          },
+          "description": {
+            "type": "string",
+            "description": "Update the expert's description"
+          },
+          "profession": {
+            "type": "string",
+            "description": "Update the expert's profession"
+          },
+          "system_message": {
+            "type": "string",
+            "description": "Update the system instructions"
+          },
+          "function_description": {
+            "type": "string",
+            "description": "Update the function description"
+          },
+          "function_name": {
+            "type": "string",
+            "description": "Update the function name"
+          },
+          "apps": {
+            "type": "array",
+            "description": "Update the connected applications"
+          },
+          "profile_picture": {
+            "type": "integer",
+            "description": "Update the profile picture"
+          },
+          "abilities": {
+            "type": "array",
+            "description": "Update the abilities array"
+          },
+          "templates": {
+            "type": "array",
+            "description": "Update the templates array"
+          },
+          "experts": {
+            "type": "array",
+            "description": "Update team member expert IDs",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "expert_llm_models": {
+            "type": "array",
+            "description": "Update LLM model configurations"
+          },
+          "task_assistant_id": {
+            "type": "string",
+            "description": "Link a task assistant ID"
+          }
+        }
+      },
+      "TemplateExpert": {
+        "type": "object",
+        "title": "Template Expert",
+        "description": "Expert configured as a public template",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ExpertDetailed"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "template_category": {
+                    "type": "string",
+                    "description": "Template category"
+                  },
+                  "template_featured": {
+                    "type": "boolean",
+                    "description": "Featured status"
+                  },
+                  "template_usage_count": {
+                    "type": "integer",
+                    "description": "Number of times installed"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
       "ErrorResponse": {
         "type": "string",
         "title": "ErrorResponse",
@@ -5948,6 +6875,18 @@
             }
           }
         }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "apiKey": {
+        "type": "apiKey",
+        "name": "bbot-api-key",
+        "in": "header",
+        "description": "API key for authentication"
       }
     }
   }

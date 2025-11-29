@@ -1,0 +1,29 @@
+---
+openapi: delete /v1/experts/{expert_id}
+---
+
+<Warning>
+**Permission Required:** This endpoint is only available for **Agencies** and **Middleware Partners**.
+
+This action is **irreversible**. All expert data, configurations, and associations will be permanently deleted.
+</Warning>
+
+## What Gets Deleted
+
+When you delete an expert, the following data is permanently removed:
+
+- Expert configuration and metadata
+- Associated abilities and templates
+- App connections and credentials
+- Knowledge container associations
+- Team member relationships
+- Profile picture references
+- Task assistant linkages
+
+<Info>
+**Note:** Deleting an expert does NOT delete:
+- Distribution channels (assistants) created from the expert
+- Chat history or conversation threads
+- Uploaded files in knowledge containers (they become orphaned)
+- Users or other experts
+</Info>

@@ -1,0 +1,254 @@
+---
+title: 'Provider Keys Management'
+description: 'Manage your API keys for different AI providers'
+icon: 'key'
+---
+
+# Provider Keys Management
+
+The Provider Keys Management system allows you to securely store and manage API keys for multiple AI providers. This enables you to use different models and services across your experts and assistants.
+
+## Overview
+
+Provider keys are used to authenticate with various AI services including:
+- **LLM Providers**: OpenAI, Anthropic, Google, Mistral, DeepSeek, and more
+- **Voice Providers**: ElevenLabs, OpenAI TTS, Google TTS, Azure Speech
+- **Image Providers**: Stability AI, Midjourney, OpenAI DALL-E
+
+## Accessing Provider Keys
+
+Navigate to **Profile** → **Provider Keys** or **Settings** → **API Keys** to manage your keys.
+
+## Adding a Provider Key
+
+<Steps>
+  <Step title="Select Provider">
+    Click **Add New Key** and choose your provider from the list. You can filter by category:
+    - **All**: Show all providers
+    - **LLM**: Language model providers
+    - **Voice**: Text-to-speech providers
+    - **Image**: Image generation providers
+  </Step>
+  
+  <Step title="Enter API Key">
+    Paste your API key from the provider's dashboard. The key will be encrypted before storage.
+  </Step>
+  
+  <Step title="Configure Settings">
+    - **Nickname**: Give your key a memorable name (optional)
+    - **Primary**: Set as the default key for this provider
+    - **Fallback**: Use this key if the primary fails
+  </Step>
+  
+  <Step title="Save">
+    Click **Save** to securely store your key. It will be validated with the provider.
+  </Step>
+</Steps>
+
+## Supported Providers
+
+### LLM Providers
+<CardGroup cols={3}>
+  <Card title="OpenAI" icon="robot">
+    GPT-4, GPT-4 Turbo, GPT-3.5
+  </Card>
+  <Card title="Anthropic" icon="brain">
+    Claude 3 Opus, Sonnet, Haiku
+  </Card>
+  <Card title="Google" icon="google">
+    Gemini Pro, Gemini Ultra
+  </Card>
+  <Card title="Mistral AI" icon="wind">
+    Mistral Large, Medium, Small
+  </Card>
+  <Card title="DeepSeek" icon="magnifying-glass">
+    DeepSeek Chat, Coder
+  </Card>
+  <Card title="Cohere" icon="c">
+    Command, Command-R
+  </Card>
+  <Card title="Groq" icon="bolt">
+    Ultra-fast inference
+  </Card>
+  <Card title="Azure OpenAI" icon="microsoft">
+    Azure-hosted models
+  </Card>
+  <Card title="Ollama" icon="server">
+    Self-hosted local models
+  </Card>
+</CardGroup>
+
+### Voice Providers
+<CardGroup cols={3}>
+  <Card title="ElevenLabs" icon="microphone">
+    High-quality voice synthesis
+  </Card>
+  <Card title="OpenAI TTS" icon="volume-high">
+    Natural-sounding voices
+  </Card>
+  <Card title="Google TTS" icon="google">
+    Multi-language support
+  </Card>
+  <Card title="Azure Speech" icon="microsoft">
+    Neural voices
+  </Card>
+</CardGroup>
+
+### Image Providers
+<CardGroup cols={3}>
+  <Card title="Stability AI" icon="image">
+    Stable Diffusion models
+  </Card>
+  <Card title="OpenAI DALL-E" icon="palette">
+    DALL-E 3 image generation
+  </Card>
+  <Card title="Midjourney" icon="wand-magic-sparkles">
+    Artistic image creation
+  </Card>
+</CardGroup>
+
+## Key Management Features
+
+### Primary Keys
+Set a key as **Primary** to make it the default for that provider. When you select a model from that provider, it will automatically use the primary key.
+
+### Fallback Keys
+Set a key as **Fallback** to provide redundancy. If the primary key fails (rate limit, quota exceeded, etc.), the system will automatically try the fallback key.
+
+### Key Validation
+When you add a key, B-Bot Hub validates it with the provider to ensure it's working correctly. You'll see a validation status indicator.
+
+### Nickname System
+Give your keys memorable nicknames like:
+- "Production OpenAI"
+- "Development Key"
+- "High-Limit Account"
+- "Personal ElevenLabs"
+
+This makes it easy to identify which key to use for different purposes.
+
+## Using Provider Keys
+
+### In Expert Creation
+When creating an expert and selecting a model, you can choose which provider key to use:
+
+1. **Use Expert's Main Key**: The primary key for that provider
+2. **Select Specific Key**: Choose from your available keys for that provider
+
+### In Modalities
+For voice input/output, you can select different keys for TTS than your main model key:
+
+```
+Main Model: GPT-4 (using "Production OpenAI")
+Voice Output: ElevenLabs (using "Personal ElevenLabs")
+```
+
+### In Assistants
+Each assistant can be configured with its own provider key selection for maximum flexibility.
+
+## Security Best Practices
+
+<Warning>
+  **API keys are sensitive credentials.** Follow these security practices:
+</Warning>
+
+<AccordionGroup>
+  <Accordion title="Encryption" icon="lock">
+    All API keys are encrypted before storage using industry-standard encryption. Keys are only decrypted when making API calls.
+  </Accordion>
+  
+  <Accordion title="Key Rotation" icon="rotate">
+    Regularly rotate your API keys, especially for production use. Update keys in B-Bot Hub when you rotate them with providers.
+  </Accordion>
+  
+  <Accordion title="Separate Keys" icon="split">
+    Use separate keys for development and production environments. This prevents accidental quota usage.
+  </Accordion>
+  
+  <Accordion title="Monitor Usage" icon="chart-line">
+    Regularly check your provider dashboards for unusual API usage that might indicate unauthorized access.
+  </Accordion>
+  
+  <Accordion title="Least Privilege" icon="shield">
+    When possible, create provider keys with minimal required permissions.
+  </Accordion>
+</AccordionGroup>
+
+## Managing Multiple Keys
+
+You can have multiple keys for the same provider. This is useful for:
+
+- **Load Balancing**: Distribute requests across multiple accounts
+- **Rate Limit Management**: Switch to a different key when limits are reached
+- **Team Management**: Different keys for different team members or projects
+- **Cost Tracking**: Separate keys for different clients or departments
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Key Validation Failed" icon="exclamation-triangle">
+    **Possible causes:**
+    - Invalid API key format
+    - Key has been revoked
+    - Provider service is down
+    - Network connectivity issues
+    
+    **Solution:** Double-check the key in your provider dashboard and try again.
+  </Accordion>
+  
+  <Accordion title="Rate Limit Errors" icon="clock">
+    **Solution:** Add a fallback key or wait for your rate limit to reset. Consider upgrading your provider plan.
+  </Accordion>
+  
+  <Accordion title="Key Not Showing in Dropdown" icon="eye-slash">
+    **Possible causes:**
+    - Key is for a different provider than the selected model
+    - Key validation hasn't completed
+    
+    **Solution:** Ensure the key's provider matches your model selection.
+  </Accordion>
+</AccordionGroup>
+
+## Getting API Keys from Providers
+
+### OpenAI
+1. Go to [platform.openai.com](https://platform.openai.com)
+2. Navigate to **API Keys**
+3. Click **Create new secret key**
+4. Copy the key immediately (you won't see it again)
+
+### Anthropic
+1. Go to [console.anthropic.com](https://console.anthropic.com)
+2. Navigate to **API Keys**
+3. Click **Create Key**
+4. Copy and save the key
+
+### ElevenLabs
+1. Go to [elevenlabs.io](https://elevenlabs.io)
+2. Navigate to **Profile** → **API Keys**
+3. Generate a new key
+4. Copy the key
+
+<Info>
+  Each provider has its own process for generating API keys. Refer to their documentation for specific instructions.
+</Info>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Create Your Expert"
+    icon="user-robot"
+    href="/essentials/create-expert"
+  >
+    Use your provider keys to create powerful AI experts
+  </Card>
+  <Card
+    title="Configure Modalities"
+    icon="microphone-lines"
+    href="/essentials/modalities"
+  >
+    Set up voice input and output with your keys
+  </Card>
+</CardGroup>
+

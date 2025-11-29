@@ -36,15 +36,18 @@ After you clicked on the "Chat" button you will see the chat window. Here you ca
 
 You can see the following functions in the Thumbbar:
 
-- The Back Button to go back to the Expert Overview where you can see all of your Experts
-- The Abilities Button to see all of the abilities of your expert
-- The Chat History Button to see the chat history of your expert
-- The choose model Button to change the model of your expert
-- The Settings Button to change the settings of the Chat
-- The tools and connectors Button to see all of the tools and connectors of your expert
-- The Delete Button to delete the Message History of this chat you can start a new chat with your expert here
-- The Save Button to save the chat history of this chat
-- The Upload Button to upload a file to the chat
+- **Back Button**: Return to the Expert Overview
+- **Abilities Button**: See and activate your expert's abilities
+- **Chat History Button**: Browse previous conversations
+- **Model Selection Button**: Change the AI model being used
+- **Settings Button**: Configure chat settings (temperature, tokens, etc.)
+- **Memories Button**: View and manage conversation memories
+- **Tools & Connectors**: Enable/disable apps and integrations
+- **Delete History**: Clear messages and start fresh
+- **Save Chat**: Export conversation history
+- **Upload Files**: Add documents, images, or other files
+- **Voice Mode** 🎤: Enable voice input (new!)
+- **DeepAgents Workspace**: Access todos and files (in Deep Mode)
 
 <img
   style={{ borderRadius: '0.5rem' }}
@@ -179,6 +182,231 @@ There can be multiple thoughts for one message.
   style={{ borderRadius: '0.5rem' }}
   src="/images/chat-eighteen.png"
 />
+
+## Voice Features
+
+### Voice Input 🎤
+
+Enable voice mode to speak to your expert instead of typing:
+
+<Steps>
+  <Step title="Enable Voice Mode">
+    Click the **microphone icon** to toggle voice mode
+  </Step>
+  
+  <Step title="Hold to Record">
+    Press and hold the microphone button while speaking
+  </Step>
+  
+  <Step title="Release to Send">
+    Release when done - your speech is transcribed and sent automatically
+  </Step>
+</Steps>
+
+**Voice Input Tips:**
+- Speak clearly at a normal pace
+- Minimize background noise
+- Use a good quality microphone
+- Voice is transcribed using AI (OpenAI Whisper or browser native)
+
+### Audio Output 🔊
+
+If text-to-speech is enabled, you'll hear your expert's responses:
+
+- **Auto-play**: Responses play automatically
+- **Manual play**: Click the play button to hear the response
+- **Speed control**: Adjust playback speed
+- **Voice selection**: Different voices available based on provider
+
+**Supported TTS Providers:**
+- OpenAI TTS (Alloy, Echo, Fable, Onyx, Nova, Shimmer)
+- ElevenLabs (Premium voices)
+- Google TTS (WaveNet voices)
+- Azure Speech (Neural voices)
+- Browser Native (Built-in)
+
+Learn more: [Input & Output Modalities](/essentials/modalities)
+
+## DeepAgents Workspace
+
+### What is Deep Mode?
+
+DeepAgents mode gives your expert a persistent workspace with tasks and files:
+
+<CardGroup cols={2}>
+  <Card title="Tasks Management" icon="tasks">
+    Create, track, and complete todos
+  </Card>
+  <Card title="File System" icon="folder-open">
+    Read, write, and manage files
+  </Card>
+</CardGroup>
+
+### Enabling Deep Mode
+
+<Steps>
+  <Step title="Open Settings">
+    Click the settings icon in the top bar
+  </Step>
+  
+  <Step title="Enable Deep Mode">
+    Toggle **"Deep Mode"** or **"Todo Mode"**
+  </Step>
+  
+  <Step title="View Workspace">
+    The workspace drawer appears on the right
+  </Step>
+</Steps>
+
+### Using the Workspace
+
+The workspace has two tabs:
+
+**Tasks Tab:**
+- View all todos created by the agent
+- Track progress with status indicators
+- Add manual tasks for the agent
+- Complete or delete tasks
+- Hierarchical task structure
+
+**Files Tab:**
+- View all files in the workspace
+- Edit file contents
+- Download files to your computer
+- Upload new files
+- Organize by type
+
+**Task Statuses:**
+- 🟢 **Completed**: Task finished successfully
+- 🔵 **In Progress**: Agent is working on this
+- ⚪ **Pending**: Not started yet
+- 🔴 **Failed**: Encountered errors
+- 🟠 **Cancelled**: Task was cancelled
+
+Learn more: [DeepAgents Workspace](/essentials/deepagents-workspace)
+
+## Multimodal Content
+
+Your expert can handle multiple types of content:
+
+<CardGroup cols={3}>
+  <Card title="Text" icon="font">
+    Traditional text messages
+  </Card>
+  <Card title="Voice" icon="microphone">
+    Speak your questions
+  </Card>
+  <Card title="Images" icon="image">
+    Upload and discuss images
+  </Card>
+  <Card title="Documents" icon="file">
+    PDFs, Word docs, text files
+  </Card>
+  <Card title="Code" icon="code">
+    Source code files
+  </Card>
+  <Card title="Data" icon="database">
+    CSV, JSON, Excel files
+  </Card>
+</CardGroup>
+
+### Combining Modalities
+
+You can mix different input types in a single message:
+
+**Example 1: Voice + Image**
+```
+[Voice] "What's in this image?"
+[Image] screenshot.png
+```
+
+**Example 2: Text + File**
+```
+[Text] "Analyze this data and create a report"
+[File] sales_data.csv
+```
+
+**Example 3: Multiple Files**
+```
+[Text] "Compare these documents"
+[File] version1.pdf
+[File] version2.pdf
+```
+
+## Advanced Chat Features
+
+### HITL (Human-in-the-Loop) Mode
+
+In Deep Mode with HITL enabled, the agent will ask for approval before taking actions:
+
+**Auto Mode:**
+```
+Agent: ✓ Creating task...
+Agent: ✓ Generating file...
+Agent: ✓ Complete!
+```
+
+**HITL Mode:**
+```
+Agent: ❓ I propose to create 3 tasks and 2 files. Approve?
+User: [Approve] [Reject] [Modify]
+```
+
+Toggle HITL in settings or say: *"Switch to HITL mode"*
+
+### Private Session Mode
+
+Enable private session to:
+- Use your personal app credentials instead of expert's
+- Keep conversations separate from expert's learning
+- Override tool access
+
+**When to use:**
+- Accessing personal accounts
+- Sensitive operations
+- Testing without affecting expert
+- Using different API keys
+
+### Memory System
+
+Your expert can remember information across conversations:
+
+**Viewing Memories:**
+1. Click the **brain icon** in the top bar
+2. See all remembered facts and preferences
+3. Edit or delete memories
+4. Add new memories manually
+
+**What gets remembered:**
+- User preferences
+- Important facts
+- Project context
+- Previous decisions
+
+### Tool Events
+
+When your expert uses tools, you'll see:
+
+<CardGroup cols={2}>
+  <Card title="Web Search" icon="magnifying-glass">
+    Beautiful search result cards with titles, snippets, and relevance scores
+  </Card>
+  <Card title="API Calls" icon="plug">
+    Clean display of API requests and responses
+  </Card>
+  <Card title="File Operations" icon="file-pen">
+    Visual feedback for file reads/writes
+  </Card>
+  <Card title="Calculations" icon="calculator">
+    Math and data processing results
+  </Card>
+</CardGroup>
+
+**Expandable Tool Calls:**
+- Click any tool call to expand/collapse
+- See request details
+- View full responses
+- Copy data for your use
 
 # Next Steps
 <CardGroup cols={2}>

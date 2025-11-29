@@ -1,0 +1,400 @@
+---
+title: 'DeepAgents Introduction'
+description: 'Understanding the DeepAgents system and architecture'
+icon: 'robot'
+---
+
+# DeepAgents: Advanced AI Agent System
+
+DeepAgents is B-Bot Hub's advanced AI agent framework that enables autonomous, goal-oriented AI systems with persistent workspaces, task management, and human-in-the-loop capabilities.
+
+## What Makes DeepAgents Different?
+
+Traditional chatbots respond to individual messages. DeepAgents are **goal-oriented systems** that can:
+
+<CardGroup cols={2}>
+  <Card title="Plan & Execute" icon="list-check">
+    Break complex goals into tasks and execute them systematically
+  </Card>
+  <Card title="Maintain Context" icon="brain">
+    Remember and build upon previous work across sessions
+  </Card>
+  <Card title="Manage Resources" icon="folder-tree">
+    Organize files, data, and outputs in a persistent workspace
+  </Card>
+  <Card title="Collaborate" icon="users">
+    Work with humans (HITL) or other agents (multi-agent)
+  </Card>
+</CardGroup>
+
+## Core Components
+
+### 1. Task Management System
+
+DeepAgents use a sophisticated todo system to manage complex workflows:
+
+```
+Goal: "Build a landing page"
+
+Agent breaks it down:
+├── Research requirements
+├── Design layout
+│   ├── Sketch wireframe
+│   └── Choose color scheme
+├── Implement structure
+│   ├── HTML markup
+│   ├── CSS styling
+│   └── JavaScript interactions
+├── Test & refine
+└── Deploy
+```
+
+**Features:**
+- Hierarchical task structure
+- Status tracking (pending, in_progress, completed, failed)
+- Priority management
+- Dependency tracking
+- Progress monitoring
+
+### 2. Virtual File System
+
+Each agent has its own file system to store:
+
+- **Code files**: Generated applications, scripts
+- **Data files**: Processed data, analysis results
+- **Documents**: Reports, documentation
+- **Assets**: Images, configuration files
+- **Logs**: Execution history, debug info
+
+**Benefits:**
+- Persistent storage across sessions
+- Version tracking
+- Easy downloads and sharing
+- Organized by purpose
+
+### 3. State Persistence
+
+Unlike traditional chat sessions, DeepAgents maintain state:
+
+```javascript
+{
+  conversation_id: "conv_123",
+  todos: [...],
+  files: {...},
+  current_task: "task_456",
+  context: {...},
+  memories: {...}
+}
+```
+
+**What persists:**
+- Task progress
+- File contents
+- Agent decisions
+- Conversation context
+- User preferences
+
+### 4. Human-in-the-Loop (HITL)
+
+Agents can operate in two modes:
+
+**Auto Mode:**
+```
+Agent → Plan → Execute → Complete ✓
+```
+
+**HITL Mode:**
+```
+Agent → Plan → 🤚 Wait for Approval
+                    ↓ Human Reviews
+                    ↓ Approve/Modify/Reject
+                    ↓ If approved
+              → Execute → Complete ✓
+```
+
+## Architecture
+
+### Agent Workflow
+
+```
+User Request
+    ↓
+┌─────────────────┐
+│  Understanding  │ Parse intent & context
+└────────┬────────┘
+         ↓
+┌─────────────────┐
+│    Planning     │ Break into subtasks
+└────────┬────────┘
+         ↓
+┌─────────────────┐
+│   Execution     │ Perform tasks
+└────────┬────────┘
+         ↓
+┌─────────────────┐
+│  Verification   │ Check results
+└────────┬────────┘
+         ↓
+┌─────────────────┐
+│  Presentation   │ Show to user
+└─────────────────┘
+```
+
+### State Management
+
+DeepAgents automatically persist state through an intelligent checkpoint system:
+
+1. **After each action**: State is saved
+2. **On error**: Can resume from last checkpoint
+3. **Session end**: Full state preserved
+4. **Session start**: State restored automatically
+
+### Tool Integration
+
+Agents can use various tools:
+
+<Tabs>
+  <Tab title="Built-in Tools">
+    - **Web search**: Research capabilities
+    - **Code execution**: Run and test code
+    - **File operations**: Read, write, edit files
+    - **Data analysis**: Process and analyze data
+    - **Image generation**: Create visuals
+  </Tab>
+  
+  <Tab title="App Integrations">
+    - **Google Workspace**: Docs, Sheets, Drive
+    - **GitHub**: Code management
+    - **Slack**: Communication
+    - **Notion**: Knowledge base
+    - **Custom APIs**: Your integrations
+  </Tab>
+  
+  <Tab title="Agent Capabilities">
+    - **Task creation**: Generate subtasks
+    - **File management**: Organize workspace
+    - **Progress tracking**: Update statuses
+    - **Decision making**: Choose approaches
+    - **Error handling**: Retry and adapt
+  </Tab>
+</Tabs>
+
+## Use Cases
+
+### Software Development
+
+**Scenario**: Build a complete application
+
+```
+DeepAgent Process:
+1. Analyze requirements
+2. Create project structure
+3. Generate components
+4. Write tests
+5. Document code
+6. Deploy
+
+Files Created:
+├── src/
+│   ├── components/
+│   ├── services/
+│   └── utils/
+├── tests/
+├── docs/
+└── README.md
+```
+
+### Data Analysis
+
+**Scenario**: Comprehensive data analysis
+
+```
+DeepAgent Process:
+1. Load and validate data
+2. Clean and preprocess
+3. Exploratory analysis
+4. Statistical testing
+5. Generate visualizations
+6. Write report
+
+Files Created:
+├── cleaned_data.csv
+├── analysis.ipynb
+├── visualizations/
+│   ├── trend.png
+│   ├── distribution.png
+│   └── correlation.png
+└── analysis_report.md
+```
+
+### Content Creation
+
+**Scenario**: Create comprehensive documentation
+
+```
+DeepAgent Process:
+1. Research topic
+2. Outline structure
+3. Write sections
+4. Add examples
+5. Create diagrams
+6. Edit and refine
+
+Files Created:
+├── introduction.md
+├── getting-started.md
+├── api-reference.md
+├── examples/
+│   ├── example1.md
+│   └── example2.md
+└── diagrams/
+```
+
+## Advantages Over Traditional Chatbots
+
+| Feature | Traditional Chatbot | DeepAgents |
+|---------|-------------------|------------|
+| **Memory** | Short-term only | Persistent workspace |
+| **Tasks** | One-off responses | Multi-step execution |
+| **Files** | No file management | Full file system |
+| **Planning** | No planning | Strategic decomposition |
+| **Autonomy** | Reactive only | Proactive execution |
+| **Collaboration** | No collaboration | HITL + multi-agent |
+| **Context** | Limited context | Full state persistence |
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Clear Instructions" icon="message">
+    **Good:**
+    ```
+    "Create a REST API with user authentication, 
+    CRUD operations for posts, error handling, 
+    and comprehensive tests. Use Python and PostgreSQL."
+    ```
+    
+    **Bad:**
+    ```
+    "Make an API"
+    ```
+    
+    **Why:** Specific instructions help the agent plan effectively
+  </Accordion>
+  
+  <Accordion title="Monitor Progress" icon="chart-line">
+    - Check workspace regularly
+    - Review completed tasks
+    - Verify file outputs
+    - Provide feedback
+    - Guide when stuck
+    
+    **Agent learns from:**
+    - Your corrections
+    - Approved/rejected plans
+    - Modified tasks
+    - Feedback on outputs
+  </Accordion>
+  
+  <Accordion title="Use HITL Appropriately" icon="hand">
+    **Use HITL for:**
+    - Critical operations
+    - Database modifications
+    - API calls with side effects
+    - Financial transactions
+    - Deployment operations
+    
+    **Use Auto for:**
+    - Data analysis
+    - Report generation
+    - Code writing
+    - Research tasks
+    - File organization
+  </Accordion>
+  
+  <Accordion title="Workspace Organization" icon="folder-tree">
+    **Keep workspace clean:**
+    - Clear naming conventions
+    - Organize files by purpose
+    - Remove obsolete files
+    - Download important outputs
+    - Regular maintenance
+    
+    **File naming:**
+    ✅ `user_auth_component.tsx`
+    ✅ `sales_report_2025-11.pdf`
+    ❌ `file1.txt`
+    ❌ `temp.dat`
+  </Accordion>
+</AccordionGroup>
+
+## Limitations & Considerations
+
+<Warning>
+  **Current Limitations:**
+</Warning>
+
+- **Execution Time**: Complex tasks may take minutes or hours
+- **Cost**: Multiple LLM calls increase costs
+- **Error Handling**: May need guidance on failures
+- **Context Limits**: Very large workspaces may hit limits
+- **Learning**: Agents don't learn permanently across users
+
+**Mitigations:**
+- Break very large tasks into phases
+- Monitor token usage
+- Provide clear error recovery instructions
+- Regular workspace cleanup
+- Use HITL for complex decisions
+
+## Future Enhancements
+
+**Roadmap:**
+
+<CardGroup cols={2}>
+  <Card title="Advanced Planning" icon="sitemap">
+    More sophisticated task decomposition algorithms
+  </Card>
+  <Card title="Real-time Collaboration" icon="handshake">
+    Multiple users working with agents simultaneously
+  </Card>
+  <Card title="Enhanced Learning" icon="graduation-cap">
+    Improved learning from user feedback patterns
+  </Card>
+  <Card title="Custom Workflows" icon="diagram-project">
+    Visual workflow builder for complex automations
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="DeepAgents Workspace"
+    icon="folder-open"
+    href="/essentials/deepagents-workspace"
+  >
+    Learn how to use the workspace
+  </Card>
+  <Card
+    title="Task Management"
+    icon="list-check"
+    href="/concepts/deepagents/task-management"
+  >
+    Deep dive into task system
+  </Card>
+  <Card
+    title="File System"
+    icon="file"
+    href="/concepts/deepagents/file-system"
+  >
+    Understanding the virtual file system
+  </Card>
+  <Card
+    title="Chat with DeepAgents"
+    icon="comments"
+    href="/essentials/chat"
+  >
+    Start using DeepAgents mode
+  </Card>
+</CardGroup>
+

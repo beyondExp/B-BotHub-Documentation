@@ -1,0 +1,201 @@
+---
+title: "Get Distribution Channel by ID"
+api: "GET /v3/public/distribution-channels/{channel_id}"
+description: "Retrieve a specific public distribution channel by its ID"
+---
+
+## Overview
+
+This endpoint retrieves a single distribution channel configured for public access (Chat, Embed, or Template) by its unique identifier.
+
+## Authentication
+
+This endpoint requires an Admin API Key for access.
+
+<ParamField header="X-API-Key" type="string" required>
+  Admin API Key for full access
+</ParamField>
+
+## Path Parameters
+
+<ParamField path="channel_id" type="string" required>
+  The unique identifier of the distribution channel to retrieve
+</ParamField>
+
+## Response
+
+Returns a single distribution channel object with full configuration.
+
+<ResponseField name="channel_id" type="string">
+  Unique identifier for the distribution channel
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  Name of the distribution channel
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  Description of the distribution channel's purpose
+</ResponseField>
+
+<ResponseField name="config" type="object">
+  Configuration object containing runtime settings
+</ResponseField>
+
+<ResponseField name="metadata" type="object">
+  Metadata including distribution channel configuration
+  
+  <Expandable title="metadata">
+    <ResponseField name="distributionChannel" type="object">
+      Distribution channel configuration
+      
+      <Expandable title="distributionChannel">
+        <ResponseField name="type" type="string">
+          Channel type: "Chat", "Embed", or "Template"
+        </ResponseField>
+        
+        <ResponseField name="config" type="object">
+          Channel-specific configuration
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    
+    <ResponseField name="owner" type="string">
+      User ID of the distribution channel owner
+    </ResponseField>
+    
+    <ResponseField name="expert_id" type="string">
+      ID of the associated expert
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="graph_id" type="string">
+  The graph this distribution channel belongs to
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+  ISO 8601 timestamp of creation
+</ResponseField>
+
+<ResponseField name="updated_at" type="string">
+  ISO 8601 timestamp of last update
+</ResponseField>
+
+## Example Request
+
+```bash cURL
+curl --location 'https://api.b-bot.space/api/v3/public/distribution-channels/abc123' \
+--header 'X-API-Key: your-admin-api-key'
+```
+
+```javascript JavaScript
+const channelId = 'abc123';
+const response = await fetch(
+  `https://api.b-bot.space/api/v3/public/distribution-channels/${channelId}`,
+  {
+    method: 'GET',
+    headers: {
+      'X-API-Key': 'your-admin-api-key',
+      'Content-Type': 'application/json'
+    }
+  }
+);
+
+const distributionChannel = await response.json();
+console.log(distributionChannel);
+```
+
+```python Python
+import requests
+
+channel_id = "abc123"
+url = f"https://api.b-bot.space/api/v3/public/distribution-channels/{channel_id}"
+headers = {
+    "X-API-Key": "your-admin-api-key",
+    "Content-Type": "application/json"
+}
+
+response = requests.get(url, headers=headers)
+distribution_channel = response.json()
+print(distribution_channel)
+```
+
+## Example Response
+
+```json
+{
+  "channel_id": "abc123",
+  "name": "Customer Support Bot",
+  "description": "AI distribution channel for customer support inquiries",
+  "config": {
+    "configurable": {
+      "graph_id": "bbot",
+      "query_model": "mistral/mistral-large-latest",
+      "response_model": "mistral/mistral-large-latest",
+      "temperature": 0.7,
+      "top_p": 0.9
+    }
+  },
+  "metadata": {
+    "distributionChannel": {
+      "type": "Chat",
+      "config": {
+        "type": "chat-integration",
+        "public": true
+      }
+    },
+    "owner": "auth0|user123",
+    "expert_id": "expert_456",
+    "expert_profession": "Customer Support",
+    "profileImage": "https://example.com/profile.png",
+    "abilities": [
+      {
+        "id": "support",
+        "name": "Customer Support",
+        "description": "Handle customer inquiries"
+      }
+    ],
+    "templates": [
+      "How can I help you today?",
+      "What question do you have?",
+      "Tell me about your issue"
+    ]
+  },
+  "graph_id": "bbot",
+  "created_at": "2024-11-01T10:00:00Z",
+  "updated_at": "2024-11-15T14:30:00Z",
+  "version": 1
+}
+```
+
+## Error Responses
+
+<ResponseField name="403" type="error">
+  Forbidden - Invalid or missing Admin API Key
+</ResponseField>
+
+<ResponseField name="404" type="error">
+  Not Found - Distribution channel does not exist or is not publicly available
+</ResponseField>
+
+<ResponseField name="500" type="error">
+  Internal Server Error - An error occurred while processing the request
+</ResponseField>
+
+## Important Notes
+
+<Note>
+  **Public Distribution Channels Only**: This endpoint only returns distribution channels configured for Chat, Embed, or Template. Distribution channels with other types or no configuration will return a 404 error.
+</Note>
+
+<Tip>
+  Use this endpoint to fetch the complete configuration of a distribution channel before embedding or integrating it into your application.
+</Tip>
+
+## See Also
+
+- [Get All Public Distribution Channels](/mainapi-reference/distribution-channels/get-public-distribution-channels)
+- [Configure Distribution Channels in Hub](/essentials/edit-expert#distribution-channels)
+- [Embed Integration Guide](/essentials/chat#embed-integration)
+
