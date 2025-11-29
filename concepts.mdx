@@ -1,87 +1,352 @@
 ---
 title: 'Concepts'
-description: 'An overview of virtual personas, their functionality, and customization.'
+description: 'Understanding B-Bot Hub AI Expert system and capabilities'
 icon: 'brain'
 ---
 
-## Overview
+# B-Bot Hub Concepts
 
-A virtual persona, also known as a digital or AI persona, is a sophisticated digital entity designed to interact with users in a human-like manner. These personas are powered by artificial intelligence and simulate human behavior and conversations, providing a dynamic and interactive user experience.
+B-Bot Hub is a comprehensive platform for creating, training, and deploying AI experts that can interact through multiple channels and modalities. This section explains the core concepts that power the platform.
 
-## Core Functionality
+## What are AI Experts?
 
-Virtual personas are designed to perform a variety of tasks, including:
+AI Experts are sophisticated AI agents designed to perform specific roles with consistent behavior, domain knowledge, and customizable personalities. Unlike generic chatbots, experts are:
 
-<AccordionGroup>
-  <Accordion icon="question" title="Answering Queries">
-    Providing accurate and timely responses to user questions.
-  </Accordion>
-  <Accordion icon="star" title="Personalized Recommendations">
-    Suggesting tailored options based on user preferences.
-  </Accordion>
-  <Accordion icon="cart-shopping" title="Facilitating Transactions">
-    Assisting in completing purchases or other transactions.
-  </Accordion>
-</AccordionGroup>
-
-## Training and Learning
-
-Virtual personas are trained using advanced machine learning algorithms:
-
-<AccordionGroup>
-  <Accordion icon="database" title="Data Ingestion">
-    Feeding the AI large volumes of interaction data.
-  </Accordion>
-  <Accordion icon="brain" title="Context Understanding">
-    Learning to comprehend context, sentiment, and user intent.
-  </Accordion>
-  <Accordion icon="arrows-rotate" title="Continuous Improvement">
-    Regular updates and refinements to enhance performance and accuracy.
-  </Accordion>
-</AccordionGroup>
-
-## Integration with Tools
-
-To enhance their functionality, virtual personas can integrate with various digital tools:
-
-<AccordionGroup>
-  <Accordion icon="searchengin" title="Search Engines">
-    For real-time information retrieval.
-  </Accordion>
-  <Accordion icon="calculator" title="Computational Tools">
-    To perform precise calculations and analyses.
-  </Accordion>
-</AccordionGroup>
-
-## Customization and Branding
-
-Customizability is a key feature of virtual personas:
-
-<AccordionGroup>
-  <Accordion icon="copyright" title="Brand Reflection">
-    Tailoring the persona to match your brand’s image and tone.
-  </Accordion>
-  <Accordion icon="user" title="Human-like Traits">
-    Emulating specific human characteristics to enhance user interaction.
-  </Accordion>
-</AccordionGroup>
-
-## Explore More
-
-To dive deeper into virtual personas, check out the following resources:
-
-<CardGroup>
-  <Card title="Setting Up Your Persona" icon="person" href="/setup-persona">
-    Learn how to create and configure your own virtual persona.
+<CardGroup cols={2}>
+  <Card title="Specialized" icon="graduation-cap">
+    Trained for specific domains, industries, or tasks
   </Card>
-  <Card title="Advanced Features" icon="features" href="/advanced-features">
-    Discover additional functionalities and integrations.
+  <Card title="Customizable" icon="sliders">
+    Configurable personality, tone, and behavior
   </Card>
-  <Card title="Case Studies" icon="case-study" href="/case-studies">
-    See how other businesses are leveraging virtual personas.
+  <Card title="Persistent" icon="database">
+    Remember context and learn from interactions
+  </Card>
+  <Card title="Multimodal" icon="layer-group">
+    Handle text, voice, images, and files
   </Card>
 </CardGroup>
 
-## Shrinking down the system prompt to minimum
+## Core Components
 
-You don't need to prompt a lot lancelot, no worries we got you covered.
+### Experts
+
+**The Foundation:**
+Experts are your AI agents with:
+- **Identity**: Name, profession, personality
+- **Knowledge**: Training data and fine-tuning
+- **Capabilities**: Apps, tools, and modalities
+- **Behavior**: System prompts and abilities
+
+**Key features:**
+- Create unlimited experts
+- Each with unique personality
+- Train on custom data
+- Connect different apps per expert
+
+### Distribution Channels
+
+**Deployment Options:**
+Once you create an expert, deploy it through various channels:
+
+<Tabs>
+  <Tab title="B-Bot Chat">
+    **Direct chat interface**
+    - Internal team access
+    - User management
+    - Full feature access
+    - Real-time conversations
+  </Tab>
+  
+  <Tab title="Embed Widget">
+    **Website integration**
+    - Customizable appearance
+    - Brand matching
+    - Easy integration
+    - Works anywhere
+  </Tab>
+  
+  <Tab title="API">
+    **Custom applications**
+    - REST endpoints
+    - Streaming support
+    - Full control
+    - Build anything
+  </Tab>
+  
+  <Tab title="Tasks">
+    **Scheduled automation**
+    - Cron scheduling
+    - Automated reports
+    - Background processing
+    - Recurring tasks
+  </Tab>
+  
+  <Tab title="Templates">
+    **Share publicly**
+    - Template marketplace
+    - Help others
+    - Community sharing
+    - Build reputation
+  </Tab>
+</Tabs>
+
+**Flow:** Expert → Distribution Channel → Users
+
+## Key Capabilities
+
+### 1. Fine-Tuning
+
+Train your experts to behave exactly as you want:
+
+<AccordionGroup>
+  <Accordion icon="brain" title="Behavior Training">
+    Fine-tune models on your specific use cases
+    - Mark quality interactions (QA marking)
+    - Build training datasets
+    - Create custom model versions
+    - Deploy fine-tuned models
+    
+    Learn more: [Fine-Tuning Introduction](/concepts/fine-tuning/introduction)
+  </Accordion>
+  
+  <Accordion icon="flask" title="Model Distillation">
+    Use powerful models to train smaller, cost-effective ones
+    - GPT-4 teaches GPT-3.5
+    - 90-95% quality retention
+    - 85-95% cost reduction
+    - 2-5x faster responses
+    
+    Learn more: [Model Distillation](/concepts/fine-tuning/model-distillation)
+  </Accordion>
+</AccordionGroup>
+
+### 2. DeepAgents Mode
+
+Advanced autonomous capabilities:
+
+<AccordionGroup>
+  <Accordion icon="list-check" title="Task Management">
+    Experts can break down complex goals into subtasks
+    - Hierarchical todo structures
+    - Status tracking
+    - Progress monitoring
+    - Autonomous execution
+  </Accordion>
+  
+  <Accordion icon="folder" title="File System">
+    Persistent workspace for each conversation
+    - Create and edit files
+    - Store outputs
+    - Organize data
+    - Download results
+  </Accordion>
+  
+  <Accordion icon="hand" title="Human-in-the-Loop">
+    Control automation with approval workflows
+    - Review before execution
+    - Approve or reject
+    - Guide decisions
+    - Safety and control
+  </Accordion>
+</AccordionGroup>
+
+Learn more: [DeepAgents Introduction](/concepts/deepagents/introduction)
+
+### 3. Multimodal Capabilities
+
+Beyond text interactions:
+
+<AccordionGroup>
+  <Accordion icon="microphone" title="Voice Input">
+    Speak to your experts
+    - Real-time transcription
+    - Multiple languages
+    - Multiple providers
+    - Hands-free operation
+  </Accordion>
+  
+  <Accordion icon="volume-high" title="Voice Output">
+    Experts can speak responses
+    - Natural-sounding voices
+    - Multiple providers (OpenAI, ElevenLabs, Google, Azure)
+    - Streaming TTS
+    - Auto-play options
+  </Accordion>
+  
+  <Accordion icon="image" title="Image Processing">
+    Understand and generate images
+    - AI-generated profile pictures
+    - Image analysis
+    - Visual Q&A
+    - Diagram understanding
+  </Accordion>
+  
+  <Accordion icon="file" title="File Handling">
+    Process documents and data
+    - PDF, Word, Excel
+    - Code files
+    - CSV data analysis
+    - Document Q&A
+  </Accordion>
+</AccordionGroup>
+
+Learn more: [Multimodal AI](/concepts/multimodal/introduction)
+
+### 4. App Integrations
+
+Connect to external services:
+
+<CardGroup cols={3}>
+  <Card title="Google Workspace" icon="google">
+    Gmail, Drive, Calendar, Sheets
+  </Card>
+  <Card title="Development" icon="github">
+    GitHub, GitLab, APIs
+  </Card>
+  <Card title="Productivity" icon="list">
+    Slack, Notion, Trello
+  </Card>
+  <Card title="Search" icon="magnifying-glass">
+    Web search, knowledge bases
+  </Card>
+  <Card title="Data" icon="database">
+    Databases, APIs, webhooks
+  </Card>
+  <Card title="Custom" icon="plug">
+    Your own integrations
+  </Card>
+</CardGroup>
+
+## How It All Works Together
+
+### The Expert Lifecycle
+
+```
+1. Create Expert
+   ├─ Define personality
+   ├─ Set capabilities
+   └─ Configure settings
+        ↓
+2. Train (Optional)
+   ├─ Collect examples (QA marking)
+   ├─ Fine-tune model
+   └─ Validate performance
+        ↓
+3. Configure Channels
+   ├─ Choose distribution method
+   ├─ Customize appearance
+   └─ Set permissions
+        ↓
+4. Deploy
+   ├─ Make available to users
+   ├─ Monitor performance
+   └─ Iterate and improve
+        ↓
+5. Continuous Improvement
+   ├─ Collect feedback
+   ├─ Refine training
+   └─ Update configuration
+```
+
+### Expert → Distribution Channel Flow
+
+```
+User Request
+    ↓
+Distribution Channel (Chat/Embed/API/Tasks)
+    ↓
+Expert (with personality, knowledge, tools)
+    ↓
+Model Processing (fine-tuned or base)
+    ↓
+Tool Usage (if needed: search, apps, etc.)
+    ↓
+Response Generation
+    ↓
+Output Modalities (text, voice, files)
+    ↓
+Back to User
+```
+
+## Explore Concepts
+
+<CardGroup cols={2}>
+  <Card
+    title="Fine-Tuning & Training"
+    icon="brain-circuit"
+    href="/concepts/fine-tuning/introduction"
+  >
+    Learn how to train experts on your data
+  </Card>
+  <Card
+    title="Model Distillation"
+    icon="flask"
+    href="/concepts/fine-tuning/model-distillation"
+  >
+    Use big models to train smaller ones
+  </Card>
+  <Card
+    title="DeepAgents"
+    icon="robot"
+    href="/concepts/deepagents/introduction"
+  >
+    Autonomous agents with workspaces
+  </Card>
+  <Card
+    title="Multimodal AI"
+    icon="layer-group"
+    href="/concepts/multimodal/introduction"
+  >
+    Voice, images, and file processing
+  </Card>
+  <Card
+    title="System Architecture"
+    icon="diagram-project"
+    href="/concepts/architecture/agent-architecture"
+  >
+    How the platform works
+  </Card>
+  <Card
+    title="Best Practices"
+    icon="star"
+    href="/concepts/best_practices/ai-persona-with-b-bot"
+  >
+    Tips for creating great experts
+  </Card>
+</CardGroup>
+
+## Start Building
+
+Ready to create your first expert?
+
+<CardGroup cols={2}>
+  <Card
+    title="Create Your Expert"
+    icon="plus"
+    href="/essentials/create-expert"
+  >
+    Step-by-step expert creation guide
+  </Card>
+  <Card
+    title="Distribution Channels"
+    icon="share-nodes"
+    href="/essentials/distribution-channels"
+  >
+    Deploy your expert everywhere
+  </Card>
+  <Card
+    title="Fine-Tune Your Expert"
+    icon="brain"
+    href="/essentials/training"
+  >
+    Train on your specific use case
+  </Card>
+  <Card
+    title="Configure Modalities"
+    icon="microphone-lines"
+    href="/essentials/modalities"
+  >
+    Add voice and multimodal features
+  </Card>
+</CardGroup>

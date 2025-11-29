@@ -1,0 +1,241 @@
+---
+title: "Distribution Channel Metadata"
+description: "Complete reference for Distribution Channel metadata structure and configuration options"
+---
+
+## Overview
+
+Distribution Channels define where and how your AI assistants are deployed. Each channel type has specific metadata and configuration options that control its behavior and integration.
+
+## Metadata Structure
+
+When creating or updating a distribution channel (assistant), include the `distributionChannel` object in the `metadata` field:
+
+```json
+{
+  "name": "My Assistant",
+  "metadata": {
+    "distributionChannel": {
+      "type": "Chat",
+      "config": {
+        // Channel-specific configuration
+      }
+    },
+    // Other metadata fields...
+  }
+}
+```
+
+## Channel Types
+
+### Chat
+**Integration with B-Bot Chat App**
+
+```json
+{
+  "type": "Chat",
+  "config": {
+    "type": "chat-integration",
+    "public": true
+  }
+}
+```
+
+**Additional Metadata Fields:**
+- `profileImage`: URL to assistant profile picture
+- `abilities`: Array of ability objects/strings
+- `templates`: Array of template objects/strings
+- `description`: Assistant description shown in chat
+
+---
+
+### Embed
+**Embeddable widget for websites and apps**
+
+```json
+{
+  "type": "Embed",
+  "config": {
+    "type": "embed-widget",
+    "public": true
+  }
+}
+```
+
+**Additional Metadata Fields:**
+- `profileImage`: URL to assistant profile picture
+- `bubbleIcon`: URL to custom chat bubble icon (optional, uses default if not set)
+- `headerIcon`: Lucide icon name for embed header
+- `abilities`: Array of ability objects/strings
+- `templates`: Array of template objects/strings
+- `description`: Assistant description shown in embed
+
+---
+
+### API
+**Direct integration via REST API endpoints**
+
+```json
+{
+  "type": "API",
+  "config": {
+    "type": "api-integration"
+  }
+}
+```
+
+No additional configuration required. Assistant will be available via standard LangGraph API endpoints.
+
+---
+
+### Tasks
+**Internal task distribution system**
+
+```json
+{
+  "type": "Tasks",
+  "config": {
+    "type": "task-distribution"
+  }
+}
+```
+
+**Additional Behavior:**
+- When created, the assistant ID is automatically linked to the expert's `task_assistant_id` field
+- Used for automated task routing and execution within the B-Bot ecosystem
+
+---
+
+### Template
+**Share as public expert template for others to install**
+
+```json
+{
+  "type": "Template",
+  "category": "Sales & Marketing",
+  "featured": false,
+  "config": {
+    "type": "template",
+    "category": "Sales & Marketing",
+    "featured": false,
+    "public": true,
+    "usage_count": 0
+  }
+}
+```
+
+**Required Fields:**
+- `category`: Template category (see categories below)
+- `featured`: Request featured status (requires admin approval)
+- `usage_count`: Number of times template has been installed (auto-managed)
+
+**Available Categories:**
+- Sales & Marketing
+- Customer Support
+- Development
+- Finance & Accounting
+- HR & Recruitment
+- Content Creation
+- Project Management
+- Data Analysis
+- Education
+- Other
+
+**Template Behavior:**
+- App credentials are removed when template is shared
+- Users must connect their own app credentials when installing
+- Knowledge containers are copied to the installing user's expert
+
+---
+
+### Coming Soon
+
+The following channel types are planned for future releases:
+
+**Twilio** - SMS and messaging integration
+```json
+{
+  "type": "Twilio",
+  "config": {
+    "accountSid": "",
+    "phoneNumber": ""
+  }
+}
+```
+
+**N8n** - Workflow automation integration
+```json
+{
+  "type": "N8n",
+  "config": {
+    "webhookUrl": "",
+    "active": false
+  }
+}
+```
+
+**Zapier** - App integration platform
+```json
+{
+  "type": "Zapier",
+  "config": {
+    "webhookUrl": "",
+    "triggerEvent": "message"
+  }
+}
+```
+
+## Complete Example
+
+Here's a complete example of creating a Chat distribution channel with all metadata:
+
+```json
+{
+  "name": "Customer Support Assistant",
+  "description": "Helps customers with product questions",
+  "graph_id": "bbot",
+  "metadata": {
+    "distributionChannel": {
+      "type": "Chat",
+      "config": {
+        "type": "chat-integration",
+        "public": true
+      }
+    },
+    "profileImage": "https://example.com/profile.jpg",
+    "abilities": [
+      { "text": "Answer product questions" },
+      { "text": "Process returns" }
+    ],
+    "templates": [
+      { "text": "Help me understand [feature]" },
+      { "text": "I need to return [item]" }
+    ],
+    "description": "Customer Support Assistant"
+  },
+  "config": {
+    "graph_id": "bbot",
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "query_model": "openai/gpt-4",
+    "response_model": "openai/gpt-4"
+  }
+}
+```
+
+## Filtering by Distribution Channel
+
+When fetching distribution channels via the public endpoints, the API automatically filters assistants based on their `distributionChannel.type` metadata:
+
+**Included Types:** `Chat`, `Embed`, `Template`
+
+Assistants without a `distributionChannel` metadata field will **not** be included in public endpoints. This ensures legacy assistants don't automatically appear in public-facing applications.
+
+## Best Practices
+
+1. **Always specify a distribution channel type** when creating new assistants intended for public use
+2. **Use meaningful categories** for Template channels to help users discover your expert
+3. **Include profile images and descriptions** for Chat and Embed channels to provide better user experience
+4. **Test embed customizations** (bubbleIcon, headerIcon) before deploying to production
+5. **Request featured status carefully** - only for high-quality, well-tested templates
+

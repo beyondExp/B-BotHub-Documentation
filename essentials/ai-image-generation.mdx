@@ -1,0 +1,352 @@
+---
+title: 'AI Image Generation'
+description: 'Generate professional profile pictures using AI'
+icon: 'wand-magic-sparkles'
+---
+
+# AI-Powered Profile Image Generation
+
+B-Bot Hub includes AI-powered image generation to create professional profile pictures for your experts. Using advanced AI models, you can generate custom avatars that match your expert's personality and role.
+
+## Accessing AI Image Generation
+
+AI image generation is available when:
+- **Creating a new expert** (Step 2: Profile Picture)
+- **Editing an expert's profile picture**
+- **Creating an assistant** (in the configuration wizard)
+
+## Three Ways to Add Images
+
+<CardGroup cols={3}>
+  <Card title="Upload" icon="upload">
+    Upload an image from your computer
+  </Card>
+  <Card title="AI Generate" icon="wand-magic-sparkles">
+    Generate with AI (recommended)
+  </Card>
+  <Card title="URL" icon="link">
+    Paste an image URL
+  </Card>
+</CardGroup>
+
+## Using AI Generation
+
+### Quick Start
+
+<Steps>
+  <Step title="Select AI Generate Tab">
+    Click on the **AI Generate** tab in the profile picture selector.
+  </Step>
+  
+  <Step title="Choose Expert Type">
+    Select from pre-configured templates:
+    - AI Expert
+    - Marketing Expert
+    - Finance Expert
+    - Healthcare Expert
+    - Legal Expert
+    - Technology Expert
+    - Education Expert
+    - Business Expert
+  </Step>
+  
+  <Step title="Select Style">
+    Choose the professional style:
+    - **Professional**: Corporate, business attire
+    - **Friendly & Approachable**: Warm, welcoming
+    - **Modern & Tech**: Contemporary, innovative
+    - **Creative**: Artistic, unique
+  </Step>
+  
+  <Step title="Generate">
+    Click **Generate Image**. The AI will create your profile picture in 10-30 seconds.
+  </Step>
+</Steps>
+
+### Advanced Options
+
+<AccordionGroup>
+  <Accordion title="Custom Prompts" icon="pen-to-square">
+    Want more control? Edit the auto-generated prompt or write your own:
+    
+    ```
+    Professional headshot of a friendly AI assistant expert, 
+    modern office background, neutral expression, 
+    business casual attire, warm lighting, 
+    high quality photography, detailed face
+    ```
+    
+    **Tips for good prompts:**
+    - Be specific about appearance and setting
+    - Include lighting and quality descriptors
+    - Mention attire and expression
+    - Keep it professional for business use
+  </Accordion>
+  
+  <Accordion title="Appearance Customization" icon="user-pen">
+    Customize the generated appearance:
+    - **Gender**: Male, Female, Neutral
+    - **Age**: Young Adult, Middle-Aged, Senior
+    - **Ethnicity**: Diverse options available
+    - **Expression**: Professional, Friendly, Serious, Approachable
+  </Accordion>
+  
+  <Accordion title="Background Options" icon="image-landscape">
+    Choose the background style:
+    - **Office**: Modern professional workspace
+    - **Studio**: Clean, solid color backdrop
+    - **Outdoor**: Natural, professional setting
+    - **Tech**: Digital, futuristic environment
+    - **Custom**: Specify in your prompt
+  </Accordion>
+</AccordionGroup>
+
+## Expert Type Templates
+
+Each expert type comes with an optimized prompt template:
+
+<Tabs>
+  <Tab title="AI Expert">
+    **Default Prompt:**
+    ```
+    Professional headshot of an AI assistant expert, 
+    modern tech background with subtle digital elements, 
+    confident and knowledgeable expression, 
+    contemporary business casual attire, 
+    studio lighting, photorealistic, high detail
+    ```
+    
+    **Style**: Modern, tech-forward, intelligent
+  </Tab>
+  
+  <Tab title="Marketing Expert">
+    **Default Prompt:**
+    ```
+    Professional headshot of a marketing expert, 
+    creative office environment, dynamic and engaging expression,
+    stylish business attire, modern aesthetic, 
+    warm professional lighting, high quality portrait
+    ```
+    
+    **Style**: Dynamic, creative, engaging
+  </Tab>
+  
+  <Tab title="Healthcare Expert">
+    **Default Prompt:**
+    ```
+    Professional headshot of a healthcare expert,
+    clean medical background, caring and trustworthy expression,
+    medical professional attire or lab coat,
+    soft professional lighting, detailed portrait
+    ```
+    
+    **Style**: Trustworthy, caring, professional
+  </Tab>
+  
+  <Tab title="Legal Expert">
+    **Default Prompt:**
+    ```
+    Professional headshot of a legal expert,
+    law office background with books, authoritative and trustworthy,
+    formal business suit, professional studio lighting,
+    high quality executive portrait
+    ```
+    
+    **Style**: Authoritative, professional, formal
+  </Tab>
+</Tabs>
+
+## Image History
+
+<Info>
+  The AI Generation tab automatically saves the last **8 generated images** for quick selection.
+</Info>
+
+### Using Image History
+
+1. Previously generated images appear as thumbnails below the generation form
+2. Click any thumbnail to select that image
+3. History persists across sessions
+4. Each expert has its own image history
+
+## Technical Details
+
+### AI Model
+B-Bot Hub uses **BFL FLUX Kontext Pro**, a state-of-the-art image generation model that produces:
+- Photorealistic portraits
+- Consistent facial features
+- Professional quality output
+- 1024x1024 resolution (1:1 aspect ratio)
+
+### Generation Time
+- **Average**: 15-20 seconds
+- **Range**: 10-30 seconds depending on server load
+- Loading indicator shows progress
+
+### Image Quality
+- **Resolution**: 1024x1024 pixels
+- **Aspect Ratio**: 1:1 (square)
+- **Format**: PNG (converted from API)
+- **Quality**: High-definition, suitable for professional use
+
+## Image Cropping & Adjustment
+
+After generating or uploading an image, you can:
+
+<Steps>
+  <Step title="Crop">
+    Use the built-in cropper to adjust the framing
+  </Step>
+  
+  <Step title="Zoom">
+    Zoom in/out to get the perfect composition
+  </Step>
+  
+  <Step title="Reposition">
+    Drag the image to center the face
+  </Step>
+  
+  <Step title="Apply">
+    Save your adjustments
+  </Step>
+</Steps>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Professional Appearance" icon="user-tie">
+    **Do:**
+    - Use professional attire
+    - Choose appropriate backgrounds
+    - Ensure good lighting in prompt
+    - Keep expressions neutral or friendly
+    
+    **Don't:**
+    - Use casual or inappropriate clothing
+    - Include distracting backgrounds
+    - Generate overly stylized images
+  </Card>
+  
+  <Card title="Brand Consistency" icon="palette">
+    **Do:**
+    - Match your company's style
+    - Use consistent styles across experts
+    - Consider your audience
+    - Test different styles
+    
+    **Don't:**
+    - Mix wildly different styles
+    - Ignore brand guidelines
+    - Use generic stock photo looks
+  </Card>
+  
+  <Card title="Prompt Engineering" icon="code">
+    **Do:**
+    - Be specific and detailed
+    - Include quality keywords
+    - Mention lighting and setting
+    - Test variations
+    
+    **Don't:**
+    - Use vague descriptions
+    - Include conflicting instructions
+    - Forget composition details
+  </Card>
+  
+  <Card title="Iteration" icon="rotate">
+    **Do:**
+    - Generate multiple options
+    - Save favorites to history
+    - Refine prompts based on results
+    - A/B test with users
+    
+    **Don't:**
+    - Settle for the first result
+    - Ignore user feedback
+    - Over-complicate prompts
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Generation Failed" icon="exclamation-triangle">
+    **Possible causes:**
+    - API rate limit reached
+    - Prompt contains restricted content
+    - Network connectivity issues
+    - Service temporarily unavailable
+    
+    **Solutions:**
+    - Wait a few moments and try again
+    - Simplify or modify your prompt
+    - Check your internet connection
+    - Contact support if issue persists
+  </Accordion>
+  
+  <Accordion title="Image Quality Issues" icon="image-slash">
+    **If image quality is poor:**
+    - Add quality keywords: "high detail", "professional photography", "8k"
+    - Specify lighting: "studio lighting", "natural light", "soft lighting"
+    - Be more specific about composition
+    - Generate multiple images and pick the best
+  </Accordion>
+  
+  <Accordion title="Wrong Appearance" icon="face-frown">
+    **If the image doesn't match expectations:**
+    - Be more explicit in your prompt
+    - Use the appearance customization options
+    - Try different style presets
+    - Reference specific attributes you want
+  </Accordion>
+  
+  <Accordion title="URL Expires Warning" icon="clock">
+    **Important:** Generated image URLs expire after 10 minutes!
+    
+    B-Bot Hub automatically downloads and converts images to prevent loss. If you see this warning:
+    - The image is already saved in your browser
+    - Save/create the expert to persist the image
+    - Don't leave the page without saving
+  </Accordion>
+</AccordionGroup>
+
+## Cost & Limits
+
+<Info>
+  AI image generation uses BFL API credits. Check with your B-Bot Hub administrator about:
+  - Available credits
+  - Generation limits
+  - Cost per image
+  - Quota resets
+</Info>
+
+## Comparison: AI vs Upload vs URL
+
+| Feature | AI Generate | Upload | URL |
+|---------|------------|--------|-----|
+| **Speed** | 10-30 sec | Instant | Instant |
+| **Customization** | High | Limited | None |
+| **Consistency** | Excellent | Varies | Varies |
+| **Professional Quality** | Guaranteed | Depends | Depends |
+| **Cost** | Credits | Free | Free |
+| **Uniqueness** | Always unique | Unique if custom | May not be unique |
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Complete Expert Creation"
+    icon="user-plus"
+    href="/essentials/create-expert"
+  >
+    Continue building your expert with the perfect profile picture
+  </Card>
+  <Card
+    title="Edit Existing Experts"
+    icon="pen-to-square"
+    href="/essentials/edit-expert"
+  >
+    Update profile pictures for your existing experts
+  </Card>
+</CardGroup>
+

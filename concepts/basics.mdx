@@ -1,33 +1,641 @@
-Welcome to the comprehensive guide to the B-bot Hub Training Platform! This platform is designed to democratize AI, making it accessible not just to tech aficionados but to everyone. Explore the functionalities that allow you to interact with, develop, and refine virtual experts. Here’s what you can expect:
+---
+title: 'Key Concepts & Basics'
+description: 'Fundamental concepts of the B-Bot Hub platform'
+icon: 'book-open'
+---
 
-### **Features:**
+# Key Concepts & Platform Basics
 
-1. **🤖 Chat & Test Virtual Experts**
-    - **Purpose**: Engage directly with AI-driven virtual experts to explore their capabilities.
-    - **Benefits**: Offers a hands-on experience to understand the potential and adaptability of AI-powered personas in various scenarios.
-    - **How to Use**: Access through the platform’s main dashboard and select the 'Test Virtual Expert' option to start an interactive session.
-2. **🎨 Create and Edit Experts**
-    - **Purpose**: Customize your own virtual experts tailored to specific projects or objectives.
-    - **Benefits**: Enhances flexibility and specificity in the application of virtual experts.
-    - **How to Use**: Use the intuitive editing tools available on the platform to modify skills, knowledge bases, and behaviors of your virtual experts.
-3. **🔧 Training Feature**
-    - **Purpose**: Simplify the AI training process, making it manageable and accessible for all users.
-    - **Benefits**: Reduces the technical barrier for training AI, allowing users to enhance virtual expert capabilities efficiently.
-    - **How to Use**: Navigate to the 'Training' section on the dashboard to access training modules and start enhancing your virtual experts.
-4. **🌟 Continuous Improvement and Feedback**
-    - **Purpose**: Collect user feedback to continuously improve and expand the platform’s features and user experience.
-    - **Benefits**: Keeps the platform evolving in line with user needs and technological advancements.
-    - **How to Use**: Submit feedback through the dedicated feedback form available on the platform’s 'Feedback' section.
+Welcome to B-Bot Hub - a platform for creating, training, and deploying specialized AI experts. This guide covers the fundamental concepts you need to understand to get the most out of the platform.
 
-### **Getting Started**
+## Core Architecture
 
-- **Access**: Log in to your B-bot account and navigate to the B-bot Hub on your dashboard.
-- **Navigation**: Use the sidebar menu to switch between creating, training, and testing virtual experts.
-- **Support**: For any queries or technical support, refer to the 'Help and Support' section or contact our support team directly through the platform.
+### The Three-Layer Model
 
-### **Join the Community**
+B-Bot Hub operates on a simple but powerful three-layer architecture:
 
-- **Stay Updated**: Keep an eye on the latest updates and new features by visiting the 'What’s New' section.
-- **Contribute**: Your feedback is crucial for the continuous development of the B-bot Hub Training Platform. Engage with the community, share your experiences, and help shape the future of AI!
+```
+Layer 1: EXPERTS
+    ↓
+Layer 2: DISTRIBUTION CHANNELS
+    ↓
+Layer 3: END USERS
+```
 
-This guide is a living document and will be updated regularly as new features are added and improvements are made. Your participation and feedback are invaluable to us—let’s make history together!
+<Steps>
+  <Step title="Experts (Layer 1)">
+    **Your AI Agents**
+    
+    Experts are specialized AI agents you create with:
+    - Unique personality and identity
+    - Custom training and knowledge
+    - Specific capabilities and tools
+    - Configured modalities (voice, image, etc.)
+    
+    Think of experts as your AI employees - each with their own role, expertise, and way of working.
+  </Step>
+  
+  <Step title="Distribution Channels (Layer 2)">
+    **Deployment Methods**
+    
+    How your experts reach users:
+    - **B-Bot Chat**: Internal chat interface
+    - **Embed Widget**: Website chat widgets
+    - **API**: Custom integrations
+    - **Tasks**: Scheduled automation
+    - **Templates**: Public marketplace sharing
+    
+    One expert can be deployed through multiple channels simultaneously.
+  </Step>
+  
+  <Step title="End Users (Layer 3)">
+    **Your Audience**
+    
+    Who interacts with your experts:
+    - Customers
+    - Team members
+    - Website visitors
+    - API consumers
+    - Automated systems
+  </Step>
+</Steps>
+
+## Key Features
+
+### 1. Expert Creation & Management
+
+<CardGroup cols={2}>
+  <Card title="8-Step Creation Process" icon="list-ol">
+    1. Basic Information
+    2. Profile Picture (AI-generated option!)
+    3. Abilities & Behaviors
+    4. Quick-Start Templates
+    5. Models & Modalities
+    6. App Connections
+    7. Team Configuration
+    8. Review & Deploy
+  </Card>
+  
+  <Card title="Expert Configuration" icon="sliders">
+    Each expert includes:
+    - Name, profession, description
+    - System prompt (personality)
+    - Abilities (behavior modes)
+    - Templates (quick prompts)
+    - Model selection
+    - Tools & apps
+    - Voice settings
+  </Card>
+</CardGroup>
+
+### 2. Fine-Tuning & Training
+
+**Transform generic models into specialists:**
+
+<Tabs>
+  <Tab title="QA Marking">
+    **Collect training data naturally:**
+    
+    1. Chat with your expert
+    2. When you get a perfect response, mark it
+    3. Build up 50-500+ examples
+    4. Expert learns from these interactions
+    
+    **Benefits:**
+    - No manual data creation
+    - Real-world examples
+    - Continuous improvement
+    - Natural workflow
+  </Tab>
+  
+  <Tab title="Fine-Tuning">
+    **Train custom models:**
+    
+    - Use marked QA pairs as training data
+    - Create specialized model versions
+    - Deploy fine-tuned models
+    - A/B test different versions
+    
+    **Results:**
+    - Consistent behavior
+    - Domain expertise
+    - Brand voice compliance
+    - Better accuracy
+  </Tab>
+  
+  <Tab title="Model Distillation">
+    **Advanced technique:**
+    
+    - Use GPT-4 to generate perfect examples
+    - Train GPT-3.5 on those examples
+    - Get 90-95% of GPT-4's quality
+    - At 10-50x lower cost
+    
+    **Use for:**
+    - Production cost optimization
+    - High-volume applications
+    - Speed improvements
+  </Tab>
+</Tabs>
+
+Learn more: [Fine-Tuning](/concepts/fine-tuning/introduction) | [Model Distillation](/concepts/fine-tuning/model-distillation)
+
+### 3. Provider Keys Management
+
+**Unified API key management:**
+
+<AccordionGroup>
+  <Accordion icon="robot" title="LLM Providers">
+    Manage keys for language models:
+    - OpenAI (GPT-4, GPT-3.5)
+    - Anthropic (Claude 3)
+    - Google (Gemini)
+    - Mistral, DeepSeek, Cohere
+    - Groq, Azure, Ollama
+    - And 10+ more
+    
+    **Benefits:**
+    - One place for all keys
+    - Primary & fallback keys
+    - Key validation
+    - Usage tracking
+  </Accordion>
+  
+  <Accordion icon="microphone" title="Voice Providers">
+    Text-to-speech and speech-to-text:
+    - OpenAI TTS & Whisper
+    - ElevenLabs
+    - Google TTS
+    - Azure Speech
+    - Browser native
+    
+    **Flexibility:**
+    - Different keys for voice vs text
+    - Multiple accounts
+    - Separate billing
+  </Accordion>
+  
+  <Accordion icon="image" title="Image Providers">
+    Image generation services:
+    - OpenAI DALL-E
+    - Stability AI
+    - Midjourney
+    - BFL FLUX (profile pictures)
+    
+    **Uses:**
+    - Expert profile pictures
+    - Content generation
+    - Visual assets
+  </Accordion>
+</AccordionGroup>
+
+Learn more: [Provider Keys](/essentials/provider-keys)
+
+### 4. Multimodal Capabilities
+
+**Beyond text interactions:**
+
+<CardGroup cols={2}>
+  <Card title="Voice Input" icon="microphone">
+    **Speech-to-Text:**
+    - Real-time voice recording
+    - Multiple languages
+    - Hands-free operation
+    - Mobile-friendly
+    
+    **Powered by:**
+    - OpenAI Whisper
+    - Google Speech-to-Text
+    - Azure Speech
+    - Browser native
+  </Card>
+  
+  <Card title="Voice Output" icon="volume-high">
+    **Text-to-Speech:**
+    - Natural-sounding voices
+    - Multiple voice options
+    - Streaming audio
+    - Auto-play settings
+    
+    **Powered by:**
+    - OpenAI TTS (6 voices)
+    - ElevenLabs (100+ voices)
+    - Google TTS (WaveNet)
+    - Azure Neural Voices
+  </Card>
+  
+  <Card title="Image Processing" icon="image">
+    **Visual AI:**
+    - AI-generated profile pics
+    - Image analysis
+    - Screenshot understanding
+    - Diagram explanations
+    
+    **Capabilities:**
+    - OCR (text extraction)
+    - Object recognition
+    - Visual Q&A
+    - Image generation
+  </Card>
+  
+  <Card title="File Handling" icon="file">
+    **Document Processing:**
+    - PDF, Word, Excel
+    - Code files
+    - CSV data analysis
+    - JSON/XML parsing
+    
+    **Operations:**
+    - Read and analyze
+    - Extract information
+    - Generate summaries
+    - Answer questions
+  </Card>
+</CardGroup>
+
+Learn more: [Modalities](/essentials/modalities) | [Multimodal AI](/concepts/multimodal/introduction)
+
+### 5. DeepAgents Workspace
+
+**Advanced autonomous capabilities:**
+
+<Tabs>
+  <Tab title="Task Management">
+    **Hierarchical todos:**
+    
+    ```
+    Main Goal
+    ├─ Subtask 1
+    │  ├─ Step 1.1
+    │  └─ Step 1.2
+    └─ Subtask 2
+       └─ Step 2.1
+    ```
+    
+    **Features:**
+    - Automatic task breakdown
+    - Status tracking (pending, in_progress, completed)
+    - Progress monitoring
+    - Priority management
+    
+    **Use for:**
+    - Multi-step projects
+    - Complex workflows
+    - Autonomous execution
+  </Tab>
+  
+  <Tab title="File System">
+    **Virtual workspace:**
+    
+    Each conversation has persistent files:
+    - Code files
+    - Documents
+    - Data files
+    - Reports
+    - Outputs
+    
+    **Operations:**
+    - Create/edit files
+    - Organize by type
+    - Download anytime
+    - Persist across sessions
+    
+    **Use for:**
+    - Development projects
+    - Data analysis
+    - Report generation
+    - Content creation
+  </Tab>
+  
+  <Tab title="Human-in-the-Loop">
+    **Control automation:**
+    
+    **Auto Mode:**
+    ```
+    Agent plans → Executes → Completes
+    ```
+    
+    **HITL Mode:**
+    ```
+    Agent plans → Asks approval → If yes, executes
+    ```
+    
+    **When to use HITL:**
+    - Critical operations
+    - Database modifications
+    - Financial transactions
+    - Learning agent behavior
+  </Tab>
+</Tabs>
+
+Learn more: [DeepAgents Workspace](/essentials/deepagents-workspace) | [DeepAgents Concepts](/concepts/deepagents/introduction)
+
+### 6. Distribution Channels
+
+**Deploy your experts everywhere:**
+
+<Tabs>
+  <Tab title="B-Bot Chat">
+    **Internal chat application:**
+    
+    - Direct integration
+    - Full feature access
+    - User management
+    - Team collaboration
+    - Real-time conversations
+    
+    **Best for:**
+    - Internal teams
+    - Secure environments
+    - Full-featured usage
+    - Power users
+  </Tab>
+  
+  <Tab title="Embed Widget">
+    **Website integration:**
+    
+    - Customizable chat widget
+    - Brand matching (colors, icons)
+    - Multiple styles (bubble, sidebar, fullscreen)
+    - Easy integration (copy/paste script)
+    - Mobile responsive
+    
+    **Best for:**
+    - Customer support
+    - Website visitors
+    - Lead generation
+    - Public access
+  </Tab>
+  
+  <Tab title="API">
+    **Custom integrations:**
+    
+    - REST endpoints
+    - Streaming responses
+    - Full control
+    - Authentication
+    - Webhook support
+    
+    **Best for:**
+    - Mobile apps
+    - Custom applications
+    - System integrations
+    - Developers
+  </Tab>
+  
+  <Tab title="Tasks">
+    **Scheduled automation:**
+    
+    - Cron scheduling
+    - Automated reports
+    - Data processing
+    - Monitoring
+    - Background jobs
+    
+    **Best for:**
+    - Recurring reports
+    - Batch processing
+    - Monitoring
+    - Automation
+  </Tab>
+  
+  <Tab title="Templates">
+    **Public sharing:**
+    
+    - Template marketplace
+    - Share your experts
+    - Help community
+    - Build reputation
+    - Get featured
+    
+    **Best for:**
+    - Community contribution
+    - Showcasing capabilities
+    - Building brand
+    - Helping others
+  </Tab>
+</Tabs>
+
+Learn more: [Distribution Channels](/essentials/distribution-channels)
+
+### 7. App Integrations
+
+**Connect to external services:**
+
+<CardGroup cols={3}>
+  <Card title="Google Workspace" icon="google">
+    - Gmail
+    - Drive
+    - Calendar
+    - Sheets
+    - Docs
+  </Card>
+  
+  <Card title="Communication" icon="comments">
+    - Slack
+    - Discord
+    - Microsoft Teams
+    - WhatsApp (coming soon)
+  </Card>
+  
+  <Card title="Development" icon="code">
+    - GitHub
+    - GitLab
+    - Bitbucket
+    - Jira
+    - Linear
+  </Card>
+  
+  <Card title="Productivity" icon="list-check">
+    - Notion
+    - Trello
+    - Asana
+    - Monday.com
+    - Airtable
+  </Card>
+  
+  <Card title="CRM & Sales" icon="handshake">
+    - Salesforce
+    - HubSpot
+    - Pipedrive
+    - Zendesk
+  </Card>
+  
+  <Card title="Data & Analytics" icon="chart-line">
+    - Databases
+    - APIs
+    - Webhooks
+    - Analytics tools
+  </Card>
+</CardGroup>
+
+**Each expert can:**
+- Use different apps
+- Have unique credentials
+- Connect multiple services
+- Automate workflows
+
+Learn more: [Apps & Integrations](/essentials/apps)
+
+## Common Workflows
+
+### Workflow 1: Customer Support Expert
+
+```
+1. Create Expert
+   ├─ Name: "Support Assistant"
+   ├─ Profession: "Customer Support Specialist"
+   └─ Abilities: Handle inquiries, troubleshoot, escalate
+
+2. Fine-Tune
+   ├─ Mark 200 perfect support conversations
+   └─ Train custom model
+
+3. Connect Apps
+   ├─ Zendesk (ticket system)
+   ├─ Knowledge base
+   └─ CRM
+
+4. Deploy via Embed
+   └─ Add chat widget to website
+
+5. Monitor & Improve
+   ├─ Track satisfaction
+   ├─ Mark new good examples
+   └─ Retrain monthly
+```
+
+### Workflow 2: Data Analysis Expert
+
+```
+1. Create Expert
+   ├─ Name: "Data Analyst AI"
+   ├─ Enable DeepAgents mode
+   └─ Configure file handling
+
+2. Connect Apps
+   ├─ Database connections
+   ├─ Google Sheets
+   └─ Visualization tools
+
+3. Deploy via Tasks
+   ├─ Schedule: Daily at 8 AM
+   ├─ Input: Latest data
+   └─ Output: Analysis report
+
+4. Use Workspace
+   ├─ Generate analysis files
+   ├─ Create visualizations
+   └─ Write summary reports
+```
+
+### Workflow 3: Content Creation Expert
+
+```
+1. Create Expert
+   ├─ Fine-tune on brand voice
+   └─ Connect to content tools
+
+2. Use Model Distillation
+   ├─ Generate examples with GPT-4
+   ├─ Train GPT-3.5
+   └─ 93% cost reduction
+
+3. Deploy via API
+   └─ Integrate with CMS
+
+4. Multi-Channel
+   ├─ Social media posts
+   ├─ Blog drafts
+   └─ Email campaigns
+```
+
+## Getting Started Checklist
+
+<Steps>
+  <Step title="Set Up Provider Keys">
+    Add API keys for the services you'll use
+    - OpenAI, Anthropic, or others
+    - Voice providers (optional)
+    - Image providers (optional)
+    
+    → [Provider Keys Setup](/essentials/provider-keys)
+  </Step>
+  
+  <Step title="Create Your First Expert">
+    Follow the 8-step creation wizard
+    - Define personality
+    - Choose model
+    - Configure capabilities
+    
+    → [Create Expert Guide](/essentials/create-expert)
+  </Step>
+  
+  <Step title="Test in Chat">
+    Have conversations to refine behavior
+    - Test different scenarios
+    - Mark good responses (QA marking)
+    - Adjust abilities as needed
+    
+    → [Chat Features](/essentials/chat)
+  </Step>
+  
+  <Step title="Optional: Fine-Tune">
+    Train on your specific use case
+    - Collect 50-500 examples
+    - Train custom model
+    - Deploy fine-tuned version
+    
+    → [Training Guide](/essentials/training)
+  </Step>
+  
+  <Step title="Deploy via Distribution Channel">
+    Make your expert available to users
+    - Choose channel (Chat, Embed, API, Tasks)
+    - Configure settings
+    - Launch!
+    
+    → [Distribution Channels](/essentials/distribution-channels)
+  </Step>
+  
+  <Step title="Monitor & Improve">
+    Continuous improvement cycle
+    - Collect user feedback
+    - Mark new examples
+    - Retrain periodically
+    - Update configuration
+  </Step>
+</Steps>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Create Your Expert"
+    icon="plus"
+    href="/essentials/create-expert"
+  >
+    Start building your first AI expert
+  </Card>
+  <Card
+    title="Fine-Tuning"
+    icon="brain"
+    href="/concepts/fine-tuning/introduction"
+  >
+    Learn about training custom models
+  </Card>
+  <Card
+    title="DeepAgents"
+    icon="robot"
+    href="/concepts/deepagents/introduction"
+  >
+    Understand autonomous capabilities
+  </Card>
+  <Card
+    title="Distribution"
+    icon="share-nodes"
+    href="/essentials/distribution-channels"
+  >
+    Deploy your expert everywhere
+  </Card>
+</CardGroup>

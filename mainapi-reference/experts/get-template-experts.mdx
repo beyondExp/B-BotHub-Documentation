@@ -1,0 +1,37 @@
+---
+openapi: get /v1/get_template_experts
+---
+
+<Note>
+**Permission Required:** This endpoint is only available for **Agencies** and **Middleware Partners**.
+</Note>
+
+## Template Categories
+
+Available categories for filtering:
+
+- `Sales & Marketing`
+- `Customer Support`
+- `Development`
+- `Finance & Accounting`
+- `HR & Recruitment`
+- `Content Creation`
+- `Project Management`
+- `Data Analysis`
+- `Education`
+- `Other`
+
+## Featured Templates
+
+Featured templates have been reviewed and approved by B-Bot administrators. They represent high-quality, well-tested configurations suitable for production use.
+
+## Template Installation
+
+When installing a template expert:
+
+1. **Copy configuration** - Expert settings are duplicated to user's account
+2. **Remove credentials** - App credentials are NOT copied
+3. **Prompt for apps** - User must connect their own app credentials
+4. **Copy knowledge** - Knowledge containers are duplicated
+5. **Increment counter** - `template_usage_count` is incremented
+6. **Create expert** - New expert is created under user's ownership

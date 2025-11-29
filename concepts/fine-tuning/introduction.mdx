@@ -1,0 +1,328 @@
+---
+title: 'Fine-Tuning Introduction'
+description: 'Train your AI experts to behave exactly how you want'
+icon: 'brain-circuit'
+---
+
+# Fine-Tuning Your AI Experts
+
+Fine-tuning is the process of training your AI expert on specific examples to make it behave exactly as you want. Unlike prompt engineering which guides behavior through instructions, fine-tuning actually modifies the model's weights to embed your desired behaviors directly.
+
+## What is Fine-Tuning?
+
+Fine-tuning takes a pre-trained language model and continues training it on your specific dataset, teaching it to respond in ways that match your exact requirements.
+
+<CardGroup cols={2}>
+  <Card title="Behavior Training" icon="theater-masks">
+    Teach your expert how to respond in specific situations
+  </Card>
+  <Card title="Knowledge Enhancement" icon="book">
+    Add domain-specific knowledge and terminology
+  </Card>
+  <Card title="Style Adaptation" icon="palette">
+    Match your brand voice and communication style
+  </Card>
+  <Card title="Performance Improvement" icon="rocket">
+    Better accuracy for your specific use cases
+  </Card>
+</CardGroup>
+
+## Fine-Tuning vs Prompt Engineering
+
+**When to use Prompt Engineering:**
+- Quick prototyping
+- Testing different approaches
+- Frequently changing requirements
+- Simple behavioral adjustments
+- Instant results needed
+
+**When to use Fine-Tuning:**
+- Production deployments
+- Consistent brand voice needed
+- Complex domain knowledge
+- Cost optimization (smaller fine-tuned models can replace larger ones)
+- High-volume usage
+
+**Key differences:**
+- **Speed**: Prompt engineering is instant, fine-tuning takes time to train
+- **Cost**: Prompts have no training cost, fine-tuning has upfront training cost but lower inference cost
+- **Flexibility**: Prompts are easy to change, fine-tuning requires retraining
+- **Consistency**: Prompts are variable, fine-tuning is highly consistent
+- **Data Required**: Prompts need none, fine-tuning needs 50-500+ examples
+
+## The Fine-Tuning Process in B-Bot Hub
+
+### 1. Data Collection Phase
+
+Fine-tuning starts with gathering quality training examples:
+
+<Steps>
+  <Step title="Chat with Your Expert">
+    Use your expert naturally, having real conversations
+  </Step>
+  
+  <Step title="Mark Quality Interactions">
+    When you get a good response, use **QA Marking** to save it
+  </Step>
+  
+  <Step title="Capture Both Sides">
+    Each marked interaction includes:
+    - User question/input
+    - Expert's ideal response
+  </Step>
+  
+  <Step title="Build Your Dataset">
+    Continue marking until you have 50-500+ examples
+  </Step>
+</Steps>
+
+**QA Marking in Chat:**
+
+When your expert gives a perfect response:
+
+1. Click the three dots on the message
+2. Select **"Start QA Marking"**
+3. The interaction is saved to your training dataset
+4. Continue marking good examples
+
+<Info>
+  **Quality over Quantity:** 100 high-quality examples beat 1,000 mediocre ones
+</Info>
+
+### 2. Training Phase
+
+Once you have enough examples:
+
+<Steps>
+  <Step title="Access Training">
+    Navigate to **Training** in the expert menu
+  </Step>
+  
+  <Step title="Review Dataset">
+    See all your marked QA pairs
+    - Edit or remove bad examples
+    - Ensure diversity of situations
+    - Check for consistent quality
+  </Step>
+  
+  <Step title="Configure Training">
+    Set training parameters:
+    - Base model to fine-tune
+    - Number of epochs
+    - Learning rate (advanced)
+  </Step>
+  
+  <Step title="Start Training">
+    Click **Start Training Job**
+    - Training takes 10-60 minutes
+    - You'll be notified when complete
+  </Step>
+</Steps>
+
+### 3. Evaluation Phase
+
+After training completes:
+
+- View all model versions (original + fine-tuned versions)
+- A/B test by switching between versions in chat
+- Compare responses to same questions
+- Set the best version as primary
+- Continue iterative improvement
+
+## Training Data Best Practices
+
+### Quality Guidelines
+
+<AccordionGroup>
+  <Accordion title="Diverse Examples" icon="shuffle">
+    **Cover different scenarios:**
+    - Various question types
+    - Different tones (formal, casual)
+    - Edge cases and unusual requests
+    - Common vs rare situations
+    
+    **Why:** Model learns to generalize better
+  </Accordion>
+  
+  <Accordion title="Consistent Style" icon="paint-roller">
+    **Maintain uniform behavior:**
+    - Same tone across examples
+    - Consistent formatting
+    - Similar response length patterns
+    - Unified brand voice
+    
+    **Why:** Model learns predictable behavior
+  </Accordion>
+  
+  <Accordion title="Clear Examples" icon="lightbulb">
+    **High-quality pairs:**
+    - Clear user intent
+    - Excellent expert response
+    - No ambiguity
+    - Complete information
+    
+    **Why:** Model learns correct patterns
+  </Accordion>
+  
+  <Accordion title="Representative Data" icon="bullseye">
+    **Match real usage:**
+    - Actual user questions
+    - Real-world scenarios
+    - Common pain points
+    - Typical interactions
+    
+    **Why:** Model performs well in production
+  </Accordion>
+</AccordionGroup>
+
+### How Many Examples?
+
+**Minimum (50-100 examples):**
+- Basic behavior adjustments
+- Simple use cases
+- Style consistency
+- Initial experiments
+
+**Recommended (200-500 examples):**
+- Production deployments
+- Complex behaviors
+- Domain expertise
+- Robust performance
+
+**Advanced (500-5000+ examples):**
+- Specialized domains
+- High-stakes applications
+- Maximum performance
+- Complex reasoning
+
+## Common Use Cases
+
+### 1. Brand Voice Training
+
+Ensure consistent brand communication across all interactions by training on examples that match your brand's specific tone, terminology, and style.
+
+### 2. Domain Expertise
+
+Create true specialists in medical, legal, technical, or other domains by training on domain-specific terminology, procedures, and best practices.
+
+### 3. Customer Support
+
+Handle support tickets efficiently with training on common issues, escalation protocols, troubleshooting steps, and professional empathy.
+
+### 4. Sales & Marketing
+
+Develop expert sales assistants trained on product details, feature comparisons, pricing discussions, and lead qualification approaches.
+
+## Cost Optimization
+
+Fine-tuning enables significant cost savings by allowing smaller models to perform as well as larger ones:
+
+**Before Fine-Tuning:**
+- Large Model (GPT-4): $0.03 per 1K tokens
+- Monthly cost (1M tokens): $30,000
+
+**After Fine-Tuning:**
+- Fine-tuned Smaller Model (GPT-3.5): $0.002 per 1K tokens
+- Monthly cost (1M tokens): $2,000
+- **Savings: $28,000/month (93% reduction!)**
+
+## Best Practices Summary
+
+<CardGroup cols={2}>
+  <Card title="Start Small" icon="seedling">
+    Begin with 50-100 examples, iterate from there
+  </Card>
+  <Card title="Quality First" icon="star">
+    Perfect examples > many mediocre ones
+  </Card>
+  <Card title="Test Thoroughly" icon="vial">
+    A/B test all versions before production
+  </Card>
+  <Card title="Document Everything" icon="book">
+    Track what changes between versions
+  </Card>
+  <Card title="Monitor Continuously" icon="chart-line">
+    Watch metrics after each deployment
+  </Card>
+  <Card title="Iterate Often" icon="rotate">
+    Small frequent improvements beat big rare ones
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Model Not Improving" icon="circle-exclamation">
+    **Possible causes:**
+    - Insufficient training data
+    - Low quality examples
+    - Conflicting examples
+    - Wrong base model
+    
+    **Solutions:**
+    - Add more diverse examples
+    - Review and clean dataset
+    - Ensure consistency
+    - Try different base model
+  </Accordion>
+  
+  <Accordion title="Model Overfitting" icon="chart-line-down">
+    **Symptoms:**
+    - Perfect on training data
+    - Poor on new questions
+    - Too rigid responses
+    
+    **Solutions:**
+    - Add more diverse examples
+    - Reduce training epochs
+    - Use regularization
+    - Expand dataset variety
+  </Accordion>
+  
+  <Accordion title="Inconsistent Results" icon="shuffle">
+    **Causes:**
+    - Conflicting examples
+    - Ambiguous training data
+    - Too few examples
+    
+    **Solutions:**
+    - Review dataset for conflicts
+    - Remove ambiguous examples
+    - Add clearer examples
+    - Ensure consistency
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Model Distillation"
+    icon="flask"
+    href="/concepts/fine-tuning/model-distillation"
+  >
+    Learn how to generate training data automatically
+  </Card>
+  <Card
+    title="Start Training"
+    icon="rocket"
+    href="/essentials/training"
+  >
+    Go to the training interface
+  </Card>
+  <Card
+    title="Best Practices"
+    icon="star"
+    href="/concepts/best_practices/ai-persona-with-b-bot"
+  >
+    More tips for creating great experts
+  </Card>
+  <Card
+    title="Distribution"
+    icon="share-nodes"
+    href="/essentials/distribution-channels"
+  >
+    Deploy your fine-tuned expert
+  </Card>
+</CardGroup>
+

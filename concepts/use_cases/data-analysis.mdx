@@ -1,0 +1,600 @@
+---
+title: 'Data Analysis Use Case'
+description: 'Build AI-powered data analysis workflows with DeepAgents'
+icon: 'chart-line'
+---
+
+# AI-Powered Data Analysis
+
+Transform raw data into actionable insights using AI experts with DeepAgents workspace capabilities. This guide shows you how to build automated data analysis workflows that process data, generate visualizations, and create comprehensive reports.
+
+## Overview
+
+**What you'll build:**
+- Automated data analysis pipeline
+- Interactive data exploration expert
+- Report generation system
+- Scheduled analytics tasks
+- Multi-format output (CSV, charts, reports)
+
+**Results:**
+- Hours of analysis → Minutes
+- Consistent methodology
+- Repeatable workflows
+- Professional visualizations
+- Automated reporting
+
+## Why DeepAgents for Data Analysis?
+
+<CardGroup cols={2}>
+  <Card title="Task Management" icon="list-check">
+    Break complex analysis into subtasks:
+    - Load and validate data
+    - Clean and preprocess
+    - Perform analysis
+    - Generate visualizations
+    - Write report
+  </Card>
+  
+  <Card title="File System" icon="folder">
+    Persistent workspace:
+    - Store datasets
+    - Save analysis scripts
+    - Keep visualizations
+    - Organize outputs
+    - Download results
+  </Card>
+  
+  <Card title="Iterative Workflow" icon="rotate">
+    Refine analysis:
+    - Try different approaches
+    - Compare results
+    - Track methodology
+    - Document findings
+  </Card>
+  
+  <Card title="Automation" icon="robot">
+    Schedule recurring analysis:
+    - Daily/weekly reports
+    - Real-time monitoring
+    - Batch processing
+    - Alert generation
+  </Card>
+</CardGroup>
+
+## Step-by-Step Implementation
+
+### 1. Create Your Data Analysis Expert
+
+<Steps>
+  <Step title="Basic Configuration">
+    **Expert Setup:**
+    - Name: "Data Analyst AI"
+    - Profession: "Data Analyst & Insights Specialist"
+    - Enable **DeepAgents Mode** ✅
+    
+    **System Prompt:**
+    ```
+    You are an expert data analyst specializing in [your domain].
+    Your role is to:
+    - Analyze datasets thoroughly and systematically
+    - Generate clear visualizations
+    - Provide actionable insights
+    - Write comprehensive reports
+    - Document your methodology
+    
+    Always break complex analyses into clear subtasks.
+    Save all outputs (data files, charts, reports) to the workspace.
+    ```
+  </Step>
+  
+  <Step title="Configure File Handling">
+    **Enable multimodal input:**
+    - CSV file uploads
+    - Excel spreadsheets
+    - JSON data
+    - Text files
+    - Image analysis (optional)
+  </Step>
+  
+  <Step title="Select Model">
+    **Recommended models:**
+    - GPT-4 Turbo: Best for complex analysis
+    - Claude 3: Excellent at structured data
+    - GPT-3.5 fine-tuned: Cost-effective for routine analysis
+    
+    **Consider:**
+    - Context window (large datasets need large windows)
+    - Code generation capability
+    - Cost vs complexity
+  </Step>
+</Steps>
+
+### 2. Connect Data Sources
+
+<AccordionGroup>
+  <Accordion title="Direct File Upload" icon="upload">
+    **Manual data input:**
+    - Upload CSV, Excel, JSON files
+    - Copy/paste small datasets
+    - Drag and drop
+    
+    **Best for:**
+    - Ad-hoc analysis
+    - One-time reports
+    - Small datasets
+  </Accordion>
+  
+  <Accordion title="Database Integration" icon="database">
+    **Connect directly:**
+    - PostgreSQL
+    - MySQL
+    - MongoDB
+    - SQL Server
+    - Custom APIs
+    
+    **Benefits:**
+    - Real-time data
+    - Automated updates
+    - Large datasets
+    - Scheduled queries
+  </Accordion>
+  
+  <Accordion title="Google Sheets" icon="table">
+    **Live spreadsheet integration:**
+    - Read data automatically
+    - Write results back
+    - Collaborative workflows
+    - Easy data updates
+    
+    **Perfect for:**
+    - Business users
+    - Team collaboration
+    - Simple datasets
+  </Accordion>
+  
+  <Accordion title="API Connections" icon="plug">
+    **External data sources:**
+    - Analytics platforms
+    - CRM systems
+    - Marketing tools
+    - Custom APIs
+    
+    **Examples:**
+    - Google Analytics
+    - Salesforce
+    - HubSpot
+    - Stripe
+  </Accordion>
+</AccordionGroup>
+
+### 3. Build Analysis Workflows
+
+**Example: Sales Analysis Report**
+
+```
+User: "Analyze this sales data and create a comprehensive report"
+[Uploads: sales_data.csv]
+
+DeepAgent creates tasks:
+├── Load and validate sales_data.csv
+├── Clean data (remove duplicates, handle missing values)
+├── Exploratory data analysis
+│   ├── Calculate summary statistics
+│   ├── Identify trends
+│   └── Detect anomalies
+├── Generate visualizations
+│   ├── Sales over time chart
+│   ├── Top products bar chart
+│   ├── Regional breakdown map
+│   └── Customer segment analysis
+├── Perform statistical analysis
+│   ├── Growth rate calculation
+│   ├── Seasonality detection
+│   └── Forecasting
+└── Write comprehensive report
+
+Files created in workspace:
+├── sales_data_cleaned.csv
+├── analysis_script.py
+├── sales_over_time.png
+├── top_products.png
+├── regional_breakdown.png
+├── customer_segments.png
+├── statistical_summary.json
+└── sales_analysis_report.md
+```
+
+### 4. Set Up Automated Reports
+
+**Schedule recurring analysis:**
+
+<Steps>
+  <Step title="Create Task">
+    Navigate to **Tasks** section
+    
+    Configure:
+    - Name: "Weekly Sales Report"
+    - Schedule: Every Monday at 9 AM
+    - Expert: Data Analyst AI
+  </Step>
+  
+  <Step title="Define Input">
+    **Data source:**
+    ```
+    Fetch sales data for the past week from database
+    Compare with previous week and same week last year
+    ```
+  </Step>
+  
+  <Step title="Set Output Handling">
+    **Delivery options:**
+    - Save report to workspace
+    - Email to stakeholders
+    - Post to Slack channel
+    - Update Google Sheets dashboard
+  </Step>
+  
+  <Step title="Enable Workspace">
+    Each task has its own workspace:
+    - Historical reports
+    - Trend analysis across weeks
+    - Cumulative insights
+  </Step>
+</Steps>
+
+## Real-World Examples
+
+### Example 1: E-Commerce Analytics
+
+**Scenario:** Online retailer, 10K orders/month
+
+**Implementation:**
+```
+Daily Automated Analysis:
+1. Load previous day's orders
+2. Calculate key metrics:
+   - Revenue, AOV, conversion rate
+   - Top products, categories
+   - Customer segments
+3. Generate visualizations
+4. Compare to targets and trends
+5. Email executive summary
+6. Alert on anomalies
+
+Workspace contains:
+├── Historical data (30 days)
+├── Daily reports
+├── Trend charts
+├── Anomaly alerts
+└── Forecasting models
+```
+
+**Results:**
+- 2 hours/day → 10 minutes automated
+- Consistent daily insights
+- Faster decision making
+- Trend spotting improved
+- No more manual Excel work
+
+### Example 2: Marketing Campaign Analysis
+
+**Scenario:** Digital marketing agency
+
+**Workflow:**
+```
+User: "Analyze this campaign performance"
+[Uploads: campaign_data.csv]
+
+DeepAgent process:
+1. Load and validate data ✓
+2. Calculate metrics:
+   - CTR, CPC, CPA, ROAS
+   - Engagement rates
+   - Conversion funnel
+3. Generate comparison charts:
+   - vs. previous campaigns
+   - vs. industry benchmarks
+   - vs. targets
+4. Identify insights:
+   - Best performing audiences
+   - Optimal ad creatives
+   - Time-of-day patterns
+5. Provide recommendations
+6. Create client-ready presentation
+
+Output:
+├── campaign_analysis.pptx
+├── performance_dashboard.html
+├── detailed_metrics.csv
+├── recommendation_report.md
+└── visualization_pack.zip
+```
+
+**Value:**
+- Professional reports in 5 minutes
+- Consistent analysis methodology
+- Data-driven recommendations
+- Impress clients with speed
+
+### Example 3: Financial Forecasting
+
+**Scenario:** Finance department, monthly forecasting
+
+**Implementation:**
+```
+Monthly Task (First business day):
+1. Fetch financial data (revenue, expenses, cash flow)
+2. Clean and standardize
+3. Apply forecasting models:
+   - Time series analysis
+   - Regression models
+   - Moving averages
+4. Generate scenarios:
+   - Best case
+   - Base case
+   - Worst case
+5. Create visualization dashboard
+6. Write CFO brief
+
+DeepAgent workspace:
+├── historical_data/ (24 months)
+├── forecasting_models/
+├── monthly_reports/
+├── scenario_analyses/
+└── presentation_decks/
+```
+
+**Results:**
+- 3 days work → 2 hours
+- Multiple scenario modeling
+- Consistent methodology
+- Better forecast accuracy
+- More time for strategic analysis
+
+## Advanced Features
+
+### Interactive Data Exploration
+
+**Conversational analysis:**
+
+```
+User: "Show me sales by region"
+Agent: [Generates chart] "Here's the breakdown. North region leads with $2.3M (38%)"
+
+User: "Drill down into North region by product"
+Agent: [Generates detailed chart] "Top 3 products in North:
+        1. Product A: $850K
+        2. Product B: $720K
+        3. Product C: $450K"
+
+User: "Compare Product A performance across all regions"
+Agent: [Generates comparison chart] "Product A analysis:
+        - Strong in North (37% market share)
+        - Growing in West (22%, +15% MoM)
+        - Opportunity in South (only 8%)"
+
+All charts saved to workspace for later reference.
+```
+
+### Multi-Dataset Analysis
+
+**Combine multiple sources:**
+
+```
+User: "Analyze correlation between marketing spend and revenue"
+[Uploads: marketing_spend.csv, revenue.csv]
+
+DeepAgent:
+1. Load both datasets
+2. Merge on date
+3. Calculate correlations
+4. Regression analysis
+5. Visualize relationships
+6. Identify optimal spend levels
+7. Generate actionable insights
+
+Creates:
+├── merged_data.csv
+├── correlation_matrix.png
+├── regression_analysis.png
+├── spend_optimization.png
+└── insights_report.md
+```
+
+### Code Generation
+
+**Expert generates analysis scripts:**
+
+```
+DeepAgent creates:
+- Python scripts for repeatable analysis
+- SQL queries for database extraction
+- Data transformation pipelines
+- Visualization code
+
+All saved to workspace:
+├── analysis.py
+├── data_extraction.sql
+├── transform_pipeline.py
+└── visualizations.py
+
+You can:
+- Download and run locally
+- Modify for variations
+- Share with team
+- Schedule execution
+```
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Data Quality First" icon="badge-check">
+    **Always validate:**
+    - Check for missing values
+    - Identify duplicates
+    - Verify data types
+    - Look for outliers
+    - Document assumptions
+    
+    **Let DeepAgent:**
+    - Create data quality subtask
+    - Generate validation report
+    - Flag issues for review
+  </Card>
+  
+  <Card title="Document Everything" icon="book">
+    **DeepAgent workspace includes:**
+    - Methodology notes
+    - Data sources
+    - Transformation steps
+    - Analysis decisions
+    - Results interpretation
+    
+    **Benefits:**
+    - Reproducible analysis
+    - Audit trail
+    - Knowledge sharing
+    - Quality control
+  </Card>
+  
+  <Card title="Iterate and Refine" icon="arrows-rotate">
+    **Use workspace for:**
+    - Try multiple approaches
+    - Compare results
+    - Refine methodology
+    - Build on previous work
+    
+    **Example:**
+    ```
+    v1: Basic analysis
+    v2: Add more metrics
+    v3: Improve visualizations
+    v4: Add forecasting
+    v5: Production-ready
+    ```
+  </Card>
+  
+  <Card title="Automate Routine Work" icon="clock">
+    **Schedule regular reports:**
+    - Daily dashboards
+    - Weekly summaries
+    - Monthly deep dives
+    - Quarterly reviews
+    
+    **Each maintains workspace:**
+    - Historical context
+    - Trend tracking
+    - Comparative analysis
+  </Card>
+</CardGroup>
+
+## Visualization Best Practices
+
+**DeepAgent can generate:**
+- Line charts (trends over time)
+- Bar charts (comparisons)
+- Scatter plots (correlations)
+- Heatmaps (patterns)
+- Pie charts (proportions)
+- Dashboards (overview)
+
+**Pro tips:**
+- Specify chart types in requests
+- Request multiple visualization options
+- Ask for dashboard layouts
+- Save all visualizations to workspace
+- Download in multiple formats (PNG, SVG, PDF)
+
+## Cost Optimization
+
+**For routine analysis:**
+
+1. **Use Model Distillation:**
+   - Generate 1000 analysis examples with GPT-4
+   - Train GPT-3.5 on your analysis patterns
+   - Deploy for 93% cost reduction
+   - Maintain 90-95% quality
+
+2. **Efficient Task Design:**
+   - Cache frequently used data
+   - Reuse analysis scripts
+   - Incremental updates vs full reanalysis
+   - Smart scheduling to avoid overlaps
+
+3. **Right-Size Models:**
+   - Simple summaries: GPT-3.5
+   - Complex analysis: GPT-4
+   - Code generation: Claude or GPT-4
+   - Match model to complexity
+
+## Common Challenges & Solutions
+
+<AccordionGroup>
+  <Accordion title="Large Datasets" icon="database">
+    **Challenge:** Dataset too large for context window
+    
+    **Solutions:**
+    - Sample data for exploration
+    - Aggregate before analysis
+    - Split into chunks
+    - Use summary statistics
+    - Connect to database (query vs load all)
+  </Accordion>
+  
+  <Accordion title="Complex Analysis" icon="brain">
+    **Challenge:** Multi-step statistical analysis
+    
+    **Solutions:**
+    - Enable DeepAgents task breakdown
+    - Create step-by-step subtasks
+    - Use HITL mode for approval
+    - Generate and review code
+    - Validate intermediate results
+  </Accordion>
+  
+  <Accordion title="Visualization Quality" icon="chart-simple">
+    **Challenge:** Charts don't look professional
+    
+    **Solutions:**
+    - Be specific about requirements
+    - Request multiple options
+    - Fine-tune on your style examples
+    - Generate code for manual refinement
+    - Use professional templates
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Create Analysis Expert"
+    icon="plus"
+    href="/essentials/create-expert"
+  >
+    Build your data analyst with DeepAgents
+  </Card>
+  <Card
+    title="DeepAgents Guide"
+    icon="robot"
+    href="/essentials/deepagents-workspace"
+  >
+    Master workspace features
+  </Card>
+  <Card
+    title="Schedule Tasks"
+    icon="calendar"
+    href="/essentials/tasks"
+  >
+    Automate recurring analysis
+  </Card>
+  <Card
+    title="Fine-Tuning"
+    icon="brain"
+    href="/concepts/fine-tuning/introduction"
+  >
+    Train on your analysis patterns
+  </Card>
+</CardGroup>
+
