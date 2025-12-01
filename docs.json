@@ -121,6 +121,17 @@
       },
       
       {
+        "tab": "SDKs",
+        "groups": [
+          {
+            "group": "SDKs",
+            "pages": [
+              "sdks/javascript"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Main API",
         "groups": [
           {
