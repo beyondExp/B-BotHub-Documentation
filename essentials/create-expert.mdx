@@ -1,229 +1,95 @@
 ---
-title: 'Create your Expert'
-description: 'Start to create your first expert'
+title: 'Create Expert'
+description: 'Quick guide to creating your first AI expert'
 icon: 'plus'
 ---
 
-# Video Tutorial (coming soon)
+# Create Your Expert
 
-<iframe style={{ borderRadius: '0.5rem', width: '100%', height: '400px'}} src="https://www.youtube.com/embed/6bF5p01MXqQ?si=kd45_8HryDQMIMcZ"> </iframe>
+Creating an expert in B-Bot is now streamlined for a quick start. You only need to provide basic information - all advanced features are available when you **Edit** the expert afterward.
 
-# Text Tutorial
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/create-expert-start.png"
-/>
-
-## Create your Expert
-
-### Start to create your first expert
-
-To create your first expert, click on the "Expert" Menu button on the left. Then click on the "Create New Expert" button.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/create-expert-second.png"
-/>
-
-### Fill in the details
-
-Fill in the details of your expert. You can add a name, a profession and a description.
-In the Background we will create all of the additional information for your expert for you.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/create-expert-third.png"
-/>
-
-### Add a profile picture (Step 2)
-
-You can add a profile picture for your expert in three ways:
-
-<CardGroup cols={3}>
-  <Card title="Upload" icon="upload">
-    Upload an image from your computer
-  </Card>
-  <Card title="AI Generate" icon="wand-magic-sparkles">
-    Generate a professional profile picture using AI
-  </Card>
-  <Card title="URL" icon="link">
-    Paste an image URL
-  </Card>
-</CardGroup>
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/create-expert-fourth.png"
-/>
-
-<Info>
-  **New!** Use AI to generate professional profile pictures that match your expert's personality and role. See [AI Image Generation](/essentials/ai-image-generation) for details.
-</Info>
-
-### Add abilities (Step 3)
-
-You can add abilities to your expert. These abilities are branches of behavior that your expert can have.
-You can add as many abilities as you want. By pressing this button, B-Bot will directly add a matching ability to your expert.
-
-**What are abilities?**
-- Abilities are specific modes or behaviors your expert can activate
-- They act as "wake words" for the model to understand how it should behave
-- Keep them short and clear (one sentence)
-- Use the training tab for longer behavior definitions
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/create-expert-fifth.png"
-/>
-
-Above you can see an added ability. With the edit button you can change the ability and with the delete button you can delete the ability.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/create-expert-sixt.png"
-/>
-
-**Examples of good abilities:**
-- "Provide detailed technical explanations"
-- "Act as a friendly customer support agent"
-- "Focus on data analysis and visualization"
-- "Help with creative writing and brainstorming"
-
-### Add templates (Step 4)
-
-You can add templates to your expert. These templates are predefined questions or prompts that users can quickly select.
-
-**What are templates?**
-- Quick-start prompts for common tasks
-- Help users understand what your expert can do
-- Speed up interactions with pre-written questions
-- Great for onboarding new users
-
-The controls are the same as for the abilities. You can add as many templates as you want.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/create-expert-seventh.png"
-/>
-
-**Examples of good templates:**
-- "Explain quantum computing in simple terms"
-- "Help me write a professional email"
-- "Analyze this data and provide insights"
-- "Create a project plan for a mobile app"
-
-### Choose your model (Step 5)
-
-You can choose the model you want to use for your expert. This is a critical step that affects your expert's capabilities.
-
-**Model Selection includes:**
-- **Main Language Model**: GPT-4, Claude, Gemini, and more
-- **Provider Selection**: Choose from configured API keys
-- **Input Modalities**: Configure voice input and file handling
-- **Output Modalities**: Set up text-to-speech and audio output
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/create-expert-eight.png"
-/>
-
-**What to consider:**
-- **Capabilities**: Different models excel at different tasks
-- **Cost**: The multipliers show relative costs
-- **Speed**: Some models are faster than others
-- **Context Window**: How much text the model can handle at once
+## Access Expert Manager
 
 <CardGroup cols={2}>
-  <Card title="Configure Input Modalities" icon="microphone" href="/essentials/modalities">
-    Set up voice input, file uploads, and multimodal content
+  <Card title="Method 1: Expert Card" icon="hand-pointer">
+    Click the **Expert Card** below the logo in the sidebar
   </Card>
-  <Card title="Configure Output Modalities" icon="volume-high" href="/essentials/modalities">
-    Enable text-to-speech with various voice options
+  <Card title="Method 2: Sidebar" icon="list">
+    Click **Expert** in the navigation menu
   </Card>
 </CardGroup>
 
-### App Connections (Step 6)
+## Create New Expert
 
-Connect your expert to external applications and services to expand its capabilities:
+Click the **Create new Expert** button to open the creation modal.
 
-- **Available Apps**: Browse the app marketplace
-- **Authentication**: Set up credentials for each app
-- **Permissions**: Control what apps can access
-- **Custom Apps**: Add your own integrations
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/create-expert-modal.png"
+  alt="Create Expert Modal"
+/>
 
-**Popular integrations:**
-- Google Workspace (Gmail, Drive, Calendar)
-- Slack
-- GitHub
-- Notion
-- Database connections
-- Custom APIs
+## Fill in Basic Information
 
-Learn more: [Apps & Integrations](/essentials/apps)
+The simplified creation modal only requires three fields:
 
-### Team Members (Step 7)
+| Field | Description | Example |
+|-------|-------------|---------|
+| **Name** | Display name for your expert | `TechSupport AI` |
+| **Profession** | Role or specialty | `Customer Support Specialist` |
+| **Description** | Brief purpose description (max 250 chars) | `Friendly AI assistant for smart home support` |
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/create-expert-filled.png"
+  alt="Create Expert Filled"
+/>
 
 <Info>
-  **Advanced Feature:** Add other experts to your expert's team for multi-agent collaboration.
+  **Simplified Creation:** The system automatically selects a small, efficient model based on your available provider keys. You can customize everything else by editing the expert after creation.
 </Info>
 
-Your expert can work with other experts:
-- Delegate tasks to specialists
-- Collaborate on complex problems
-- Combine different expertise
-- Create workflows between agents
+### Pro Mode (Optional)
 
-**Example team:**
-```
-Marketing Expert (your expert)
-├── Content Writer Expert
-├── Data Analyst Expert
-└── Social Media Expert
-```
+Toggle **Pro Mode** for additional options during creation. Most users can leave this off and configure settings later via Edit Expert.
 
-### Review & Create (Step 8)
+## Save and Proceed
 
-Review all your settings and create your expert:
+Click **Save and Proceed** to create your expert. A confirmation dialog will appear - click OK to finalize.
 
-- ✅ Basic information is complete
-- ✅ Profile picture looks professional
-- ✅ Abilities are defined
-- ✅ Templates are helpful
-- ✅ Model is selected
-- ✅ Apps are connected (optional)
-- ✅ Team is configured (optional)
+<Check>
+  **That's it!** Your expert is created with default settings. Now edit it to add:
+  - Profile picture
+  - Abilities
+  - Templates
+  - Custom model selection
+  - App connections
+  - Team members
+</Check>
 
-Click **Create Expert** to finalize!
+## What Happens Automatically
 
-### Congratulations! 🎉
+When you create an expert, B-Bot:
+- ✅ Selects an efficient default model (e.g., GPT-4o-mini)
+- ✅ Uses your primary provider key
+- ✅ Sets up basic conversation capabilities
+- ✅ Makes the expert ready for chat immediately
 
-You have created your first expert with all 8 steps complete. Now you can:
-- Chat with your expert
-- Train it with custom data
-- Deploy it to different channels
-- Share it as a template
+## Next Steps
 
-# Next Steps
 <CardGroup cols={2}>
   <Card
-    title="Edit your Expert"
-    icon="gauge"
+    title="Edit Your Expert"
+    icon="pen-to-square"
     href="/essentials/edit-expert"
   >
-    Edit your expert to enhance it even more
+    Add profile picture, abilities, templates, and more
   </Card>
   <Card
-    title="Train your Expert"
-    icon="gauge"
-    href="/essentials/training"
+    title="🎯 Tutorial: First Expert"
+    icon="graduation-cap"
+    href="/workshops/02-first-expert/overview"
   >
-    Train your expert to make it smarter
-  </Card>
-  <Card
-    title="Chat with your Expert"
-    icon="messages"
-    href="/essentials/chat"
-  >
-    Chat with your expert and see how it behaves
+    Complete hands-on guide to building your first expert
   </Card>
 </CardGroup>

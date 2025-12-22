@@ -23,9 +23,26 @@ Initialize the client with your B-Bot API Key. The SDK is pre-configured to conn
 import { BBotClient } from "@beyond-bot-ai/sdk";
 
 const client = new BBotClient({
-  apiKey: "bbot_..." // Your B-Bot API Key
+  apiKey: "bbot_your_api_key_here" // Your B-Bot API Key
 });
 ```
+
+### Getting Your API Key
+
+1. Go to [B-Bot Hub](https://hub.b-bot.space)
+2. Navigate to **Settings** → **API Keys**
+3. Click **Create New API Key**
+4. Copy the key (starts with `bbot_`)
+5. Store it securely (treat it like a password!)
+
+<Warning>
+Never commit your API key to version control. Use environment variables:
+```typescript
+const client = new BBotClient({
+  apiKey: process.env.BBOT_API_KEY
+});
+```
+</Warning>
 
 ## Core Concepts
 
@@ -39,8 +56,11 @@ const channels = await client.distributionChannels.search({
   offset: 0
 });
 
-// Get a specific channel
-const channel = await client.distributionChannels.get("channel-id");
+// Get a specific channel by assistant_id
+const channel = await client.distributionChannels.get("assistant-id");
+
+// Extract entity_id from channel config (required for runs)
+const entityId = channel.config?.configurable?.entity_id;
 ```
 
 ### 2. Threads
@@ -60,24 +80,39 @@ await client.threads.updateState(thread.thread_id, {
 });
 ```
 
-### 3. Streaming Runs
+### 3. Streaming Runs (Recommended)
+
+<Warning>
+**Important:** B-Bot sends **cumulative content** in `messages/partial` events (e.g., "Hello", "Hello!", "Hello! How"), not individual tokens. Your `onMessage` callback should **replace** the content, not append it.
+</Warning>
+
 The SDK includes a powerful **Streaming Handler** (`client.streamRun`) that simplifies processing real-time events like token streaming, tool execution, and state updates.
 
 ```typescript
+// Get the channel first to extract entity_id
+const channel = await client.distributionChannels.get("assistant-id");
+const entityId = channel.config?.configurable?.entity_id;
+
+// Stream a run (this waits until the stream completes)
 await client.streamRun(
   "thread-id",
-  "channel-id",
+  channel.assistant_id, // Use assistant_id from the channel
   {
-    input: {
-      messages: [
-        { role: "user", content: "Write a short poem about AI." }
-      ]
-    }
+    messages: [
+      { role: "user", content: "Write a short poem about AI." }
+    ]
   },
   {
     // Handle real-time token streaming
-    onMessage: (content) => {
-      process.stdout.write(content); // Stream output to console
+    // isCumulative=true means REPLACE content, don't append
+    onMessage: (content, isCumulative) => {
+      if (isCumulative) {
+        // Replace the entire message content
+        setStreamingContent(content);
+      } else {
+        // Append (rare case)
+        setStreamingContent(prev => prev + content);
+      }
     },
     // Handle tool execution events
     onToolEvent: (event) => {
@@ -88,8 +123,34 @@ await client.streamRun(
       console.log("\n[Done]");
     },
     onError: (err) => console.error("Error:", err)
+  },
+  { entity_id: entityId } // Pass entity_id from channel config
+);
+```
+
+### Manual Streaming (Advanced)
+
+If you need lower-level control over the stream:
+
+```typescript
+const stream = await client.runs.stream(
+  threadId,
+  assistantId, // Note: Use assistant_id, not channel_id
+  {
+    input: {
+      messages: [
+        { role: "user", content: "Help me with marketing." }
+      ],
+      entity_id: entityId // Required by B-Bot graph
+    },
+    streamMode: ["values", "messages"]
   }
 );
+
+// This blocks until the stream completes
+for await (const chunk of stream) {
+  console.log(chunk.event, chunk.data);
+}
 ```
 
 ## State Management (Todos & Files)
@@ -99,8 +160,8 @@ The SDK automatically extracts structured data like **Todos** and **Files** gene
 ```typescript
 await client.streamRun(
   threadId, 
-  channelId, 
-  { input }, 
+  assistantId, 
+  { messages: [...] }, 
   {
     // Called when the AI creates or updates todos
     onTodosUpdate: (todos) => {
@@ -113,27 +174,63 @@ await client.streamRun(
         saveFile(name, content);
       }
     }
-  }
+  },
+  { entity_id: entityId }
 );
 ```
 
-## Advanced Usage
+## Debugging
 
-You can access the lower-level LangGraph methods if needed:
+If `onMessage` is not being called or you're not receiving events, enable debug mode:
 
 ```typescript
-// Manual streaming
-const stream = await client.runs.stream(
+await client.streamRun(
   threadId,
-  channelId,
+  assistantId,
+  { messages: [...] },
   {
-    input: { ... },
-    streamMode: ["values", "messages"]
+    onMessage: (content, isCumulative) => {
+      console.log("Received:", content);
+    }
+  },
+  { 
+    entity_id: entityId,
+    debug: true // Enable detailed logging
   }
 );
-
-for await (const chunk of stream) {
-  // Process raw LangGraph events
-}
 ```
 
+This will log:
+- Every chunk received from the stream
+- Event types and data structures
+- Content extraction process
+- Total chunks processed
+
+## Common Pitfalls
+
+### 1. Missing `entity_id`
+B-Bot requires `entity_id` in the initial state. Always extract it from the channel config:
+
+```typescript
+const channel = await client.distributionChannels.get(assistantId);
+const entityId = channel.config?.configurable?.entity_id;
+```
+
+### 2. Using `channel_id` instead of `assistant_id`
+The API returns `assistant_id`, not `channel_id`. Use `channel.assistant_id`.
+
+### 3. Appending cumulative content
+B-Bot sends the full message so far in each chunk. Always **replace** content when `isCumulative=true`.
+
+## Features
+
+*   **Native Terminology**: Uses `client.distributionChannels` instead of `client.assistants`.
+*   **Streaming Handler**: Built-in `streamRun` helper for easy real-time UI updates.
+*   **State Extraction**: Automatically extracts Todos and Files from stream events.
+*   **Auto-Configuration**: Pre-configured for `api.b-bot.space`.
+*   **Type Safety**: Full TypeScript support.
+*   **Cumulative Streaming**: Properly handles B-Bot's cumulative content streaming.
+
+## License
+
+MIT

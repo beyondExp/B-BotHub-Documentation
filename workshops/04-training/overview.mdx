@@ -1,0 +1,492 @@
+---
+title: 'Training & Fine-Tuning'
+sidebarTitle: '🎯 Tutorial: Training'
+description: 'Learn to train your experts with documents, QA pairs, and advanced fine-tuning techniques'
+icon: 'graduation-cap'
+---
+
+# Workshop 4: Training & Fine-Tuning
+
+<Info>
+  **Duration:** 60 minutes | **Level:** Intermediate | **Prerequisites:** Workshops 1-3
+</Info>
+
+## What You'll Master
+
+Transform your expert from generic to specialized by training it with your own data and knowledge.
+
+<Steps>
+  <Step title="Understanding Training">
+    Learn the different types of training available
+  </Step>
+  <Step title="Document Upload">
+    Add knowledge through documents and files
+  </Step>
+  <Step title="QA Pair Creation">
+    Create question-answer pairs for precise training
+  </Step>
+  <Step title="Model Fine-Tuning">
+    Fine-tune a base model with your data
+  </Step>
+  <Step title="Training Evaluation">
+    Test and evaluate your training results
+  </Step>
+</Steps>
+
+## Types of Training
+
+B-Bot offers multiple training approaches:
+
+```
+┌────────────────────────────────────────────────────────────────┐
+│                    TRAINING METHODS                            │
+├────────────────────────────────────────────────────────────────┤
+│                                                                │
+│   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐      │
+│   │   Document   │   │     QA       │   │    Fine-     │      │
+│   │   Retrieval  │   │    Pairs     │   │   Tuning     │      │
+│   │   (RAG)      │   │              │   │              │      │
+│   └──────────────┘   └──────────────┘   └──────────────┘      │
+│         │                  │                  │               │
+│         ▼                  ▼                  ▼               │
+│   Add searchable     Exact Q&A          Train custom         │
+│   knowledge base     matching           model weights        │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+```
+
+<CardGroup cols={3}>
+  <Card title="Document Retrieval (RAG)" icon="file-lines">
+    **Best for:** Large knowledge bases, manuals, documentation
+    
+    Your expert searches documents to find relevant information.
+  </Card>
+  <Card title="QA Pairs" icon="comments">
+    **Best for:** Specific questions, exact answers, brand voice
+    
+    Direct question-answer mappings for precise responses.
+  </Card>
+  <Card title="Fine-Tuning" icon="microchip">
+    **Best for:** Unique behavior, consistent style, specialized tasks
+    
+    Train a custom model with your data.
+  </Card>
+</CardGroup>
+
+## Document Training (RAG)
+
+### How RAG Works
+
+```
+User Question: "What's the warranty on SmartHub?"
+           │
+           ▼
+   ┌─────────────────┐
+   │ Vector Search   │ ──► Finds relevant chunks
+   │ in Documents    │     from your uploaded docs
+   └─────────────────┘
+           │
+           ▼
+   ┌─────────────────┐
+   │  LLM Generates  │ ──► Creates answer using
+   │  Response       │     retrieved context
+   └─────────────────┘
+           │
+           ▼
+"The SmartHub has a 2-year warranty covering..."
+```
+
+### Uploading Documents
+
+1. Navigate to **Training** in the sidebar
+2. Click **Documents** tab
+3. Click **Upload Documents**
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/training-first.png"
+  alt="Training Documents"
+/>
+
+### Supported Formats
+
+| Format | Best For | Notes |
+|--------|----------|-------|
+| **PDF** | Manuals, reports | Extracts text and structure |
+| **DOCX** | Word documents | Preserves formatting |
+| **TXT** | Plain text | Simplest format |
+| **MD** | Markdown docs | Great for technical docs |
+| **CSV** | Structured data | Creates searchable rows |
+| **JSON** | API docs, structured | Maintains hierarchy |
+
+### 🎯 Exercise: Document Upload
+
+Create a simple product manual for training:
+
+<Steps>
+  <Step title="Create Document">
+    Create a file called `product_manual.md`:
+    
+    ```markdown
+    # SmartHub Pro User Manual
+    
+    ## Quick Start Guide
+    
+    1. Plug in your SmartHub Pro
+    2. Wait for the blue LED to blink
+    3. Open the TechGadgets app
+    4. Follow the on-screen setup
+    
+    ## Troubleshooting
+    
+    ### Device won't connect
+    - Ensure WiFi is 2.4GHz
+    - Move closer to router
+    - Restart the device
+    
+    ### LED is red
+    - Check power connection
+    - Try different outlet
+    - Contact support if persists
+    
+    ## Warranty
+    
+    Your SmartHub Pro includes a 2-year warranty 
+    covering manufacturing defects. Does not cover
+    physical damage or water exposure.
+    ```
+  </Step>
+  <Step title="Upload to B-Bot">
+    Upload this document to your TechSupport AI expert
+  </Step>
+  <Step title="Test Retrieval">
+    Ask: "What should I do if the LED is red?"
+  </Step>
+</Steps>
+
+### Document Processing Options
+
+<AccordionGroup>
+  <Accordion title="Chunking Strategy">
+    How documents are split for search:
+    - **Paragraph**: Best for structured documents
+    - **Sentence**: Best for FAQs
+    - **Token-based**: Best for long documents
+  </Accordion>
+  
+  <Accordion title="Embedding Model">
+    How text is converted to vectors:
+    - **OpenAI ada-002**: High quality, standard
+    - **Cohere**: Good for multilingual
+    - **Local**: Privacy-focused
+  </Accordion>
+  
+  <Accordion title="Overlap">
+    How much context is shared between chunks:
+    - Higher overlap = better context preservation
+    - Lower overlap = faster search
+  </Accordion>
+</AccordionGroup>
+
+## QA Pair Training
+
+### When to Use QA Pairs
+
+<CardGroup cols={2}>
+  <Card title="✅ Great For" icon="check">
+    - Brand-specific terminology
+    - Exact pricing/policies
+    - Consistent answers to common questions
+    - Company voice and tone
+  </Card>
+  <Card title="⚠️ Less Effective For" icon="triangle-exclamation">
+    - Open-ended questions
+    - Complex reasoning
+    - Large knowledge bases
+    - Frequently changing info
+  </Card>
+</CardGroup>
+
+### Creating QA Pairs
+
+Navigate to **Training** → **QA Pairs**:
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/training-fourth.png"
+  alt="QA Pairs"
+/>
+
+### 🎯 Exercise: Create QA Pairs
+
+Create these QA pairs for your TechSupport AI:
+
+<Tabs>
+  <Tab title="QA Pair 1">
+    **Question:**
+    ```
+    What are your support hours?
+    ```
+    
+    **Answer:**
+    ```
+    Our support team is available Monday through Friday, 
+    9 AM to 6 PM EST. For urgent issues outside these hours,
+    please email urgent@techgadgets.com and we'll respond 
+    within 4 hours.
+    ```
+  </Tab>
+  <Tab title="QA Pair 2">
+    **Question:**
+    ```
+    How do I return a product?
+    ```
+    
+    **Answer:**
+    ```
+    To initiate a return:
+    1. Log into your account at techgadgets.com/returns
+    2. Select the order containing the item
+    3. Click "Start Return" and follow the instructions
+    4. Print the prepaid shipping label
+    5. Ship within 30 days of purchase
+    
+    Refunds are processed within 5-7 business days.
+    ```
+  </Tab>
+  <Tab title="QA Pair 3">
+    **Question:**
+    ```
+    Do you offer international shipping?
+    ```
+    
+    **Answer:**
+    ```
+    Yes! We ship to over 40 countries. International shipping 
+    rates and delivery times vary by location. You can see 
+    exact costs at checkout before completing your order.
+    
+    Note: Some products may have shipping restrictions 
+    due to local regulations.
+    ```
+  </Tab>
+</Tabs>
+
+### QA Pair Best Practices
+
+<AccordionGroup>
+  <Accordion title="Write Natural Questions">
+    Use questions as real users would ask them:
+    - ❌ "Provide information about shipping policies"
+    - ✅ "How long does shipping take?"
+  </Accordion>
+  
+  <Accordion title="Include Variations">
+    Add multiple phrasings for the same question:
+    - "What's the warranty?"
+    - "How long is my product covered?"
+    - "Is this under warranty?"
+  </Accordion>
+  
+  <Accordion title="Complete Answers">
+    Provide full, helpful answers:
+    - Include all relevant details
+    - Add next steps or links
+    - Use your brand voice
+  </Accordion>
+</AccordionGroup>
+
+## Fine-Tuning
+
+### What is Fine-Tuning?
+
+Fine-tuning trains the model's neural network weights with your data, creating a specialized version of the base model.
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    FINE-TUNING PROCESS                   │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│   Base Model (GPT-4o-mini)                             │
+│        │                                                │
+│        ▼                                                │
+│   ┌──────────────────────┐                             │
+│   │  Your Training Data  │                             │
+│   │  - QA pairs          │                             │
+│   │  - Conversations     │                             │
+│   │  - Examples          │                             │
+│   └──────────────────────┘                             │
+│        │                                                │
+│        ▼                                                │
+│   Your Custom Model                                     │
+│   (Specialized behavior, your brand voice)              │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+### Starting a Fine-Tune Job
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/training-eighth.png"
+  alt="Fine-Tuning"
+/>
+
+<Steps>
+  <Step title="Prepare Data">
+    Collect at least 50-100 high-quality training examples
+  </Step>
+  <Step title="Navigate to Fine-Tuning">
+    Go to Training → Fine-Tuning
+  </Step>
+  <Step title="Select Base Model">
+    Choose the model to fine-tune (e.g., GPT-4o-mini)
+  </Step>
+  <Step title="Upload Training Data">
+    Upload your prepared dataset
+  </Step>
+  <Step title="Start Training">
+    Begin the fine-tuning job and monitor progress
+  </Step>
+</Steps>
+
+### Training Data Format
+
+Fine-tuning uses JSONL format:
+
+```json
+{"messages": [{"role": "system", "content": "You are TechSupport AI..."}, {"role": "user", "content": "My device won't turn on"}, {"role": "assistant", "content": "I'm sorry to hear that! Let's troubleshoot together..."}]}
+{"messages": [{"role": "system", "content": "You are TechSupport AI..."}, {"role": "user", "content": "How do I update firmware?"}, {"role": "assistant", "content": "Great question! Here's how to update..."}]}
+```
+
+### Fine-Tuning Tips
+
+<CardGroup cols={2}>
+  <Card title="Data Quality" icon="gem">
+    Quality over quantity. 50 excellent examples beat 500 mediocre ones.
+  </Card>
+  <Card title="Diverse Examples" icon="shuffle">
+    Include various topics, question types, and edge cases.
+  </Card>
+  <Card title="Consistent Format" icon="align-left">
+    Maintain consistent response style across all examples.
+  </Card>
+  <Card title="Iterate" icon="rotate">
+    Fine-tune in rounds, testing and improving each time.
+  </Card>
+</CardGroup>
+
+## Model Distillation
+
+### What is Distillation?
+
+Distillation transfers knowledge from a powerful model (teacher) to a smaller, faster model (student).
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                   MODEL DISTILLATION                     │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│   Teacher Model (GPT-4o)                               │
+│   - Powerful but expensive                              │
+│   - Generates training examples                         │
+│        │                                                │
+│        ▼                                                │
+│   Student Model (GPT-4o-mini)                          │
+│   - Learns from teacher's outputs                       │
+│   - Faster and cheaper                                  │
+│   - Similar quality for your use case                   │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+### Benefits
+
+| Aspect | Before Distillation | After Distillation |
+|--------|---------------------|-------------------|
+| **Cost** | $$$$ (GPT-4o) | $$ (fine-tuned mini) |
+| **Speed** | ~3s per response | ~1s per response |
+| **Quality** | Excellent | Very Good (for your domain) |
+
+## Evaluating Training Results
+
+### Testing Your Trained Expert
+
+<Steps>
+  <Step title="Create Test Set">
+    Prepare 10-20 questions your expert should answer well
+  </Step>
+  <Step title="Run Tests">
+    Ask each question and record the response
+  </Step>
+  <Step title="Evaluate">
+    Score responses for accuracy, tone, and completeness
+  </Step>
+  <Step title="Iterate">
+    Add more training data where gaps exist
+  </Step>
+</Steps>
+
+### Evaluation Criteria
+
+| Criterion | What to Check |
+|-----------|---------------|
+| **Accuracy** | Is the information correct? |
+| **Completeness** | Is the answer thorough? |
+| **Tone** | Does it match your brand voice? |
+| **Relevance** | Does it answer the actual question? |
+| **Helpfulness** | Would a real user be satisfied? |
+
+### 🎯 Challenge: Complete Training Pipeline
+
+<Steps>
+  <Step title="Upload 3 Documents">
+    Add product manuals, FAQs, and policy documents
+  </Step>
+  <Step title="Create 10 QA Pairs">
+    Cover common questions with perfect answers
+  </Step>
+  <Step title="Test with 5 Questions">
+    Verify the expert uses the training data
+  </Step>
+  <Step title="Refine">
+    Improve based on test results
+  </Step>
+</Steps>
+
+## Best Practices Summary
+
+<CardGroup cols={2}>
+  <Card title="Start with RAG" icon="rocket">
+    Document retrieval is fastest to implement and easiest to update
+  </Card>
+  <Card title="Add QA for Precision" icon="bullseye">
+    Use QA pairs for questions that must have exact answers
+  </Card>
+  <Card title="Fine-Tune Last" icon="graduation-cap">
+    Only fine-tune when you have enough data and clear improvement goals
+  </Card>
+  <Card title="Test Continuously" icon="flask">
+    Regular testing catches regressions early
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Workshop 5: DeepAgents"
+    icon="arrow-right"
+    href="/workshops/05-deepagents/overview"
+  >
+    Unlock autonomous AI capabilities
+  </Card>
+  <Card
+    title="Training Documentation"
+    icon="book"
+    href="/essentials/training"
+  >
+    Detailed training reference
+  </Card>
+</CardGroup>
+

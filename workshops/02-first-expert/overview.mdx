@@ -1,0 +1,522 @@
+---
+title: 'Build Your First Expert'
+sidebarTitle: '🎯 Tutorial: First Expert'
+description: 'Create your first AI expert from scratch with hands-on exercises'
+icon: 'graduation-cap'
+---
+
+# Workshop 2: Creating Your First AI Expert
+
+<Info>
+  **Duration:** 45 minutes | **Level:** Beginner | **Prerequisites:** Workshop 1
+</Info>
+
+## What You'll Build
+
+In this workshop, you'll create a fully functional AI expert - a **Customer Support Agent** that can answer questions about a fictional product.
+
+<Steps>
+  <Step title="Define Your Expert">
+    Set up the basic identity, name, and description
+  </Step>
+  <Step title="Craft the Personality">
+    Create a compelling system prompt and abilities
+  </Step>
+  <Step title="Configure the Model">
+    Choose the right AI model for your use case
+  </Step>
+  <Step title="Add Templates">
+    Create quick-start prompts for users
+  </Step>
+  <Step title="Test Your Creation">
+    Have your first conversation with your expert
+  </Step>
+</Steps>
+
+## Project: TechSupport AI
+
+We'll create an expert for a fictional company called "TechGadgets Inc." that sells smart home devices.
+
+### Expert Specification
+
+| Property | Value |
+|----------|-------|
+| **Name** | TechSupport AI |
+| **Role** | Customer Support Agent |
+| **Specialty** | Smart home devices |
+| **Tone** | Friendly, helpful, professional |
+
+## Step 1: Create Expert
+
+### Navigate to Expert Manager
+
+There are two ways to access the Expert Manager:
+
+<CardGroup cols={2}>
+  <Card title="Method 1: Expert Card" icon="hand-pointer">
+    Click the **Expert Card** right below the logo in the sidebar. This card shows your currently selected expert and opens the Expert Manager when clicked.
+  </Card>
+  <Card title="Method 2: Sidebar" icon="list">
+    Click **Expert** in the sidebar navigation menu to go directly to the Expert Manager page.
+  </Card>
+</CardGroup>
+
+### The Expert Manager
+
+Once in the Expert Manager, you'll see:
+- **Your existing experts** displayed as cards
+- **Create new Expert** button at the top
+- **Browse Templates** button to use pre-made experts
+- Tabs to filter by **My Experts** or by **Company**
+
+Each expert card shows:
+- Profile picture
+- Expert name
+- **touch_app** button - Click to SELECT this expert
+- **edit** button - Modify expert settings
+- **delete** button - Remove the expert
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/expert-manager.png"
+  alt="Expert Manager"
+/>
+
+### Create a New Expert
+
+Click the **Create new Expert** button to open the simplified creation modal.
+
+### The Simplified Creation Modal
+
+The Create Expert modal is streamlined for quick expert creation:
+
+| Field | Description |
+|-------|-------------|
+| **Pro Mode** | Toggle for advanced options (optional) |
+| **Name** | The expert's display name |
+| **Profession** | Their role or title |
+| **Description** | A brief description of the expert's purpose (max 250 characters) |
+
+<Info>
+  **Simplified Creation:** The system automatically selects a small, efficient model based on your available provider keys. You can customize everything else (profile picture, abilities, templates, model) by **editing the expert** after creation.
+</Info>
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/create-expert-modal.png"
+  alt="Create Expert Modal"
+/>
+
+Here's what it looks like when filled out:
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/create-expert-filled.png"
+  alt="Create Expert Modal Filled"
+/>
+
+### Fill Basic Information
+
+<Tabs>
+  <Tab title="Name">
+    Enter a clear, descriptive name:
+    ```
+    TechSupport AI
+    ```
+    
+    <Tip>Use names that clearly indicate the expert's purpose.</Tip>
+  </Tab>
+  <Tab title="Profession">
+    Define the role:
+    ```
+    Customer Support Specialist
+    ```
+  </Tab>
+  <Tab title="Description">
+    Write a brief description:
+    ```
+    Friendly AI assistant specializing in smart home device support. I help customers with setup, troubleshooting, and product questions.
+    ```
+  </Tab>
+</Tabs>
+
+Click **Save and Proceed** to create your expert!
+
+<Check>
+  **Your expert is now created!** It will use a default model automatically. To add a profile picture, abilities, templates, and customize the model, you need to **Edit** the expert.
+</Check>
+
+## Step 2: Edit Your Expert
+
+Now that your expert is created, let's customize it. Click the **edit** button on your expert's card in the Expert Manager.
+
+<Note>
+  The **Edit Expert** interface gives you full access to all customization options: profile picture, abilities, templates, model selection, app connections, and team settings.
+</Note>
+
+### The Edit Expert Interface
+
+The Edit Expert modal has several tabs for comprehensive customization:
+
+| Tab | Purpose |
+|-----|---------|
+| **Basic Information** | Edit name, profession, description, and preferred AI provider |
+| **Profile Picture** | Upload, AI-generate, or use URL for profile image |
+| **Abilities** | Define specific behaviors for your expert |
+| **Templates** | Create pre-written conversation starters |
+| **Models** | Configure main AI model and input/output modalities |
+| **App Connections** | Manage connected apps and integrations |
+| **Team** | Add other experts to collaborate |
+| **Overview** | Review all settings at a glance |
+
+<Note>
+  **Advanced Features:**
+  - **App Connections** - Only shows connections after you connect apps via the **Apps** page (`/apps`)
+  - **Team** - Requires at least **2 experts** to be created before you can build a team
+</Note>
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/edit-expert-first.png"
+  alt="Edit Expert - Basic Information"
+/>
+
+### Add a Profile Picture
+
+Navigate to the **Profile Picture** tab. You'll find three options:
+
+<CardGroup cols={3}>
+  <Card title="Upload" icon="upload">
+    Upload an existing image from your computer
+  </Card>
+  <Card title="AI Generate" icon="wand-magic-sparkles">
+    Let AI create a professional avatar
+  </Card>
+  <Card title="URL" icon="link">
+    Use an image from the web
+  </Card>
+</CardGroup>
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/edit-expert-fourth.png"
+  alt="Profile Picture Options"
+/>
+
+### 🎯 Exercise: Generate an AI Profile Picture
+
+1. Click the **AI Generate** tab
+2. Select an **Expert Type** (e.g., "Technology Expert")
+3. Enter a description like: `Professional customer support agent, friendly smile, modern office background`
+4. Click **Generate Image**
+5. Select your favorite result
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/edit-expert-profile-ai.png"
+  alt="AI Generate Profile Picture"
+/>
+
+<Info>
+  The AI will generate several options. Pick the one that best represents your expert's personality!
+</Info>
+
+## Step 3: Define Abilities
+
+Navigate to the **Abilities** tab. Abilities are specific behaviors your expert can activate. They act as "wake words" that guide the model's responses.
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/edit-expert-fifth.png"
+  alt="Abilities Tab"
+/>
+
+### What Makes a Good Ability?
+
+<CardGroup cols={2}>
+  <Card title="✅ Good Abilities" icon="check">
+    - Short and clear
+    - Specific behavior
+    - Actionable instruction
+    - One sentence
+  </Card>
+  <Card title="❌ Avoid" icon="xmark">
+    - Long paragraphs
+    - Vague descriptions
+    - Multiple behaviors
+    - Complex instructions
+  </Card>
+</CardGroup>
+
+### Add These Abilities
+
+Click **Add Ability** and enter each of these:
+
+<AccordionGroup>
+  <Accordion title="Ability 1: Troubleshooting Mode">
+    ```
+    Guide users step-by-step through device troubleshooting with clear numbered instructions
+    ```
+  </Accordion>
+  
+  <Accordion title="Ability 2: Setup Assistant">
+    ```
+    Help users set up new smart home devices with beginner-friendly explanations
+    ```
+  </Accordion>
+  
+  <Accordion title="Ability 3: Product Expert">
+    ```
+    Provide detailed product specifications and comparisons when asked about features
+    ```
+  </Accordion>
+  
+  <Accordion title="Ability 4: Friendly Helper">
+    ```
+    Use a warm, conversational tone and empathize with frustrated customers
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Step 4: Add Templates
+
+Navigate to the **Templates** tab. Templates are pre-written prompts that users can click to start conversations quickly.
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/edit-expert-seventh.png"
+  alt="Templates Tab"
+/>
+
+### Why Templates Matter
+
+- Help users understand what your expert can do
+- Reduce friction for first-time users
+- Showcase your expert's capabilities
+- Improve user engagement
+
+### Add These Templates
+
+Click **Generate Initial Template** or add them manually:
+
+<Tabs>
+  <Tab title="Template 1">
+    **Title:** Setup Help
+    
+    **Prompt:**
+    ```
+    I just received my new SmartHub Pro and need help setting it up. 
+    Can you walk me through the process?
+    ```
+  </Tab>
+  <Tab title="Template 2">
+    **Title:** Device Not Working
+    
+    **Prompt:**
+    ```
+    My smart light won't connect to the app anymore. It was working 
+    fine yesterday. What should I try?
+    ```
+  </Tab>
+  <Tab title="Template 3">
+    **Title:** Product Comparison
+    
+    **Prompt:**
+    ```
+    What's the difference between the SmartCam Basic and SmartCam Pro? 
+    Which one would you recommend for a small apartment?
+    ```
+  </Tab>
+  <Tab title="Template 4">
+    **Title:** Warranty Question
+    
+    **Prompt:**
+    ```
+    How do I check if my device is still under warranty? 
+    I think I might need a replacement.
+    ```
+  </Tab>
+</Tabs>
+
+## Step 5: Choose Your Model
+
+Navigate to the **Models** tab. The model selection determines your expert's capabilities, speed, and cost.
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/edit-expert-eight.png"
+  alt="Models & Modalities"
+/>
+
+### Model Comparison
+
+| Model | Best For | Speed | Cost |
+|-------|----------|-------|------|
+| **GPT-4o** | Complex reasoning, nuanced responses | Medium | $$$$ |
+| **GPT-4o-mini** | Balanced performance | Fast | $$ |
+| **Claude 3.5 Sonnet** | Long conversations, analysis | Medium | $$$ |
+| **Gemini Pro** | Multilingual, factual | Fast | $$ |
+
+### Recommended for Customer Support
+
+For our TechSupport AI, we recommend:
+
+<Card title="GPT-4o-mini" icon="bolt">
+  **Why:** Fast responses, good at following instructions, cost-effective for high-volume support use cases.
+</Card>
+
+### Configure Model Settings
+
+| Setting | Recommended Value | Description |
+|---------|------------------|-------------|
+| Temperature | 0.7 | Balances creativity and consistency |
+| Max Tokens | 1024 | Enough for detailed responses |
+| Top P | 0.9 | Standard sampling |
+
+## Step 6: Review & Save
+
+Navigate to the **Overview** tab to review all your expert's settings at a glance:
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/edit-expert-overview.png"
+  alt="Expert Overview"
+/>
+
+<Check>
+  **Checklist:**
+  - [ ] Name is clear and professional
+  - [ ] Description accurately represents the expert
+  - [ ] Profile picture looks appropriate
+  - [ ] At least 3-4 abilities defined
+  - [ ] At least 3-4 templates created
+  - [ ] Model selected based on use case
+</Check>
+
+Click **Update** to apply your changes!
+
+## 🎉 Congratulations!
+
+You've created your first AI expert! Now let's test it.
+
+## Step 7: Test Your Expert
+
+### Start a Chat
+
+1. Go to **Chat** in the sidebar
+2. Find your **TechSupport AI** expert
+3. Click **Chat** to start a conversation
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/chat-first.png"
+  alt="Chat Overview"
+/>
+
+### Test Conversations
+
+Try these test prompts:
+
+<Tabs>
+  <Tab title="Test 1: Setup Help">
+    ```
+    I just bought the SmartHub Pro. How do I connect it to my WiFi?
+    ```
+    
+    **Expected:** Step-by-step setup instructions
+  </Tab>
+  <Tab title="Test 2: Troubleshooting">
+    ```
+    My smart light keeps flickering. What could be wrong?
+    ```
+    
+    **Expected:** Diagnostic questions and troubleshooting steps
+  </Tab>
+  <Tab title="Test 3: Product Info">
+    ```
+    What's the range of the SmartSensor motion detector?
+    ```
+    
+    **Expected:** Product specifications (may acknowledge limited knowledge)
+  </Tab>
+</Tabs>
+
+### Evaluate Responses
+
+Ask yourself:
+- Is the tone friendly and professional?
+- Are instructions clear and helpful?
+- Does it ask clarifying questions when needed?
+- Does it stay in character?
+
+## 🎯 Challenge Exercise
+
+Enhance your TechSupport AI:
+
+<Steps>
+  <Step title="Add More Abilities">
+    Add 2 more abilities for billing questions and returns
+  </Step>
+  <Step title="Create Templates">
+    Add templates for common warranty and shipping questions
+  </Step>
+  <Step title="Test Edge Cases">
+    Try asking off-topic questions to see how it handles them
+  </Step>
+  <Step title="Refine">
+    Based on testing, adjust abilities and description
+  </Step>
+</Steps>
+
+## Common Issues & Solutions
+
+<AccordionGroup>
+  <Accordion title="Expert gives generic responses">
+    **Solution:** Make abilities more specific and add more detailed description text.
+  </Accordion>
+  
+  <Accordion title="Expert doesn't stay in character">
+    **Solution:** Add an ability like "Always maintain the friendly TechSupport AI persona"
+  </Accordion>
+  
+  <Accordion title="Responses are too long/short">
+    **Solution:** Adjust Max Tokens setting or add an ability about response length
+  </Accordion>
+</AccordionGroup>
+
+## Key Takeaways
+
+<CardGroup cols={2}>
+  <Card title="1. Clear Identity" icon="id-card">
+    A well-defined name, profession, and description sets the foundation
+  </Card>
+  <Card title="2. Specific Abilities" icon="list-check">
+    Short, actionable abilities guide behavior better than long instructions
+  </Card>
+  <Card title="3. Helpful Templates" icon="message">
+    Templates reduce friction and showcase capabilities
+  </Card>
+  <Card title="4. Right Model" icon="microchip">
+    Choose models based on use case, not just capabilities
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="🎯 Tutorial: Chat Mastery"
+    icon="graduation-cap"
+    href="/workshops/03-chat-mastery/overview"
+  >
+    Learn advanced chat features like voice, files, and memories
+  </Card>
+  <Card
+    title="Connect Apps"
+    icon="puzzle-piece"
+    href="/essentials/apps"
+  >
+    Add integrations to expand your expert's capabilities
+  </Card>
+</CardGroup>
+

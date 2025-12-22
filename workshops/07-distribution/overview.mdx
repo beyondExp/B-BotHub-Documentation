@@ -1,0 +1,530 @@
+---
+title: 'Distribution & Deployment'
+sidebarTitle: '🎯 Tutorial: Distribution'
+description: 'Deploy your experts via embed widgets, API, distribution channels, and share with the world'
+icon: 'graduation-cap'
+---
+
+# Workshop 7: Distribution & Deployment
+
+<Info>
+  **Duration:** 45 minutes | **Level:** Intermediate | **Prerequisites:** Workshops 1-3
+</Info>
+
+## What You'll Master
+
+Take your experts from development to production by deploying them across multiple channels.
+
+<Steps>
+  <Step title="Distribution Channels">
+    Learn about different ways to deploy your experts
+  </Step>
+  <Step title="Embed Widgets">
+    Add your expert to any website with simple code
+  </Step>
+  <Step title="API Integration">
+    Connect your expert to applications via API
+  </Step>
+  <Step title="B-Bot Chat">
+    Publish to the B-Bot mobile app
+  </Step>
+  <Step title="Custom Deployment">
+    Advanced deployment strategies
+  </Step>
+</Steps>
+
+## Distribution Options
+
+B-Bot provides multiple ways to share your experts:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                   DISTRIBUTION CHANNELS                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   ┌─────────────┐   ┌─────────────┐   ┌─────────────┐          │
+│   │   Embed     │   │    API      │   │  B-Bot      │          │
+│   │   Widget    │   │  Access     │   │   Chat      │          │
+│   └─────────────┘   └─────────────┘   └─────────────┘          │
+│         │                 │                 │                   │
+│         ▼                 ▼                 ▼                   │
+│   Website chat       Backend          Mobile app               │
+│   integration        integration      distribution             │
+│                                                                 │
+│   ┌─────────────┐   ┌─────────────┐   ┌─────────────┐          │
+│   │  Telegram   │   │   Slack     │   │   Custom    │          │
+│   │    Bot      │   │   Bot       │   │  Channels   │          │
+│   └─────────────┘   └─────────────┘   └─────────────┘          │
+│         │                 │                 │                   │
+│         ▼                 ▼                 ▼                   │
+│   Chat platform      Team workspace    Your own                │
+│   integration        integration       implementation          │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+<CardGroup cols={3}>
+  <Card title="Embed Widget" icon="code">
+    Add to any website with a simple script tag
+  </Card>
+  <Card title="API Access" icon="plug">
+    Full programmatic control via REST API
+  </Card>
+  <Card title="B-Bot Chat" icon="mobile">
+    Publish to the consumer chat app
+  </Card>
+</CardGroup>
+
+## Distribution Channels in Hub
+
+### Navigate to Channels
+
+1. Click **Channels** in the sidebar
+2. View existing channels or create new ones
+
+### Channel Types
+
+| Channel | Best For | Setup Complexity |
+|---------|----------|------------------|
+| **Web Embed** | Websites, landing pages | ⭐ Easy |
+| **API** | Custom apps, backends | ⭐⭐⭐ Advanced |
+| **B-Bot Chat** | Mobile users | ⭐⭐ Medium |
+| **Telegram** | Community/support bots | ⭐⭐ Medium |
+| **Slack** | Team workspaces | ⭐⭐ Medium |
+
+## Embed Widget
+
+### Creating an Embed Channel
+
+<Steps>
+  <Step title="Go to Channels">
+    Navigate to Channels in the sidebar
+  </Step>
+  <Step title="Create New Channel">
+    Click "Create Distribution Channel"
+  </Step>
+  <Step title="Select Embed">
+    Choose "Web Embed" as the channel type
+  </Step>
+  <Step title="Configure Settings">
+    Set up appearance and behavior
+  </Step>
+  <Step title="Get Code">
+    Copy the embed code
+  </Step>
+</Steps>
+
+### Embed Code Example
+
+```html
+<!-- B-Bot Expert Embed -->
+<script 
+  src="https://chat.b-bot.space/embed.js"
+  data-channel-id="your-channel-id"
+  data-position="bottom-right"
+  data-primary-color="#731f7d"
+  async>
+</script>
+```
+
+### Customization Options
+
+<AccordionGroup>
+  <Accordion title="Position">
+    Where the chat bubble appears:
+    - `bottom-right` (default)
+    - `bottom-left`
+    - `top-right`
+    - `top-left`
+  </Accordion>
+  
+  <Accordion title="Colors">
+    Brand your widget:
+    - `data-primary-color`: Main button color
+    - `data-text-color`: Text color
+    - `data-background-color`: Chat background
+  </Accordion>
+  
+  <Accordion title="Behavior">
+    Control widget behavior:
+    - `data-auto-open`: Open automatically
+    - `data-greeting`: Welcome message
+    - `data-show-branding`: Show B-Bot logo
+  </Accordion>
+  
+  <Accordion title="Size">
+    Customize dimensions:
+    - `data-width`: Widget width (px)
+    - `data-height`: Widget height (px)
+  </Accordion>
+</AccordionGroup>
+
+### 🎯 Exercise: Create Your First Embed
+
+<Steps>
+  <Step title="Create Test HTML">
+    Create a simple HTML file:
+    
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>My Website with B-Bot</title>
+    </head>
+    <body>
+      <h1>Welcome to My Website</h1>
+      <p>Click the chat bubble to talk to our AI assistant!</p>
+      
+      <!-- B-Bot Embed -->
+      <script 
+        src="https://chat.b-bot.space/embed.js"
+        data-channel-id="YOUR-CHANNEL-ID"
+        async>
+      </script>
+    </body>
+    </html>
+    ```
+  </Step>
+  <Step title="Replace Channel ID">
+    Add your channel ID from the Hub
+  </Step>
+  <Step title="Open in Browser">
+    Test the embed locally
+  </Step>
+  <Step title="Customize">
+    Try different color and position options
+  </Step>
+</Steps>
+
+## API Integration
+
+### Getting API Access
+
+<Steps>
+  <Step title="Create API Channel">
+    Create a new channel with type "API"
+  </Step>
+  <Step title="Generate API Key">
+    Create an API key for authentication
+  </Step>
+  <Step title="Note Endpoints">
+    Save the base URL and channel ID
+  </Step>
+</Steps>
+
+### API Endpoints
+
+<CardGroup cols={2}>
+  <Card title="Create Thread" icon="plus">
+    Start a new conversation
+    ```
+    POST /threads
+    ```
+  </Card>
+  <Card title="Send Message" icon="paper-plane">
+    Send a message
+    ```
+    POST /threads/{id}/runs
+    ```
+  </Card>
+  <Card title="Get History" icon="history">
+    Retrieve conversation
+    ```
+    GET /threads/{id}/state
+    ```
+  </Card>
+  <Card title="Stream Response" icon="stream">
+    Real-time streaming
+    ```
+    POST /threads/{id}/runs/stream
+    ```
+  </Card>
+</CardGroup>
+
+### Basic API Usage
+
+<Tabs>
+  <Tab title="Python">
+    ```python
+    import requests
+    
+    BASE_URL = "https://api.b-bot.space"
+    API_KEY = "your-api-key"
+    CHANNEL_ID = "your-channel-id"
+    
+    # Create a thread
+    thread = requests.post(
+        f"{BASE_URL}/threads",
+        headers={"Authorization": f"Bearer {API_KEY}"},
+        json={"channel_id": CHANNEL_ID}
+    ).json()
+    
+    # Send a message
+    response = requests.post(
+        f"{BASE_URL}/threads/{thread['thread_id']}/runs",
+        headers={"Authorization": f"Bearer {API_KEY}"},
+        json={
+            "input": [{"role": "user", "content": "Hello!"}]
+        }
+    ).json()
+    
+    print(response)
+    ```
+  </Tab>
+  <Tab title="JavaScript">
+    ```javascript
+    const BASE_URL = "https://api.b-bot.space";
+    const API_KEY = "your-api-key";
+    const CHANNEL_ID = "your-channel-id";
+    
+    // Create a thread
+    const thread = await fetch(`${BASE_URL}/threads`, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ channel_id: CHANNEL_ID })
+    }).then(r => r.json());
+    
+    // Send a message
+    const response = await fetch(
+      `${BASE_URL}/threads/${thread.thread_id}/runs`,
+      {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          input: [{ role: "user", content: "Hello!" }]
+        })
+      }
+    ).then(r => r.json());
+    
+    console.log(response);
+    ```
+  </Tab>
+  <Tab title="cURL">
+    ```bash
+    # Create a thread
+    curl -X POST https://api.b-bot.space/threads \
+      -H "Authorization: Bearer your-api-key" \
+      -H "Content-Type: application/json" \
+      -d '{"channel_id": "your-channel-id"}'
+    
+    # Send a message
+    curl -X POST https://api.b-bot.space/threads/THREAD_ID/runs \
+      -H "Authorization: Bearer your-api-key" \
+      -H "Content-Type: application/json" \
+      -d '{"input": [{"role": "user", "content": "Hello!"}]}'
+    ```
+  </Tab>
+</Tabs>
+
+### Streaming Responses
+
+For real-time responses, use Server-Sent Events:
+
+```javascript
+const eventSource = new EventSource(
+  `${BASE_URL}/threads/${threadId}/runs/stream?` +
+  new URLSearchParams({
+    input: JSON.stringify([{ role: "user", content: "Hello!" }])
+  }),
+  {
+    headers: { "Authorization": `Bearer ${API_KEY}` }
+  }
+);
+
+eventSource.onmessage = (event) => {
+  const data = JSON.parse(event.data);
+  console.log("Chunk:", data);
+};
+```
+
+## B-Bot Chat App
+
+### Publishing to B-Bot Chat
+
+B-Bot Chat is the consumer-facing mobile app where users can discover and chat with published experts.
+
+<Steps>
+  <Step title="Prepare Your Expert">
+    Ensure your expert is well-tested and polished
+  </Step>
+  <Step title="Create B-Bot Chat Channel">
+    Add a "B-Bot Chat" distribution channel
+  </Step>
+  <Step title="Configure Public Profile">
+    Set up how your expert appears in the app:
+    - Display name
+    - Description
+    - Category
+    - Tags
+  </Step>
+  <Step title="Set Pricing (Optional)">
+    Configure if users pay per message or subscribe
+  </Step>
+  <Step title="Submit for Review">
+    Your expert will be reviewed before going live
+  </Step>
+</Steps>
+
+### Public Profile Settings
+
+| Field | Description | Tips |
+|-------|-------------|------|
+| **Display Name** | Name shown to users | Keep it clear and memorable |
+| **Short Description** | Brief summary | Focus on user benefits |
+| **Category** | Classification | Choose the best fit |
+| **Tags** | Searchable keywords | Add relevant terms |
+| **Profile Image** | Expert avatar | Use a professional image |
+
+## Advanced Deployment
+
+### A2A (Agent-to-Agent) Protocol
+
+Enable your expert to communicate with other agents:
+
+```python
+# Configure A2A endpoint
+channel_config = {
+    "type": "a2a",
+    "endpoint": "https://your-agent.com/.well-known/agent.json",
+    "capabilities": ["text", "files", "tools"]
+}
+```
+
+### Webhooks
+
+Receive notifications about conversations:
+
+```python
+webhook_config = {
+    "url": "https://your-server.com/webhook",
+    "events": [
+        "thread.created",
+        "message.sent",
+        "message.received",
+        "tool.executed"
+    ],
+    "secret": "your-webhook-secret"
+}
+```
+
+### Multi-Channel Strategy
+
+Deploy across multiple channels:
+
+```
+Your Expert
+├── Website Embed (customer support)
+├── B-Bot Chat (public access)
+├── Slack Bot (internal team)
+├── API (custom apps)
+└── Telegram (community support)
+```
+
+## Monitoring & Analytics
+
+### Channel Metrics
+
+Track performance across channels:
+
+| Metric | Description |
+|--------|-------------|
+| **Conversations** | Total threads created |
+| **Messages** | Messages exchanged |
+| **Response Time** | Average response latency |
+| **Satisfaction** | User ratings |
+| **Token Usage** | AI tokens consumed |
+
+### Dashboard View
+
+Navigate to **Dashboard** to see:
+- Usage statistics
+- Popular queries
+- Error rates
+- User feedback
+
+## Security Considerations
+
+<CardGroup cols={2}>
+  <Card title="API Keys" icon="key">
+    - Rotate keys regularly
+    - Use environment variables
+    - Never expose in frontend code
+  </Card>
+  <Card title="CORS" icon="shield">
+    - Configure allowed origins
+    - Restrict embed domains
+    - Validate referrers
+  </Card>
+  <Card title="Rate Limiting" icon="gauge">
+    - Set request limits
+    - Implement cooldowns
+    - Monitor for abuse
+  </Card>
+  <Card title="Data Privacy" icon="lock">
+    - Enable data deletion
+    - Configure retention
+    - Handle PII carefully
+  </Card>
+</CardGroup>
+
+## 🎯 Challenge: Multi-Channel Deployment
+
+Deploy your TechSupport AI across multiple channels:
+
+<Steps>
+  <Step title="Create Web Embed">
+    Set up an embed for a support website
+  </Step>
+  <Step title="Create API Channel">
+    Build a simple integration
+  </Step>
+  <Step title="Test Both Channels">
+    Verify consistent behavior
+  </Step>
+  <Step title="Monitor Analytics">
+    Compare usage across channels
+  </Step>
+</Steps>
+
+## Key Takeaways
+
+<CardGroup cols={2}>
+  <Card title="Multiple Channels" icon="diagram-project">
+    Deploy the same expert across different platforms
+  </Card>
+  <Card title="Easy Embedding" icon="code">
+    Simple code snippets for website integration
+  </Card>
+  <Card title="Full API Control" icon="sliders">
+    Complete programmatic access for custom apps
+  </Card>
+  <Card title="Mobile Ready" icon="mobile">
+    Publish to B-Bot Chat for consumer access
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Workshop 8: Advanced Topics"
+    icon="arrow-right"
+    href="/workshops/08-advanced/overview"
+  >
+    Multi-agent systems and enterprise features
+  </Card>
+  <Card
+    title="API Reference"
+    icon="book"
+    href="/mainapi-reference/distribution-channels-metadata"
+  >
+    Complete API documentation
+  </Card>
+</CardGroup>
+
