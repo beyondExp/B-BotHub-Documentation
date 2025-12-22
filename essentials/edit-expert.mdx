@@ -1,149 +1,289 @@
 ---
-title: 'Edit your Expert'
-description: 'Start to edit your first expert'
+title: 'Edit Expert'
+description: 'Customize and configure your AI expert with all available options'
 icon: 'pen-to-square'
 ---
 
-# Video Tutorial (coming soon)
+# Edit Your Expert
 
-<iframe style={{ borderRadius: '0.5rem', width: '100%', height: '400px'}} src="https://www.youtube.com/embed/6bF5p01MXqQ?si=kd45_8HryDQMIMcZ"> </iframe>
-
-# Text Tutorial
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/create-expert-start.png"
-/>
-
-## Create your Expert
-
-### Start to edit your expert
-
-To edit your expert, click on the "Edit" button on the bottom right of your desired Experts card.
+The Edit Expert interface provides full access to all customization options for your expert. Access it by clicking the **edit** button on any expert card in the Expert Manager.
 
 <img
   style={{ borderRadius: '0.5rem' }}
   src="/images/edit-expert-first.png"
+  alt="Edit Expert Interface"
 />
 
-### Basic Information
+## Edit Expert Tabs
 
-The Basic information is not editable anymore after the expert is created. If you want to change the basic information you have to create a new expert.
-This lies on our philosophy that the basic information is the core of the expert and should not be changed after the expert is created.
-The basic information includes the name, the profession, the description, these will be used as a wake word for the model to understand how it should act.
-if we would change these the model would not understand how it should act anymore.
+The Edit Expert modal contains 8 tabs for comprehensive configuration:
+
+| Tab | Purpose |
+|-----|---------|
+| **Basic Information** | Name, profession, description, preferred provider |
+| **Profile Picture** | Upload, AI-generate, or URL for profile image |
+| **Abilities** | Define specific behaviors and "wake words" |
+| **Templates** | Pre-written conversation starters |
+| **Models** | Main AI model and input/output modalities |
+| **App Connections** | View and manage connected apps |
+| **Team** | Add other experts to collaborate |
+| **Overview** | Review all settings at a glance |
+
+---
+
+## Basic Information
+
+Edit the core identity of your expert:
+
+- **Name** - Display name shown in chat and expert cards
+- **Profession** - Role or specialty
+- **Description** - Brief explanation of expert's purpose
+- **Preferred AI Provider** - Lock to a specific provider (optional)
 
 <img
   style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-second.png"
+  src="/images/edit-expert-first.png"
+  alt="Basic Information Tab"
 />
 
-### Change or add the profile picture
+---
 
-You can add or change the profile picture for your expert. This will be shown in the chat and in the expert overview.
+## Profile Picture
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/create-expert-third.png"
-/>
+Three ways to set your expert's avatar:
 
-### Edit add or remove abilities
-
-You can add abilities to your expert. These abilities are branches of behavior that your expert can have.
-You can add as many abilities as you want. by pressing this button B-Bot will directly add a matching ability to your expert.
-you can edit them afterwards. Be sure to not put long texts in here. You can change the behavior of your expert in the training tab.
-these sentences are only for activating the behaviours and are resembling a "wake word" for the model to understand how it should act.
+<CardGroup cols={3}>
+  <Card title="Upload" icon="upload">
+    Upload from your computer (1:1 ratio recommended)
+  </Card>
+  <Card title="AI Generate" icon="wand-magic-sparkles">
+    Generate with AI - select type and describe appearance
+  </Card>
+  <Card title="URL" icon="link">
+    Paste a direct image URL
+  </Card>
+</CardGroup>
 
 <img
   style={{ borderRadius: '0.5rem' }}
   src="/images/edit-expert-fourth.png"
+  alt="Profile Picture Options"
 />
 
+### AI Generation
 
-### Add templates
+1. Select **Expert Type** (Technology, Marketing, Healthcare, etc.)
+2. Enter a description of desired appearance
+3. Click **Generate Image**
+4. Select from generated options
 
-You can add templates to your expert. These templates are predefined questions the user can ask to the expert.
-the controls are the same as for the abilities. You can add as many templates as you want.
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/edit-expert-profile-ai.png"
+  alt="AI Generate Profile Picture"
+/>
+
+---
+
+## Abilities
+
+Abilities are specific behaviors your expert can activate. They act as "wake words" for the model.
 
 <img
   style={{ borderRadius: '0.5rem' }}
   src="/images/edit-expert-fifth.png"
+  alt="Abilities Tab"
 />
 
-You can see here how the temaplates are looking in the chat.
-The user can click on the template and the expert will answer the question.
+### Adding Abilities
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-sixth.png"
-/>
+- Click **Generate Initial Ability** for AI-suggested abilities
+- Or manually add abilities with clear, short descriptions
+- Edit or delete abilities as needed
 
+### Good Ability Examples
 
-### Model Migration
+| ✅ Good | ❌ Avoid |
+|---------|----------|
+| "Provide step-by-step troubleshooting" | Long paragraphs |
+| "Write in a friendly, casual tone" | Vague instructions |
+| "Focus on technical accuracy" | Multiple behaviors in one |
 
-In Future we will add the possibility to migrate the model of the expert.
-This will be a paid feature and will be available in the future.
+---
+
+## Templates
+
+Templates are pre-written prompts users can click to start conversations.
 
 <img
   style={{ borderRadius: '0.5rem' }}
   src="/images/edit-expert-seventh.png"
+  alt="Templates Tab"
 />
 
-### App Connections
+### Adding Templates
 
-You can manage the app connections of your expert here. You can remove or edit apps from your expert.
-here. To add new Apps to your expert you have to go to the App Store.
+- Click **Generate Initial Template** for AI suggestions
+- Each template has a title and prompt text
+- Templates appear as clickable buttons in chat
+
+### Template Tips
+
+- Show what your expert can do
+- Cover common use cases
+- Keep prompts specific and actionable
+
+---
+
+## Models & Modalities
+
+Configure your expert's AI capabilities:
 
 <img
   style={{ borderRadius: '0.5rem' }}
   src="/images/edit-expert-eight.png"
+  alt="Models Tab"
 />
 
-### Team
+### Main Conversational Model
 
-Every Expert can have a team of experts he is able to consult with.
-You can add or remove experts from the team of your expert here.
+- Click **Change** to select a different AI model
+- Options include GPT-4o, GPT-4o-mini, Claude, Gemini, etc.
+- Each model shows provider, input/output counts
+
+### Input Modalities
+
+Configure how users can interact:
+- Voice input (speech-to-text)
+- File uploads
+- Image analysis
+
+### Output Modalities
+
+Configure how your expert responds:
+- Text-to-speech voices
+- Audio output settings
+
+<Card title="Learn More" icon="sliders" href="/essentials/modalities">
+  See Input & Output Modalities for detailed configuration
+</Card>
+
+---
+
+## App Connections
+
+View and manage apps connected to your expert.
 
 <img
   style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-ninth.png"
+  src="/images/edit-expert-apps.png"
+  alt="App Connections Tab"
 />
 
+<Warning>
+  **Note:** App connections are created in the **Apps** section (`/apps`), not here. This tab only shows existing connections for review and removal.
+</Warning>
 
-### Save your expert
+### To Connect Apps
 
-After you have filled in all the details you can save your expert. Your expert will be created and you can start to train or chat with it.
+1. Go to **Apps** in the sidebar
+2. Browse or search for an app
+3. Click **Connect** and configure settings
+4. The connection will appear in Edit Expert → App Connections
+
+<Card title="Apps & Integrations" icon="puzzle-piece" href="/essentials/apps">
+  Learn how to connect apps to your expert
+</Card>
+
+---
+
+## Team
+
+Create multi-agent collaboration by adding other experts to your expert's team.
 
 <img
   style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-tenth.png"
+  src="/images/edit-expert-team.png"
+  alt="Team Tab"
 />
 
+<Warning>
+  **Requirement:** You need at least **2 experts** to use the Team feature. Create additional experts first if you only have one.
+</Warning>
 
-### Congratulations
+### How Teams Work
 
-You have created your first expert. Now you can train it and chat with it.
+- Your expert can consult team members for specialized tasks
+- Team members appear in "Available Experts" list
+- Drag or add experts to "Current Team"
+- Useful for complex workflows requiring multiple specialties
 
-# Next Steps
+### Example Team Structure
+
+```
+Marketing Expert (main)
+├── Content Writer Expert
+├── Data Analyst Expert
+└── Social Media Expert
+```
+
+---
+
+## Overview
+
+The Overview tab provides a summary of all expert settings:
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/edit-expert-overview.png"
+  alt="Overview Tab"
+/>
+
+### Quick Stats
+
+- Abilities count
+- Templates count
+- Team members count
+- Connected apps count
+- Current model
+- Last updated date
+
+### Quick Actions
+
+- **Chat** - Start chatting with this expert
+- **Knowledge** - Manage knowledge bases
+- **Apps** - Go to app connections
+- **Channels** - Set up distribution
+
+---
+
+## Saving Changes
+
+After making changes:
+
+1. Navigate to any tab or **Overview**
+2. Click **Update** to save all changes
+3. Changes take effect immediately
+
+<Check>
+  **Tip:** Use the Overview tab to verify all settings before saving.
+</Check>
+
+## Next Steps
+
 <CardGroup cols={2}>
   <Card
-    title="Create your Expert"
-    icon="gauge"
-    href="/essentials/create-expert"
-  >
-    Create your first expert and chat with it
-  </Card>
-  <Card
-    title="Train your Expert"
-    icon="gauge"
-    href="/essentials/training"
-  >
-    Train your expert to make it smarter
-  </Card>
-  <Card
-    title="Chat with your Expert"
-    icon="messages"
+    title="Chat with Expert"
+    icon="comments"
     href="/essentials/chat"
   >
-    Chat with your expert and see how it behaves
+    Test your expert's configuration
+  </Card>
+  <Card
+    title="🎯 Tutorial: First Expert"
+    icon="graduation-cap"
+    href="/workshops/02-first-expert/overview"
+  >
+    Complete hands-on guide with exercises
   </Card>
 </CardGroup>

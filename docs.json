@@ -18,34 +18,72 @@
         "tab": "Documentation",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Getting Started",
             "pages": [
               "introduction",
+              "workshops/01-getting-started/overview",
               "roadmap"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Experts",
             "pages": [
               "essentials/create-expert",
               "essentials/edit-expert",
-              "essentials/chat",
-              "essentials/training",
-              "essentials/dashboard",
-              "essentials/apps",
-              "essentials/profile",
-              "essentials/settings"
+              "workshops/02-first-expert/overview"
             ]
           },
           {
-            "group": "New Features",
+            "group": "Chat",
             "pages": [
-              "essentials/provider-keys",
-              "essentials/ai-image-generation",
-              "essentials/modalities",
+              "essentials/chat",
+              "workshops/03-chat-mastery/overview"
+            ]
+          },
+          {
+            "group": "Training & Knowledge",
+            "pages": [
+              "essentials/training",
+              "workshops/04-training/overview"
+            ]
+          },
+          {
+            "group": "Apps & Integrations",
+            "pages": [
+              "essentials/apps",
+              "workshops/06-integrations/overview"
+            ]
+          },
+          {
+            "group": "DeepAgents",
+            "pages": [
               "essentials/deepagents-workspace",
               "essentials/tasks",
-              "essentials/distribution-channels"
+              "workshops/05-deepagents/overview"
+            ]
+          },
+          {
+            "group": "Distribution",
+            "pages": [
+              "essentials/distribution-channels",
+              "workshops/07-distribution/overview"
+            ]
+          },
+          {
+            "group": "Account & Settings",
+            "pages": [
+              "essentials/dashboard",
+              "essentials/profile",
+              "essentials/settings",
+              "essentials/provider-keys",
+              "essentials/ai-image-generation"
+            ]
+          },
+          {
+            "group": "Advanced Features",
+            "pages": [
+              "essentials/modalities",
+              "workshops/08-advanced/overview"
             ]
           },
           {
@@ -119,7 +157,6 @@
           }
         ]
       },
-      
       {
         "tab": "SDKs",
         "groups": [
@@ -247,6 +284,11 @@
           "anchor": "Documentation",
           "href": "https://docs.b-bot.space",
           "icon": "book-open-cover"
+        },
+        {
+          "anchor": "Academy",
+          "href": "https://academy.b-bot.space",
+          "icon": "graduation-cap"
         },
         {
           "anchor": "Community",
