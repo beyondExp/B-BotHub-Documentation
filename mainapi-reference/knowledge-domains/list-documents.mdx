@@ -1,0 +1,49 @@
+---
+title: "Knowledge Domains: List Documents"
+api: "GET /v0/containers/{container_id}/docs"
+description: "List documents in a knowledge domain, including extracted entities and relationships."
+---
+
+## Overview
+
+Fetch all documents for a knowledge domain container, plus the extracted entities and relationships.
+Access is restricted to the container owner derived from your `BBOT-API-Key`.
+
+## Authentication
+
+Send your API key:
+
+<ParamField header="BBOT-API-Key" type="string">
+  Your BBOT API key
+</ParamField>
+
+## Path Parameters
+
+<ParamField path="container_id" type="string" required>
+  Knowledge container id (example: `userId_expertId_knowledge_name`)
+</ParamField>
+
+## Response
+
+<ResponseField name="documents" type="array">
+  Document objects for the container (includes sections, chunks, and token counts where available)
+</ResponseField>
+
+<ResponseField name="entities" type="array">
+  Entities extracted from the documents
+</ResponseField>
+
+<ResponseField name="relationships" type="array">
+  Relationships inferred between entities
+</ResponseField>
+
+<ResponseField name="stats" type="object">
+  Summary counts: document_count, entity_count, relationship_count
+</ResponseField>
+
+## Example Request
+
+```bash cURL
+curl --location 'https://api.b-bot.space/api/v0/containers/<container_id>/docs' \
+  --header 'BBOT-API-Key: <your-bbot-api-key>'
+```

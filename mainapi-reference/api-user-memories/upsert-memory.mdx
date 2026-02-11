@@ -1,0 +1,51 @@
+---
+title: "API User Memories: Upsert Memory"
+api: "POST /v0/api-user/memories/upsert"
+description: "Create or update a memory for one of your end-users (tenant-scoped)"
+---
+
+## Overview
+
+Upsert a memory item for one of your end-users. The backend derives the storage namespace from your tenant + `end_user_id` + `expert_id`.
+
+## Authentication
+
+Send your API key via `BBOT-API-Key` (or `X-API-Key`).
+
+## Body
+
+<ParamField body="expert_id" type="integer" required>
+  Expert id
+</ParamField>
+
+<ParamField body="end_user_id" type="string" required>
+  Your end-user identifier
+</ParamField>
+
+<ParamField body="layer" type="string" required>
+  core | mid | long
+</ParamField>
+
+<ParamField body="key" type="string" required>
+  Store key (e.g. "profile", a thread_id, or a deterministic long-memory key)
+</ParamField>
+
+<ParamField body="value" type="object" required>
+  JSON payload stored for this memory
+</ParamField>
+
+## Example Request
+
+```bash cURL
+curl --location 'https://api.b-bot.space/api/v0/api-user/memories/upsert' \
+  --header 'Content-Type: application/json' \
+  --header 'BBOT-API-Key: <your-bbot-api-key>' \
+  --data '{
+    "expert_id": 42,
+    "end_user_id": "user-123",
+    "layer": "long",
+    "key": "long_custom_001",
+    "value": { "text": "User prefers email over phone.", "tags": ["preference"] }
+  }'
+```
+
