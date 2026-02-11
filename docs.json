@@ -172,6 +172,14 @@
         "tab": "Main API",
         "groups": [
           {
+            "group": "API User Memories",
+            "pages": [
+              "mainapi-reference/api-user-memories/get-memories",
+              "mainapi-reference/api-user-memories/upsert-memory",
+              "mainapi-reference/api-user-memories/delete-memory"
+            ]
+          },
+          {
             "group": "Distribution Channels",
             "pages": [
               "mainapi-reference/distribution-channels-metadata",
@@ -187,6 +195,14 @@
               "mainapi-reference/distribution-channels/get-distribution-channel-schemas",
               "mainapi-reference/distribution-channels/get-distribution-channel-versions",
               "mainapi-reference/distribution-channels/set-latest-distribution-channel-version"
+            ]
+          },
+          {
+            "group": "Knowledge Domains",
+            "pages": [
+              "mainapi-reference/knowledge-domains/list-documents",
+              "mainapi-reference/knowledge-domains/list-entities",
+              "mainapi-reference/knowledge-domains/list-relationships"
             ]
           },
           {

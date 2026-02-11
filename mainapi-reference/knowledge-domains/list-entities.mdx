@@ -1,0 +1,63 @@
+---
+title: "Knowledge Domains: List Entities"
+api: "GET /v0/containers/{container_id}/entities"
+description: "List entities extracted from a knowledge domain container."
+---
+
+## Overview
+
+Entities are extracted from your documents and stored per container.
+Access is restricted to the container owner derived from your `BBOT-API-Key`.
+
+## Authentication
+
+Send your API key:
+
+<ParamField header="BBOT-API-Key" type="string">
+  Your BBOT API key
+</ParamField>
+
+## Path Parameters
+
+<ParamField path="container_id" type="string" required>
+  Knowledge container id (example: `userId_expertId_knowledge_name`)
+</ParamField>
+
+## Query Parameters
+
+<ParamField query="type" type="string">
+  Optional entity type filter (for example: `PERSON`, `ORGANIZATION`)
+</ParamField>
+
+<ParamField query="limit" type="integer" default="200">
+  Max items to return (1-1000)
+</ParamField>
+
+<ParamField query="offset" type="integer" default="0">
+  Pagination offset
+</ParamField>
+
+## Response
+
+<ResponseField name="items" type="array">
+  Entity entries with name, type, description, aliases, confidence, attributes_json, document_count, documents
+</ResponseField>
+
+<ResponseField name="total" type="integer">
+  Total matching entities
+</ResponseField>
+
+<ResponseField name="limit" type="integer">
+  Applied limit
+</ResponseField>
+
+<ResponseField name="offset" type="integer">
+  Applied offset
+</ResponseField>
+
+## Example Request
+
+```bash cURL
+curl --location 'https://api.b-bot.space/api/v0/containers/<container_id>/entities?limit=5' \
+  --header 'BBOT-API-Key: <your-bbot-api-key>'
+```

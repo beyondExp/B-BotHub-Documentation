@@ -1,0 +1,71 @@
+---
+title: "API User Memories: Get Memories"
+api: "GET /v0/api-user/memories"
+description: "List/search memories for one of your end-users (tenant-scoped, server-derived entity_id)"
+---
+
+## Overview
+
+Fetch memories for one of **your app's end-users**. The backend derives the storage namespace from:
+
+- your authenticated **tenant** (API key / token)
+- the provided `end_user_id`
+- the provided `expert_id`
+
+So you never need (and cannot) pass a raw `entity_id`.
+
+## Authentication
+
+Send your API key:
+
+<ParamField header="BBOT-API-Key" type="string">
+  Your BBOT API key
+</ParamField>
+
+<ParamField header="X-API-Key" type="string">
+  Alias header for your BBOT API key
+</ParamField>
+
+## Query Parameters
+
+<ParamField query="expert_id" type="integer" required>
+  Expert id (scopes memories per expert)
+</ParamField>
+
+<ParamField query="end_user_id" type="string" required>
+  Your own end-user identifier (string)
+</ParamField>
+
+<ParamField query="layers" type="string[]">
+  Memory layers to fetch. Allowed: core, mid, long
+</ParamField>
+
+<ParamField query="query" type="string">
+  Optional semantic query (applies to Store search)
+</ParamField>
+
+<ParamField query="limit" type="integer" default="50">
+  Max items per layer
+</ParamField>
+
+<ParamField query="offset" type="integer" default="0">
+  Pagination offset
+</ParamField>
+
+## Response
+
+<ResponseField name="entity_id" type="string">
+  Server-derived namespace id (for debugging only)
+</ResponseField>
+
+<ResponseField name="layers" type="object">
+  Per-layer results
+</ResponseField>
+
+## Example Request
+
+```bash cURL
+curl --location 'https://api.b-bot.space/api/v0/api-user/memories?expert_id=42&end_user_id=user-123&layers=core&layers=long&layers=mid&limit=50' \
+  --header 'BBOT-API-Key: <your-bbot-api-key>'
+```
+

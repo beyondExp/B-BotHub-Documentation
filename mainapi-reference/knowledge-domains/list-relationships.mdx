@@ -1,0 +1,63 @@
+---
+title: "Knowledge Domains: List Relationships"
+api: "GET /v0/containers/{container_id}/relationships"
+description: "List relationships inferred between entities in a knowledge domain."
+---
+
+## Overview
+
+Relationships are inferred from your documents and stored per container.
+Access is restricted to the container owner derived from your `BBOT-API-Key`.
+
+## Authentication
+
+Send your API key:
+
+<ParamField header="BBOT-API-Key" type="string">
+  Your BBOT API key
+</ParamField>
+
+## Path Parameters
+
+<ParamField path="container_id" type="string" required>
+  Knowledge container id (example: `userId_expertId_knowledge_name`)
+</ParamField>
+
+## Query Parameters
+
+<ParamField query="type" type="string">
+  Optional relationship type filter (for example: `RELATED_TO`)
+</ParamField>
+
+<ParamField query="limit" type="integer" default="200">
+  Max items to return (1-1000)
+</ParamField>
+
+<ParamField query="offset" type="integer" default="0">
+  Pagination offset
+</ParamField>
+
+## Response
+
+<ResponseField name="items" type="array">
+  Relationship entries with source, relationship, and target
+</ResponseField>
+
+<ResponseField name="total" type="integer">
+  Total matching relationships
+</ResponseField>
+
+<ResponseField name="limit" type="integer">
+  Applied limit
+</ResponseField>
+
+<ResponseField name="offset" type="integer">
+  Applied offset
+</ResponseField>
+
+## Example Request
+
+```bash cURL
+curl --location 'https://api.b-bot.space/api/v0/containers/<container_id>/relationships?limit=5' \
+  --header 'BBOT-API-Key: <your-bbot-api-key>'
+```
