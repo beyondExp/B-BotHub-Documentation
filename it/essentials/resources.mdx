@@ -1,0 +1,77 @@
+---
+title: "Risorse"
+description: "Trova file e progetti creati nelle conversazioni degli Agenti"
+icon: "folder-open"
+---
+
+# Risorse
+
+Risorse è un browser incentrato sulle conversazioni per gli output creati dagli Agenti. Raggruppa i file sotto la conversazione che li ha prodotti, così puoi tornare alla Chat o aprirne l'output.
+
+![Browser delle Risorse in B-Bot Hub](/images/documentation/resources-overview.png)
+
+In questa pagina compaiono solo le conversazioni con file generati. Gli output sono raggruppati come **Sito web**, **Presentazione** o **File**.
+
+## Esplorare le Risorse
+
+Usa i pulsanti dell'ambito per passare tra:
+
+- **Le mie risorse**: conversazioni e output associati al tuo account.
+- **Risorse aziendali**: conversazioni e output associati all'azienda attiva. Questo ambito non è disponibile se non è attiva alcuna azienda.
+
+Usa la ricerca per trovare un titolo o ID conversazione. Attiva **Solo agente selezionato** per mostrare solo le conversazioni associate all'Agente attualmente selezionato.
+
+Puoi anche aggiornare l'elenco per richiedere le Risorse disponibili più recenti.
+
+## Comprendere una scheda Risorsa
+
+Ogni scheda rappresenta una conversazione e mostra:
+
+- tipo di output
+- titolo della conversazione
+- ID abbreviato e ora di aggiornamento, quando disponibili
+- file restituiti per quella conversazione
+- **Apri chat**, che apre la conversazione originale
+
+Seleziona un file per aprirlo. Il Markdown viene visualizzato come contenuto formattato, mentre gli altri testi supportati vengono mostrati in un visualizzatore. Se non è disponibile un percorso interno, un file con URL di download diretto si apre in una nuova scheda.
+
+I file Markdown possono essere esportati in PDF. Se l'azienda attiva ha un logo, il menu di esportazione può creare un PDF con marchio o senza logo.
+
+## Visualizzare siti web e presentazioni
+
+Le schede Sito web e Presentazione offrono un'anteprima del progetto. Seleziona l'area di anteprima per aprirla.
+
+- L'anteprima di un **Sito web** può mostrare le impostazioni **Distribuisci** e **Versioni**.
+- Una **Presentazione** offre l'anteprima senza le impostazioni di progetto del sito.
+- Una Risorsa generica di tipo **File** mostra i file ma non apre un'anteprima del progetto.
+
+Questi controlli compaiono solo se il tipo di Risorsa li supporta.
+
+## Aprire Conoscenza
+
+Seleziona il collegamento **Conoscenza** nella parte superiore di Risorse per gestire i domini di recupero dell'Agente selezionato. I documenti di Conoscenza sono separati dai file generati nelle conversazioni.
+
+Consulta [Conoscenza](/it/essentials/knowledge) per creazione dei domini, elaborazione dei documenti, esplorazione del grafo e condivisione.
+
+## Aprire Memorie
+
+Seleziona **Memorie** nella parte superiore di Risorse per esaminare le memorie associate al contesto corrente o all'Agente selezionato.
+
+Le memorie sono organizzate in tre livelli:
+
+- **Profilo principale**: informazioni fondamentali associate al contesto dell'Agente.
+- **Lungo termine**: voci persistenti che possono essere aggiunte e gestite.
+- **Conversazioni**: riepiloghi associati alle conversazioni.
+
+Conoscenza e Memorie forniscono contesto in modi diversi. Conoscenza recupera informazioni dai documenti gestiti; Memorie conserva un contesto a livelli associato a un Agente e alle sue conversazioni.
+
+## Passaggi successivi
+
+<CardGroup cols={2}>
+  <Card title="Conoscenza" icon="book-open" href="/it/essentials/knowledge">
+    Crea domini e aggiungi documenti di origine per il recupero.
+  </Card>
+  <Card title="Addestramento" icon="graduation-cap" href="/it/essentials/training">
+    Esegui il fine-tuning di un modello con conversazioni di esempio.
+  </Card>
+</CardGroup>

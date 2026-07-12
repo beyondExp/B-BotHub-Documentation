@@ -1,0 +1,65 @@
+---
+title: "Wissen"
+description: "Abrufdomänen, Dokumente, Graphen und Zugriffe eines Agenten verwalten"
+icon: "book-open"
+---
+
+# Wissen
+
+Wissen organisiert Quelldokumente in Domänen, aus denen ein Agent fundierte Informationen abrufen kann. Öffnen Sie Wissen über die Verknüpfung auf [Ressourcen](/de/essentials/resources).
+
+<Info>Der Wissensabruf führt kein Fine-Tuning durch. Verwenden Sie für Antwortmuster aus Beispielunterhaltungen [Training](/de/essentials/training).</Info>
+
+## Agenten auswählen
+
+Wählen Sie vor dem Öffnen den Agenten, dessen Wissen Sie verwalten möchten. Die Seite listet seine verfügbaren Domänen.
+
+## Domäne erstellen, anhängen oder löschen
+
+Wählen Sie **Neue Domäne**, geben Sie Name und optional Beschreibung ein und wählen Sie **Erstellen**. Der Hub normalisiert den Namen als Domänenschlüssel. Öffnen Sie die Domäne über ihren Namen.
+
+Mit **Domäne anhängen** verwenden Sie eine Domäne eines anderen Agenten erneut. Wählen Sie Quellagent und Domäne und anschließend **Anhängen**. Dokumente und Graph werden gemeinsam genutzt. Über die Löschaktion entfernen Sie die Domäne vom ausgewählten Agenten; prüfen Sie Auswahl und Domäne vorher.
+
+## In einer Domäne arbeiten
+
+Eine bearbeitbare Domäne besitzt vier Registerkarten:
+
+- **Dokumente:** Quellen hochladen, verarbeiten, öffnen, bearbeiten und löschen
+- **Graph:** extrahierte Entitäten und Beziehungen untersuchen
+- **Studio:** unterstützte Ansichten und Ausgaben erstellen
+- **Einstellungen:** Domänendetails und Entitätstypen pflegen
+
+Benutzer mit reinem Lesezugriff können Inhalte ohne Bearbeitungssteuerung prüfen.
+
+## Dokumente hinzufügen und verwalten
+
+Legen Sie unter **Dokumente** Dateien ab oder wählen Sie PDF, Markdown, Text oder Word (`.pdf`, `.md`, `.txt`, `.docx`). Während der Extraktion wird Verarbeitung angezeigt; danach Status und Abschnittsanzahl.
+
+Öffnen Sie ein Dokument, um es bei entsprechender Berechtigung zu bearbeiten und zu speichern. Speichern aktualisiert Inhalt und Graphinformationen. Sie können Dokumente löschen, als PDF exportieren und die Freigabesteuerung öffnen.
+
+## Entitäten und Beziehungen untersuchen
+
+**Graph** visualisiert extrahierte Entitäten und Beziehungen. Filtern Sie nach Entitätstyp, begrenzen Sie Knoten, wählen Sie Entitäten für Typ, Beschreibung, Aliasse, Attribute, Dokumentanzahl, Konfidenz und Beziehungen oder suchen Sie über die Entitätenliste.
+
+## Studio verwenden
+
+**Studio** bietet **Podcast** aus Domänendokumenten, **Tabelle** für Graphentitäten und **Mindmap** für Entitäten und Beziehungen. Tabelle und Mindmap benötigen einen verarbeiteten Graphen.
+
+## Domäneneinstellungen aktualisieren
+
+Unter **Einstellungen** ändern Sie Name und Beschreibung und wählen Standardkategorien oder eigene Entitätstypen.
+
+## Sichtbarkeit und Mitgliedsrollen steuern
+
+Öffnen Sie ein Dokument und wählen Sie **Teilen**. Wählen Sie **Privat**, **Unternehmen** oder **Öffentlich**. Weisen Sie verfügbaren Mitgliedern **Kein Zugriff**, **Kann ansehen** oder **Kann bearbeiten** zu. Die Freigabe gilt für die gesamte Domäne, nicht nur das offene Dokument.
+
+## Wissen und Training
+
+Wissen ruft aktuelle, bearbeitbare Informationen zur Antwortzeit aus Dokumenten ab. Training stimmt ein Modell anhand von Benutzer- und Assistentenbeispielen fein ab und erzeugt Provider-Jobs sowie resultierende Modelle.
+
+## Nächste Schritte
+
+<CardGroup cols={2}>
+  <Card title="Ressourcen" icon="folder-open" href="/de/essentials/resources">Zurück zu Thread-Ausgaben, Vorschauen und Erinnerungen.</Card>
+  <Card title="Training" icon="graduation-cap" href="/de/essentials/training">Beispiele erstellen und Fine-Tuning starten.</Card>
+</CardGroup>

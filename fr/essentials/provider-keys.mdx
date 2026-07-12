@@ -1,0 +1,70 @@
+---
+title: 'Clés'
+description: 'Gérer les identifiants fournisseurs personnels et d’entreprise ainsi que les clés API B-Bot'
+icon: 'key'
+---
+
+# Clés
+
+Ouvrez **Clés** depuis la navigation du Hub. La page sépare les identifiants selon leur propriétaire.
+
+## Onglet Personnel
+
+L’onglet **Personnel** contient deux sections.
+
+### Clés fournisseurs
+
+Pour ajouter une clé fournisseur, sélectionnez un fournisseur et saisissez l’identifiant. Vous pouvez également :
+
+- ajouter un nom facultatif ;
+- marquer la clé comme principale ;
+- la marquer comme clé de secours ;
+- afficher ou masquer sa valeur pendant la saisie ;
+- modifier ou supprimer une clé existante ;
+- consulter l’état ou l’erreur signalée par le Hub.
+
+La liste affichée comprend des fournisseurs de modèles, de voix, d’infrastructure et d’intégrations, et peut évoluer.
+
+### Clés API B-Bot personnelles
+
+Ces clés sont distinctes des identifiants fournisseurs. Lors de leur création, vous pouvez ajouter un libellé et les marquer comme principales.
+
+<Warning>
+  Copiez toute nouvelle clé API B-Bot dès que le Hub l’affiche. Conservez-la
+  dans un gestionnaire de secrets approprié. Ne la collez pas dans le Chat, ne
+  l’ajoutez pas au contrôle de version ou à la documentation et ne l’exposez
+  pas dans du code côté client.
+</Warning>
+
+Les entrées existantes affichent leur libellé, leur état, leur marqueur principal et leurs derniers caractères. Supprimez les clés devenues inutiles.
+
+## Onglet Entreprise
+
+L’onglet **Entreprise** n’est disponible que si vous appartenez à au moins une entreprise. Il gère les clés fournisseurs de l’entreprise active.
+
+Cette portée présente les limites suivantes :
+
+- elle est liée à l’entreprise active ;
+- elle contient uniquement des clés fournisseurs ;
+- les clés API B-Bot personnelles n’y sont pas créées ;
+- les actions disponibles peuvent dépendre de votre rôle et des autorisations du compte.
+
+Le même panneau est accessible depuis l’onglet **Clés** de la page Entreprise.
+
+## Précautions minimales
+
+Traitez chaque clé comme un secret :
+
+1. accordez uniquement les autorisations nécessaires ;
+2. conservez les identifiants personnels et d’entreprise dans la bonne portée ;
+3. supprimez les clés inutiles ;
+4. si une clé a pu être exposée, révoquez-la ou renouvelez-la chez le fournisseur, puis remplacez-la dans le Hub ;
+5. vérifiez l’utilisation et les contrôles d’accès côté fournisseur selon les besoins de votre organisation.
+
+L’interface du Hub ne garantit ni la sécurité ni la disponibilité d’un identifiant fournisseur. Consultez la documentation actuelle du fournisseur pour les procédures propres au compte : création, restrictions, renouvellement et gestion des incidents.
+
+## Guides associés
+
+- [Entreprise et facturation](/fr/essentials/company-billing)
+- [Modalités d’entrée et de sortie](/fr/essentials/modalities)
+- [Créer un Agent](/fr/essentials/create-expert)

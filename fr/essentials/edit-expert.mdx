@@ -1,0 +1,50 @@
+---
+title: "Modifier un Agent"
+description: "Configurer un Agent enregistré dans les cinq onglets de l’éditeur"
+icon: "pen-to-square"
+---
+
+# Modifier un Agent
+
+Ouvrez **Agents**, repérez un Agent enregistré et sélectionnez **Modifier**. L’éditeur s’ouvre à l’adresse `/agents/{agentId}`. Sélectionnez **Enregistrer** après avoir modifié Général ou Objectifs ; les commandes des autres onglets enregistrent leurs propres changements lorsque vous les utilisez.
+
+## Général
+
+Définissez le nom, la profession et la description de l’Agent. Activez le **Mode pro** pour modifier son message système, son nom de fonction et sa description de fonction.
+
+Pour les Agents enregistrés, le contrôle de la photo de profil apparaît également dans Général.
+
+### Options et limites de la photo de profil
+
+- **Téléverser :** le sélecteur accepte les images. Une image carrée est recommandée.
+- **Générer :** saisissez une description et choisissez Professionnel, Amical, Moderne ou Créatif. Les images générées utilisent un format 1:1.
+- **URL :** saisissez l’URL directe d’une image. La source doit autoriser le Hub à la récupérer.
+
+Le contrôle n’affiche aucune limite de taille. Les fichiers non pris en charge ou trop volumineux peuvent néanmoins être refusés.
+
+## Objectifs
+
+Définissez un cap et, si nécessaire, des objectifs mesurables. Chaque objectif peut comprendre un titre, une métrique, une référence, une cible, un horizon et des notes.
+
+## Capacités
+
+Gérez deux types de cartes de prompt :
+
+- **Capacités :** brèves instructions de capacité applicables dans le Chat.
+- **Questions d’exemple :** suggestions affichées lorsqu’un utilisateur ouvre un Chat.
+
+Ajoutez les cartes manuellement ou générez une première carte, puis modifiez-les ou supprimez-les selon vos besoins.
+
+## Modèle
+
+Choisissez le modèle conversationnel principal et configurez les modalités d’entrée et de sortie prises en charge. Les modèles disponibles dépendent de la configuration des fournisseurs. Le texte reste disponible en entrée et en sortie sans modalité supplémentaire.
+
+## Équipe
+
+Ajoutez d’autres Agents comme membres de l’équipe. Ils sont mis à disposition en tant qu’outils pendant une exécution. Si aucun autre Agent n’existe, cet onglet ne propose rien à ajouter.
+
+Attribuez des rôles distincts aux membres, puis testez une demande dont le routage attendu est clair.
+
+## Vérifier le résultat
+
+Avant le test, définissez ce qu’une réponse réussie doit contenir et ce qu’elle ne doit pas inventer. Revenez au **Chat**, sélectionnez l’Agent modifié et utilisez une demande reproductible qui sollicite les paramètres changés. Si le résultat doit être amélioré, modifiez le plus petit paramètre pertinent et relancez la même demande.

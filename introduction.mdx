@@ -1,75 +1,61 @@
 ---
-title: Introduction
-description: 'Welcome to our new documentation'
-icon: 'party-horn'
-
+title: "B-Bot Hub"
+description: "A quick orientation to B-Bot Hub for creating agents, chatting, and managing your work"
+icon: "house"
 ---
 
-<img
-  className="block dark:hidden"
-  style={{ width: '100%' }}
-  src="/images/hero-light.svg"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  style={{ width: '100%' }}
-  alt="Hero Dark"
-/>
+# Welcome to B-Bot Hub
 
-## Setting up
+B-Bot Hub is the web application for creating AI agents, talking with them, and managing the resources and services they use.
 
-The first step to world-class virtual experts is easy. Just follow these steps to get started.
+<Note>
+  Older screens, APIs, and documentation may use **Expert** for the same
+  concept. In the current Hub, the primary UI term is **Agent**.
+</Note>
+
+## Start here
+
+<Steps>
+  <Step title="Sign in and complete onboarding">
+    Continue through sign-in, then provide your workspace context, choose a
+    first outcome, and review your launch plan. If sign-in started from a
+    protected Hub page, the Hub returns you to that page afterward.
+  </Step>
+  <Step title="Choose who you are working with">
+    Use the agent selector beneath the B-Bot Hub logo. Choose **B-Bot** for
+    platform help, or select one of your agents for agent-specific work.
+  </Step>
+  <Step title="Open Chat">
+    Select **Chat** in the sidebar, enter a message, and start your first
+    conversation.
+  </Step>
+</Steps>
+
+## Find your way around
+
+The sidebar groups pages by purpose:
+
+- **Platform:** Dashboard, Chat, Threads, and Tasks
+- **Build:** Agents, Resources, Training, Workflows, Apps, and Channels
+- **Discover:** News and Guided tours
+
+The user menu at the bottom of the sidebar contains Profile, Company, Settings, Keys, Billing, theme controls, and Sign out.
+
+Collapse the sidebar when you need more working space.
+
+Some pages depend on the selected agent or on services configured for your account. See [Feature availability](/roadmap) for details.
+
+## Continue
 
 <CardGroup cols={2}>
-  <Card
-    title="Create Your Expert"
-    icon="plus"
-    href="/essentials/create-expert"
-  >
-    Create your first expert and chat with it.
-  </Card>
-    <Card
-      title="Edit Your Expert"
-      icon="pen-to-square"
-      href="/essentials/edit-expert"
-    >
-      Edit your expert and add Apps to it.
-    </Card>
-</CardGroup>
-
-## Advanced Features
-
-Update your docs to your brand and add valuable content for the best user conversion.
-
-<CardGroup cols={2}>
-  <Card
-    title="Fine tune your Virtual Expert"
-    icon="palette"
-    href="/essentials/training"
-  >
-    Fine tune your expert to your brand and add valuable content
+  <Card title="Create an agent" icon="plus" href="/essentials/create-expert">
+    Start from scratch or use a template.
   </Card>
   <Card
-    title="API Reference"
-    icon="code"
-    href="/api-reference/introduction"
+    title="Edit an agent"
+    icon="pen-to-square"
+    href="/essentials/edit-expert"
   >
-    Check out our API reference for more advanced features
-  </Card>
-  <Card
-    title="Add Applications"
-    icon="screwdriver-wrench"
-    href="/essentials/apps"
-  >
-    Add applications to your expert to make it even smarter
-  </Card>
-  <Card
-    title="Get Inspired"
-    icon="stars"
-    href="concepts/introduction"
-  >
-    See how our customers use B-Bot to create amazing experiences
+    Configure identity, goals, abilities, model, team, and profile image.
   </Card>
 </CardGroup>

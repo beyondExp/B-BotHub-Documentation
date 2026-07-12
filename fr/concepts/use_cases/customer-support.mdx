@@ -1,0 +1,104 @@
+---
+title: 'Support client'
+description: 'Concevez un Agent IA de support client avec des réponses fondées sur des sources, des limites claires et une escalade vers une personne.'
+icon: 'headset'
+---
+
+# Support client
+
+Un Agent IA de support client peut aider les utilisateurs à trouver des informations documentées, à suivre des procédures de dépannage et à préparer un transfert vers une personne. Concevez-le comme un élément du processus de support, et non comme un substitut aux politiques, aux contrôles des comptes ou au jugement humain.
+
+## Définir le périmètre
+
+Commencez par un ensemble limité de tâches prises en charge, par exemple :
+
+- Répondre aux questions à partir du contenu d’aide approuvé
+- Guider les utilisateurs dans des procédures de dépannage réversibles
+- Recueillir les informations nécessaires à une demande de support
+- Résumer une conversation pour un agent humain
+- Rédiger des réponses destinées à une validation humaine
+
+Énumérez les tâches que l’Agent ne doit pas accomplir sans outil approuvé et autorisation appropriée, comme modifier l’accès à un compte, accorder un remboursement ou prendre un engagement juridique.
+
+## Configurer l’Agent
+
+<Steps>
+  <Step title="Définir le rôle">
+    Décrivez les produits, les utilisateurs, les langues et les types de problèmes pris en charge par l’Agent. Précisez quand il doit reconnaître qu’il ne sait pas.
+  </Step>
+  <Step title="Ajouter des connaissances maintenues">
+    Connectez les articles d’aide, politiques et guides de dépannage actuels. Attribuez un responsable et une date de révision à chaque source.
+  </Step>
+  <Step title="Définir les règles de réponse">
+    Exigez des étapes concises, distinguez les faits confirmés des suggestions et demandez le contexte manquant avant de diagnostiquer un problème.
+  </Step>
+  <Step title="Concevoir l’escalade">
+    Précisez quand faire intervenir une personne et quelles informations inclure dans le transfert.
+  </Step>
+  <Step title="Tester l’expérience">
+    Testez l’Agent et le canal de distribution prévu avec des questions courantes, des hypothèses obsolètes, des demandes non prises en charge et des cas sensibles.
+  </Step>
+</Steps>
+
+## Exemple de prompt système
+
+```text
+Vous êtes un Agent de support client pour [organisation].
+
+Utilisez uniquement les informations de support approuvées auxquelles vous avez accès.
+Si la réponse n’est pas étayée, indiquez ce qui manque et proposez un transfert à une personne.
+Demandez le minimum d’informations nécessaire pour comprendre le problème.
+Présentez les étapes de dépannage réversibles une par une.
+N’affirmez pas qu’une modification de compte, un remboursement ou la mise à jour d’un ticket a été effectué
+sans confirmation d’un outil autorisé.
+Ne demandez pas de mots de passe, de coordonnées de paiement complètes ni d’autres secrets inutiles.
+```
+
+Adaptez cet exemple à vos politiques et aux capacités disponibles.
+
+## Concevoir l’escalade
+
+Transmettez la demande lorsque :
+
+- L’utilisateur demande à parler à une personne
+- La demande exige une vérification d’identité ou un accès restreint au compte
+- Une dérogation à une politique ou une décision financière est nécessaire
+- Les connaissances disponibles ne permettent pas de répondre
+- Le dépannage pourrait provoquer une perte de données ou un autre résultat irréversible
+- La conversation soulève des questions de sécurité, juridiques ou de conformité
+
+Un résumé d’escalade doit distinguer les faits fournis par l’utilisateur, les actions déjà tentées, les sources pertinentes et la question non résolue.
+
+## Évaluation
+
+Créez un jeu de tests reproductible et évaluez :
+
+- **Ancrage dans les sources :** la réponse est-elle étayée par des sources actuelles ?
+- **Chemin de résolution :** les prochaines étapes sont-elles claires et appropriées ?
+- **Respect des limites :** l’Agent évite-t-il les actions et affirmations non étayées ?
+- **Escalade :** transmet-il au bon moment avec un contexte utile ?
+- **Confidentialité :** évite-t-il de recueillir des données sensibles inutiles ?
+- **Ton :** la réponse est-elle respectueuse sans masquer l’incertitude ?
+
+Mesurez les résultats de votre propre workflow. Ne présumez pas d’un taux d’automatisation, d’un temps de réponse ou d’une économie avant de les avoir mesurés.
+
+<Warning>
+  Examinez les exigences de confidentialité, de sécurité, de conservation et d’accès avant de connecter des dossiers clients ou des systèmes de support. Une app connectée ne doit recevoir que les autorisations nécessaires au workflow approuvé.
+</Warning>
+
+## Guides associés
+
+<CardGroup cols={2}>
+  <Card title="Créer un Agent" icon="plus" href="/essentials/create-expert">
+    Créez le premier Agent de support client.
+  </Card>
+  <Card title="Rédiger un prompt système" icon="message" href="/fr/concepts/best_practices/crafting-a-system-prompt">
+    Rédigez des instructions testables de comportement et d’escalade.
+  </Card>
+  <Card title="Concepts d’entraînement" icon="brain-circuit" href="/fr/concepts/fine-tuning/introduction">
+    Choisissez entre des connaissances maintenues, des exemples et le fine-tuning.
+  </Card>
+  <Card title="Canaux de distribution" icon="share-nodes" href="/essentials/distribution-channels">
+    Configurez la manière dont les utilisateurs accèdent à l’expérience de support.
+  </Card>
+</CardGroup>

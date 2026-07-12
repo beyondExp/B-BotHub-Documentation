@@ -1,289 +1,50 @@
 ---
-title: 'Edit Expert'
-description: 'Customize and configure your AI expert with all available options'
-icon: 'pen-to-square'
+title: "Edit an Agent"
+description: "Configure a saved agent across the five routed editor tabs"
+icon: "pen-to-square"
 ---
 
-# Edit Your Expert
+# Edit an Agent
 
-The Edit Expert interface provides full access to all customization options for your expert. Access it by clicking the **edit** button on any expert card in the Expert Manager.
+Open **Agents**, find a saved agent, and select **Edit**. The editor opens at `/agents/{agentId}`. Select **Save** after changing Basics or Goals; controls in the other tabs save their own changes when you use them.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-first.png"
-  alt="Edit Expert Interface"
-/>
+## Basics
 
-## Edit Expert Tabs
+Set the agent's name, profession, and description. Turn on **Pro mode** to edit its system message, function name, and function description.
 
-The Edit Expert modal contains 8 tabs for comprehensive configuration:
+The profile-picture control also appears in Basics for saved agents.
 
-| Tab | Purpose |
-|-----|---------|
-| **Basic Information** | Name, profession, description, preferred provider |
-| **Profile Picture** | Upload, AI-generate, or URL for profile image |
-| **Abilities** | Define specific behaviors and "wake words" |
-| **Templates** | Pre-written conversation starters |
-| **Models** | Main AI model and input/output modalities |
-| **App Connections** | View and manage connected apps |
-| **Team** | Add other experts to collaborate |
-| **Overview** | Review all settings at a glance |
+### Profile image options and limits
 
----
+- **Upload:** The file picker accepts images. A square image is recommended.
+- **Generate:** Enter a description and choose Professional, Friendly, Modern, or Creative. Generated images use a 1:1 aspect ratio.
+- **URL:** Enter a direct image URL. The source must allow the Hub to fetch it.
 
-## Basic Information
+The image control does not display a file-size limit. Unsupported or oversized uploads may still be rejected.
 
-Edit the core identity of your expert:
+## Goals
 
-- **Name** - Display name shown in chat and expert cards
-- **Profession** - Role or specialty
-- **Description** - Brief explanation of expert's purpose
-- **Preferred AI Provider** - Lock to a specific provider (optional)
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-first.png"
-  alt="Basic Information Tab"
-/>
-
----
-
-## Profile Picture
-
-Three ways to set your expert's avatar:
-
-<CardGroup cols={3}>
-  <Card title="Upload" icon="upload">
-    Upload from your computer (1:1 ratio recommended)
-  </Card>
-  <Card title="AI Generate" icon="wand-magic-sparkles">
-    Generate with AI - select type and describe appearance
-  </Card>
-  <Card title="URL" icon="link">
-    Paste a direct image URL
-  </Card>
-</CardGroup>
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-fourth.png"
-  alt="Profile Picture Options"
-/>
-
-### AI Generation
-
-1. Select **Expert Type** (Technology, Marketing, Healthcare, etc.)
-2. Enter a description of desired appearance
-3. Click **Generate Image**
-4. Select from generated options
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-profile-ai.png"
-  alt="AI Generate Profile Picture"
-/>
-
----
+Define a northstar and optional measurable goals. Each goal can include a title, metric, baseline, target, time horizon, and notes.
 
 ## Abilities
 
-Abilities are specific behaviors your expert can activate. They act as "wake words" for the model.
+Manage two kinds of prompt cards:
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-fifth.png"
-  alt="Abilities Tab"
-/>
+- **Abilities:** Short capability instructions that can be applied in chat.
+- **Example questions:** Suggested prompts shown when a user opens a chat.
 
-### Adding Abilities
+Add cards manually or generate a starting card, then edit or remove cards as needed.
 
-- Click **Generate Initial Ability** for AI-suggested abilities
-- Or manually add abilities with clear, short descriptions
-- Edit or delete abilities as needed
+## Model
 
-### Good Ability Examples
-
-| ✅ Good | ❌ Avoid |
-|---------|----------|
-| "Provide step-by-step troubleshooting" | Long paragraphs |
-| "Write in a friendly, casual tone" | Vague instructions |
-| "Focus on technical accuracy" | Multiple behaviors in one |
-
----
-
-## Templates
-
-Templates are pre-written prompts users can click to start conversations.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-seventh.png"
-  alt="Templates Tab"
-/>
-
-### Adding Templates
-
-- Click **Generate Initial Template** for AI suggestions
-- Each template has a title and prompt text
-- Templates appear as clickable buttons in chat
-
-### Template Tips
-
-- Show what your expert can do
-- Cover common use cases
-- Keep prompts specific and actionable
-
----
-
-## Models & Modalities
-
-Configure your expert's AI capabilities:
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-eight.png"
-  alt="Models Tab"
-/>
-
-### Main Conversational Model
-
-- Click **Change** to select a different AI model
-- Options include GPT-4o, GPT-4o-mini, Claude, Gemini, etc.
-- Each model shows provider, input/output counts
-
-### Input Modalities
-
-Configure how users can interact:
-- Voice input (speech-to-text)
-- File uploads
-- Image analysis
-
-### Output Modalities
-
-Configure how your expert responds:
-- Text-to-speech voices
-- Audio output settings
-
-<Card title="Learn More" icon="sliders" href="/essentials/modalities">
-  See Input & Output Modalities for detailed configuration
-</Card>
-
----
-
-## App Connections
-
-View and manage apps connected to your expert.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-apps.png"
-  alt="App Connections Tab"
-/>
-
-<Warning>
-  **Note:** App connections are created in the **Apps** section (`/apps`), not here. This tab only shows existing connections for review and removal.
-</Warning>
-
-### To Connect Apps
-
-1. Go to **Apps** in the sidebar
-2. Browse or search for an app
-3. Click **Connect** and configure settings
-4. The connection will appear in Edit Expert → App Connections
-
-<Card title="Apps & Integrations" icon="puzzle-piece" href="/essentials/apps">
-  Learn how to connect apps to your expert
-</Card>
-
----
+Choose the main conversational model and configure supported input and output modalities. Available models depend on provider configuration. Text input and output remain available without extra modalities.
 
 ## Team
 
-Create multi-agent collaboration by adding other experts to your expert's team.
+Add other agents as team members. Team members are made available as tools during a run. If no other agents exist, this tab has nothing to add.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-team.png"
-  alt="Team Tab"
-/>
+Give team members distinct roles, then test a request that makes the expected routing clear.
 
-<Warning>
-  **Requirement:** You need at least **2 experts** to use the Team feature. Create additional experts first if you only have one.
-</Warning>
+## Verify the result
 
-### How Teams Work
-
-- Your expert can consult team members for specialized tasks
-- Team members appear in "Available Experts" list
-- Drag or add experts to "Current Team"
-- Useful for complex workflows requiring multiple specialties
-
-### Example Team Structure
-
-```
-Marketing Expert (main)
-├── Content Writer Expert
-├── Data Analyst Expert
-└── Social Media Expert
-```
-
----
-
-## Overview
-
-The Overview tab provides a summary of all expert settings:
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/edit-expert-overview.png"
-  alt="Overview Tab"
-/>
-
-### Quick Stats
-
-- Abilities count
-- Templates count
-- Team members count
-- Connected apps count
-- Current model
-- Last updated date
-
-### Quick Actions
-
-- **Chat** - Start chatting with this expert
-- **Knowledge** - Manage knowledge bases
-- **Apps** - Go to app connections
-- **Channels** - Set up distribution
-
----
-
-## Saving Changes
-
-After making changes:
-
-1. Navigate to any tab or **Overview**
-2. Click **Update** to save all changes
-3. Changes take effect immediately
-
-<Check>
-  **Tip:** Use the Overview tab to verify all settings before saving.
-</Check>
-
-## Next Steps
-
-<CardGroup cols={2}>
-  <Card
-    title="Chat with Expert"
-    icon="comments"
-    href="/essentials/chat"
-  >
-    Test your expert's configuration
-  </Card>
-  <Card
-    title="🎯 Tutorial: First Expert"
-    icon="graduation-cap"
-    href="/workshops/02-first-expert/overview"
-  >
-    Complete hands-on guide with exercises
-  </Card>
-</CardGroup>
+Before testing, define what a successful response must include and what it must not invent. Return to **Chat**, select the edited agent, and use a repeatable request that exercises the settings you changed. If the result needs improvement, change the smallest relevant setting and rerun the same request.

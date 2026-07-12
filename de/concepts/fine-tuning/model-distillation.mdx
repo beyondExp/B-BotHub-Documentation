@@ -1,0 +1,99 @@
+---
+title: 'Modelldestillation'
+description: 'Erfahre, wie du von einem Lehrermodell erzeugte Beispiele für ein kleineres Schülermodell erstellst, prüfst und bewertest.'
+icon: 'flask'
+---
+
+# Modelldestillation
+
+Modelldestillation ist ein Trainingsansatz, bei dem Ausgaben eines **Lehrermodells** helfen, Beispiele für ein **Schülermodell** zu erstellen. Ziel ist es, einem Modell eine enger gefasste Aufgabe beizubringen, das möglicherweise besser zu Kosten-, Latenz- oder Bereitstellungsanforderungen des Workflows passt.
+
+Die Destillation überträgt nicht sämtliche Fähigkeiten des Lehrers. Die Ergebnisse hängen von Aufgabe, Lehrer-Prompts, Datenabdeckung, Kapazität des Schülers, Trainingsmethode und Bewertungsqualität ab.
+
+## Lehrer und Schüler
+
+- Der **Lehrer** erzeugt oder verbessert mögliche Antworten auf repräsentative Eingaben.
+- Prüfende Personen gleichen diese Vorschläge mit Quellmaterial und Anforderungen ab.
+- Die freigegebenen Beispiele werden Teil des Fine-Tuning-Datensatzes des Schülers.
+- Der **Schüler** wird anhand von Fällen bewertet, die nicht für das Training verwendet wurden.
+
+Lehrer und Schüler können beliebige Modelle sein, die vom gewählten Trainings-Workflow unterstützt werden. Vermeide Modellnamen in langlebigen Konzepten, da sich Anbieterkataloge ändern.
+
+## Destillations-Workflow
+
+<Steps>
+  <Step title="Eine eng gefasste Aufgabe definieren">
+    Lege Eingaben, erwartete Ausgaben, Qualitätskriterien und Grenzen fest. Die Destillation lässt sich leichter bewerten, wenn das Ziel klar definiert ist.
+  </Step>
+  <Step title="Bewertungsfälle erstellen">
+    Erstelle einen zurückgehaltenen Satz aus realistischen Anwendungsfällen. Berücksichtige häufige Fälle, Randfälle sowie Fälle, die Unsicherheit oder Ablehnung erfordern.
+  </Step>
+  <Step title="Vorschläge erzeugen">
+    Bitte den Lehrer um Ausgaben mit demselben Kontext und denselben Regeln wie in der Produktion. Erzeuge abwechslungsreiche Eingaben statt wiederholter Vorlagen.
+  </Step>
+  <Step title="Prüfen und korrigieren">
+    Prüfe Fakten, Schlussfolgerungen, Sicherheit, Tonalität und Format. Entferne oder überarbeite schwache Beispiele; gehe nicht davon aus, dass die Lehrerausgabe korrekt ist.
+  </Step>
+  <Step title="Schüler trainieren">
+    Formatiere die freigegebenen Beispiele für einen unterstützten Fine-Tuning-Workflow und trainiere eine Version des Schülermodells.
+  </Step>
+  <Step title="Modelle vergleichen">
+    Vergleiche Schüler, Lehrer und unverändertes Schüler-Basismodell anhand des zurückgehaltenen Satzes und der betrieblichen Anforderungen.
+  </Step>
+  <Step title="Überwachen">
+    Prüfe Fehler in der Produktion, Datenverschiebungen und Änderungen bei Anbietern. Trainiere nur erneut, wenn neue Erkenntnisse dafür sprechen.
+  </Step>
+</Steps>
+
+## Beispielanweisung für den Lehrer
+
+```text
+Erstelle eine mögliche Antwort für den folgenden Supportfall.
+
+Verwende ausschließlich die angehängten Richtlinien und die Produktdokumentation.
+Halte das erforderliche Antwortschema ein.
+Wenn die Quellen eine Antwort nicht stützen, gib "needs_review": true zurück
+und erkläre, welche Informationen fehlen.
+Erfinde keine Kontoaktionen, Ausnahmen von Richtlinien, Links oder Ergebnisse.
+```
+
+Behandle die Ausgabe als zu prüfenden Vorschlag, nicht als freigegebene Trainingsdaten.
+
+## Bewertungskonzept
+
+Wähle Messgrößen, die zur Aufgabe passen:
+
+- Exakte Einhaltung von Schema oder Format
+- Richtigkeit im Vergleich zu freigegebenen Quellen
+- Richtige Entscheidung für Werkzeug oder Eskalation
+- Bewertungen durch Menschen anhand eines schriftlichen Kriterienkatalogs
+- Fehlerquote bei Sicherheits- und Ablehnungsfällen
+- Latenz und gemessene Kosten in der vorgesehenen Umgebung
+
+Gib Qualität nicht als Prozentwert an, wenn Bewertungsmethode und Testsatz diesen Wert nicht aussagekräftig machen. Gehe nicht von festen Kosteneinsparungen aus; berechne sie anhand aktueller Anbieterpreise und gemessener Token- oder Ressourcennutzung.
+
+## Wann Destillation ungeeignet ist
+
+- Die Aufgabe ändert sich häufig.
+- Antworten hängen überwiegend von aktuellem Wissen ab.
+- Ein kleineres Modell unterstützt die erforderliche Modalität oder das benötigte Werkzeugverhalten nicht.
+- Du kannst die erzeugten Beispiele nicht prüfen.
+- Dir fehlt ein repräsentativer Bewertungssatz.
+- Fehler haben Folgen, die der Workflow nicht sicher begrenzen kann.
+
+## Datensicherheit
+
+<Warning>
+  Lehrer-Prompts und erzeugte Datensätze können an Modellanbieter gesendet werden. Entferne unnötige personenbezogene Daten und Geheimnisse und vergewissere dich, dass die Datenverarbeitung für jeden beteiligten Anbieter genehmigt ist.
+</Warning>
+
+## Zugehörige Leitfäden
+
+<CardGroup cols={2}>
+  <Card title="Fine-Tuning" icon="brain-circuit" href="/de/concepts/fine-tuning/introduction">
+    Wiederhole die Grundlagen zur Vorbereitung und Bewertung von Datensätzen.
+  </Card>
+  <Card title="Trainingsleitfaden" icon="graduation-cap" href="/essentials/training">
+    Folge dem verfügbaren Trainings-Workflow in B-Bot Hub.
+  </Card>
+</CardGroup>

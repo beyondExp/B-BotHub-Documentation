@@ -1,0 +1,72 @@
+---
+title: 'Company and Billing'
+description: 'Manage companies, members, shared agents, credentials, plans, and seats'
+icon: 'building'
+---
+
+# Company and Billing
+
+The Company and Billing pages separate shared organization resources from your personal subscription.
+
+## Create and switch companies
+
+On **Company**, select **Create company**, then enter a name and optional description. The creator becomes the owner.
+
+If you belong to more than one company, use the company selector to change the active company. Company-scoped agents, invitations, keys, billing, and seats use that active context.
+
+Select the company image to upload a file, generate an image, or use an image URL.
+
+## Company tabs
+
+### Members
+
+The Members tab lists each member's name, email, image, and role. From this tab you can:
+
+- Invite a member by email
+- Select a role for the invitation
+- Add an optional personal message
+- Change an existing member's role
+
+The role selector shows the roles available for the active company. A role name alone is not a complete permission description; available actions also depend on the permissions assigned to the account.
+
+### Agents
+
+The Agents tab lists agents shared with the company. You can add one of your agents to the company or remove a shared agent. The built-in platform assistant is excluded from this list.
+
+### Invitations
+
+The Invitations tab shows invitation email, role, date, and status. A pending invitation can be cancelled. Recipients can accept or decline an invitation through its invitation flow.
+
+### Keys
+
+The Keys tab manages provider keys for the active company. Company scope does not create B-Bot API keys. See [Keys](/essentials/provider-keys).
+
+## Personal and company billing
+
+Billing opens in **Personal** scope. If you belong to a company, use the scope tabs to switch between personal and active-company billing.
+
+The page can show:
+
+- Current subscription and status
+- Trial or renewal information, when returned
+- Payment-method and cancellation actions, when billing is configured
+- The external billing portal for invoices and plan changes
+- Available monthly and yearly plans returned by the environment
+
+Plan names, prices, currencies, intervals, and availability come from the billing service and can differ by environment.
+
+## Company seats
+
+Company billing includes seat controls for the products currently shown by the Hub. You can:
+
+- Review used and total seats
+- Increase or decrease seat quantity
+- Assign or remove product seats for individual company members
+
+The Hub prevents reducing a seat total below the number currently assigned.
+
+## Open mode
+
+If Stripe is not configured, the Billing page reports that billing is running in **open mode**. In that environment, the Hub indicates that features are unlocked and payment is not required.
+
+Open mode is an environment state, not a purchased plan or a statement about other deployments. Follow the message shown in your current Hub.

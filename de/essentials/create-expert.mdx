@@ -1,0 +1,59 @@
+---
+title: "Agent erstellen"
+description: "Einen Agenten in B-Bot Hub von Grund auf oder aus einer Vorlage erstellen"
+icon: "plus"
+---
+
+# Agent erstellen
+
+Öffnen Sie in der Seitenleiste **Agenten** und wählen Sie **Agent erstellen**, oder wählen Sie **Agent erstellen** in der Agentenauswahl. Beide Wege öffnen `/agents/new`.
+
+![Grundlagen beim Erstellen eines Agenten in B-Bot Hub](/images/concepts/create-agent-basics.png)
+
+## Ausgangspunkt wählen
+
+- **Von Grund auf:** Wählen Sie **Agent erstellen** und geben Sie eigene Einstellungen ein.
+- **Aus einer Vorlage:** Wählen Sie auf der Seite Agenten **Vorlagen durchsuchen**, filtern Sie die Liste und wählen Sie **Vorlage verwenden**. Prüfen Sie vor dem Speichern alle vorausgefüllten Werte.
+
+## Ersteinrichtung abschließen
+
+Die Seite für neue Agenten beginnt mit **Grundlagen** und **Ziele**.
+
+### Grundlagen
+
+- **Name:** Erforderlich.
+- **Beruf:** Die beim Agenten angezeigte Rolle.
+- **Beschreibung:** Bei einem neuen Agenten sind mindestens 50 Zeichen erforderlich. Das Feld akzeptiert bis zu 250 Zeichen.
+
+### Geführte Einrichtung und Pro-Modus
+
+Die geführte Einrichtung erzeugt anhand der Beschreibung fehlende System- und Funktionsmetadaten, wählt aus den verfügbaren Provider-Schlüsseln ein Standardmodell und versucht, einen geschichteten Speicher einzurichten.
+
+Aktivieren Sie **Pro-Modus**, wenn Sie Systemnachricht, Funktionsname und Funktionsbeschreibung selbst verfassen möchten. Sie können auch aus der aktuellen Beschreibung eine Systemnachricht generieren.
+
+### Ziele
+
+Unter **Ziele** können Sie bei Bedarf einen Northstar und messbare Langzeitziele hinzufügen. Ziele sind beim Erstellen optional.
+
+## Vor dem Fortfahren speichern
+
+Wählen Sie **Speichern**. Der Hub erstellt den Agenten und leitet Sie zu `/agents/{agentId}` weiter.
+
+<Warning>
+  **Fähigkeiten**, **Modell** und **Team** sind deaktiviert, bis der Agent
+  gespeichert wurde. Auch die Profilbildsteuerung ist nur für gespeicherte
+  Agenten verfügbar.
+</Warning>
+
+Die Erstellung kann fortgesetzt werden, wenn das optionale Verknüpfen eines Modells oder die Speichereinrichtung nicht verfügbar ist. Prüfen Sie den gespeicherten Agenten, bevor Sie sich auf diese Einstellungen verlassen.
+
+## Nächste Schritte
+
+<CardGroup cols={2}>
+  <Card title="Agent bearbeiten" icon="pen-to-square" href="/de/essentials/edit-expert">
+    Konfigurieren Sie alle fünf Editor-Registerkarten und fügen Sie ein Profilbild hinzu.
+  </Card>
+  <Card title="Im Chat testen" icon="comments" href="/de/essentials/chat">
+    Wählen Sie den gespeicherten Agenten und prüfen Sie sein Verhalten in einer Unterhaltung.
+  </Card>
+</CardGroup>

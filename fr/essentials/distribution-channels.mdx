@@ -1,0 +1,87 @@
+---
+title: 'Canaux de distribution'
+description: 'Publier un Agent au moyen des canaux pris en charge par le Hub'
+icon: 'share-nodes'
+---
+
+# Canaux de distribution
+
+Les canaux de distribution publient l’Agent sélectionné pour un public ou un cas d’usage précis. Ouvrez **Canaux** dans la barre latérale pour consulter, créer, modifier ou supprimer des canaux.
+
+![Types de canaux disponibles dans B-Bot Hub](/images/documentation/channel-types.png)
+
+## Créer un canal
+
+<Steps>
+  <Step title="Sélectionner un Agent">Choisissez l’Agent que le canal publiera.</Step>
+  <Step title="Ouvrir Canaux">
+    Accédez à `/channels` et sélectionnez **Nouveau canal**.
+  </Step>
+  <Step title="Nommer et choisir un type">
+    Saisissez un nom, puis sélectionnez l’un des types disponibles.
+  </Step>
+  <Step title="Configurer et enregistrer">
+    Renseignez les commandes propres au canal. Après l’enregistrement, il
+    apparaît avec son identifiant et les commandes de modification et suppression.
+  </Step>
+</Steps>
+
+La boîte de dialogue prend en charge **B-Bot Chat**, **Embed**, **API**, **Tâches** et **Modèle**. **Twilio**, **n8n** et **Zapier** sont signalés comme bientôt disponibles et ne peuvent pas être sélectionnés.
+
+## B-Bot Chat
+
+B-Bot Chat publie l’Agent dans B-Bot Chat. Les commandes de visibilité sont :
+
+- **Réservé aux utilisateurs de l’entreprise**, qui limite l’accès à une entreprise ;
+- **Entreprise**, qui sélectionne cette entreprise lorsque l’accès réservé est activé.
+
+Sans entreprise disponible, cet accès est désactivé.
+
+## Embed
+
+Embed crée une expérience pour site web et fournit un aperçu en direct ainsi qu’un code généré après l’enregistrement.
+
+Vous pouvez configurer :
+
+- les outils système **Recherche de mémoire**, **Recherche web**, **Gestionnaire de fichiers / Téléversement**, **Outils de l’espace de travail** et **Planificateur de tâches** ;
+- l’affichage des appels d’outils ;
+- le style **Intégré** ou **Bulle de chat** ;
+- la couleur du thème ;
+- une icône d’en-tête Lucide ;
+- l’URL d’une image personnalisée pour le bouton flottant ;
+- une protection facultative par mot de passe.
+
+Enregistrez le canal avant d’utiliser son aperçu ou de copier le code d’intégration. Modifiez-le ultérieurement pour changer ces paramètres.
+
+## API
+
+Le canal API rend l’Agent accessible par programmation. La boîte de dialogue permet de désactiver les actions d’écriture de connaissances suivantes :
+
+- modifier une seule ligne ;
+- modifier plusieurs lignes ;
+- créer un document.
+
+Elle n’affiche ni ne génère d’exemples d’endpoints. Utilisez la référence API fournie pour votre déploiement lorsque vous créez un client.
+
+## Tâches
+
+Le canal Tâches distribue l’Agent au système d’exécution des tâches. La boîte de dialogue actuelle ne propose aucun réglage supplémentaire propre à ce type.
+
+Consultez [Tâches](/fr/essentials/tasks) pour la configuration et l’utilisation.
+
+## Modèle
+
+Modèle publie l’Agent sous forme de modèle réutilisable. Configurez :
+
+- une catégorie ;
+- son éventuelle mise à la une.
+
+La boîte de dialogue répertorie aussi les applications connectées de l’Agent afin de vérifier les ressources associées.
+
+## Gérer les canaux existants
+
+Chaque carte affiche le nom, le type et l’identifiant du canal. Vous pouvez copier l’identifiant, modifier le canal ou le supprimer. Les canaux Embed proposent également un raccourci pour copier le code généré.
+
+<Card title="Applications" icon="grid-2-plus" href="/fr/essentials/apps">
+  Connectez les outils dont l’Agent a besoin avant de le publier.
+</Card>

@@ -1,0 +1,85 @@
+---
+title: 'Agenti IA e terminologia fondamentale'
+description: 'Scopri cos’è un Agente IA e come B-Bot Hub ne descrive identità, comportamento, capacità e accesso.'
+icon: 'user-robot'
+---
+
+# Agenti IA e terminologia fondamentale
+
+Un **Agente IA** è un'esperienza IA configurata per un ruolo definito. Nell'interfaccia e nella documentazione può essere chiamato anche **Agente**. La configurazione assegna all'Agente un'identità riconoscibile, istruzioni, capacità facoltative e un modello.
+
+Un Agente non è automaticamente corretto né autonomo. I suoi risultati dipendono dalle istruzioni, dal modello, dal contesto disponibile, dagli strumenti collegati e dalla qualità della richiesta dell'utente.
+
+<Note>
+  Le guide precedenti o alcune interfacce API potrebbero usare ancora **Expert** per riferirsi a un Agente IA.
+</Note>
+
+![Nozioni di base per la creazione di un Agente nell'interfaccia di B-Bot Hub](/images/concepts/create-agent-basics.png)
+
+## Configurazione dell'Agente
+
+<CardGroup cols={2}>
+  <Card title="Identità" icon="id-card">
+    Il nome, la professione, la descrizione e l'immagine del profilo mostrati agli utenti.
+  </Card>
+  <Card title="Istruzioni" icon="message">
+    Il prompt di sistema e le altre indicazioni che definiscono ruolo, priorità, tono e limiti.
+  </Card>
+  <Card title="Modello e modalità" icon="microchip">
+    Il modello selezionato e le forme di input o output configurate, come testo, voce, immagini o file.
+  </Card>
+  <Card title="Capacità" icon="toolbox">
+    Abilità, app collegate, fonti di conoscenza e membri del team che possono essere messi a disposizione dell'Agente.
+  </Card>
+</CardGroup>
+
+## Terminologia del prodotto
+
+### Abilità
+
+Le abilità sono istruzioni di comportamento riutilizzabili. Aiutano gli utenti a selezionare una modalità o un approccio per una conversazione. Mantieni ogni abilità focalizzata e descrivi chiaramente il comportamento previsto.
+
+### Modelli
+
+I modelli sono prompt predisposti che aiutano gli utenti ad avviare attività comuni. Sono esempi di cosa chiedere, non garanzie sul risultato.
+
+### Conoscenza
+
+Le fonti di conoscenza forniscono informazioni che un Agente può consultare. Usale per i contenuti che devono essere gestiti separatamente dal prompt di sistema, come la documentazione del prodotto o le policy.
+
+### App e strumenti
+
+Le app e gli strumenti collegati possono fornire informazioni o azioni che vanno oltre il modello stesso. La loro disponibilità e le relative autorizzazioni dipendono dalla configurazione dell'Agente e della sessione dell'utente.
+
+### Team
+
+Quando la funzionalità è disponibile, un Agente può essere configurato con altri Agenti come membri del team. Considera ogni membro del team uno specialista con una responsabilità chiara.
+
+### Canali di distribuzione
+
+I **Canali di distribuzione** definiscono come un'esperienza basata su un Agente raggiunge utenti o sistemi. La configurazione del canale è separata dall'identità e dal comportamento fondamentali dell'Agente.
+
+### DeepAgents
+
+**DeepAgents** è una modalità per lavori in più fasi che utilizza attività e file dello spazio di lavoro. I controlli human-in-the-loop possono aggiungere punti di revisione prima delle azioni.
+
+## Un modello mentale utile
+
+```text
+Agente = identità + istruzioni + modello + capacità consentite
+
+Esperienza = Agente + impostazioni della conversazione + Canale di distribuzione
+```
+
+Lo stesso Agente può comportarsi in modo diverso quando cambiano il modello, gli strumenti abilitati, il contesto disponibile o il canale. Testa l'esperienza completa che sarà offerta agli utenti.
+
+## Passaggi successivi
+
+<CardGroup cols={2}>
+  <Card title="Ciclo di vita e configurazione" icon="sliders" href="/it/concepts/basics">
+    Scopri come i componenti della configurazione interagiscono nel tempo.
+  </Card>
+  <Card title="Crea un Agente" icon="plus" href="/essentials/create-expert">
+    Segui la guida del prodotto per creare il tuo primo Agente.
+  </Card>
+</CardGroup>

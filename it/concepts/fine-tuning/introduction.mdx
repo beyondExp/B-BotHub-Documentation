@@ -1,0 +1,102 @@
+---
+title: 'Fine-tuning'
+description: 'Comprendi cosa modifica il fine-tuning, quando usarlo e come valutare in sicurezza un modello addestrato.'
+icon: 'brain-circuit'
+---
+
+# Fine-tuning
+
+Il fine-tuning prosegue l'addestramento di un modello base supportato usando esempi relativi a un'attività specifica. Può rafforzare schemi di risposta, terminologia, stile o struttura dell'output. Non aggiunge automaticamente conoscenze affidabili e aggiornate, né garantisce risultati migliori.
+
+Il supporto varia in base al modello e al provider. Prima di preparare un set di dati, verifica nella tua configurazione di B-Bot Hub i modelli base disponibili, il formato dei dati, i limiti e i costi.
+
+## Scegli il metodo giusto
+
+<CardGroup cols={3}>
+  <Card title="Prompt di sistema" icon="message">
+    Usalo per istruzioni, priorità, tono, limiti e comportamenti che possono cambiare.
+  </Card>
+  <Card title="Recupero della conoscenza" icon="book">
+    Usalo per materiale di origine che deve restare aggiornato, tracciabile o facile da sostituire.
+  </Card>
+  <Card title="Fine-tuning" icon="microchip">
+    Usalo per esempi ripetuti del comportamento o dello schema di output che vuoi far apprendere al modello.
+  </Card>
+</CardGroup>
+
+Prova prima a migliorare il prompt e la conoscenza. Valuta il fine-tuning quando disponi di un'attività stabile, una lacuna misurabile, esempi rappresentativi e un modello supportato.
+
+## Workflow di fine-tuning
+
+<Steps>
+  <Step title="Definisci l'obiettivo">
+    Formula un obiettivo di miglioramento circoscritto, come rispettare uno schema di risposta o applicare uno stile di assistenza coerente.
+  </Step>
+  <Step title="Crea un set di valutazione">
+    Prepara casi di test rappresentativi prima dell'addestramento. Mantienili separati dagli esempi di addestramento.
+  </Step>
+  <Step title="Prepara gli esempi">
+    Usa input chiari e output ideali sottoposti a revisione. Includi casi normali, casi difficili e rifiuti appropriati.
+  </Step>
+  <Step title="Esamina il set di dati">
+    Rimuovi duplicati, contraddizioni, dati sensibili, fatti obsoleti ed esempi che premiano affermazioni non supportate.
+  </Step>
+  <Step title="Addestra una versione">
+    Seleziona un modello base supportato e usa i controlli di addestramento disponibili in B-Bot Hub.
+  </Step>
+  <Step title="Confronta e decidi">
+    Valuta la versione base e quella addestrata sugli stessi casi esclusi dall'addestramento. Adotta la versione addestrata solo se migliora l'obiettivo definito senza regressioni inaccettabili.
+  </Step>
+</Steps>
+
+## Principi del set di dati
+
+- **Rappresentativo:** deve riflettere gli input reali, comprese lunghezza e ambiguità.
+- **Coerente:** risolvi i conflitti relativi a tono, policy e comportamento previsto.
+- **Completo:** includi un contesto sufficiente per ottenere la risposta desiderata.
+- **Aggiornato:** rimuovi policy, dettagli del prodotto e link obsoleti.
+- **Sicuro:** escludi segreti e dati personali, a meno che la raccolta e l'uso non siano stati approvati.
+- **Bilanciato:** includi casi in cui il comportamento corretto consiste nel chiedere chiarimenti, rifiutare o avviare un'escalation.
+
+Non esiste un numero universale di esempi che garantisca un modello utile. Parti da un set di dati sottoposto a revisione, misura il risultato e aggiungi esempi che affrontino le lacune osservate.
+
+## Valutazione
+
+Valuta separatamente i diversi aspetti:
+
+- Successo dell'attività e accuratezza dei fatti
+- Rispetto delle istruzioni e del formato
+- Incertezza e rifiuto appropriati
+- Robustezza rispetto a parafrasi e casi limite
+- Regressioni al di fuori del comportamento obiettivo
+- Latenza e costo nell'ambiente previsto
+
+Registra la versione del set di dati, il modello base, la configurazione e i risultati della valutazione, in modo che la decisione possa essere riprodotta.
+
+## Errori comuni
+
+<AccordionGroup>
+  <Accordion title="Usare il fine-tuning come database di conoscenza" icon="database">
+    In genere, i fatti che cambiano di frequente sono più facili da gestire in una fonte di conoscenza o nel contesto della richiesta.
+  </Accordion>
+  <Accordion title="Addestrare e testare sugli stessi esempi" icon="flask">
+    In questo modo si misura la memorizzazione, non le prestazioni su nuove richieste. Mantieni un set di valutazione separato.
+  </Accordion>
+  <Accordion title="Accettare dati sintetici senza revisione" icon="triangle-exclamation">
+    Gli esempi generati possono contenere errori e schemi ripetitivi. Esaminali prima dell'addestramento.
+  </Accordion>
+  <Accordion title="Dare per scontato un miglioramento" icon="chart-line">
+    Il completamento di un processo di addestramento non dimostra un comportamento migliore. Effettua un confronto con il modello base.
+  </Accordion>
+</AccordionGroup>
+
+## Guide correlate
+
+<CardGroup cols={2}>
+  <Card title="Guida all'addestramento" icon="graduation-cap" href="/essentials/training">
+    Usa l'interfaccia di addestramento di B-Bot Hub.
+  </Card>
+  <Card title="Distillazione del modello" icon="flask" href="/it/concepts/fine-tuning/model-distillation">
+    Scopri come gli esempi generati da un modello docente possono contribuire a un set di dati per il fine-tuning.
+  </Card>
+</CardGroup>

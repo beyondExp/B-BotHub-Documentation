@@ -1,0 +1,107 @@
+---
+title: 'Lebenszyklus und Konfiguration von Agenten'
+description: 'Verstehe die wichtigsten Konfigurationsbausteine und den Lebenszyklus eines KI-Agenten in B-Bot Hub.'
+icon: 'book-open'
+---
+
+# Lebenszyklus und Konfiguration von Agenten
+
+Ein wirksamer KI-Agent entsteht durch fortlaufende Verbesserung. Beginne mit einer eng gefassten Rolle, konfiguriere nur die benötigten Fähigkeiten, teste repräsentative Anfragen und überarbeite die Konfiguration, wenn die Ergebnisse deine Kriterien nicht erfüllen.
+
+## Lebenszyklus
+
+<Steps>
+  <Step title="Definieren">
+    Beschreibe Zweck, vorgesehene Benutzer, unterstützte Aufgaben und Grenzen des Agenten. Lege fest, wie eine erfolgreiche Antwort aussieht.
+  </Step>
+  <Step title="Konfigurieren">
+    Lege Identität, System-Prompt, Modell, Fähigkeiten, Vorlagen, Modalitäten, Wissen, Apps und Teammitglieder fest, die der Anwendungsfall erfordert.
+  </Step>
+  <Step title="Testen">
+    Teste häufige Anfragen, Randfälle, mehrdeutige Anfragen und solche, die der Agent ablehnen oder weitergeben sollte. Prüfe sachliche Richtigkeit und Werkzeugnutzung getrennt von der Tonalität.
+  </Step>
+  <Step title="Bereitstellen">
+    Wähle und konfiguriere den passenden Vertriebskanal. Teste Berechtigungen, Ein- und Ausgaben sowie das Benutzererlebnis in diesem Kanal erneut.
+  </Step>
+  <Step title="Pflegen">
+    Prüfe Feedback und Fehler. Aktualisiere Anweisungen und Wissen bei geänderten Anforderungen und wiederhole anschließend die Tests.
+  </Step>
+</Steps>
+
+## Workflows
+
+![Workflow-Vorlagen in B-Bot Hub](/images/concepts/workflows-overview.png)
+
+Ein **Agent** definiert Verhalten und Fähigkeiten. Ein **Workflow** ist eine serverseitig ausgeführte, mehrstufige Automatisierung. **DeepAgents** unterstützt mehrstufige Arbeiten innerhalb einer Agenteninteraktion.
+
+## Konfigurationsbausteine
+
+### Identität und System-Prompt
+
+Identitätsfelder erklären Benutzern, wer der Agent ist. Der System-Prompt definiert seine Arbeitsweise. Lege Produktfakten und häufig wechselnde Informationen in gepflegten Wissensquellen ab, statt sie in einen langen Prompt einzubetten.
+
+### Modell
+
+Das Modell übernimmt Sprach- und Schlussfolgerungsaufgaben. Verfügbarkeit und unterstützte Funktionen hängen von den konfigurierten Anbietern ab. Wähle ein Modell anhand von Tests mit deinen eigenen Anforderungen an Qualität, Latenz und Kosten statt aufgrund einer allgemeinen Rangliste.
+
+### Fähigkeiten und Vorlagen
+
+- **Fähigkeiten** bieten wiederverwendbare Verhaltensmodi.
+- **Vorlagen** bieten wiederverwendbare Start-Prompts.
+
+Keine von beiden fügt eigenständig externe Daten oder Berechtigungen hinzu.
+
+### Wissen
+
+Wissen kann Antworten auf gepflegte Dokumente oder strukturierte Quellen stützen. Der Abruf garantiert nicht, dass jeder relevante Inhalt ausgewählt wird. Teste deshalb wichtige Fragen und halte das Quellmaterial aktuell.
+
+### Apps, Werkzeuge und Teammitglieder
+
+Apps und Werkzeuge erweitern, worauf ein Agent zugreifen und was er tun kann. Teammitglieder teilen Arbeit unter Agenten auf. Vergib nur die minimal erforderlichen Berechtigungen und lege fest, welche Fähigkeit welche Aufgabe übernimmt.
+
+### Modalitäten
+
+Modalitäten bestimmen die unterstützten Ein- und Ausgabeformen. Vergewissere dich, dass das ausgewählte Modell, der Anbieter und der Vertriebskanal die benötigte Kombination unterstützen.
+
+### Unterhaltungseinstellungen
+
+Einstellungen auf Unterhaltungsebene können das Verhalten eines Agenten für eine einzelne Sitzung verändern. Halte bei der Fehleranalyse sowohl die Agentenkonfiguration als auch sämtliche Sitzungsüberschreibungen fest.
+
+## Konfigurationsebenen
+
+```text
+Benutzeranfrage
+  -> Vertriebskanal und Sitzungseinstellungen
+  -> Identität und Anweisungen des Agenten
+  -> Modell, Wissen, Apps und Werkzeuge
+  -> Antwort oder Aktion
+```
+
+Dies ist ein konzeptioneller Ablauf. Eine Fähigkeit muss konfiguriert und erlaubt sein, bevor der Agent sie nutzen kann.
+
+## Bewertungscheckliste
+
+- Bleibt der Agent innerhalb seiner Rolle?
+- Sind Tatsachenbehauptungen durch den verfügbaren Kontext gestützt?
+- Fragt er nach fehlenden Informationen?
+- Vermeidet er es, Werkzeugergebnisse oder ausgeführte Aktionen zu erfinden?
+- Werden sensible oder unumkehrbare Aktionen geprüft?
+- Funktioniert das vollständige Erlebnis im Vertriebskanal wie vorgesehen?
+- Kann eine für die Pflege zuständige Person die Konfiguration verstehen und aktualisieren?
+
+## Zugehörige Leitfäden
+
+<CardGroup cols={2}>
+  <Card title="Einen Agenten bearbeiten" icon="pen-to-square" href="/essentials/edit-expert">
+    Konfiguriere Identität, Fähigkeiten, Modelle, Apps und Teammitglieder.
+  </Card>
+  <Card title="Training" icon="graduation-cap" href="/essentials/training">
+    Füge Dokumente, Frage-Antwort-Paare oder Fine-Tuning hinzu, wenn der Anwendungsfall sie erfordert.
+  </Card>
+  <Card title="Modalitäten" icon="microphone-lines" href="/essentials/modalities">
+    Konfiguriere unterstützte Ein- und Ausgabetypen.
+  </Card>
+  <Card title="Vertriebskanäle" icon="share-nodes" href="/essentials/distribution-channels">
+    Stelle ein auf einem Agenten basierendes Erlebnis für Benutzer oder Systeme bereit.
+  </Card>
+</CardGroup>

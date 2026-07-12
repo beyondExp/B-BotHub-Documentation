@@ -1,0 +1,106 @@
+---
+title: 'IA multimodale'
+description: 'Comprendi come testo, voce, immagini e file possono partecipare al workflow di un Agente IA.'
+icon: 'layer-group'
+---
+
+# IA multimodale
+
+Una modalità è una forma di input o output. Un workflow multimodale combina più forme, come una domanda testuale su un'immagine caricata o una richiesta vocale con risposta testuale.
+
+In B-Bot Hub, il supporto delle modalità dipende dal modello e dal provider selezionati, dalla configurazione dell'Agente e dal Canale di distribuzione. Configura e testa la combinazione completa prima di farvi affidamento.
+
+## Modalità comuni
+
+<CardGroup cols={2}>
+  <Card title="Testo" icon="keyboard">
+    Istruzioni, domande, risposte formattate e codice.
+  </Card>
+  <Card title="Voce" icon="microphone">
+    Il parlato può essere trascritto come input e, dove configurato, il testo può essere sintetizzato come audio.
+  </Card>
+  <Card title="Immagini" icon="image">
+    I modelli supportati possono esaminare un'immagine fornita con una domanda o produrre un'immagine tramite una capacità configurata.
+  </Card>
+  <Card title="File" icon="file">
+    I file supportati possono fornire contesto o diventare output nei workflow che includono la gestione dei file.
+  </Card>
+</CardGroup>
+
+## Input e output sono distinti
+
+Un Agente che accetta un'immagine non genera necessariamente immagini. Anche l'input vocale e l'output audio richiedono configurazioni separate. Per ogni workflow, documenta:
+
+- Tipi di input accettati
+- Tipi di output previsti
+- Vincoli di dimensione, formato e lingua
+- Chiavi provider richieste
+- Limitazioni del canale
+- Comportamento alternativo in caso di errore nell'elaborazione
+
+## Schemi di esempio
+
+### Immagine e testo
+
+L'utente carica un'immagine e pone una domanda specifica. L'Agente restituisce una descrizione o un'analisi testuale. Il risultato deve essere considerato un'interpretazione, soprattutto in presenza di testo piccolo, misurazioni o immagini rilevanti per la sicurezza.
+
+### File e testo
+
+L'utente fornisce un documento o un set di dati accompagnato da istruzioni. L'Agente estrae o analizza i contenuti supportati. Per lavori importanti, verifica che l'intero file sia stato elaborato e confronta il risultato con la fonte.
+
+### Voce e testo
+
+Il parlato viene trascritto e poi elaborato come messaggio dell'utente. Gli errori di trascrizione possono modificarne il significato: mostra o conferma i dettagli critici prima di agire.
+
+### Testo e audio
+
+Una risposta testuale viene convertita in parlato. Fornisci un'alternativa testuale e verifica pronuncia, lingua e requisiti di accessibilità.
+
+## Checklist di progettazione
+
+<Steps>
+  <Step title="Verifica il supporto">
+    Verifica che il modello, il provider e il Canale di distribuzione supportino i tipi di input e output richiesti.
+  </Step>
+  <Step title="Riduci al minimo i dati">
+    Invia solo i contenuti necessari per l'attività. Rimuovi le informazioni personali o riservate non necessarie.
+  </Step>
+  <Step title="Definisci il comportamento in caso di errore">
+    Informa gli utenti quando un input non può essere elaborato e offri un'alternativa sicura, come l'inserimento di testo o un altro formato di file.
+  </Step>
+  <Step title="Testa input reali">
+    Testa accenti, immagini, layout dei documenti, dimensioni dei file, dispositivi e condizioni di rete rappresentativi.
+  </Step>
+  <Step title="Sottoponi a revisione i risultati sensibili">
+    Richiedi una revisione qualificata per decisioni mediche, legali, finanziarie, di sicurezza, identità o accessibilità.
+  </Step>
+</Steps>
+
+## Limitazioni
+
+- Il riconoscimento vocale può interpretare erroneamente nomi, numeri e termini specialistici.
+- L'analisi delle immagini può non rilevare alcuni dettagli o dedurre oggetti che non sono presenti.
+- L'estrazione dai documenti può perdere layout, tabelle, annotazioni o testo scansionato.
+- I file generati possono essere malformati o contenere dati errati.
+- Comportamento, limiti e prezzi dei provider possono cambiare.
+
+<Warning>
+  Non usare un Agente IA come unica autorità per la verifica dell'identità, la diagnosi, la conformità o altre decisioni ad alto impatto basate su input multimodali.
+</Warning>
+
+## Guide correlate
+
+<CardGroup cols={2}>
+  <Card title="Configura le modalità" icon="sliders" href="/essentials/modalities">
+    Esamina le attuali impostazioni di input e output di B-Bot Hub.
+  </Card>
+  <Card title="Chiavi provider" icon="key" href="/essentials/provider-keys">
+    Configura le credenziali per i provider supportati.
+  </Card>
+  <Card title="Chat" icon="comments" href="/essentials/chat">
+    Scopri come gli utenti forniscono testo, voce, immagini e file nella chat.
+  </Card>
+  <Card title="DeepAgents" icon="robot" href="/it/concepts/deepagents/introduction">
+    Usa i file dello spazio di lavoro nei workflow in più fasi.
+  </Card>
+</CardGroup>

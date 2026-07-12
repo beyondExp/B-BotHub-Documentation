@@ -1,0 +1,102 @@
+---
+title: 'Fine-Tuning'
+description: 'Verstehe, was Fine-Tuning verändert, wann es sinnvoll ist und wie du ein trainiertes Modell sicher bewertest.'
+icon: 'brain-circuit'
+---
+
+# Fine-Tuning
+
+Beim Fine-Tuning wird das Training eines unterstützten Basismodells mit Beispielen für eine bestimmte Aufgabe fortgesetzt. Dadurch lassen sich Antwortmuster, Terminologie, Stil oder Ausgabestruktur verstärken. Fine-Tuning fügt nicht automatisch verlässliches, aktuelles Wissen hinzu und garantiert keine besseren Ergebnisse.
+
+Die Unterstützung durch Modelle und Anbieter variiert. Prüfe vor der Vorbereitung eines Datensatzes die verfügbaren Basismodelle, Datenformate, Grenzen und Kosten in deiner B-Bot Hub-Konfiguration.
+
+## Die richtige Methode wählen
+
+<CardGroup cols={3}>
+  <Card title="System-Prompt" icon="message">
+    Verwende ihn für Anweisungen, Prioritäten, Tonalität, Grenzen und veränderliches Verhalten.
+  </Card>
+  <Card title="Wissensabruf" icon="book">
+    Verwende ihn für Quellmaterial, das aktuell, nachvollziehbar oder leicht austauschbar bleiben muss.
+  </Card>
+  <Card title="Fine-Tuning" icon="microchip">
+    Verwende es für wiederholte Beispiele des Verhaltens oder Ausgabemusters, das das Modell lernen soll.
+  </Card>
+</CardGroup>
+
+Verbessere zunächst Prompt und Wissen. Ziehe Fine-Tuning in Betracht, wenn du eine stabile Aufgabe, eine messbare Lücke, repräsentative Beispiele und ein unterstütztes Modell hast.
+
+## Fine-Tuning-Workflow
+
+<Steps>
+  <Step title="Ziel definieren">
+    Formuliere ein eng gefasstes Verbesserungsziel, etwa die Einhaltung eines Antwortschemas oder eines einheitlichen Supportstils.
+  </Step>
+  <Step title="Bewertungssatz erstellen">
+    Bereite vor dem Training repräsentative Testfälle vor. Halte sie von den Trainingsbeispielen getrennt.
+  </Step>
+  <Step title="Beispiele vorbereiten">
+    Verwende klare Eingaben und geprüfte Idealausgaben. Berücksichtige normale und schwierige Fälle sowie angemessene Ablehnungen.
+  </Step>
+  <Step title="Datensatz prüfen">
+    Entferne Duplikate, Widersprüche, sensible Daten, veraltete Fakten und Beispiele, die unbelegte Behauptungen belohnen.
+  </Step>
+  <Step title="Eine Version trainieren">
+    Wähle ein unterstütztes Basismodell und nutze die in B-Bot Hub verfügbaren Trainingskontrollen.
+  </Step>
+  <Step title="Vergleichen und entscheiden">
+    Bewerte Basis- und trainierte Version anhand derselben zurückgehaltenen Fälle. Übernimm die trainierte Version nur, wenn sie das definierte Ziel ohne unvertretbare Rückschritte verbessert.
+  </Step>
+</Steps>
+
+## Grundsätze für Datensätze
+
+- **Repräsentativ:** Entspricht echten Eingaben einschließlich ihrer Länge und Mehrdeutigkeit.
+- **Konsistent:** Löst Widersprüche bei Tonalität, Richtlinien und erwartetem Verhalten auf.
+- **Vollständig:** Enthält genügend Kontext für die gewünschte Antwort.
+- **Aktuell:** Entfernt veraltete Richtlinien, Produktdetails und Links.
+- **Sicher:** Schließt Geheimnisse und personenbezogene Daten aus, sofern ihre Erfassung und Nutzung nicht genehmigt sind.
+- **Ausgewogen:** Enthält Fälle, in denen Nachfragen, Ablehnen oder Eskalieren das richtige Verhalten ist.
+
+Es gibt keine allgemeingültige Anzahl an Beispielen, die ein nützliches Modell garantiert. Beginne mit einem geprüften Datensatz, miss das Ergebnis und ergänze Beispiele für beobachtete Lücken.
+
+## Bewertung
+
+Bewerte die Dimensionen getrennt:
+
+- Aufgabenerfolg und sachliche Richtigkeit
+- Einhaltung von Anweisungen und Format
+- Angemessene Unsicherheit und Ablehnung
+- Robustheit gegenüber Umformulierungen und Randfällen
+- Rückschritte außerhalb des Zielverhaltens
+- Latenz und Kosten in der vorgesehenen Umgebung
+
+Dokumentiere Datensatzversion, Basismodell, Konfiguration und Bewertungsergebnisse, damit die Entscheidung reproduzierbar ist.
+
+## Häufige Fehler
+
+<AccordionGroup>
+  <Accordion title="Fine-Tuning als Wissensdatenbank verwenden" icon="database">
+    Häufig wechselnde Fakten lassen sich meist leichter in einer Wissensquelle oder im Anfragekontext pflegen.
+  </Accordion>
+  <Accordion title="Mit denselben Beispielen trainieren und testen" icon="flask">
+    Das misst Auswendiglernen statt der Leistung bei neuen Anfragen. Verwende einen separaten Bewertungssatz.
+  </Accordion>
+  <Accordion title="Synthetische Daten ungeprüft übernehmen" icon="triangle-exclamation">
+    Erzeugte Beispiele können Fehler und wiederkehrende Muster enthalten. Prüfe sie vor dem Training.
+  </Accordion>
+  <Accordion title="Verbesserung voraussetzen" icon="chart-line">
+    Ein abgeschlossenes Training ist kein Beleg für besseres Verhalten. Vergleiche das Ergebnis mit dem Basismodell.
+  </Accordion>
+</AccordionGroup>
+
+## Zugehörige Leitfäden
+
+<CardGroup cols={2}>
+  <Card title="Trainingsleitfaden" icon="graduation-cap" href="/essentials/training">
+    Nutze die Trainingsoberfläche von B-Bot Hub.
+  </Card>
+  <Card title="Modelldestillation" icon="flask" href="/de/concepts/fine-tuning/model-distillation">
+    Erfahre, wie von einem Lehrermodell erzeugte Beispiele einen Fine-Tuning-Datensatz unterstützen können.
+  </Card>
+</CardGroup>

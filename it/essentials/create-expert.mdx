@@ -1,0 +1,58 @@
+---
+title: "Creare un Agente"
+description: "Crea un Agente da zero o da un modello in B-Bot Hub"
+icon: "plus"
+---
+
+# Creare un Agente
+
+Apri **Agenti** nella barra laterale e seleziona **Crea agente**, oppure scegli **Crea agente** nel selettore degli agenti. Entrambe le opzioni aprono `/agents/new`.
+
+![Impostazioni generali per creare un Agente in B-Bot Hub](/images/concepts/create-agent-basics.png)
+
+## Scegliere un punto di partenza
+
+- **Da zero:** seleziona **Crea agente** e inserisci le tue impostazioni.
+- **Da un modello:** nella pagina Agenti, seleziona **Sfoglia modelli**, filtra l'elenco e scegli **Usa modello**. Controlla tutti i valori precompilati prima di salvare.
+
+## Completare la configurazione iniziale
+
+La pagina del nuovo Agente si apre con **Generale** e **Obiettivi**.
+
+### Generale
+
+- **Nome:** obbligatorio.
+- **Professione:** il ruolo mostrato insieme all'Agente.
+- **Descrizione:** per un nuovo Agente deve contenere almeno 50 caratteri. Il campo ne accetta fino a 250.
+
+### Configurazione guidata e Modalità pro
+
+La configurazione guidata usa la descrizione per generare i metadati mancanti del sistema e della funzione, seleziona un modello predefinito tra quelli disponibili tramite le chiavi provider e prova a configurare la memoria a livelli.
+
+Attiva **Modalità pro** se vuoi scrivere personalmente il messaggio di sistema, il nome e la descrizione della funzione. Puoi anche generare un messaggio di sistema dalla descrizione attuale.
+
+### Obiettivi
+
+Usa **Obiettivi** per aggiungere una northstar e obiettivi misurabili a lungo termine quando sono utili per l'Agente. Durante la creazione sono facoltativi.
+
+## Salvare prima di continuare
+
+Seleziona **Salva**. L'Hub crea l'Agente e apre `/agents/{agentId}`.
+
+<Warning>
+  **Abilità**, **Modello** e **Team** restano disabilitati finché l'Agente non
+  viene salvato. Anche il controllo dell'immagine del profilo è disponibile solo per un Agente salvato.
+</Warning>
+
+La creazione può proseguire anche se il collegamento facoltativo del modello o la configurazione della memoria non sono disponibili. Controlla l'Agente salvato prima di fare affidamento su queste impostazioni.
+
+## Passaggi successivi
+
+<CardGroup cols={2}>
+  <Card title="Modifica l'Agente" icon="pen-to-square" href="/it/essentials/edit-expert">
+    Configura tutte e cinque le schede dell'editor e aggiungi un'immagine del profilo.
+  </Card>
+  <Card title="Prova in Chat" icon="comments" href="/it/essentials/chat">
+    Seleziona l'Agente salvato e verificane il comportamento in una conversazione.
+  </Card>
+</CardGroup>

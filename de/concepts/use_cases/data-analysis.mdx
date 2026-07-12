@@ -1,0 +1,113 @@
+---
+title: 'Datenanalyse'
+description: 'Plane einen nachvollziehbaren Datenanalyse-Workflow mit einem KI-Agenten und optionalem DeepAgents-Workspace.'
+icon: 'chart-line'
+---
+
+# Datenanalyse
+
+Ein KI-Agent für Datenanalyse kann helfen, Fragestellungen zu strukturieren, Daten zu untersuchen, Analysecode zu entwerfen und Ergebnisse zu erklären. DeepAgents kann mehrstufige Arbeiten mit Aufgaben und Workspace-Dateien unterstützen. Die verantwortliche Person bleibt für Datenqualität, Methodenwahl und Interpretation zuständig.
+
+## Analyse definieren
+
+Gib vor der Bereitstellung von Daten Folgendes an:
+
+- Die Entscheidung oder Frage, die die Analyse unterstützen soll
+- Bedeutung, Einheiten und Zeitraum wichtiger Felder
+- Bekannte Qualitätsprobleme und fehlende Werte
+- Erforderliche Filter, Vergleichsgruppen und Annahmen
+- Das erwartete Ausgabeformat
+- Datenschutz- oder Zugriffsbeschränkungen
+
+Lade keine Daten hoch, für deren Verarbeitung das ausgewählte Modell, der Anbieter oder die Umgebung nicht freigegeben ist.
+
+## Ein prüfbarer Workflow
+
+<Steps>
+  <Step title="Untersuchen">
+    Ermittle Dateistruktur, Feldbedeutungen, Zeilenanzahl, Datumsbereiche und offensichtliche Qualitätsprobleme. Beginne nicht mit Schlussfolgerungen.
+  </Step>
+  <Step title="Planen">
+    Dokumentiere die vorgesehenen Transformationen, Berechnungen und Prüfungen. Nutze DeepAgents-Aufgaben, wenn sichtbare Phasen für die Arbeit hilfreich sind.
+  </Step>
+  <Step title="Vorbereiten">
+    Behandle fehlende Werte, Duplikate, Datentypen und Ausschlüsse. Bewahre die ursprüngliche Eingabe auf und dokumentiere jede Änderung.
+  </Step>
+  <Step title="Analysieren">
+    Führe die vereinbarten Berechnungen durch. Speichere wiederverwendbaren Code oder Abfragen, sofern der konfigurierte Workspace Dateien unterstützt.
+  </Step>
+  <Step title="Validieren">
+    Gleiche Summen ab, untersuche Stichproben, teste Randfälle und vergleiche wichtige Berechnungen mit einer unabhängigen Methode.
+  </Step>
+  <Step title="Kommunizieren">
+    Präsentiere Erkenntnisse mit Annahmen, Einschränkungen und genügend Details, damit eine andere Person die Arbeit reproduzieren kann.
+  </Step>
+</Steps>
+
+## Beispielanfrage
+
+```text
+Analysiere die angehängten Verkaufsdaten für Januar bis Juni.
+
+Beschreibe zunächst das Schema und melde fehlende oder ungültige Werte.
+Schlage anschließend einen Analyseplan für den Umsatz nach Monat und Region vor.
+Verändere die Quelldatei nicht.
+Speichere Transformationsschritte und Berechnungen getrennt.
+Gib für jede Erkenntnis die Berechnung und die relevanten Filter an.
+Kennzeichne jede Schlussfolgerung, die von unvollständigen Daten abhängt.
+Warte auf eine Freigabe, bevor du eine Prognose hinzufügst.
+```
+
+## DeepAgents verwenden
+
+DeepAgents ist hilfreich, wenn eine Analyse einen sichtbaren Plan und mehrere Zwischendateien benötigt. Ein Workspace könnte Folgendes enthalten:
+
+```text
+tasks
+  - inspect source data
+  - document cleaning rules
+  - calculate agreed metrics
+  - validate totals
+  - draft report
+
+files
+  - data-quality-notes.md
+  - cleaning-script.py
+  - metric-definitions.md
+  - validation-results.md
+  - report-draft.md
+```
+
+Diese Namen veranschaulichen ein Organisationsmuster. Die tatsächlichen Dateitypen und Ausführungsmöglichkeiten hängen von der konfigurierten Umgebung ab.
+
+## Validierungscheckliste
+
+- Sind Quelle, Extraktionszeit und Filter dokumentiert?
+- Sind Einheiten, Währungen, Zeitzonen und Datumsgrenzen eindeutig?
+- Lassen sich Summen mit der Quelle abgleichen?
+- Werden fehlende Werte und Ausschlüsse angegeben?
+- Werden Korrelationen ohne unbelegte Kausalbehauptungen dargestellt?
+- Sind Prognosen von beobachteten Ergebnissen getrennt?
+- Kann eine andere Fachperson die Transformationen reproduzieren?
+- Hat eine qualifizierte Person folgenschwere Schlussfolgerungen geprüft?
+
+<Warning>
+  Erzeugter Code und Berechnungen können falsch sein, selbst wenn die Erklärung überzeugend klingt. Prüfe Code vor der Ausführung und verifiziere wichtige Ergebnisse unabhängig.
+</Warning>
+
+## Zugehörige Leitfäden
+
+<CardGroup cols={2}>
+  <Card title="DeepAgents-Konzepte" icon="robot" href="/de/concepts/deepagents/introduction">
+    Verstehe Aufgaben, Workspace-Dateien und Prüfungskontrollen.
+  </Card>
+  <Card title="DeepAgents-Workspace" icon="folder-tree" href="/essentials/deepagents-workspace">
+    Erfahre, wie du den Workspace in B-Bot Hub nutzt.
+  </Card>
+  <Card title="Multimodale KI" icon="layer-group" href="/de/concepts/multimodal/introduction">
+    Plane Workflows mit Dateien, Bildern und Text.
+  </Card>
+  <Card title="Aufgaben" icon="calendar-check" href="/essentials/tasks">
+    Lies den Produktleitfaden für geplante Arbeiten.
+  </Card>
+</CardGroup>

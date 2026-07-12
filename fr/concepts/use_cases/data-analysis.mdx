@@ -1,0 +1,113 @@
+---
+title: 'Analyse de données'
+description: 'Concevez un workflow d’analyse de données traçable avec un Agent IA et, si nécessaire, un espace de travail DeepAgents.'
+icon: 'chart-line'
+---
+
+# Analyse de données
+
+Un Agent IA d’analyse de données peut aider à structurer les questions, inspecter les données, rédiger du code d’analyse et expliquer les résultats. DeepAgents peut prendre en charge les travaux en plusieurs étapes à l’aide de tâches et de fichiers d’espace de travail. L’analyste reste responsable de la qualité des données, du choix des méthodes et de l’interprétation.
+
+## Définir l’analyse
+
+Avant de fournir les données, précisez :
+
+- La décision ou la question que l’analyse doit éclairer
+- La signification, les unités et la période des champs importants
+- Les problèmes de qualité connus et les valeurs manquantes
+- Les filtres, groupes de comparaison et hypothèses requis
+- Le format de sortie attendu
+- Les restrictions de confidentialité ou d’accès
+
+Ne téléversez pas de données que le modèle, le fournisseur ou l’environnement sélectionné n’est pas autorisé à traiter.
+
+## Un workflow vérifiable
+
+<Steps>
+  <Step title="Inspecter">
+    Identifiez la structure des fichiers, la signification des champs, le nombre de lignes, les plages de dates et les problèmes de qualité évidents. Ne commencez pas par tirer des conclusions.
+  </Step>
+  <Step title="Planifier">
+    Décrivez les transformations, calculs et contrôles proposés. Utilisez les tâches DeepAgents lorsque le travail bénéficie d’étapes visibles.
+  </Step>
+  <Step title="Préparer">
+    Traitez les valeurs manquantes, les doublons, les types et les exclusions. Conservez l’entrée d’origine et documentez chaque modification.
+  </Step>
+  <Step title="Analyser">
+    Effectuez les calculs convenus. Enregistrez le code ou les requêtes réutilisables lorsque l’espace de travail configuré prend en charge les fichiers.
+  </Step>
+  <Step title="Valider">
+    Rapprochez les totaux, inspectez des échantillons, testez les cas limites et comparez les calculs importants à l’aide d’une méthode indépendante.
+  </Step>
+  <Step title="Communiquer">
+    Présentez les conclusions avec les hypothèses, les limites et suffisamment de détails pour qu’une autre personne puisse reproduire le travail.
+  </Step>
+</Steps>
+
+## Exemple de demande
+
+```text
+Analysez les données de ventes jointes pour la période de janvier à juin.
+
+Commencez par décrire le schéma et signaler les valeurs manquantes ou non valides.
+Proposez ensuite un plan d’analyse du chiffre d’affaires par mois et par région.
+Ne modifiez pas le fichier source.
+Enregistrez séparément les étapes de transformation et les calculs.
+Pour chaque conclusion, incluez le calcul et les filtres pertinents.
+Signalez toute conclusion fondée sur des données incomplètes.
+Attendez une approbation avant d’ajouter une prévision.
+```
+
+## Utiliser DeepAgents
+
+DeepAgents est utile lorsqu’une analyse exige un plan visible et plusieurs fichiers intermédiaires. Un espace de travail peut contenir :
+
+```text
+tasks
+  - inspect source data
+  - document cleaning rules
+  - calculate agreed metrics
+  - validate totals
+  - draft report
+
+files
+  - data-quality-notes.md
+  - cleaning-script.py
+  - metric-definitions.md
+  - validation-results.md
+  - report-draft.md
+```
+
+Ces noms illustrent un modèle d’organisation. Les types de fichiers et capacités d’exécution réels dépendent de l’environnement configuré.
+
+## Liste de contrôle pour la validation
+
+- La source, l’heure d’extraction et les filtres sont-ils consignés ?
+- Les unités, devises, fuseaux horaires et limites de dates sont-ils explicites ?
+- Les totaux peuvent-ils être rapprochés de la source ?
+- Les valeurs manquantes et les exclusions sont-elles signalées ?
+- Les corrélations sont-elles présentées sans affirmations causales non étayées ?
+- Les prévisions sont-elles séparées des résultats observés ?
+- Un autre analyste peut-il reproduire les transformations ?
+- Une personne qualifiée a-t-elle vérifié les conclusions à fort impact ?
+
+<Warning>
+  Le code et les calculs générés peuvent être erronés, même si l’explication semble convaincante. Examinez le code avant de l’exécuter et vérifiez indépendamment les résultats importants.
+</Warning>
+
+## Guides associés
+
+<CardGroup cols={2}>
+  <Card title="Concepts DeepAgents" icon="robot" href="/fr/concepts/deepagents/introduction">
+    Comprenez les tâches, les fichiers d’espace de travail et les contrôles de validation.
+  </Card>
+  <Card title="Espace de travail DeepAgents" icon="folder-tree" href="/essentials/deepagents-workspace">
+    Découvrez comment utiliser l’espace de travail dans B-Bot Hub.
+  </Card>
+  <Card title="IA multimodale" icon="layer-group" href="/fr/concepts/multimodal/introduction">
+    Concevez des workflows qui utilisent des fichiers, des images et du texte.
+  </Card>
+  <Card title="Tâches" icon="calendar-check" href="/essentials/tasks">
+    Consultez le guide du produit consacré aux travaux planifiés.
+  </Card>
+</CardGroup>

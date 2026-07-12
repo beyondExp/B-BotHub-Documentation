@@ -1,0 +1,85 @@
+---
+title: 'Modalità di input e output'
+description: 'Configura opzioni verificate per voce, file, immagini e output generati'
+icon: 'microphone-lines'
+---
+
+# Modalità di input e output
+
+Le modalità definiscono i tipi aggiuntivi di input e output associati al modello principale di un Agente.
+
+## Configurare le modalità
+
+1. Apri un Agente salvato.
+2. Apri **Modelli e modalità**.
+3. Scegli prima il modello principale.
+4. Seleziona **Aggiungi** nelle modalità di input o output.
+5. Scegli un'opzione, controllane la configurazione e aggiungila.
+
+L'Hub salva le modifiche nel modello selezionato. Consente una voce per ciascun tipo di input e sostituisce una voce di output esistente dello stesso tipo.
+
+## Opzioni di input attuali
+
+### Input vocale
+
+Le opzioni di conversione da voce a testo mostrate nell'Hub sono:
+
+- Local Whisper Tiny con WebGPU
+- Local Whisper Base con WebGPU
+- OpenAI Whisper
+- Groq Whisper Large V3
+- Usa il modello principale, se supportato
+
+Puoi attivare la trascrizione automatica al termine della registrazione. I formati audio configurati sono WebM, MP3 e WAV.
+
+### Fotocamera, immagini, audio e documenti
+
+L'editor offre inoltre:
+
+- **Input fotocamera / video** con opzioni di visione del modello principale, OpenAI, Anthropic o Google
+- **Caricamento immagini** per JPEG, PNG, GIF e WebP
+- **Caricamento audio** per MP3, WAV, WebM e OGG
+- **Caricamento documenti** per PDF, DOC, DOCX e TXT
+
+Le voci per immagini, audio e documenti offrono controlli Base64 e supporto URL. Queste impostazioni descrivono la configurazione; la corretta elaborazione dipende comunque dal modello e dall'ambiente di esecuzione.
+
+## Opzioni di output attuali
+
+### Sintesi vocale
+
+Le opzioni di sintesi vocale mostrate nell'Hub sono:
+
+- OpenAI TTS-1
+- OpenAI TTS-1-HD
+- Google Gemini 2.5 Flash Preview TTS
+- Google Gemini 2.5 Pro Preview TTS
+- Local Pocket TTS, contrassegnato come sperimentale
+
+La configurazione include **Riproduci automaticamente le risposte** e **Riproduci l'audio durante la generazione**.
+
+### Generazione di immagini
+
+Le opzioni di output immagine mostrate nell'Hub sono:
+
+- OpenAI DALL·E 3
+- OpenAI GPT Image 1
+- Stability SD3
+- Google Imagen 3
+
+Puoi attivare la generazione automatica quando l'Agente menziona un'immagine.
+
+## Indicazioni sulla compatibilità
+
+<Warning>
+  La presenza di una modalità nell'editor non garantisce che sia supportata da
+  ogni modello principale, browser, dispositivo, chiave provider o ambiente.
+</Warning>
+
+- Seleziona un modello principale che accetti il tipo di input configurato.
+- Aggiungi la chiave richiesta da un modello remoto STT, TTS, di visione o immagini.
+- Le opzioni WebGPU locali richiedono browser e dispositivo compatibili.
+- Le policy del browser per microfono, fotocamera e riproduzione automatica possono influire su Chat.
+- Considera modificabili i nomi dei modelli Preview e sperimentali.
+- Prova l'intero percorso con lo stesso Agente, modello, browser e ambiente usati dagli utenti.
+
+Per le credenziali, consulta [Chiavi](/it/essentials/provider-keys). Per immagini del profilo e dell'azienda, consulta [Generazione di immagini con l'IA](/it/essentials/ai-image-generation).

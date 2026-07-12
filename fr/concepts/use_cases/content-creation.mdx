@@ -1,0 +1,107 @@
+---
+title: 'Création de contenu'
+description: 'Concevez un workflow de contenu reproductible avec des briefs clairs, une vérification des sources et une validation éditoriale humaine.'
+icon: 'pen-to-square'
+---
+
+# Création de contenu
+
+Un Agent IA spécialisé dans la création de contenu peut aider à élaborer des plans, des brouillons, des variantes et des révisions. Les meilleurs workflows séparent la génération de l’approbation : des personnes définissent le brief, vérifient les affirmations factuelles, exercent leur jugement éditorial et autorisent la publication.
+
+## Définir le cadre éditorial
+
+Configurez l’Agent avec :
+
+- Les types de contenu et les publics visés
+- La voix de la marque et la terminologie requise
+- Les sujets, affirmations et formulations interdits
+- Les exigences de mise en forme et d’accessibilité
+- Les exigences relatives aux sources et aux citations
+- Un processus de révision et d’approbation
+
+Placez les comportements stables dans le prompt système. Conservez les informations changeantes, les détails produit et les données de campagne dans des sources maintenues ou dans la demande.
+
+## Workflow recommandé
+
+<Steps>
+  <Step title="Brief">
+    Indiquez l’objectif, le public, le canal, le message clé, les faits requis, les sources, la longueur, le ton et l’appel à l’action.
+  </Step>
+  <Step title="Plan">
+    Demandez une structure avant le brouillon complet. Vérifiez le périmètre, les points mis en avant et les informations manquantes.
+  </Step>
+  <Step title="Brouillon">
+    Générez le contenu à partir du plan approuvé. Demandez à l’Agent de signaler les affirmations non étayées et les espaces réservés plutôt que de combler les lacunes.
+  </Step>
+  <Step title="Révision">
+    Vérifiez les faits, les citations, les règles de la marque, les exigences légales, l’originalité, l’accessibilité et les contraintes propres au canal.
+  </Step>
+  <Step title="Correction">
+    Donnez un retour précis lié au brief. Ne modifiez pas les faits approuvés, sauf si une source justifie la correction.
+  </Step>
+  <Step title="Approbation et publication">
+    Prévoyez une étape d’approbation humaine. La publication nécessite une intégration configurée et autorisée séparément.
+  </Step>
+</Steps>
+
+## Exemple de brief
+
+```text
+Créez le plan d’un guide produit de 900 mots.
+
+Public : administrateurs qui évaluent [produit]
+Objectif : expliquer la procédure de configuration sans avancer d’affirmations sur les performances
+Ton : direct, calme et technique
+Sources requises : [liens approuvés ou documents joints]
+Sections requises : prérequis, configuration, vérification, limites
+Terminologie : utilisez « Agent IA » et « canal de distribution »
+
+N’inventez pas de fonctionnalités, d’exemples clients, de citations ni de statistiques.
+Signalez les informations manquantes par [INFORMATION REQUISE].
+Renvoyez uniquement un plan.
+```
+
+## Utiliser DeepAgents
+
+Pour un ensemble de contenus plus important, DeepAgents peut organiser les tâches et les fichiers consacrés aux notes de recherche, aux plans, aux brouillons et aux commentaires de révision. Vérifiez les outils disponibles avant de demander à l’Agent d’effectuer des recherches, de créer des médias ou de publier.
+
+```text
+campaign/
+  source-notes.md
+  approved-claims.md
+  article-outline.md
+  article-draft.md
+  social-variations.md
+  review-checklist.md
+```
+
+## Liste de contrôle qualité
+
+- Le contenu respecte-t-il le brief approuvé ?
+- Les noms, dates, liens, citations et nombres ont-ils été vérifiés ?
+- Chaque affirmation importante peut-elle être rattachée à une source approuvée ?
+- Les études de cas et témoignages inventés sont-ils exclus ?
+- Le contenu est-il adapté au public et au canal ?
+- Respecte-t-il les exigences de la marque, d’accessibilité, légales et de confidentialité ?
+- Une personne a-t-elle approuvé la version finale ?
+
+<Info>
+  Le fine-tuning peut améliorer des schémas de style ou de format récurrents, mais il ne rend pas les informations actuelles et ne supprime pas la nécessité d’une validation.
+</Info>
+
+## Guides associés
+
+<CardGroup cols={2}>
+  <Card title="Créer une persona IA" icon="masks-theater" href="/fr/concepts/best_practices/ai-persona-with-b-bot">
+    Définissez le rôle, la voix, les limites et le jeu d’évaluation.
+  </Card>
+  <Card title="Rédiger un prompt système" icon="message" href="/fr/concepts/best_practices/crafting-a-system-prompt">
+    Rédigez des instructions de contenu claires et faciles à maintenir.
+  </Card>
+  <Card title="Concepts du fine-tuning" icon="brain-circuit" href="/fr/concepts/fine-tuning/introduction">
+    Découvrez quand des exemples ou le fine-tuning peuvent être utiles.
+  </Card>
+  <Card title="DeepAgents" icon="robot" href="/fr/concepts/deepagents/introduction">
+    Organisez des projets de contenu en plusieurs étapes.
+  </Card>
+</CardGroup>

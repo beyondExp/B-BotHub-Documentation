@@ -1,0 +1,104 @@
+---
+title: 'Kundensupport'
+description: 'Plane einen KI-Agenten für den Kundensupport mit fundierten Antworten, klaren Grenzen und menschlicher Eskalation.'
+icon: 'headset'
+---
+
+# Kundensupport
+
+Ein KI-Agent für den Kundensupport kann Benutzern helfen, dokumentierte Informationen zu finden, Schritte zur Fehlerbehebung auszuführen und eine Übergabe an eine Person vorzubereiten. Gestalte ihn als Teil eines Supportprozesses, nicht als Ersatz für Richtlinien, Kontokontrollen oder menschliches Urteilsvermögen.
+
+## Umfang definieren
+
+Beginne mit einer begrenzten Auswahl unterstützter Aufgaben, zum Beispiel:
+
+- Fragen anhand freigegebener Hilfeinhalte beantworten
+- Benutzer durch umkehrbare Schritte zur Fehlerbehebung führen
+- Benötigte Angaben für eine Supportanfrage erfassen
+- Eine Unterhaltung für einen menschlichen Supportmitarbeiter zusammenfassen
+- Antworten zur menschlichen Prüfung entwerfen
+
+Liste Aufgaben auf, die der Agent nicht ohne ein freigegebenes Werkzeug und entsprechende Autorisierung ausführen darf. Dazu zählen etwa Änderungen am Kontozugriff, Rückerstattungen oder rechtliche Verpflichtungen.
+
+## Agenten konfigurieren
+
+<Steps>
+  <Step title="Rolle definieren">
+    Beschreibe Produkte, Benutzer, Sprachen und Problemarten, die der Agent unterstützt. Lege fest, wann er sagen muss, dass er etwas nicht weiß.
+  </Step>
+  <Step title="Gepflegtes Wissen hinzufügen">
+    Verbinde aktuelle Hilfeartikel, Richtlinien und Leitfäden zur Fehlerbehebung. Weise jeder Quelle eine verantwortliche Person und ein Prüfdatum zu.
+  </Step>
+  <Step title="Antwortregeln festlegen">
+    Verlange knappe Schritte, eine klare Trennung von bestätigten Fakten und Vorschlägen sowie Rückfragen zu fehlendem Kontext vor einer Diagnose.
+  </Step>
+  <Step title="Eskalation gestalten">
+    Lege fest, wann eine Person einbezogen werden muss und welche Angaben die Übergabe enthalten soll.
+  </Step>
+  <Step title="Erlebnis testen">
+    Teste sowohl den Agenten als auch den vorgesehenen Vertriebskanal mit häufigen Fragen, veralteten Annahmen, nicht unterstützten Anfragen und sensiblen Fällen.
+  </Step>
+</Steps>
+
+## Beispiel für einen System-Prompt
+
+```text
+Du bist ein Agent für den Kundensupport von [Organisation].
+
+Verwende ausschließlich die freigegebenen Supportinformationen, die dir zur Verfügung stehen.
+Wenn die Antwort nicht belegt ist, benenne die fehlenden Informationen und biete eine Übergabe an einen Menschen an.
+Frage nur nach den Informationen, die zum Verständnis des Problems unbedingt nötig sind.
+Gib umkehrbare Schritte zur Fehlerbehebung einzeln an.
+Behaupte nicht, dass eine Kontoänderung, Rückerstattung oder Ticketaktualisierung abgeschlossen wurde,
+sofern dies nicht durch ein autorisiertes Werkzeug bestätigt wird.
+Fordere keine Passwörter, vollständigen Zahlungsdaten oder anderen unnötigen Geheimnisse an.
+```
+
+Passe dieses Beispiel an deine Richtlinien und verfügbaren Fähigkeiten an.
+
+## Eskalation gestalten
+
+Eskaliere, wenn:
+
+- Der Benutzer nach einer Person verlangt
+- Die Anfrage eine Identitätsprüfung oder eingeschränkten Kontozugriff erfordert
+- Eine Ausnahme von einer Richtlinie oder eine finanzielle Entscheidung erforderlich ist
+- Das verfügbare Wissen keine Antwort stützt
+- Die Fehlerbehebung Datenverlust oder ein anderes unumkehrbares Ergebnis verursachen könnte
+- Die Unterhaltung Sicherheits-, Rechts- oder Compliance-Themen betrifft
+
+Eine Eskalationszusammenfassung sollte vom Benutzer bereitgestellte Fakten, bereits ausgeführte Schritte, relevantes Quellmaterial und die ungelöste Frage getrennt darstellen.
+
+## Bewertung
+
+Erstelle einen wiederholbaren Testsatz und prüfe:
+
+- **Fundierung:** Ist die Antwort durch aktuelles Quellmaterial gestützt?
+- **Lösungsweg:** Sind die nächsten Schritte klar und angemessen?
+- **Einhaltung der Grenzen:** Vermeidet der Agent nicht unterstützte Aktionen und Behauptungen?
+- **Eskalation:** Übergibt er am richtigen Punkt und mit nützlichem Kontext?
+- **Datenschutz:** Vermeidet er die Erfassung unnötiger sensibler Daten?
+- **Tonalität:** Ist die Antwort respektvoll, ohne Unsicherheit zu verschleiern?
+
+Erfasse Ergebnisse aus deinem eigenen Workflow. Gehe vor einer Messung nicht von einer bestimmten Automatisierungsrate, Antwortzeit oder Kosteneinsparung aus.
+
+<Warning>
+  Prüfe Datenschutz-, Sicherheits-, Aufbewahrungs- und Zugriffsanforderungen, bevor du Kundendatensätze oder Supportsysteme verbindest. Eine verbundene App sollte nur die für den freigegebenen Workflow benötigten Berechtigungen erhalten.
+</Warning>
+
+## Zugehörige Leitfäden
+
+<CardGroup cols={2}>
+  <Card title="Einen Agenten erstellen" icon="plus" href="/essentials/create-expert">
+    Erstelle den ersten Agenten für den Kundensupport.
+  </Card>
+  <Card title="Einen System-Prompt erstellen" icon="message" href="/de/concepts/best_practices/crafting-a-system-prompt">
+    Verfasse testbare Verhaltens- und Eskalationsanweisungen.
+  </Card>
+  <Card title="Trainingskonzepte" icon="brain-circuit" href="/de/concepts/fine-tuning/introduction">
+    Wähle zwischen gepflegtem Wissen, Beispielen und Fine-Tuning.
+  </Card>
+  <Card title="Vertriebskanäle" icon="share-nodes" href="/essentials/distribution-channels">
+    Konfiguriere, wie Benutzer das Supporterlebnis erreichen.
+  </Card>
+</CardGroup>

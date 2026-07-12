@@ -1,0 +1,97 @@
+---
+title: 'Chat'
+description: 'Démarrer, poursuivre et gérer des conversations avec un Agent dans B-Bot Hub'
+icon: 'comments'
+---
+
+# Chat
+
+Le Chat est l’espace où vous travaillez avec un Agent dans un thread de conversation. Sélectionnez un Agent dans l’en-tête du Hub avant de commencer. Il détermine les modèles, capacités, applications connectées, mémoires et comportements d’espace de travail disponibles.
+
+![Écran de nouvelle conversation dans B-Bot Hub](/images/documentation/chat-start.png)
+
+## Démarrer ou reprendre une conversation
+
+Ouvrez **Chat** et envoyez un message pour créer un thread. Utilisez **Nouvelle conversation** pour revenir à une conversation vide sans supprimer les threads existants.
+
+Pour reprendre un travail antérieur, ouvrez l’historique et sélectionnez une conversation récente. Choisissez **Toutes les conversations** pour accéder à la [page Conversations](/fr/essentials/threads). À l’ouverture d’un thread existant, le Hub restaure ses messages et aligne le sélecteur d’Agent sur ce thread.
+
+## Envoyer des messages
+
+Entrée envoie le message. Maj+Entrée ajoute une nouvelle ligne.
+
+- Sélectionnez le trombone pour joindre un ou plusieurs fichiers pris en charge.
+- Sélectionnez le microphone pour enregistrer et envoyer un message vocal.
+- Faites un clic droit sur le microphone pour ouvrir le **Mode Live**. Une courte pause termine votre tour lorsque ce mode écoute.
+- Arrêtez une réponse active avec **Arrêter**.
+
+Les pièces jointes et fonctions vocales dépendent du modèle sélectionné et de ses modalités configurées. Votre navigateur doit autoriser l’accès au microphone.
+
+### Mettre les messages suivants en file
+
+Vous pouvez envoyer un autre message pendant que l’Agent répond. Le Hub l’ajoute à la file du thread actuel et l’envoie automatiquement après la réponse active.
+
+Dans le panneau de file, vous pouvez modifier, réordonner, supprimer ou effacer les messages en attente. Les pièces jointes sont enregistrées dans l’espace de travail du thread lors de leur envoi ou mise en file.
+
+## Examiner les actions et réponses
+
+Un Agent peut s’interrompre avant une action et afficher **Action requise**. Examinez l’action et ses arguments, puis choisissez **Approuver** ou **Refuser**. Dans **Paramètres**, **Approuver automatiquement** ignore ces demandes ; ne l’utilisez que si les outils configurés de l’Agent vous conviennent.
+
+Les actions suivantes apparaissent au survol ou à la sélection d’un message :
+
+- **Copier** copie le texte.
+- **Modifier et relancer** modifie l’un de vos messages et reprend à cet endroit.
+- **Régénérer** demande une autre réponse depuis le point de contrôle précédent.
+- Les flèches de version passent d’une branche à l’autre après une modification ou régénération.
+- **Détails du message** affiche les identifiants techniques, l’heure, le point de contrôle et la version.
+
+Une modification ou régénération crée une autre branche sans écraser l’autre version.
+
+## Partager une conversation
+
+Sélectionnez **Inviter** dans un thread ouvert pour le partager avec un collègue. Choisissez une entreprise, un collègue et la date d’expiration du lien, puis envoyez l’invitation ou copiez le lien généré.
+
+Le partage transforme le thread en conversation d’entreprise accessible sur invitation. Seules ces conversations peuvent être partagées. Une invitation acceptée ouvre la même conversation partagée, signalée par le badge **Partagé**.
+
+## Utiliser le volet droit
+
+La barre d’icônes à droite ouvre cinq panneaux. Sur ordinateur, faites glisser le bord du volet pour le redimensionner.
+
+### Paramètres
+
+Configurez l’exécution actuelle :
+
+- modèle et capacité ;
+- température et Top-p ;
+- instructions supplémentaires ;
+- applications connectées activées ;
+- Recherche web, Wolfram Alpha et Recherche approfondie ;
+- approbation automatique des actions ;
+- lecture automatique de la voix ;
+- limite d’étapes.
+
+Les options dépendent de l’Agent et du modèle sélectionnés.
+
+### Tâches
+
+Affiche en direct la liste des tâches de l’Agent pour ce thread. Les éléments peuvent être en attente, actifs ou terminés. Ce panneau en lecture seule n’apparaît que lorsque l’Agent produit un état de tâche.
+
+### Fichiers
+
+Parcourez les fichiers produits pendant l’exécution et ceux disponibles pour le thread. Sélectionnez-en un pour consulter du texte, du code ou un média pris en charge. Vous pouvez copier le contenu ou le chemin d’un média. Les fichiers Markdown peuvent être exportés en PDF, avec le logo de l’entreprise lorsqu’il est disponible.
+
+### Aperçu
+
+Affiche un site web ou une présentation pris en charge. Vous pouvez démarrer ou actualiser l’aperçu et l’ouvrir dans un nouvel onglet. Les collections ordinaires n’ont pas d’aperçu en direct ; sa disponibilité dépend du résultat de l’espace de travail et de la capacité d’exécution.
+
+### Mémoires
+
+Affiche les couches de mémoire de l’Agent :
+
+- **Profil principal** pour les informations structurées et stables ;
+- **Long terme** pour les faits et préférences durables ;
+- **Conversations** pour les résumés associés au thread actuel.
+
+Vous pouvez ajouter une mémoire à long terme et gérer les entrées affichées. Le contenu est propre à l’Agent et à l’utilisateur ; chaque message ne devient pas nécessairement une mémoire.
+
+Pour en savoir plus, consultez l’[espace de travail DeepAgents](/fr/essentials/deepagents-workspace).

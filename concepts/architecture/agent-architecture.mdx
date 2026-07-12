@@ -1,8 +1,93 @@
 ---
 title: 'Agent Architecture'
-description: 'The Agent Architecture'
+description: 'A conceptual view of how requests, Agent configuration, models, context, tools, and Distribution Channels work together.'
+icon: 'diagram-project'
 ---
 
-<Note>
-  The Agent Architecture is the core of the BBot Platform. It is the main component that is responsible for the communication between the user and the platform.
-</Note>
+# Agent Architecture
+
+B-Bot Hub separates the definition of an AI Agent from the experience used to reach it. This page describes that relationship at a conceptual level. It is not a specification of internal services or execution order.
+
+## Main Layers
+
+<CardGroup cols={2}>
+  <Card title="User Experience" icon="window">
+    A chat or another Distribution Channel receives input and presents the result.
+  </Card>
+  <Card title="Agent Configuration" icon="user-robot">
+    Identity, system instructions, abilities, model choices, and permitted capabilities define the Agent.
+  </Card>
+  <Card title="Context and Capabilities" icon="toolbox">
+    Conversation context, knowledge, apps, tools, modalities, and team members provide task-specific inputs or actions.
+  </Card>
+  <Card title="Model" icon="microchip">
+    The selected model interprets the available context and generates a response or proposes tool use.
+  </Card>
+</CardGroup>
+
+## Conceptual Request Flow
+
+```text
+User or system
+  -> Distribution Channel
+  -> conversation settings and input processing
+  -> Agent instructions and available context
+  -> selected model
+  -> permitted knowledge, tools, apps, or team members
+  -> response, file, or proposed action
+  -> Distribution Channel
+```
+
+Not every request uses every layer. A direct text question may need only instructions and a model. A multi-step DeepAgents request may also use tasks, workspace files, and review points.
+
+## Configuration and Authorization
+
+Instructions tell the model how it should behave. Permissions determine what the surrounding system allows it to access or do. These are different controls.
+
+- Use the system prompt for role, priorities, and behavioral boundaries.
+- Use app, tool, and account permissions for access control.
+- Use human-in-the-loop review for sensitive proposed actions.
+- Use Distribution Channel settings for how an experience is exposed.
+
+<Warning>
+  Do not treat a prompt instruction such as "never access private data" as a substitute for technical permissions. Remove access that the workflow does not need.
+</Warning>
+
+## State and Context
+
+The context available to a request can include the current conversation, Agent instructions, retrieved knowledge, tool results, and workspace artifacts. Availability and retention depend on the feature and configuration.
+
+Because context is limited and can change:
+
+- Keep instructions concise and resolve conflicts.
+- Retrieve only relevant source material.
+- Store large intermediate artifacts in workspace files when appropriate.
+- Confirm that important state is present before continuing a task.
+- Do not assume that information from another session or channel is available.
+
+## Failure Boundaries
+
+Design each layer to handle failure clearly:
+
+- Invalid or unsupported input should produce an actionable message.
+- Missing knowledge should produce uncertainty or a request for information.
+- Tool failure should not be described as success.
+- Sensitive actions should stop at the configured review point.
+- The Distribution Channel should communicate the final status to the user.
+
+## Related Concepts
+
+<CardGroup cols={2}>
+  <Card title="AI Agents" icon="user-robot" href="/concepts/introduction">
+    Learn the vocabulary for Agent configuration.
+  </Card>
+  <Card title="Lifecycle and Configuration" icon="sliders" href="/concepts/basics">
+    Design, test, distribute, and maintain an Agent.
+  </Card>
+  <Card title="DeepAgents" icon="robot" href="/concepts/deepagents/introduction">
+    Understand multi-step workspaces and review controls.
+  </Card>
+  <Card title="Distribution Channels" icon="share-nodes" href="/essentials/distribution-channels">
+    Configure how users and systems reach an Agent.
+  </Card>
+</CardGroup>

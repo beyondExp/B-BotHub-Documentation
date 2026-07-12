@@ -1,0 +1,99 @@
+---
+title: 'Distillation de modèle'
+description: 'Découvrez comment créer, valider et évaluer des exemples générés par un modèle enseignant pour un modèle élève plus petit.'
+icon: 'flask'
+---
+
+# Distillation de modèle
+
+La distillation de modèle est une approche d’entraînement dans laquelle les sorties d’un **modèle enseignant** aident à créer des exemples pour un **modèle élève**. L’objectif est d’enseigner une tâche plus ciblée à un modèle qui peut mieux répondre aux contraintes de coût, de latence ou de déploiement du workflow.
+
+La distillation ne reproduit pas toutes les capacités du modèle enseignant. Les résultats dépendent de la tâche, des prompts de l’enseignant, de la couverture des données, des capacités de l’élève, de la méthode d’entraînement et de la qualité de l’évaluation.
+
+## Enseignant et élève
+
+- L’**enseignant** génère ou améliore des réponses candidates pour des entrées représentatives.
+- Des personnes vérifient ces réponses par rapport aux sources et aux exigences.
+- Les exemples approuvés intègrent le jeu de données de fine-tuning de l’élève.
+- L’**élève** est évalué sur des cas qui n’ont pas servi à l’entraînement.
+
+L’enseignant et l’élève peuvent être n’importe quels modèles pris en charge par le workflow d’entraînement choisi. Évitez d’inscrire des noms de modèles dans une conception destinée à durer, car les catalogues des fournisseurs évoluent.
+
+## Workflow de distillation
+
+<Steps>
+  <Step title="Définir une tâche ciblée">
+    Précisez les entrées, les sorties attendues, les critères de qualité et les limites. La distillation est plus facile à évaluer lorsque la cible est bien définie.
+  </Step>
+  <Step title="Construire les cas d’évaluation">
+    Créez un jeu réservé à partir de situations réalistes. Incluez des cas courants, des cas limites et des cas qui exigent d’exprimer une incertitude ou un refus.
+  </Step>
+  <Step title="Générer des réponses candidates">
+    Demandez à l’enseignant de produire des sorties avec le même contexte et les mêmes règles qu’en production. Générez des entrées variées plutôt que des modèles répétitifs.
+  </Step>
+  <Step title="Examiner et corriger">
+    Vérifiez les faits, le raisonnement, la sécurité, le ton et le format. Supprimez ou réécrivez les exemples faibles ; ne supposez pas que la sortie de l’enseignant est correcte.
+  </Step>
+  <Step title="Entraîner l’élève">
+    Formatez les exemples approuvés pour un workflow de fine-tuning pris en charge, puis entraînez une version du modèle élève.
+  </Step>
+  <Step title="Comparer les modèles">
+    Comparez l’élève, l’enseignant et le modèle de base non modifié de l’élève sur le jeu réservé et selon les exigences opérationnelles.
+  </Step>
+  <Step title="Surveiller">
+    Analysez les échecs en production, la dérive des données et les changements de fournisseurs. Ne réentraînez le modèle que si de nouveaux éléments le justifient.
+  </Step>
+</Steps>
+
+## Exemple d’instruction pour l’enseignant
+
+```text
+Créez une réponse candidate pour le cas de support ci-dessous.
+
+Utilisez uniquement les politiques et la documentation produit jointes.
+Respectez le schéma de réponse requis.
+Si les sources ne permettent pas de répondre, renvoyez "needs_review": true
+et expliquez quelles informations manquent.
+N’inventez pas d’actions sur les comptes, de dérogations aux politiques, de liens ni de résultats.
+```
+
+Considérez la sortie comme une proposition à valider, et non comme une donnée d’entraînement approuvée.
+
+## Conception de l’évaluation
+
+Choisissez des mesures adaptées à la tâche :
+
+- Respect exact du schéma ou du format
+- Exactitude par rapport aux sources approuvées
+- Choix correct de l’outil ou de l’escalade
+- Notes attribuées lors d’une validation humaine à l’aide d’une grille écrite
+- Taux d’échec sur les cas de sécurité et de refus
+- Latence et coût mesurés dans l’environnement prévu
+
+Ne présentez pas la qualité sous forme de pourcentage si la méthode de notation et le jeu de test ne donnent pas de sens à ce chiffre. Ne présumez pas d’une économie fixe : calculez-la à partir des tarifs actuels des fournisseurs et de l’utilisation mesurée des tokens ou des ressources.
+
+## Quand la distillation est inadaptée
+
+- La tâche change fréquemment
+- Les réponses dépendent principalement de connaissances actuelles
+- Un modèle plus petit ne prend pas en charge la modalité ou le comportement d’outil requis
+- Vous ne pouvez pas valider les exemples générés
+- Vous ne disposez pas d’un jeu d’évaluation représentatif
+- Les erreurs ont des conséquences que le workflow ne peut pas contenir en toute sécurité
+
+## Sécurité des données
+
+<Warning>
+  Les prompts destinés à l’enseignant et les jeux de données générés peuvent être envoyés aux fournisseurs de modèles. Supprimez les données personnelles et les secrets inutiles, puis vérifiez que le traitement des données est approuvé pour chaque fournisseur concerné.
+</Warning>
+
+## Guides associés
+
+<CardGroup cols={2}>
+  <Card title="Fine-tuning" icon="brain-circuit" href="/fr/concepts/fine-tuning/introduction">
+    Revoyez les principes fondamentaux de préparation et d’évaluation des jeux de données.
+  </Card>
+  <Card title="Guide d’entraînement" icon="graduation-cap" href="/essentials/training">
+    Suivez le workflow d’entraînement disponible dans B-Bot Hub.
+  </Card>
+</CardGroup>

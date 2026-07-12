@@ -1,50 +1,32 @@
 ---
-title: 'Service Hosting Declaration'
-description: 'Service Hosting Declaration'
-icon: 'bell-concierge'
+title: 'Hosting in Switzerland'
+description: 'Where the B-Bot Hub platform infrastructure is hosted'
+icon: 'server'
 ---
 
-**1. API Hosting**
+# Hosting in Switzerland
 
-- **Provider**: Railway
-- **Region**: EU West (Amsterdam, Netherlands)
+The B-Bot Hub platform infrastructure is hosted on servers operated by **Phoeniqs Technologies AG in Switzerland**.
 
-**2. Frontend Hosting**
+**Last updated:** July 12, 2026
 
-- **Provider**: Netlify
-- **Global Nodes**: Netlify uses a globally distributed network of nodes to ensure fast and reliable access to the frontend. The nodes are strategically located in the following regions:
-    - Central Europe: Frankfurt, Germany
-    - South America: São Paulo, Brazil
-    - Eastern US: Virginia, USA
-    - Western US: San Francisco, USA
-    - Asia: Singapore, Republic of Singapore
-    - Oceania: Sydney, Australia
+## Platform scope
 
-**3. Serverless Functions Hosting**
+The Swiss hosting environment covers the B-Bot-managed Hub application, platform services, APIs, and platform data storage.
 
-- **Region**: EU (Frankfurt) - eu-central-1
+This replaces the providers and regions listed in earlier versions of this declaration.
 
-**4. Datacenter Hosting**
+## Third-party services
 
-- **Technology**: Strapi Docker Container
-- **Cloud Provider**: Strapi Cloud
-- **Location**: Europe (Amsterdam, Netherlands)
+B-Bot Hub can connect to services that are not part of the B-Bot-managed hosting environment, including:
 
-    *Note*: For Enterprise Partners requiring enhanced data security, we offer the option to host the Strapi Docker container on their own infrastructure. This allows for greater control over their data, although some platform features may be unavailable in this configuration.
+- AI model and media providers
+- Connected apps and MCP servers
+- Authentication or payment services
+- Services configured through Workflows, Tasks, or Distribution Channels
 
+When such a service is enabled or used, the data sent to that service is processed according to its configuration, hosting locations, and terms. Review the applicable provider before sending sensitive or regulated data.
 
-**5. Large Language Models (LLMs) Hosting**
-
-- **Providers**:
-    - **OpenAI**: Servers located in the United States.
-    - **Azure (OpenAI Models)**: Currently located in Sweden. Future updates will allow for customizable deployment locations.
-
-**6. Identity Provider (IdP) Hosting**
-
-- **Provider**: Auth0
-- **Region**: Frankfurt, Germany
-
-**7. Payment Services Hosting**
-
-- **Provider**: Stripe
-- **Server Locations**: Worldwide. Stripe dynamically selects the closest server based on the user's location, similar to Netlify's node distribution. For example, a user near Frankfurt, Germany, would connect to a server in that region.
+<Info>
+  This page describes platform hosting. It is not a compliance certificate or a guarantee about the infrastructure of independently operated third-party services.
+</Info>

@@ -1,0 +1,104 @@
+---
+title: 'Assistenza clienti'
+description: 'Progetta un Agente IA per l’assistenza clienti con risposte fondate sulle fonti, limiti chiari ed escalation a un operatore.'
+icon: 'headset'
+---
+
+# Assistenza clienti
+
+Un Agente IA per l'assistenza clienti può aiutare gli utenti a trovare informazioni documentate, seguire procedure di risoluzione dei problemi e preparare il passaggio a un operatore. Progettalo come parte di un processo di assistenza, non come sostituto di policy, controlli degli account o giudizio umano.
+
+## Definisci l'ambito
+
+Parti da un insieme limitato di attività supportate, come:
+
+- Rispondere alle domande usando contenuti di assistenza approvati
+- Guidare gli utenti attraverso procedure reversibili di risoluzione dei problemi
+- Raccogliere i dettagli necessari per una richiesta di assistenza
+- Riassumere una conversazione per un operatore
+- Preparare bozze di risposta da sottoporre a revisione umana
+
+Elenca le attività che l'Agente non deve completare senza uno strumento approvato e un'autorizzazione adeguata. Alcuni esempi sono la modifica dell'accesso a un account, l'emissione di rimborsi o l'assunzione di impegni legali.
+
+## Configura l'Agente
+
+<Steps>
+  <Step title="Definisci il ruolo">
+    Descrivi i prodotti, gli utenti, le lingue e i tipi di problemi supportati dall'Agente. Indica quando deve dichiarare di non conoscere la risposta.
+  </Step>
+  <Step title="Aggiungi conoscenza aggiornata">
+    Collega articoli della guida, policy e procedure di risoluzione dei problemi aggiornati. Assegna a ogni fonte un responsabile e una data di revisione.
+  </Step>
+  <Step title="Imposta le regole di risposta">
+    Richiedi passaggi concisi, distingui i fatti confermati dai suggerimenti e chiedi il contesto mancante prima di formulare una diagnosi.
+  </Step>
+  <Step title="Progetta l'escalation">
+    Specifica quando coinvolgere una persona e quali dettagli includere nel passaggio.
+  </Step>
+  <Step title="Testa l'esperienza">
+    Testa sia l'Agente sia il Canale di distribuzione previsto con domande comuni, presupposti obsoleti, richieste non supportate e casi sensibili.
+  </Step>
+</Steps>
+
+## Esempio di prompt di sistema
+
+```text
+Sei un Agente di assistenza clienti per [organizzazione].
+
+Usa solo le informazioni di assistenza approvate a tua disposizione.
+Se la risposta non è supportata, indica cosa manca e proponi il passaggio a un operatore.
+Chiedi la quantità minima di informazioni necessarie per comprendere il problema.
+Fornisci una procedura reversibile di risoluzione dei problemi, un passaggio alla volta.
+Non affermare che una modifica dell'account, un rimborso o l'aggiornamento di un ticket
+sono stati completati, a meno che uno strumento autorizzato non lo confermi.
+Non richiedere password, dati di pagamento completi o altri segreti non necessari.
+```
+
+Adatta questo esempio alle tue policy e alle capacità disponibili.
+
+## Progettazione dell'escalation
+
+Avvia un'escalation quando:
+
+- L'utente chiede di parlare con una persona
+- La richiesta richiede la verifica dell'identità o un accesso limitato all'account
+- È necessaria un'eccezione a una policy o una decisione finanziaria
+- La conoscenza disponibile non supporta una risposta
+- La risoluzione dei problemi potrebbe causare la perdita di dati o un altro esito irreversibile
+- La conversazione riguarda questioni di sicurezza, legali o di conformità
+
+Il riepilogo dell'escalation deve separare i fatti forniti dall'utente, le azioni già tentate, il materiale di origine pertinente e la questione irrisolta.
+
+## Valutazione
+
+Crea un set di test ripetibile e verifica:
+
+- **Fondamento:** la risposta è supportata da materiale di origine aggiornato?
+- **Percorso di risoluzione:** i passaggi successivi sono chiari e appropriati?
+- **Rispetto dei limiti:** l'Agente evita azioni e affermazioni non supportate?
+- **Escalation:** effettua il passaggio nel momento giusto e con un contesto utile?
+- **Privacy:** evita di raccogliere dati sensibili non necessari?
+- **Tono:** la risposta è rispettosa senza nascondere l'incertezza?
+
+Monitora i risultati del tuo workflow. Non presumere uno specifico tasso di automazione, tempo di risposta o risparmio sui costi prima di averlo misurato.
+
+<Warning>
+  Esamina i requisiti di privacy, sicurezza, conservazione e accesso prima di collegare dati dei clienti o sistemi di assistenza. Un'app collegata deve ricevere solo le autorizzazioni necessarie per il workflow approvato.
+</Warning>
+
+## Guide correlate
+
+<CardGroup cols={2}>
+  <Card title="Crea un Agente" icon="plus" href="/essentials/create-expert">
+    Crea l'Agente iniziale per l'assistenza clienti.
+  </Card>
+  <Card title="Scrivi un prompt di sistema" icon="message" href="/it/concepts/best_practices/crafting-a-system-prompt">
+    Scrivi istruzioni verificabili su comportamento ed escalation.
+  </Card>
+  <Card title="Concetti di addestramento" icon="brain-circuit" href="/it/concepts/fine-tuning/introduction">
+    Scegli tra conoscenza aggiornata, esempi e fine-tuning.
+  </Card>
+  <Card title="Canali di distribuzione" icon="share-nodes" href="/essentials/distribution-channels">
+    Configura il modo in cui gli utenti accedono all'esperienza di assistenza.
+  </Card>
+</CardGroup>

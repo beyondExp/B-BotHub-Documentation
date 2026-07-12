@@ -1,0 +1,80 @@
+---
+title: 'Chat'
+description: 'Unterhaltungen mit Agenten in B-Bot Hub beginnen, fortsetzen und verwalten'
+icon: 'comments'
+---
+
+# Chat
+
+Im Chat arbeiten Sie mit einem Agenten in einem Unterhaltungsthread. Wählen Sie zunächst einen Agenten im Hub-Header. Der ausgewählte Agent bestimmt verfügbare Modelle, Fähigkeiten, verbundene Apps, Erinnerungen und das Workspace-Verhalten.
+
+![Neuer Chat in B-Bot Hub](/images/documentation/chat-start.png)
+
+## Unterhaltung beginnen oder fortsetzen
+
+Öffnen Sie **Chat** und senden Sie eine Nachricht, um einen Thread zu erstellen. Mit **Neuer Chat** kehren Sie zu einer leeren Unterhaltung zurück, ohne vorhandene Threads zu löschen.
+
+Um frühere Arbeit fortzusetzen, öffnen Sie den Unterhaltungsverlauf und wählen eine kürzlich geführte Unterhaltung. Über **Alle Unterhaltungen** gelangen Sie zur vollständigen [Threads-Seite](/de/essentials/threads). Beim Öffnen eines Threads stellt der Hub dessen Nachrichten wieder her und gleicht die Agentenauswahl ab.
+
+## Nachrichten senden
+
+Enter sendet eine Nachricht. Umschalt+Enter fügt eine neue Zeile ein.
+
+- Über die Büroklammer hängen Sie unterstützte Dateien an.
+- Über das Mikrofon nehmen Sie eine Sprachnachricht auf.
+- Ein Rechtsklick auf das Mikrofon öffnet den **Live-Modus**. Beim Zuhören beendet eine kurze Pause Ihren Beitrag.
+- Mit **Stopp** beenden Sie eine aktive Antwort.
+
+Anhänge und Sprachfunktionen hängen vom ausgewählten Modell und seinen Modalitäten ab. Ihr Browser muss Mikrofonzugriff erlauben.
+
+### Folgenachrichten einreihen
+
+Sie können eine weitere Nachricht senden, während der Agent antwortet. Der Hub reiht sie im aktuellen Thread ein und sendet sie nach Abschluss der aktiven Antwort automatisch.
+
+Im Warteschlangen-Panel können Sie wartende Nachrichten bearbeiten, umsortieren, entfernen oder löschen. Anhänge werden beim Senden oder Einreihen im Thread-Workspace gespeichert.
+
+## Aktionen und Antworten prüfen
+
+Ein Agent kann vor einer Aktion anhalten und **Aktion erforderlich** anzeigen. Prüfen Sie Aktion und Argumente und wählen Sie **Genehmigen** oder **Ablehnen**. Unter **Einstellungen** überspringt **Aktionen automatisch genehmigen** diese Abfragen; verwenden Sie dies nur, wenn Sie den konfigurierten Tools vertrauen.
+
+Nachrichtenaktionen erscheinen beim Überfahren oder Fokussieren:
+
+- **Kopieren** kopiert den Nachrichtentext.
+- **Bearbeiten & neu senden** ändert Ihre Nachricht und setzt ab diesem Punkt fort.
+- **Neu generieren** fordert ab dem vorherigen Checkpoint eine andere Antwort an.
+- Versionspfeile wechseln zwischen durch Bearbeitung oder Neugenerierung entstandenen Zweigen.
+- **Nachrichtendetails** zeigt technische Kennungen, Zeit, Checkpoint und Version.
+
+Bearbeiten oder Neugenerieren erzeugt einen alternativen Zweig und überschreibt die andere Version nicht.
+
+## Unterhaltung teilen
+
+Wählen Sie in einem offenen Thread **Einladen**, um ihn mit einem Teammitglied zu teilen. Wählen Sie Unternehmen, Teammitglied und Link-Ablaufzeit und senden Sie die Einladung oder kopieren Sie den Link.
+
+Durch das Teilen wird der Thread zu einer nur per Einladung zugänglichen Unternehmensunterhaltung. Nur Unternehmensunterhaltungen sind teilbar. Angenommene Einladungen öffnen dieselbe Unterhaltung; geteilte Threads tragen das Abzeichen **Geteilt**.
+
+## Rechte Seitenleiste verwenden
+
+Die Symbolleiste rechts öffnet fünf Panels. Auf dem Desktop können Sie die Breite am Rand ändern.
+
+### Einstellungen
+
+Konfigurieren Sie Modell und Fähigkeit, Temperatur und Top-p, zusätzliche Anweisungen, verbundene Apps, Websuche, Wolfram Alpha und Deep Research, automatische Aktionsfreigabe, automatische Sprachwiedergabe und Schrittlimit. Die Optionen hängen von Agent und Modell ab.
+
+### Aufgaben
+
+Zeigt die schreibgeschützte Live-Aufgabenliste des Agenten für diesen Thread mit ausstehenden, aktiven oder abgeschlossenen Einträgen. Das Panel erscheint nur, wenn der Agent einen Aufgabenstatus erzeugt.
+
+### Dateien
+
+Durchsuchen Sie Dateien des aktuellen Laufs und Threads. Öffnen Sie Text, Code oder unterstützte Medien, kopieren Sie Inhalt oder Medienpfad und exportieren Sie Markdown als PDF, gegebenenfalls mit Firmenlogo.
+
+### Vorschau
+
+Zeigt unterstützte Website- oder Präsentationsartefakte. Sie können eine Vorschau starten, aktualisieren oder in einem neuen Tab öffnen. Gewöhnliche Dateisammlungen haben keine Live-Vorschau; die Verfügbarkeit hängt von Workspace-Ausgabe und Laufzeitkapazität ab.
+
+### Erinnerungen
+
+Zeigt die Speicherebenen des Agenten: **Kernprofil** für stabile strukturierte Informationen, **Langzeit** für dauerhafte Fakten und Präferenzen sowie **Unterhaltungen** für Thread-Zusammenfassungen. Sie können Langzeiterinnerungen hinzufügen und Einträge verwalten. Nicht jede Nachricht wird automatisch zur Erinnerung.
+
+Einzelheiten finden Sie unter [DeepAgents Workspace](/de/essentials/deepagents-workspace).

@@ -1,105 +1,68 @@
-/* B-Bot Hub Custom Styling - 2rem border-radius */
+/* Official B-Bot Hub docs theme */
 
-/* Buttons - 2rem border-radius */
+:root {
+  --bbot-radius: 0.625rem;
+  --bbot-radius-sm: calc(var(--bbot-radius) * 0.6);
+  --bbot-radius-md: calc(var(--bbot-radius) * 0.8);
+  --bbot-radius-lg: var(--bbot-radius);
+  --bbot-radius-xl: calc(var(--bbot-radius) * 1.4);
+
+  --bbot-bg: #ffffff;
+  --bbot-fg: #171717;
+  --bbot-card: #ffffff;
+  --bbot-border: rgba(0, 0, 0, 0.08);
+  --bbot-grid: rgba(0, 0, 0, 0.065);
+}
+
+.dark,
+[data-theme="dark"] {
+  --bbot-bg: #171717;
+  --bbot-fg: #f5f5f5;
+  --bbot-card: #232323;
+  --bbot-border: rgba(255, 255, 255, 0.12);
+  --bbot-grid: rgba(255, 255, 255, 0.1);
+}
+
+html,
+body {
+  font-family: "Geist Variable", "Geist", Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif !important;
+}
+
+body {
+  color: var(--bbot-fg);
+  background-color: var(--bbot-bg) !important;
+  background-image:
+    linear-gradient(var(--bbot-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bbot-grid) 1px, transparent 1px) !important;
+  background-size: 28px 28px !important;
+}
+
 button,
-.button,
 [role="button"],
-input[type="submit"],
-input[type="button"],
-input[type="reset"],
-.nav-primary button,
-.nav-primary a[role="button"],
-a.button {
-  border-radius: 2rem !important;
-}
-
-/* Cards - 2rem border-radius */
-.card,
-[class*="Card"],
-[class*="card"],
-.api-card,
-.endpoint-card,
-.code-block,
-pre,
-.response-card,
-.request-card {
-  border-radius: 2rem !important;
-}
-
-/* Search Bar - 2rem border-radius */
-input[type="search"],
-.search-input,
-[class*="search"],
-[class*="Search"],
-.search-bar,
-.search-field {
-  border-radius: 2rem !important;
-}
-
-/* Input Fields - 2rem border-radius */
+a.button,
 input,
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-input[type="tel"],
-input[type="url"],
 textarea,
 select,
-.input,
-[class*="input"],
-[class*="Input"] {
-  border-radius: 2rem !important;
+pre,
+code,
+[class*="card"],
+[class*="Card"],
+[class*="popover"],
+[class*="modal"],
+[class*="dropdown"],
+[class*="tooltip"] {
+  border-radius: var(--bbot-radius-lg) !important;
 }
 
-/* Additional UI Elements that should match */
-.nav-primary,
-.sidebar,
-.dropdown,
-.modal,
-.dialog,
-.popover,
-.tooltip,
-.badge,
-.chip,
-.tag {
-  border-radius: 2rem !important;
-}
-
-/* Code Blocks and Pre elements */
-code {
-  border-radius: 2rem !important;
-}
-
-/* API Reference specific elements */
-.api-method,
-.api-endpoint,
-.parameter-card,
-.response-example {
-  border-radius: 2rem !important;
-}
-
-/* Navigation elements */
-.nav-item,
-.nav-link,
-.tab,
-.tab-item {
-  border-radius: 2rem !important;
-}
-
-/* Mintlify specific classes (common patterns) */
-[class*="rounded"],
-[class*="Rounded"] {
-  border-radius: 2rem !important;
-}
-
-/* Override any conflicting border-radius values */
-* {
-  --border-radius: 2rem;
-  --border-radius-sm: 2rem;
-  --border-radius-md: 2rem;
-  --border-radius-lg: 2rem;
-  --border-radius-xl: 2rem;
-  --border-radius-2xl: 2rem;
+input,
+textarea,
+select,
+pre,
+[class*="card"],
+[class*="Card"],
+[class*="popover"],
+[class*="modal"],
+[class*="dropdown"] {
+  border-color: var(--bbot-border) !important;
 }
 

@@ -1,0 +1,85 @@
+---
+title: 'Agents IA et vocabulaire fondamental'
+description: 'Découvrez ce qu’est un Agent IA et comment B-Bot Hub décrit son identité, son comportement, ses capacités et ses accès.'
+icon: 'user-robot'
+---
+
+# Agents IA et vocabulaire fondamental
+
+Un **Agent IA** est une expérience d’IA configurée pour un rôle défini. Dans l’interface et la documentation, il peut aussi être appelé **Agent**. Sa configuration lui confère une identité reconnaissable, des instructions, des capacités facultatives et un modèle.
+
+Un Agent n’est ni automatiquement exact ni autonome. Ses résultats dépendent de ses instructions, de son modèle, du contexte disponible, des outils connectés et de la qualité de la demande de l’utilisateur.
+
+<Note>
+  Certains guides plus anciens ou certaines interfaces d’API peuvent encore employer le terme **Expert** pour désigner un Agent IA.
+</Note>
+
+![Paramètres de base lors de la création d’un Agent dans l’interface de B-Bot Hub](/images/concepts/create-agent-basics.png)
+
+## Configuration d’un Agent
+
+<CardGroup cols={2}>
+  <Card title="Identité" icon="id-card">
+    Le nom, la profession, la description et la photo de profil présentés aux utilisateurs.
+  </Card>
+  <Card title="Instructions" icon="message">
+    Le prompt système et les autres consignes qui définissent le rôle, les priorités, le ton et les limites.
+  </Card>
+  <Card title="Modèle et modalités" icon="microchip">
+    Le modèle sélectionné et les formes d’entrée ou de sortie configurées, comme le texte, la voix, les images ou les fichiers.
+  </Card>
+  <Card title="Capacités" icon="toolbox">
+    Les capacités, apps connectées, sources de connaissances et membres de l’équipe éventuellement accessibles à l’Agent.
+  </Card>
+</CardGroup>
+
+## Vocabulaire du produit
+
+### Capacités
+
+Les capacités sont des instructions de comportement réutilisables. Elles aident les utilisateurs à choisir un mode ou une approche pour une conversation. Gardez chaque capacité ciblée et décrivez clairement le comportement attendu.
+
+### Modèles de prompt
+
+Les modèles de prompt sont des prompts préparés qui aident les utilisateurs à démarrer des tâches courantes. Ils illustrent ce qu’il est possible de demander, sans garantir le résultat.
+
+### Connaissances
+
+Les sources de connaissances fournissent des informations auxquelles un Agent peut se référer. Utilisez-les pour le contenu qui doit être maintenu séparément du prompt système, comme la documentation produit ou les politiques.
+
+### Apps et outils
+
+Les apps et outils connectés peuvent fournir des informations ou permettre des actions qui dépassent les capacités du modèle seul. Leur disponibilité et leurs autorisations dépendent de la configuration de l’Agent et de la session de l’utilisateur.
+
+### Équipe
+
+Lorsque cette fonctionnalité est disponible, un Agent peut intégrer d’autres Agents comme membres de son équipe. Considérez chaque membre comme un spécialiste doté d’une responsabilité claire.
+
+### Canaux de distribution
+
+Les **canaux de distribution** définissent comment une expérience fondée sur un Agent atteint les utilisateurs ou les systèmes. Leur configuration est distincte de l’identité et du comportement fondamentaux de l’Agent.
+
+### DeepAgents
+
+**DeepAgents** est un mode destiné aux travaux en plusieurs étapes qui utilise des tâches et des fichiers d’espace de travail. Des contrôles avec validation humaine peuvent ajouter des points de vérification avant certaines actions.
+
+## Un modèle mental utile
+
+```text
+Agent = identité + instructions + modèle + capacités autorisées
+
+Expérience = Agent + paramètres de conversation + canal de distribution
+```
+
+Un même Agent peut se comporter différemment lorsque le modèle, les outils activés, le contexte disponible ou le canal changent. Testez l’expérience complète qui sera proposée aux utilisateurs.
+
+## Étapes suivantes
+
+<CardGroup cols={2}>
+  <Card title="Cycle de vie et configuration" icon="sliders" href="/fr/concepts/basics">
+    Découvrez comment les éléments de configuration s’articulent au fil du temps.
+  </Card>
+  <Card title="Créer un Agent" icon="plus" href="/essentials/create-expert">
+    Suivez le guide du produit pour créer votre premier Agent.
+  </Card>
+</CardGroup>

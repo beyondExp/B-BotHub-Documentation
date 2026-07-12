@@ -1,0 +1,106 @@
+---
+title: 'IA multimodale'
+description: 'Comprenez comment le texte, la voix, les images et les fichiers peuvent intervenir dans un workflow d’Agent IA.'
+icon: 'layer-group'
+---
+
+# IA multimodale
+
+Une modalité est une forme d’entrée ou de sortie. Un workflow multimodal combine plusieurs formes, par exemple une question textuelle portant sur une image téléversée ou une demande vocale accompagnée d’une réponse textuelle.
+
+Dans B-Bot Hub, la prise en charge des modalités dépend du modèle sélectionné, du fournisseur, de la configuration de l’Agent et du canal de distribution. Configurez et testez la combinaison complète avant de vous y fier.
+
+## Modalités courantes
+
+<CardGroup cols={2}>
+  <Card title="Texte" icon="keyboard">
+    Instructions, questions, réponses formatées et code.
+  </Card>
+  <Card title="Voix" icon="microphone">
+    La parole peut être transcrite en entrée et le texte synthétisé en audio en sortie lorsque la configuration le permet.
+  </Card>
+  <Card title="Images" icon="image">
+    Les modèles compatibles peuvent analyser une image jointe à une question ou produire une image au moyen d’une capacité configurée.
+  </Card>
+  <Card title="Fichiers" icon="file">
+    Les fichiers pris en charge peuvent apporter du contexte ou devenir des sorties dans les workflows qui gèrent des fichiers.
+  </Card>
+</CardGroup>
+
+## Les entrées et les sorties sont distinctes
+
+Un Agent capable d’accepter une image ne peut pas nécessairement en générer. L’entrée vocale et la sortie audio exigent également des configurations distinctes. Pour chaque workflow, documentez :
+
+- Les types d’entrée acceptés
+- Les types de sortie attendus
+- Les contraintes de taille, de format et de langue
+- Les clés fournisseur requises
+- Les limitations du canal
+- Le comportement de repli en cas d’échec du traitement
+
+## Exemples de schémas
+
+### Image et texte
+
+L’utilisateur téléverse une image et pose une question précise. L’Agent renvoie une description ou une analyse textuelle. Le résultat doit être considéré comme une interprétation, en particulier pour les petits caractères, les mesures ou les images critiques pour la sécurité.
+
+### Fichier et texte
+
+L’utilisateur fournit un document ou un jeu de données accompagné d’instructions. L’Agent extrait ou analyse le contenu pris en charge. Pour les travaux importants, vérifiez que le fichier entier a été traité et comparez le résultat à la source.
+
+### Voix et texte
+
+La parole est transcrite, puis traitée comme un message utilisateur. Les erreurs de transcription peuvent changer le sens : affichez ou faites confirmer les détails critiques avant d’agir.
+
+### Texte et audio
+
+Une réponse textuelle est convertie en parole. Proposez une alternative textuelle et testez la prononciation, la langue et les besoins d’accessibilité.
+
+## Liste de contrôle pour la conception
+
+<Steps>
+  <Step title="Vérifier la prise en charge">
+    Vérifiez que le modèle, le fournisseur et le canal de distribution prennent en charge les types d’entrée et de sortie requis.
+  </Step>
+  <Step title="Minimiser les données">
+    Envoyez uniquement le contenu nécessaire à la tâche. Supprimez les informations personnelles ou confidentielles inutiles.
+  </Step>
+  <Step title="Définir le comportement en cas d’échec">
+    Informez les utilisateurs lorsqu’une entrée ne peut pas être traitée et proposez une solution sûre, comme une saisie textuelle ou un autre format de fichier.
+  </Step>
+  <Step title="Tester des entrées réelles">
+    Testez des accents, images, mises en page de documents, tailles de fichiers, appareils et conditions réseau représentatifs.
+  </Step>
+  <Step title="Faire valider les résultats sensibles">
+    Exigez la validation d’une personne qualifiée pour les décisions médicales, juridiques, financières, de sécurité, d’identité ou d’accessibilité.
+  </Step>
+</Steps>
+
+## Limites
+
+- La reconnaissance vocale peut mal interpréter les noms, les nombres et les termes spécialisés.
+- L’analyse d’images peut manquer des détails ou déduire la présence d’objets inexistants.
+- L’extraction de documents peut perdre la mise en page, les tableaux, les annotations ou le texte numérisé.
+- Les fichiers générés peuvent être mal formés ou contenir des données incorrectes.
+- Le comportement, les limites et les tarifs des fournisseurs peuvent évoluer.
+
+<Warning>
+  N’utilisez pas un Agent IA comme seule autorité pour la vérification d’identité, le diagnostic, la conformité ou d’autres décisions à fort impact fondées sur une entrée multimodale.
+</Warning>
+
+## Guides associés
+
+<CardGroup cols={2}>
+  <Card title="Configurer les modalités" icon="sliders" href="/essentials/modalities">
+    Consultez les paramètres actuels d’entrée et de sortie de B-Bot Hub.
+  </Card>
+  <Card title="Clés fournisseur" icon="key" href="/essentials/provider-keys">
+    Configurez les identifiants des fournisseurs pris en charge.
+  </Card>
+  <Card title="Chat" icon="comments" href="/essentials/chat">
+    Découvrez comment les utilisateurs fournissent du texte, de la voix, des images et des fichiers dans le chat.
+  </Card>
+  <Card title="DeepAgents" icon="robot" href="/fr/concepts/deepagents/introduction">
+    Utilisez des fichiers d’espace de travail dans les workflows en plusieurs étapes.
+  </Card>
+</CardGroup>

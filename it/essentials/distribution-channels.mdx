@@ -1,0 +1,88 @@
+---
+title: 'Canali di distribuzione'
+description: 'Pubblica un Agente tramite i canali supportati dall’Hub'
+icon: 'share-nodes'
+---
+
+# Canali di distribuzione
+
+I Canali di distribuzione pubblicano l'Agente selezionato per un pubblico o caso d'uso specifico. Apri **Canali** dalla barra laterale per visualizzare, creare, modificare o eliminare i Canali.
+
+![Tipi di Canale disponibili in B-Bot Hub](/images/documentation/channel-types.png)
+
+## Creare un Canale
+
+<Steps>
+  <Step title="Seleziona un Agente">
+    Scegli l'Agente che verrà pubblicato dal Canale.
+  </Step>
+  <Step title="Apri Canali">
+    Vai a `/channels` e seleziona **Nuovo canale**.
+  </Step>
+  <Step title="Assegna un nome e scegli un tipo">
+    Inserisci un nome, quindi seleziona uno dei tipi disponibili.
+  </Step>
+  <Step title="Configura e salva">
+    Completa i controlli mostrati. Dopo il salvataggio, il Canale compare con il proprio ID e i controlli di modifica ed eliminazione.
+  </Step>
+</Steps>
+
+La finestra di creazione supporta **B-Bot Chat**, **Embed**, **API**, **Attività** e **Modello**. **Twilio**, **n8n** e **Zapier** sono indicati come in arrivo e non possono essere selezionati.
+
+## B-Bot Chat
+
+B-Bot Chat pubblica l'Agente in B-Bot Chat. I controlli di visibilità sono:
+
+- **Solo per utenti dell'azienda**, che limita l'accesso a un'azienda.
+- **Azienda**, che seleziona l'azienda quando l'accesso riservato è attivo.
+
+Se non sono disponibili aziende, l'accesso riservato all'azienda è disabilitato.
+
+## Embed
+
+Embed crea un'esperienza per siti web e fornisce un'anteprima live e il codice generato dopo il salvataggio.
+
+Puoi configurare:
+
+- strumenti di sistema: **Memory Search**, **Web Search**, **File Manager / Upload**, **Workspace Tools** e **Task Scheduler**
+- visualizzazione delle chiamate agli strumenti
+- stile embed **In linea** o **Bolla di chat**
+- colore del tema
+- icona Lucide dell'intestazione
+- URL di un'immagine personalizzata per il pulsante a bolla
+- protezione con password facoltativa
+
+Salva il Canale prima di usare l'anteprima o copiare il codice embed. Modificalo in seguito per cambiare queste impostazioni.
+
+## API
+
+Il Canale API espone l'Agente per l'uso programmatico. La finestra controlla quali azioni di scrittura della Conoscenza sono disabilitate:
+
+- modifica di una singola riga
+- modifica di più righe
+- creazione di un documento
+
+La finestra non mostra né genera endpoint API di esempio. Per implementare un client, usa il riferimento API fornito per il tuo ambiente.
+
+## Attività
+
+Il Canale Attività distribuisce l'Agente all'esecuzione delle Attività. La finestra attuale non offre controlli aggiuntivi specifici.
+
+Consulta [Attività](/it/essentials/tasks) per configurazione e funzionamento.
+
+## Modello
+
+Modello pubblica l'Agente come modello riutilizzabile. Configura:
+
+- una categoria
+- l'eventuale stato In evidenza
+
+La finestra elenca anche le App collegate all'Agente, così puoi controllare le Risorse associate al modello.
+
+## Gestire i Canali esistenti
+
+Ogni scheda mostra nome, tipo e ID del Canale. Puoi copiare l'ID, modificare o eliminare il Canale. I Canali Embed offrono anche un collegamento rapido per copiare il codice generato.
+
+<Card title="App" icon="grid-2-plus" href="/it/essentials/apps">
+  Collega gli strumenti necessari all'Agente prima di pubblicarlo.
+</Card>

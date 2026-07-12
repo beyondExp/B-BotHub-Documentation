@@ -1,0 +1,50 @@
+---
+title: 'Verteilungskanäle'
+description: 'Einen Agenten über unterstützte Hub-Kanäle veröffentlichen'
+icon: 'share-nodes'
+---
+
+# Verteilungskanäle
+
+Verteilungskanäle veröffentlichen den ausgewählten Agenten für eine Zielgruppe oder einen Anwendungsfall. Öffnen Sie **Kanäle**, um Kanäle anzuzeigen, zu erstellen, zu bearbeiten oder zu löschen.
+
+![In B-Bot Hub verfügbare Kanaltypen](/images/documentation/channel-types.png)
+
+## Kanal erstellen
+
+<Steps>
+  <Step title="Agenten auswählen">Wählen Sie den zu veröffentlichenden Agenten.</Step>
+  <Step title="Kanäle öffnen">Öffnen Sie `/channels` und wählen Sie **Neuer Kanal**.</Step>
+  <Step title="Namen und Typ wählen">Geben Sie einen Namen ein und wählen Sie einen verfügbaren Kanaltyp.</Step>
+  <Step title="Konfigurieren und speichern">Füllen Sie die angezeigten Felder aus. Danach erscheint der Kanal mit ID sowie Bearbeiten- und Löschsteuerung.</Step>
+</Steps>
+
+Unterstützt werden **B-Bot Chat**, **Embed**, **API**, **Aufgaben** und **Vorlage**. **Twilio**, **n8n** und **Zapier** sind als demnächst verfügbar sichtbar, aber nicht auswählbar.
+
+## B-Bot Chat
+
+B-Bot Chat veröffentlicht den Agenten in B-Bot Chat. **Nur für Unternehmensnutzer** beschränkt den Zugriff auf ein über **Unternehmen** ausgewähltes Unternehmen. Ohne verfügbare Unternehmen ist diese Option deaktiviert.
+
+## Embed
+
+Embed erstellt eine Website-Erfahrung und liefert nach dem Speichern Live-Vorschau und Code. Konfigurierbar sind System-Tools für Speichersuche, Websuche, Dateiverwaltung/Upload, Workspace und Aufgabenplanung, sichtbare Tool-Aufrufe, eingebetteter oder Chat-Blasen-Stil, Farbe, Lucide-Header-Symbol, eigene Bild-URL für die Blase und optionaler Passwortschutz.
+
+Speichern Sie vor Vorschau oder Kopieren des Embed-Codes. Bearbeiten Sie den Kanal später für Änderungen.
+
+## API
+
+Der API-Kanal stellt den Agenten programmgesteuert bereit. Im Dialog können die Wissens-Schreibaktionen einzelne Zeile bearbeiten, mehrere Zeilen bearbeiten und Dokument erstellen deaktiviert werden. Beispiel-Endpunkte werden dort nicht erzeugt; verwenden Sie die API-Referenz Ihres Deployments.
+
+## Aufgaben
+
+Der Aufgaben-Kanal stellt den Agenten für die Aufgabenausführung bereit und besitzt keine zusätzlichen kanalspezifischen Einstellungen. Siehe [Aufgaben](/de/essentials/tasks).
+
+## Vorlage
+
+Vorlage veröffentlicht den Agenten wiederverwendbar. Konfigurieren Sie Kategorie und Featured-Status. Der Dialog listet auch verbundene Apps zur Prüfung der zugehörigen Ressourcen.
+
+## Vorhandene Kanäle verwalten
+
+Jede Karte zeigt Name, Typ und Kanal-ID. Sie können die ID kopieren, bearbeiten oder löschen. Embed-Kanäle bieten zusätzlich das Kopieren des Codes.
+
+<Card title="Apps" icon="grid-2-plus" href="/de/essentials/apps">Verbinden Sie vor der Veröffentlichung die benötigten Tools.</Card>

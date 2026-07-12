@@ -1,238 +1,103 @@
 ---
-title: 'Training'
-description: 'See what you can do with your training'
-icon: 'chart-mixed'
+title: "Training"
+description: "Create conversation examples and fine-tune a model for an Agent"
+icon: "graduation-cap"
 ---
 
-# Video Tutorial (coming soon)
+# Training
 
-<iframe style={{ borderRadius: '0.5rem', width: '100%', height: '400px'}} src="https://www.youtube.com/embed/6bF5p01MXqQ?si=kd45_8HryDQMIMcZ"> </iframe>
+Training turns example conversations into a fine-tuning job for an Agent. Each training session contains ordered user and assistant turns and keeps the job status with the session.
 
-# Text Tutorial
+<Warning>
+  Training is different from Knowledge. [Knowledge](/essentials/knowledge)
+  retrieves information from uploaded documents when an Agent needs it. Training
+  sends example conversations to a model provider to create a fine-tuned model.
+</Warning>
 
-## Train your Expert
+## Before you start
 
-To train your expert you have to go to the training page.
-Here you can choose the expert you want to train.
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-first.png"
-/>
+Select the Agent you want to train. A new training session is linked to the selected Agent, and the session can use models configured for that Agent.
 
-### Choose the model
+## Create or open a session
 
-You can choose the model you want to train.
-Your Expert has a Basic model, if you already had a training Session you will be able to train on top of the trained model.
-Click on your desired model and on the "Select Model" to get to the next step.
+1. Open **Training**.
+2. Select **New session**.
+3. Enter a clear session name. You can also add a description.
+4. Select **Create** to open the session.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-second.png"
-/>
+The Training page lists existing sessions with their names, descriptions, number of examples, and current status. Select a session card to open it. Use the delete action on a card to remove a session you no longer need.
 
-### Choose the base sentence
+<Tip>
+  Use one session for one behavior or response style. A focused name such as
+  `Support escalation replies` is easier to review than a general name such as
+  `Training 1`.
+</Tip>
 
-You can choose the base sentence you want to train. Theres is the option to train on the personality or on the abilities.
-Choose your desired base sentence and click on it to get to the next step.
+## Choose a model
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-third.png"
-/>
+In the session, choose a **Base model** from the models configured for the selected Agent. If no model is available, configure a model for the Agent before starting fine-tuning.
 
-### Enrich your Training Data
+The chosen model is the starting point for the fine-tuning job. The Hub does not use Knowledge documents as training examples automatically.
 
+## Add conversation examples
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-fourth.png"
-/>
+Each example is an ordered conversation made of user and assistant turns.
 
-There are multiple options to enrich your training data.
-These options are a help to get to training data faster.
+```text
+User: My order arrived damaged. What should I do?
+Assistant: I am sorry your order arrived damaged. Please send the order number and a photo of the package so I can help with the next step.
+```
 
+Select **Add example** to create an example with one user turn and one assistant turn. Then:
 
+- Enter the message text in each turn.
+- Select the user or assistant role beside a turn.
+- Select **Add turn** to continue the conversation.
+- Delete a turn when it is not needed.
+- Duplicate an example to create a similar variation.
+- Delete an example to remove it from the session.
 
-#### F2TD
-Fact 2 Training Data is our own tool to get training data faster.
-you can copy any text into the text field and click on the "Generate" Button to generate new data.
-The model will generate training data for you.
+Write the response you want the Agent to learn. Keep roles correct, include enough context in the user turn, and avoid contradictory assistant responses.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-fifth.png"
-/>
+## Save and start fine-tuning
 
-Our Generator will create Conversation data for you to choose from.
-You can choose the data you want to train on by clicking on the "Select" Button to add it to your training data.
-Or you can click on the "Save to Favorites" Button to generate new data.
+Select **Save** to store the session name, description, and examples without starting a job.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-sixth.png"
-/>
+When the examples are ready:
 
-#### Favorites
+1. Confirm that the intended Agent is selected.
+2. Confirm the base model.
+3. Review every user and assistant turn.
+4. Select **Start training**.
 
-You can see all of your saved training data in the favorites tab.
-You can choose the data you want to train on by clicking on the "Select" Button to add it to your training data.
+The Hub saves the current session before it starts the fine-tuning job. You can start only when at least one turn contains text and no job is currently active.
 
+## Follow the job status
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-seventh.png"
-/>
+The session displays the current fine-tuning stage:
 
-#### Sessions
+- **Draft**: The session has not started a job.
+- **Queued**: The provider accepted the job and queued it.
+- **Validating files**: The provider is validating the prepared training data.
+- **Running**: Fine-tuning is in progress.
+- **Deployment in progress**: The resulting model is being prepared.
+- **Succeeded**: Fine-tuning completed. The resulting model identifier is shown.
+- **Failed**: The job stopped with an error.
+- **Cancelled**: The active job was cancelled.
 
-You can see all of your training sessions in the sessions tab. You can see the name of the session and the date of the session as well as the description you gave to the session.
-by clicking on it you will see all the Situations that were trained in this session.
-you can select all the Situations you want to train on by clicking on the "Select" Buttons to add it to your training data.
+An active job can be cancelled from its status panel. When available, the panel also shows the number of trained tokens or the provider error.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-eight.png"
-/>
+## Training and Knowledge
 
-#### Import
+Use the feature that matches your goal:
 
-You can import training data from a file. You can choose the file you want to import and click on the "Import" Button to import the data.
-At the moment you can only import the Backups of ChatGPT.
+- Use [Knowledge](/essentials/knowledge) for facts that should remain editable and retrievable from documents.
+- Use Training for repeated examples of how an Agent should respond.
+- Update a Knowledge document when source information changes.
+- Create and review a new training session when you need another fine-tuned behavior.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-ninth.png"
-/>
+## Next steps
 
-### Edit the Situations
-
-Click on Proceed to get to the next step where we will edit the Situations.
-
-#### Name and Description
-
-You can give the Training Session a name and a description.
-This will help you to find the training session later on, and it will give you a better overview of what you trained on.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-tenth.png"
-/>
-
-#### Add new Situations
-
-You can add new Situations to your training data.
-There are 2 Buttons for that, one on the top and one on the bottom.
-By clicking it you will add a new Situation to your training data.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-eleventh.png"
-/>
-
-#### Context Menu of a Situation
-
-By clicking on the three dots of a Situation you can see the following functions:
-
-- Duplicate: Duplicate the Situation
-- Delete: Delete the Situation
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-twelfth.png"
-/>
-
-#### The Message Card
-
-In each Situation there are multiple Message Cards. Each Message Card is a message that was sent to the expert or from the Expert.
-
-*The User Message*
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-thirteen.png"
-/>
-
-Each message has a context menu. By clicking on the three dots of a message you can see the following functions:
-- Remove: Remove the message from the Situation
-- Toggle Role: Change the role of the message from User to Expert or from Expert to User
-- Copy Content: Copy the content of the message
-- Move Up: Move the message up in the Situation
-- Move Down: Move the message down in the Situation
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-fifteen.png"
-/>
-
-*The Expert Message*
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-fourteen.png"
-/>
-
-The same context menu is available for the Expert Message. with one additional function:
-
-- Add Action: Add an action to the message. This will be used to train the expert to do something after this message.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-sixteen.png"
-/>
-
-if you click on the "Add Action" Button you will see the following window:
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-seventeen.png"
-/>
-
-An added action will look like this:
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-eighteen.png"
-/>
-
-Every tool will have an input field where you can determine the input of the action.
-After you run the tool by clicking on the "Run" Button the output will be shown in the output field.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-nineteen.png"
-/>
-
-### Train the Expert
-
-After you have added all the Situations you want to train on you can click on the "Proceed" Button to get to the next step.
-
-in there you can see a button to start the training.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-twenty.png"
-/>
-
-After you have started the training you can see the progress of the training in the Training Button itself.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/training-twenty.png"
-/>
-
-# Next Steps
-<CardGroup cols={2}>
-  <Card
-    title="Dashboard"
-    icon="gauge"
-    href="/essentials/dashboard"
-  >
-    Train your expert to make it smarter
-  </Card>
-  <Card
-    title="Add Apps to your Expert"
-    icon="messages"
-    href="/essentials/apps"
-  >
-    Add Apps to your expert to open more possibilities
-  </Card>
-</CardGroup>
+<Card title="Knowledge" icon="book-open" href="/essentials/knowledge">
+  Add documents that an Agent can retrieve as grounded context.
+</Card>

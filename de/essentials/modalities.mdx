@@ -1,0 +1,57 @@
+---
+title: 'Ein- und Ausgabe-Modalitäten'
+description: 'Geprüfte Sprach-, Datei-, Bild- und generierte Ausgabeoptionen konfigurieren'
+icon: 'microphone-lines'
+---
+
+# Ein- und Ausgabe-Modalitäten
+
+Modalitäten definieren zusätzliche Ein- und Ausgabetypen des Hauptmodells eines Agenten.
+
+## Modalitäten konfigurieren
+
+1. Öffnen Sie einen gespeicherten Agenten.
+2. Öffnen Sie **Modelle & Modalitäten**.
+3. Wählen Sie zuerst das Hauptmodell.
+4. Wählen Sie bei Ein- oder Ausgabe-Modalitäten **Hinzufügen**.
+5. Wählen, prüfen und ergänzen Sie eine Option.
+
+Der Hub speichert Änderungen am ausgewählten Modell. Pro Eingabetyp ist ein Eintrag möglich; ein bestehender Ausgabeeintrag desselben Typs wird ersetzt.
+
+## Aktuelle Eingabeoptionen
+
+### Spracheingabe
+
+Verfügbar sind Local Whisper Tiny mit WebGPU, Local Whisper Base mit WebGPU, OpenAI Whisper, Groq Whisper Large V3 und – sofern unterstützt – das Hauptmodell. Automatische Transkription nach Aufnahmeende kann aktiviert werden. Formate sind WebM, MP3 und WAV.
+
+### Kamera, Bilder, Audio und Dokumente
+
+- **Kamera-/Videoeingabe** über Hauptmodell, OpenAI, Anthropic oder Google Vision
+- **Bild-Upload:** JPEG, PNG, GIF, WebP
+- **Audio-Upload:** MP3, WAV, WebM, OGG
+- **Dokument-Upload:** PDF, DOC, DOCX, TXT
+
+Bild-, Audio- und Dokumenteinträge bieten Base64- und URL-Unterstützung. Die erfolgreiche Verarbeitung hängt weiterhin von Modell und Laufzeit ab.
+
+## Aktuelle Ausgabeoptionen
+
+### Text-to-Speech
+
+Verfügbar sind OpenAI TTS-1, OpenAI TTS-1-HD, Google Gemini 2.5 Flash Preview TTS, Google Gemini 2.5 Pro Preview TTS und experimentelles Local Pocket TTS. Konfigurierbar sind **Antworten automatisch abspielen** und **Audio während der Generierung streamen**.
+
+### Bilderzeugung
+
+Verfügbar sind OpenAI DALL·E 3, OpenAI GPT Image 1, Stability SD3 und Google Imagen 3. Eine automatische Generierung kann aktiviert werden, wenn der Agent ein Bild erwähnt.
+
+## Kompatibilitätshinweise
+
+<Warning>Eine im Editor angezeigte Modalität garantiert nicht die Unterstützung durch jedes Hauptmodell, jeden Browser, jedes Gerät, jeden Provider-Schlüssel oder jedes Deployment.</Warning>
+
+- Wählen Sie ein Hauptmodell für den Eingabetyp.
+- Hinterlegen Sie den benötigten Provider-Schlüssel für Remote-STT, -TTS, Vision oder Bilder.
+- Lokale WebGPU-Optionen benötigen kompatiblen Browser und Gerät.
+- Mikrofon-, Kamera- und Autoplay-Regeln des Browsers beeinflussen den Chat.
+- Preview- und experimentelle Modellnamen können sich ändern.
+- Testen Sie den gesamten Pfad mit Agent, Modell, Browser und Deployment der Benutzer.
+
+Siehe [Schlüssel](/de/essentials/provider-keys) und [KI-Bilderzeugung](/de/essentials/ai-image-generation).

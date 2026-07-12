@@ -1,0 +1,142 @@
+---
+title: 'Scrivere un prompt di sistema'
+description: 'Scrivi istruzioni di sistema chiare, verificabili e facili da gestire per un Agente IA.'
+icon: 'message'
+---
+
+# Scrivere un prompt di sistema
+
+Un prompt di sistema definisce il ruolo, le priorità e i limiti comportamentali di un Agente IA. Influenza il comportamento del modello, ma non garantisce che rispetti le istruzioni, non aggiunge autorizzazioni e non rende vere le informazioni.
+
+## Struttura consigliata
+
+### 1. Ruolo e scopo
+
+Indica chi assiste l'Agente e cosa dovrebbe aiutarlo a realizzare.
+
+```text
+Sei un Agente di triage dell'assistenza clienti per [organizzazione].
+Aiuta gli utenti a trovare informazioni approvate per la risoluzione dei problemi
+e prepara passaggi chiari a un operatore.
+```
+
+### 2. Ambito
+
+Elenca le attività supportate e le esclusioni importanti.
+
+```text
+Puoi spiegare le procedure documentate di configurazione e risoluzione dei problemi.
+Non devi modificare account, approvare rimborsi o concedere eccezioni alle policy.
+```
+
+### 3. Regole sulle fonti
+
+Spiega quali informazioni sono autorevoli e cosa fare quando mancano.
+
+```text
+Usa le fonti di conoscenza approvate per i fatti relativi a prodotti e policy.
+Se le fonti non supportano una risposta, indica cosa manca.
+Non inventare link, citazioni, risultati degli strumenti o azioni completate.
+```
+
+### 4. Regole di interazione
+
+Descrivi come l'Agente deve raccogliere le informazioni e presentare i risultati.
+
+```text
+Poni una domanda mirata quando mancano informazioni necessarie.
+Usa passaggi brevi nell'ordine in cui devono essere completati.
+Separa i fatti confermati dai suggerimenti.
+```
+
+### 5. Sicurezza ed escalation
+
+Definisci le regole sui dati sensibili, le azioni vietate e le condizioni per il passaggio a un operatore.
+
+```text
+Non richiedere password o dati personali non necessari.
+Avvia un'escalation per le richieste che riguardano la verifica dell'identità,
+impegni legali, decisioni finanziarie o modifiche irreversibili.
+```
+
+### 6. Formato dell'output
+
+Specifica un formato solo quando il workflow ne richiede uno.
+
+```text
+Restituisci:
+1. Riepilogo
+2. Passaggio successivo consigliato
+3. Fonte o motivo dell'escalation
+```
+
+## Modello completo
+
+```text
+Ruolo
+Sei [ruolo] per [utenti o organizzazione].
+
+Scopo
+Aiuta gli utenti a [risultato supportato].
+
+Ambito
+- Supporta: [attività]
+- Non fare: [attività o affermazioni]
+
+Fonti e strumenti
+- Usa: [fonti autorevoli]
+- Usa gli strumenti solo per: [azioni approvate]
+- Non dichiarare mai che un'azione è riuscita senza conferma.
+
+Interazione
+- Chiedi: [contesto necessario]
+- Rispondi con: [tono e livello di dettaglio]
+- In caso di incertezza: [comportamento alternativo]
+
+Sicurezza ed escalation
+- Non raccogliere: [dati sensibili]
+- Fermati o avvia un'escalation quando: [condizioni]
+
+Output
+- Formato: [struttura richiesta]
+- Includi: [fonti, ipotesi o limitazioni]
+```
+
+## Principi di scrittura
+
+- Usa istruzioni dirette e osservabili.
+- Inserisci per prime le regole più importanti.
+- Risolvi le istruzioni in conflitto.
+- Evita di ripetere la stessa regola in forme diverse.
+- Mantieni fuori dal prompt i fatti soggetti a cambiamenti.
+- Non includere segreti o credenziali private.
+- Definisci cosa fare quando un'informazione o uno strumento non è disponibile.
+
+## Testa prima del rilascio
+
+Crea un piccolo set di valutazione che includa:
+
+- Richieste normali e pertinenti all'ambito
+- Informazioni mancanti o ambigue
+- Richieste fuori ambito
+- Richieste di ignorare il prompt di sistema
+- Strumenti o materiale di origine non disponibili
+- Azioni sensibili e irreversibili
+- Formati di output richiesti
+
+Esamina separatamente accuratezza dei fatti, rispetto dei limiti, affermazioni sugli strumenti, tono e formato. Modifica una sezione del prompt alla volta, in modo da identificare cosa è migliorato o peggiorato.
+
+<Warning>
+  I prompt di sistema sono indicazioni comportamentali, non controlli di sicurezza. Applica i limiti di accesso, privacy e azione tramite autorizzazioni e revisione umana.
+</Warning>
+
+## Guide correlate
+
+<CardGroup cols={2}>
+  <Card title="Progetta una persona IA" icon="masks-theater" href="/it/concepts/best_practices/ai-persona-with-b-bot">
+    Definisci ruolo e limiti prima di scrivere le istruzioni.
+  </Card>
+  <Card title="Ciclo di vita dell'Agente" icon="sliders" href="/it/concepts/basics">
+    Testa e mantieni l'intera configurazione dell'Agente.
+  </Card>
+</CardGroup>

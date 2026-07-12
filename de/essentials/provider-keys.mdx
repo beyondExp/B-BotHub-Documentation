@@ -1,0 +1,45 @@
+---
+title: 'Schlüssel'
+description: 'Persönliche und Unternehmens-Provider-Zugangsdaten sowie B-Bot-API-Schlüssel verwalten'
+icon: 'key'
+---
+
+# Schlüssel
+
+Öffnen Sie **Schlüssel**. Die Seite trennt Zugangsdaten nach Eigentümer.
+
+## Registerkarte Persönlich
+
+### Provider-Schlüssel
+
+Wählen Sie einen Provider und geben Sie die Zugangsdaten ein. Optional können Sie einen Namen vergeben, den Schlüssel als primär oder Fallback markieren, den Wert bei der Eingabe ein- oder ausblenden, vorhandene Schlüssel bearbeiten oder löschen und Status oder Fehler prüfen.
+
+Die Provider-Liste umfasst Modell-, Sprach-, Infrastruktur- und Integrationsanbieter und kann sich ändern.
+
+### Persönliche B-Bot-API-Schlüssel
+
+Diese sind von Provider-Zugangsdaten getrennt. Beim Erstellen können Sie Bezeichnung und Primärstatus festlegen.
+
+<Warning>Kopieren Sie einen neuen B-Bot-API-Schlüssel sofort und speichern Sie ihn in einem geeigneten Secret Manager. Fügen Sie ihn nicht in Chats, Quellcode oder Dokumentation ein und legen Sie ihn nicht in clientseitigem Code offen.</Warning>
+
+Vorhandene Einträge zeigen Bezeichnung, Status, Primärmarkierung und letzte Zeichen und können gelöscht werden.
+
+## Registerkarte Unternehmen
+
+**Unternehmen** ist nur bei mindestens einer Mitgliedschaft verfügbar und verwaltet Provider-Schlüssel des aktiven Unternehmens. Der Bereich ist daran gebunden, enthält nur Provider-Schlüssel, erstellt keine persönlichen B-Bot-API-Schlüssel und seine Aktionen hängen von Rolle und Kontoberechtigungen ab. Dasselbe Panel ist über **Schlüssel** auf der Unternehmensseite erreichbar.
+
+## Mindestanforderungen für sichere Handhabung
+
+1. Gewähren Sie nur erforderliche Berechtigungen.
+2. Trennen Sie persönliche und Unternehmenszugangsdaten korrekt.
+3. Entfernen Sie nicht mehr benötigte Schlüssel.
+4. Widerrufen oder rotieren Sie möglicherweise offengelegte Schlüssel beim Provider und ersetzen Sie sie im Hub.
+5. Prüfen Sie Provider-Nutzung und Zugriffskontrollen.
+
+Die Hub-Oberfläche gibt keine Sicherheits- oder Verfügbarkeitsgarantie für Provider-Zugangsdaten. Beachten Sie die aktuelle Provider-Dokumentation zu Erstellung, Einschränkung, Rotation und Vorfällen.
+
+## Zugehörige Anleitungen
+
+- [Unternehmen und Abrechnung](/de/essentials/company-billing)
+- [Ein- und Ausgabe-Modalitäten](/de/essentials/modalities)
+- [Agent erstellen](/de/essentials/create-expert)

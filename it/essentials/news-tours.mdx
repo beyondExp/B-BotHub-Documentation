@@ -1,0 +1,54 @@
+---
+title: 'Novità, tour e onboarding'
+description: 'Scopri aggiornamenti del prodotto e percorsi guidati nell’Hub'
+icon: 'compass'
+---
+
+# Novità, tour e onboarding
+
+B-Bot Hub offre tre esperienze di scoperta: Novità, Tour e il flusso di onboarding iniziale.
+
+![Tour guidati disponibili in B-Bot Hub](/images/documentation/guided-tours.png)
+
+## Novità
+
+Apri **Novità** per esplorare aggiornamenti del prodotto, annunci e note di rilascio.
+
+Puoi:
+
+- cercare in titoli, riepiloghi e contenuti
+- filtrare per annunci, versioni o aggiornamenti
+- aprire gli elementi fissati
+- spostarti tra le pagine dei risultati, quando disponibili
+- aprire un elemento per leggerne la pagina dettagliata
+
+Novità combina annunci integrati ed elementi caricati dal servizio di contenuti. Se la richiesta remota non riesce, la pagina segnala l'errore e può continuare a mostrare gli annunci locali.
+
+I percorsi attuali sono `/news` per l'elenco e `/news/:newsId` per un elemento.
+
+## Tour
+
+Apri **Tours** per esplorare le procedure guidate. Ogni scheda mostra durata stimata, difficoltà, strumenti, disponibilità e stato di completamento.
+
+I tour disponibili possono essere avviati o ricominciati. Un tour apre la pagina pertinente dell'Hub ed evidenzia l'interfaccia interessata. Le schede contrassegnate **In arrivo** non possono essere avviate.
+
+I percorsi attuali sono `/tours` per il catalogo e `/tour/:id` per un collegamento diretto.
+
+## Onboarding
+
+Il flusso di onboarding autenticato è disponibile in `/onboarding` e richiede:
+
+1. contesto dell'area di lavoro, inclusi regione, settore e sito web facoltativo
+2. un primo obiettivo
+3. un'azione di avvio per un Agente, Chat, Attività o chiavi provider
+
+Puoi saltare l'onboarding e continuare alla Dashboard.
+
+L'obiettivo selezionato determina la destinazione di **Start primary flow**. Dal piano di avvio puoi anche aggiungere una chiave provider o aprire la Chat con B-Bot.
+
+<Info>
+  Alcuni contenuti dei tour, controlli di Novità e testi dell'onboarding possono
+  essere mostrati in inglese anche quando è selezionata un'altra lingua.
+</Info>
+
+Per le preferenze continuative, consulta [Impostazioni](/it/essentials/settings). Per la pagina iniziale principale, consulta [Dashboard](/it/essentials/dashboard).

@@ -1,0 +1,93 @@
+---
+title: 'Agentenarchitektur'
+description: 'Eine konzeptionelle Darstellung des Zusammenspiels von Anfragen, Agentenkonfiguration, Modellen, Kontext, Werkzeugen und Vertriebskanälen.'
+icon: 'diagram-project'
+---
+
+# Agentenarchitektur
+
+B-Bot Hub trennt die Definition eines KI-Agenten von dem Erlebnis, über das er erreichbar ist. Diese Seite beschreibt diese Beziehung auf konzeptioneller Ebene. Sie ist keine Spezifikation interner Dienste oder Ausführungsreihenfolgen.
+
+## Hauptebenen
+
+<CardGroup cols={2}>
+  <Card title="Benutzererlebnis" icon="window">
+    Ein Chat oder ein anderer Vertriebskanal nimmt Eingaben entgegen und stellt das Ergebnis dar.
+  </Card>
+  <Card title="Agentenkonfiguration" icon="user-robot">
+    Identität, Systemanweisungen, Fähigkeiten, Modellauswahl und erlaubte Funktionen definieren den Agenten.
+  </Card>
+  <Card title="Kontext und Fähigkeiten" icon="toolbox">
+    Unterhaltungskontext, Wissen, Apps, Werkzeuge, Modalitäten und Teammitglieder stellen aufgabenspezifische Eingaben oder Aktionen bereit.
+  </Card>
+  <Card title="Modell" icon="microchip">
+    Das ausgewählte Modell interpretiert den verfügbaren Kontext und erzeugt eine Antwort oder schlägt den Einsatz eines Werkzeugs vor.
+  </Card>
+</CardGroup>
+
+## Konzeptioneller Anfrageablauf
+
+```text
+Benutzer oder System
+  -> Vertriebskanal
+  -> Unterhaltungseinstellungen und Eingabeverarbeitung
+  -> Anweisungen des Agenten und verfügbarer Kontext
+  -> ausgewähltes Modell
+  -> erlaubtes Wissen, Werkzeuge, Apps oder Teammitglieder
+  -> Antwort, Datei oder vorgeschlagene Aktion
+  -> Vertriebskanal
+```
+
+Nicht jede Anfrage durchläuft jede Ebene. Eine direkte Textfrage benötigt möglicherweise nur Anweisungen und ein Modell. Eine mehrstufige DeepAgents-Anfrage kann zusätzlich Aufgaben, Workspace-Dateien und Prüfpunkte verwenden.
+
+## Konfiguration und Autorisierung
+
+Anweisungen geben dem Modell vor, wie es sich verhalten soll. Berechtigungen bestimmen, worauf das umgebende System zugreifen und was es ausführen darf. Das sind unterschiedliche Kontrollmechanismen.
+
+- Nutze den System-Prompt für Rolle, Prioritäten und Verhaltensgrenzen.
+- Nutze App-, Werkzeug- und Kontoberechtigungen für die Zugriffskontrolle.
+- Nutze Human-in-the-Loop-Prüfungen für sensible vorgeschlagene Aktionen.
+- Nutze Einstellungen des Vertriebskanals, um festzulegen, wie ein Erlebnis bereitgestellt wird.
+
+<Warning>
+  Betrachte eine Prompt-Anweisung wie „Greife niemals auf private Daten zu“ nicht als Ersatz für technische Berechtigungen. Entferne Zugriffe, die der Workflow nicht benötigt.
+</Warning>
+
+## Zustand und Kontext
+
+Der für eine Anfrage verfügbare Kontext kann die aktuelle Unterhaltung, Agentenanweisungen, abgerufenes Wissen, Werkzeugergebnisse und Workspace-Artefakte umfassen. Verfügbarkeit und Aufbewahrung hängen von Funktion und Konfiguration ab.
+
+Da der Kontext begrenzt ist und sich ändern kann:
+
+- Halte Anweisungen knapp und löse Widersprüche auf.
+- Rufe nur relevantes Quellmaterial ab.
+- Speichere große Zwischenergebnisse bei Bedarf in Workspace-Dateien.
+- Vergewissere dich vor dem Fortsetzen einer Aufgabe, dass wichtige Zustände vorhanden sind.
+- Gehe nicht davon aus, dass Informationen aus einer anderen Sitzung oder einem anderen Kanal verfügbar sind.
+
+## Fehlergrenzen
+
+Gestalte jede Ebene so, dass Fehler eindeutig behandelt werden:
+
+- Ungültige oder nicht unterstützte Eingaben sollten eine handlungsorientierte Meldung auslösen.
+- Fehlendes Wissen sollte als Unsicherheit oder Bitte um Informationen erkennbar sein.
+- Ein fehlgeschlagenes Werkzeug darf nicht als Erfolg dargestellt werden.
+- Sensible Aktionen sollten am konfigurierten Prüfpunkt anhalten.
+- Der Vertriebskanal sollte dem Benutzer den endgültigen Status mitteilen.
+
+## Zugehörige Konzepte
+
+<CardGroup cols={2}>
+  <Card title="KI-Agenten" icon="user-robot" href="/de/concepts/introduction">
+    Lerne die Begriffe der Agentenkonfiguration kennen.
+  </Card>
+  <Card title="Lebenszyklus und Konfiguration" icon="sliders" href="/de/concepts/basics">
+    Gestalte, teste, verteile und pflege einen Agenten.
+  </Card>
+  <Card title="DeepAgents" icon="robot" href="/de/concepts/deepagents/introduction">
+    Verstehe mehrstufige Workspace-Arbeit und Prüfungskontrollen.
+  </Card>
+  <Card title="Vertriebskanäle" icon="share-nodes" href="/essentials/distribution-channels">
+    Konfiguriere, wie Benutzer und Systeme einen Agenten erreichen.
+  </Card>
+</CardGroup>

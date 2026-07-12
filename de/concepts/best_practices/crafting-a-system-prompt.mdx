@@ -1,0 +1,141 @@
+---
+title: 'Einen System-Prompt erstellen'
+description: 'Verfasse klare, testbare und wartbare Systemanweisungen für einen KI-Agenten.'
+icon: 'message'
+---
+
+# Einen System-Prompt erstellen
+
+Ein System-Prompt definiert Rolle, Prioritäten und Verhaltensgrenzen eines KI-Agenten. Er beeinflusst das Modellverhalten, garantiert aber weder die Einhaltung der Vorgaben noch fügt er Berechtigungen hinzu oder macht Informationen wahr.
+
+## Empfohlene Struktur
+
+### 1. Rolle und Zweck
+
+Beschreibe, wem der Agent dient und wobei er diese Personen unterstützen soll.
+
+```text
+Du bist ein Agent für die Ersteinschätzung im Kundensupport von [Organisation].
+Hilf Benutzern, freigegebene Informationen zur Fehlerbehebung zu finden und klare Übergaben vorzubereiten.
+```
+
+### 2. Umfang
+
+Liste unterstützte Aufgaben und wichtige Ausschlüsse auf.
+
+```text
+Du darfst dokumentierte Einrichtungs- und Fehlerbehebungsschritte erklären.
+Du darfst keine Konten ändern, Rückerstattungen genehmigen oder Ausnahmen von Richtlinien machen.
+```
+
+### 3. Quellenregeln
+
+Erkläre, welche Informationen maßgeblich sind und was bei fehlenden Informationen zu tun ist.
+
+```text
+Nutze die freigegebenen Wissensquellen für Produkt- und Richtlinienfakten.
+Wenn die Quellen eine Antwort nicht stützen, benenne die fehlenden Informationen.
+Erfinde keine Links, Zitate, Werkzeugergebnisse oder ausgeführten Aktionen.
+```
+
+### 4. Interaktionsregeln
+
+Beschreibe, wie der Agent Informationen einholen und Ergebnisse darstellen soll.
+
+```text
+Stelle eine gezielte Frage, wenn erforderliche Informationen fehlen.
+Verwende kurze Schritte in der Reihenfolge ihrer Ausführung.
+Trenne bestätigte Fakten von Vorschlägen.
+```
+
+### 5. Sicherheit und Eskalation
+
+Definiere Regeln für sensible Daten, verbotene Aktionen und Bedingungen für eine Übergabe.
+
+```text
+Fordere keine Passwörter oder unnötigen personenbezogenen Daten an.
+Eskaliere Anfragen zu Identitätsprüfung, rechtlichen Verpflichtungen,
+finanziellen Entscheidungen oder unumkehrbaren Änderungen.
+```
+
+### 6. Ausgabeformat
+
+Gib nur dann ein Format vor, wenn der Workflow eines benötigt.
+
+```text
+Ausgabe:
+1. Zusammenfassung
+2. Empfohlener nächster Schritt
+3. Quelle oder Grund für die Eskalation
+```
+
+## Vollständige Vorlage
+
+```text
+Rolle
+Du bist [Rolle] für [Benutzer oder Organisation].
+
+Zweck
+Hilf Benutzern, [unterstütztes Ergebnis] zu erreichen.
+
+Umfang
+- Unterstützen: [Aufgaben]
+- Nicht ausführen: [Aufgaben oder Behauptungen]
+
+Quellen und Werkzeuge
+- Verwenden: [maßgebliche Quellen]
+- Werkzeuge nur verwenden für: [freigegebene Aktionen]
+- Behaupte niemals ohne Bestätigung, dass eine Aktion erfolgreich war.
+
+Interaktion
+- Erfragen: [erforderlicher Kontext]
+- Antworten mit: [Tonalität und Detailgrad]
+- Bei Unsicherheit: [Fallback-Verhalten]
+
+Sicherheit und Eskalation
+- Nicht erfassen: [sensible Daten]
+- Anhalten oder eskalieren, wenn: [Bedingungen]
+
+Ausgabe
+- Format: [erforderliche Struktur]
+- Einschließen: [Quellen, Annahmen oder Einschränkungen]
+```
+
+## Schreibprinzipien
+
+- Verwende direkte, beobachtbare Anweisungen.
+- Stelle die wichtigsten Regeln an den Anfang.
+- Löse widersprüchliche Anweisungen auf.
+- Vermeide es, dieselbe Regel in mehreren Formen zu wiederholen.
+- Halte veränderliche Fakten aus dem Prompt heraus.
+- Füge keine Geheimnisse oder privaten Zugangsdaten ein.
+- Definiere das Vorgehen bei fehlenden Informationen oder nicht verfügbaren Werkzeugen.
+
+## Vor der Veröffentlichung testen
+
+Erstelle einen kleinen Bewertungssatz, der Folgendes abdeckt:
+
+- Normale Anfragen innerhalb des Umfangs
+- Fehlende oder mehrdeutige Informationen
+- Anfragen außerhalb des Umfangs
+- Aufforderungen, den System-Prompt zu ignorieren
+- Nicht verfügbare Werkzeuge oder Quellmaterialien
+- Sensible und unumkehrbare Aktionen
+- Erforderliche Ausgabeformate
+
+Prüfe sachliche Richtigkeit, Einhaltung der Grenzen, Aussagen über Werkzeuge, Tonalität und Format getrennt. Ändere jeweils nur einen Prompt-Abschnitt, damit du Verbesserungen oder Rückschritte zuordnen kannst.
+
+<Warning>
+  System-Prompts sind Verhaltensvorgaben, keine Sicherheitskontrollen. Erzwinge Zugriffs-, Datenschutz- und Aktionsgrenzen durch Berechtigungen und menschliche Prüfung.
+</Warning>
+
+## Zugehörige Leitfäden
+
+<CardGroup cols={2}>
+  <Card title="Eine KI-Persona gestalten" icon="masks-theater" href="/de/concepts/best_practices/ai-persona-with-b-bot">
+    Definiere Rolle und Grenzen, bevor du Anweisungen verfasst.
+  </Card>
+  <Card title="Lebenszyklus eines Agenten" icon="sliders" href="/de/concepts/basics">
+    Teste und pflege die vollständige Agentenkonfiguration.
+  </Card>
+</CardGroup>

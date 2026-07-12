@@ -1,0 +1,119 @@
+---
+title: 'DeepAgents'
+description: 'Découvrez comment DeepAgents utilise les tâches, les fichiers d’espace de travail, les outils et la validation humaine pour les travaux en plusieurs étapes.'
+icon: 'robot'
+---
+
+# DeepAgents
+
+DeepAgents est le mode de B-Bot Hub destiné aux travaux qui bénéficient d’une planification et d’artefacts intermédiaires. Un DeepAgent peut utiliser une liste de tâches et des fichiers d’espace de travail pour traiter une demande en plusieurs étapes. Les outils et actions disponibles dépendent de l’Agent, de la session et de l’environnement.
+
+## Concepts fondamentaux
+
+<CardGroup cols={2}>
+  <Card title="Tâches" icon="list-check">
+    Un plan visible permet de diviser un objectif en étapes plus petites et d’afficher la progression.
+  </Card>
+  <Card title="Fichiers d’espace de travail" icon="folder-open">
+    Les entrées, notes, codes, données et résultats peuvent être organisés dans l’espace de travail.
+  </Card>
+  <Card title="Outils" icon="toolbox">
+    Les outils configurés peuvent permettre au DeepAgent de récupérer des informations, traiter des fichiers, exécuter du code ou interagir avec des services connectés.
+  </Card>
+  <Card title="Validation humaine" icon="hand">
+    Des contrôles avec intervention humaine peuvent imposer une validation avant certaines actions.
+  </Card>
+</CardGroup>
+
+## Workflow conceptuel
+
+```text
+Objectif
+  -> clarifier les exigences
+  -> créer ou mettre à jour les tâches
+  -> utiliser les outils autorisés et les fichiers d’espace de travail
+  -> vérifier les résultats intermédiaires
+  -> demander une approbation lorsque nécessaire
+  -> présenter les résultats et les problèmes non résolus
+```
+
+Une tâche marquée comme terminée indique uniquement l’état du workflow. Elle ne prouve pas que le résultat est correct.
+
+## Quand utiliser DeepAgents
+
+DeepAgents peut être utile pour :
+
+- Les projets comportant plusieurs étapes dépendantes
+- Les travaux qui produisent ou révisent plusieurs fichiers
+- Les analyses qui nécessitent des hypothèses visibles et des contrôles intermédiaires
+- Les longues demandes qui bénéficient d’une liste de tâches maintenue
+- Les workflows dans lesquels des personnes doivent valider les actions proposées
+
+Un chat standard peut être plus simple pour une question directe, une courte reformulation ou toute autre tâche qui ne nécessite pas d’espace de travail.
+
+## Formuler une bonne demande pour un DeepAgent
+
+Incluez :
+
+- Le résultat attendu et le public visé
+- Les données d’entrée et les sources de référence
+- Les contraintes, exclusions et critères de qualité
+- Les outils et actions autorisés
+- Les noms de fichiers ou formats de sortie requis
+- Les actions nécessitant une approbation
+- Une définition claire de l’achèvement
+
+Exemple :
+
+```text
+Analysez le fichier CSV joint et préparez un rapport vérifiable.
+
+Créez des tâches pour l’inspection, le nettoyage et l’analyse des données, la validation et la rédaction du rapport.
+Ne modifiez pas le fichier source.
+Consignez chaque transformation dans un fichier distinct.
+Demandez une approbation avant d’exécuter du code qui écrit de nouveaux fichiers de sortie.
+N’envoyez pas les données à des services externes.
+Le travail est terminé lorsque les totaux sont rapprochés et que le rapport énumère les hypothèses.
+```
+
+## Intervention humaine
+
+Utilisez la validation humaine pour les actions sensibles, irréversibles, visibles à l’extérieur ou coûteuses. Par exemple :
+
+- Envoyer des messages ou publier du contenu
+- Modifier des enregistrements ou des autorisations
+- Exécuter du code inconnu
+- Utiliser des données privées avec un service externe
+- Déclencher des achats, des paiements ou des déploiements
+
+L’intervention humaine réduit les risques, mais ne rend pas une action sûre à elle seule. La personne chargée de la validation doit disposer d’un contexte suffisant pour comprendre la proposition.
+
+## Bonnes pratiques pour l’espace de travail
+
+- Séparez les entrées d’origine des fichiers générés.
+- Utilisez des noms de fichiers explicites.
+- Consignez les hypothèses et les décisions.
+- Examinez le code généré avant de l’exécuter.
+- Téléchargez ou conservez les résultats importants conformément à votre politique de données.
+- Vérifiez le comportement et la durée de conservation de l’espace de travail pour le workflow concerné.
+
+<Warning>
+  Accordez uniquement les outils et autorisations nécessaires à la tâche. Un prompt système ne constitue pas une limite de contrôle d’accès.
+</Warning>
+
+## Guides associés
+
+<CardGroup cols={2}>
+  <Card title="Espace de travail DeepAgents" icon="folder-tree" href="/essentials/deepagents-workspace">
+    Découvrez comment activer et utiliser les fonctionnalités de l’espace de travail.
+  </Card>
+  <Card title="Tâches" icon="calendar-check" href="/essentials/tasks">
+    Découvrez les tâches planifiées et à la demande.
+  </Card>
+  <Card title="Analyse de données" icon="chart-line" href="/fr/concepts/use_cases/data-analysis">
+    Appliquez DeepAgents à un workflow d’analyse vérifiable.
+  </Card>
+  <Card title="Création de contenu" icon="pen-to-square" href="/fr/concepts/use_cases/content-creation">
+    Organisez un workflow éditorial en plusieurs étapes.
+  </Card>
+</CardGroup>

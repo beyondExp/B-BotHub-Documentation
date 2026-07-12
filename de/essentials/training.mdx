@@ -1,0 +1,64 @@
+---
+title: "Training"
+description: "Beispielunterhaltungen erstellen und ein Modell für einen Agenten fein abstimmen"
+icon: "graduation-cap"
+---
+
+# Training
+
+Training wandelt Beispielunterhaltungen in einen Fine-Tuning-Job für einen Agenten um. Jede Trainingssitzung enthält geordnete Benutzer- und Assistentenschritte und speichert den Jobstatus.
+
+<Warning>Training unterscheidet sich von Wissen. [Wissen](/de/essentials/knowledge) ruft bei Bedarf Informationen aus hochgeladenen Dokumenten ab. Training sendet Beispielunterhaltungen an einen Modell-Provider, um ein feinabgestimmtes Modell zu erstellen.</Warning>
+
+## Vor dem Start
+
+Wählen Sie den zu trainierenden Agenten. Eine neue Sitzung wird mit ihm verknüpft und kann seine konfigurierten Modelle verwenden.
+
+## Sitzung erstellen oder öffnen
+
+1. Öffnen Sie **Training**.
+2. Wählen Sie **Neue Trainingssitzung**.
+3. Geben Sie einen klaren Namen und optional eine Beschreibung ein.
+4. Wählen Sie **Erstellen**.
+
+Die Übersicht zeigt Name, Beschreibung, Beispielanzahl und Status. Öffnen Sie eine Karte oder löschen Sie nicht mehr benötigte Sitzungen.
+
+<Tip>Verwenden Sie pro Verhalten oder Antwortstil eine Sitzung. `Antworten bei Support-Eskalationen` ist leichter zu prüfen als `Training 1`.</Tip>
+
+## Modell wählen
+
+Wählen Sie in der Sitzung ein **Basismodell** aus den Modellen des Agenten. Ist keines verfügbar, konfigurieren Sie zunächst eines. Wissensdokumente werden nicht automatisch als Trainingsbeispiele verwendet.
+
+## Unterhaltungsbeispiele hinzufügen
+
+Jedes Beispiel ist eine geordnete Unterhaltung:
+
+```text
+Benutzer: Meine Bestellung kam beschädigt an. Was soll ich tun?
+Assistent: Es tut mir leid, dass Ihre Bestellung beschädigt ankam. Bitte senden Sie Bestellnummer und ein Foto des Pakets, damit ich beim nächsten Schritt helfen kann.
+```
+
+Wählen Sie **Beispiel hinzufügen**. Geben Sie Text ein, wählen Sie Benutzer- oder Assistentenrolle, fügen Sie Schritte hinzu, löschen Sie unnötige Schritte und duplizieren oder entfernen Sie Beispiele. Formulieren Sie die gewünschte Antwort, halten Sie Rollen korrekt, geben Sie ausreichend Kontext und vermeiden Sie widersprüchliche Antworten.
+
+## Speichern und Fine-Tuning starten
+
+Mit **Speichern** sichern Sie Sitzung und Beispiele ohne Jobstart. Prüfen Sie Agent, Basismodell und alle Schritte und wählen Sie **Training starten**. Der Hub speichert vorher. Mindestens ein Schritt muss Text enthalten und es darf kein Job aktiv sein.
+
+## Jobstatus verfolgen
+
+- **Entwurf:** Noch kein Job gestartet
+- **In Warteschlange:** Vom Provider angenommen
+- **Daten werden geprüft:** Trainingsdaten werden validiert
+- **Training läuft:** Fine-Tuning läuft
+- **Bereitstellung:** Ergebnis wird vorbereitet
+- **Abgeschlossen:** Modellkennung wird angezeigt
+- **Fehlgeschlagen:** Job endete mit Fehler
+- **Abgebrochen:** Aktiver Job wurde abgebrochen
+
+Ein aktiver Job kann im Status-Panel abgebrochen werden. Dort erscheinen gegebenenfalls trainierte Tokens oder Provider-Fehler.
+
+## Training und Wissen
+
+Verwenden Sie [Wissen](/de/essentials/knowledge) für bearbeitbare Fakten aus Dokumenten und Training für wiederholte Beispiele des gewünschten Antwortverhaltens. Aktualisieren Sie Quellen bei Faktenänderungen und erstellen Sie für neues Verhalten eine neue geprüfte Trainingssitzung.
+
+<Card title="Wissen" icon="book-open" href="/de/essentials/knowledge">Fügen Sie Dokumente als fundierten Kontext hinzu.</Card>
