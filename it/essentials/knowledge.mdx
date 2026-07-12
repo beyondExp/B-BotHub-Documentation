@@ -1,0 +1,121 @@
+---
+title: "Conoscenza"
+description: "Gestisci domini di recupero, documenti, grafi e accessi per un Agente"
+icon: "book-open"
+---
+
+# Conoscenza
+
+Conoscenza organizza i documenti di origine in domini dai quali un Agente può recuperare informazioni verificate quando ne ha bisogno. Aprila dal collegamento nella pagina [Risorse](/it/essentials/resources).
+
+<Info>
+  Il recupero dalla Conoscenza non esegue il fine-tuning di un modello. Per
+  insegnare schemi di risposta tramite conversazioni di esempio, usa [Addestramento](/it/essentials/training).
+</Info>
+
+## Selezionare un Agente
+
+Prima di aprire Conoscenza, seleziona l'Agente di cui vuoi gestire le informazioni. La pagina elenca i domini disponibili per quell'Agente.
+
+## Creare, collegare o eliminare un dominio
+
+Seleziona **Nuovo dominio** per creare un dominio:
+
+1. Inserisci un nome.
+2. Aggiungi una descrizione facoltativa.
+3. Seleziona **Crea**.
+
+L'Hub normalizza il nome per usarlo come chiave del dominio. Seleziona il nome sulla scheda per aprirlo.
+
+Seleziona **Attach domain** per riutilizzare un dominio di un altro Agente. Scegli l'Agente di origine e uno dei suoi domini, quindi seleziona **Attach**. Il dominio collegato usa gli stessi documenti e lo stesso grafo. Queste etichette possono comparire in inglese nell'interfaccia attuale.
+
+Usa l'azione di eliminazione sulla scheda per rimuovere il dominio dall'Agente selezionato. Controlla Agente e dominio prima di eliminarlo.
+
+## Lavorare in un dominio
+
+Un dominio modificabile ha quattro schede:
+
+- **Documenti**: carica, elabora, apri, modifica ed elimina i documenti di origine.
+- **Grafo**: esplora entità estratte e relazioni.
+- **Studio**: crea viste e output supportati dal contenuto del dominio.
+- **Impostazioni**: gestisci i dettagli del dominio e i tipi di entità usati dal grafo.
+
+Gli utenti con accesso di sola visualizzazione possono esaminare il contenuto senza controlli di modifica.
+
+## Aggiungere e gestire documenti
+
+In **Documenti**, trascina i file nell'area di caricamento o selezionali dal dispositivo. Sono supportati:
+
+- PDF (`.pdf`)
+- Markdown (`.md`)
+- Testo semplice (`.txt`)
+- Word (`.docx`)
+
+Dopo il caricamento, il documento risulta in elaborazione mentre l'Hub ne estrae il contenuto. La scheda di un documento elaborato mostra stato e numero di sezioni.
+
+Seleziona un documento per aprirlo. Se puoi modificare il dominio, aggiorna il contenuto e salvalo: il salvataggio aggiorna il testo archiviato e le informazioni estratte nel grafo. Puoi anche eliminare un documento dalla sua scheda.
+
+L'editor può esportare il contenuto in PDF e aprire i controlli di condivisione del dominio.
+
+## Esplorare entità e relazioni
+
+La scheda **Grafo** visualizza le entità estratte dai documenti e le relative relazioni.
+
+Puoi:
+
+- filtrare il grafo per tipo di entità
+- regolare il numero massimo di nodi mostrati
+- selezionare un'entità per esaminarne tipo, descrizione, alias, attributi, numero di documenti, affidabilità ed entità correlate
+- usare l'elenco delle entità per trovare e selezionare un nodo
+
+## Usare Studio
+
+La scheda **Studio** offre tre strumenti:
+
+- **Podcast**: crea un podcast dai documenti.
+- **Tabella**: visualizza le entità del grafo in una tabella.
+- **Mappa mentale**: visualizza entità e relazioni come mappa mentale.
+
+Tabella e Mappa mentale usano il grafo del dominio. Aggiungi ed elabora i documenti prima di usare queste viste.
+
+## Aggiornare le impostazioni del dominio
+
+Usa **Impostazioni** per aggiornare nome e descrizione. Puoi inoltre selezionare categorie di entità standard o aggiungere tipi personalizzati sui quali concentrare il grafo.
+
+## Controllare visibilità e ruoli
+
+Apri un documento e seleziona **Condividi** per gestire l'accesso al dominio.
+
+Scegli una visibilità:
+
+- **Privato**: accesso limitato.
+- **Azienda**: accesso tramite l'azienda attiva.
+- **Pubblico**: dominio visibile pubblicamente.
+
+Quando sono disponibili membri dell'azienda, assegna a ciascuno:
+
+- **Nessun accesso**: nessun accesso esplicito.
+- **Può visualizzare**: può vedere il dominio condiviso.
+- **Può modificare**: può modificare il dominio condiviso.
+
+La condivisione si applica all'intero dominio, non solo al documento aperto.
+
+## Conoscenza e Addestramento
+
+Le due funzionalità risolvono problemi diversi:
+
+- Conoscenza recupera informazioni aggiornate dai documenti gestiti al momento della risposta.
+- Addestramento esegue il fine-tuning da esempi di conversazioni tra utente e assistente.
+- I documenti di Conoscenza possono essere modificati o eliminati quando cambiano i fatti.
+- Le esecuzioni di Addestramento creano processi presso il provider e i relativi modelli sottoposti a fine-tuning.
+
+## Passaggi successivi
+
+<CardGroup cols={2}>
+  <Card title="Risorse" icon="folder-open" href="/it/essentials/resources">
+    Torna agli output delle conversazioni, alle anteprime dei progetti e alle Memorie.
+  </Card>
+  <Card title="Addestramento" icon="graduation-cap" href="/it/essentials/training">
+    Crea esempi di conversazione e avvia il fine-tuning.
+  </Card>
+</CardGroup>

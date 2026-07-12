@@ -1,36 +1,141 @@
-## Establishing the Foundation of Your AI Persona
+---
+title: 'Craft a System Prompt'
+description: 'Write clear, testable, and maintainable system instructions for an AI Agent.'
+icon: 'message'
+---
 
-### Overview
+# Craft a System Prompt
 
-The system prompt is a crucial element in shaping your AI persona's identity, tone, and purpose. Think of it as the AI's "wake word" that defines how it behaves and interacts with users. Here’s a detailed look at its components and their significance:
+A system prompt defines the role, priorities, and behavioral boundaries of an AI Agent. It influences model behavior, but it does not guarantee compliance, add permissions, or make information true.
 
-### Key Components of the System Prompt
+## Recommended Structure
 
-1. **Identity**: This establishes who the AI persona is. It includes:
-   - **Name**: The name of your AI persona which users will refer to.
-   - **Profession**: The role or expertise of the AI persona (e.g., Customer Support Agent, Technical Expert).
-   - **Description**: A brief summary of what the AI persona does and its purpose.
+### 1. Role and Purpose
 
-2. **Tone**: Defines the personality and manner in which the AI persona communicates. This could be formal, friendly, professional, or casual, depending on your target audience and use case.
+State who the Agent serves and what it should help them accomplish.
 
-3. **Purpose**: Clarifies the main objectives of the AI persona. It answers the question, “What is the  AI here to achieve?” This could range from providing customer support to assisting with technical queries.
+```text
+You are a customer support triage Agent for [organization].
+Help users find approved troubleshooting information and prepare clear handoffs.
+```
 
-### Crafting the System Prompt in B-Bot Hub
+### 2. Scope
 
-In the B-Bot Hub, creating a system prompt is part of a comprehensive persona creation workflow. Here’s how you can do it:
+List supported tasks and important exclusions.
 
-1. **Defining the Persona’s Name and Profession**: Start by selecting a name and profession that aligns with the AI’s intended role. This helps set expectations for the user and reinforces the AI’s purpose.
+```text
+You may explain documented setup and troubleshooting steps.
+You must not change accounts, approve refunds, or make policy exceptions.
+```
 
-2. **Writing the Description**: Craft a clear and concise description that outlines the persona’s capabilities and objectives. This should be informative and engaging to ensure users understand the AI’s role.
+### 3. Source Rules
 
-3. **Fine-Tuning Elements**: Adjust additional settings and elements to refine the AI persona’s behavior and responses. This includes setting parameters for tone and adjusting interaction styles based on user needs.
+Explain which information is authoritative and what to do when it is missing.
 
-4. **Integration**: Once you’ve defined the system prompt and other elements, integrate them into the persona creation workflow. This ensures that the AI persona consistently adheres to the defined identity, tone, and purpose across all interactions.
+```text
+Use the approved knowledge sources for product and policy facts.
+If the sources do not support an answer, say what is missing.
+Do not invent links, quotations, tool results, or completed actions.
+```
 
-### Practical Tips
+### 4. Interaction Rules
 
-- **Be Specific**: The more detailed your system prompt, the better the AI persona will perform. Include specific instructions and examples where possible.
-- **Consistency**: Ensure that the tone and purpose are consistent with your brand and user expectations.
-- **Testing**: Test the AI persona in different scenarios to ensure that it responds appropriately and maintains its intended tone and behavior.
+Describe how the Agent should gather information and present results.
 
-By carefully crafting and refining the system prompt, you can establish a strong foundation for your AI persona, ensuring that it effectively represents your brand and meets user expectations.
+```text
+Ask one focused question when required information is missing.
+Use short steps in the order they should be completed.
+Separate confirmed facts from suggestions.
+```
+
+### 5. Safety and Escalation
+
+Define sensitive data rules, prohibited actions, and handoff conditions.
+
+```text
+Do not request passwords or unnecessary personal data.
+Escalate requests involving identity verification, legal commitments,
+financial decisions, or irreversible changes.
+```
+
+### 6. Output Format
+
+Specify a format only when the workflow needs one.
+
+```text
+Return:
+1. Summary
+2. Recommended next step
+3. Source or reason for escalation
+```
+
+## Complete Template
+
+```text
+Role
+You are [role] for [users or organization].
+
+Purpose
+Help users [supported outcome].
+
+Scope
+- Support: [tasks]
+- Do not: [tasks or claims]
+
+Sources and tools
+- Use: [authoritative sources]
+- Use tools only for: [approved actions]
+- Never claim an action succeeded without confirmation.
+
+Interaction
+- Ask for: [required context]
+- Respond with: [tone and level of detail]
+- If uncertain: [fallback behavior]
+
+Safety and escalation
+- Do not collect: [sensitive data]
+- Stop or escalate when: [conditions]
+
+Output
+- Format: [required structure]
+- Include: [sources, assumptions, or limitations]
+```
+
+## Writing Principles
+
+- Use direct, observable instructions.
+- Put the most important rules early.
+- Resolve conflicting instructions.
+- Avoid repeating the same rule in several forms.
+- Keep changing facts outside the prompt.
+- Do not include secrets or private credentials.
+- Define what to do when information or a tool is unavailable.
+
+## Test Before Release
+
+Create a small evaluation set that covers:
+
+- Normal in-scope requests
+- Missing or ambiguous information
+- Out-of-scope requests
+- Requests to ignore the system prompt
+- Unavailable tools or source material
+- Sensitive and irreversible actions
+- Required output formats
+
+Review factual accuracy, boundary handling, tool claims, tone, and format separately. Change one prompt section at a time so you can identify what improved or regressed.
+
+<Warning>
+  System prompts are behavioral guidance, not security controls. Enforce access, privacy, and action limits with permissions and human review.
+</Warning>
+
+## Related Guides
+
+<CardGroup cols={2}>
+  <Card title="Design an AI Persona" icon="masks-theater" href="/concepts/best_practices/ai-persona-with-b-bot">
+    Define the role and boundaries before writing instructions.
+  </Card>
+  <Card title="Agent Lifecycle" icon="sliders" href="/concepts/basics">
+    Test and maintain the full Agent configuration.
+  </Card>
+</CardGroup>

@@ -1,0 +1,101 @@
+---
+title: 'Workflows'
+description: 'Créer, tester, exécuter et publier des workflows d’Agent'
+icon: 'diagram-project'
+---
+
+# Workflows
+
+Les Workflows relient des Agents, actions d’application, décisions et validations humaines dans une automatisation visuelle. Ouvrez **Workflows** dans la barre latérale pour consulter ceux qui sont enregistrés ou en créer un.
+
+![Modèles de workflows dans B-Bot Hub](/images/concepts/workflows-overview.png)
+
+## Partir de la liste ou d’un modèle
+
+La page Workflows affiche :
+
+- des modèles de qualification de prospects, tri de tickets d’assistance et réception de documents ;
+- les workflows enregistrés, avec leur état brouillon ou actif, leur nombre d’étapes et leur déclencheur ;
+- **Nouveau workflow** pour partir d’un workflow vide.
+
+Un modèle ouvre le générateur avec ses étapes déjà disposées. Un workflow enregistré s’ouvre en modification.
+
+Commencez par le chemin le plus court qui démontre le résultat attendu. Ajoutez des branches ou intégrations après sa réussite.
+
+## Construire sur le canevas
+
+Ajoutez des nœuds depuis la palette et placez-les sur le canevas. Reliez la sortie d’un nœud à l’entrée d’un autre pour définir l’ordre d’exécution et les branches. Sélectionnez un nœud pour ouvrir sa configuration.
+
+B-Bot Hub prend en charge :
+
+- **Déclencheur**
+- **Étape Agent**
+- **Action**
+- **Condition If**
+- **Switch**
+- **Pour chaque**
+- **Boucle While**
+- **Attendre**
+- **Fusionner**
+- **Approbation humaine**
+- **Mise à jour de tâche**
+- **Arrêter**
+
+Les paramètres varient selon le type. Une étape Agent sélectionne par exemple un Agent et un prompt ; une Action sélectionne un Agent connecté, une connexion d’application et une action.
+
+## Mapper les données entre les nœuds
+
+Les nœuds Agent et Action définissent des champs d’entrée et de sortie. Dans l’éditeur de mappage, associez chaque entrée à la sortie d’un nœud précédent. Des noms de champs clairs et des sorties d’Agent structurées fiabilisent les conditions, switches et mappages ultérieurs.
+
+Pour les branches, reliez les sorties libellées aux bons chemins. Pour les boucles, reliez le chemin de boucle aux étapes répétées et le chemin terminé aux étapes suivantes.
+
+## Enregistrer, tester et examiner les exécutions
+
+<Steps>
+  <Step title="Enregistrer">
+    Enregistrez le workflow comme brouillon. Il reçoit l’identifiant nécessaire
+    aux exécutions et déclencheurs configurés.
+  </Step>
+  <Step title="Lancer un test">
+    Sélectionnez **Test**. Le générateur enregistre d’abord les changements, puis
+    place une exécution de test en file.
+  </Step>
+  <Step title="Examiner les exécutions">
+    Ouvrez **Exécutions** pour consulter l’état et les détails des nœuds. Une
+    exécution peut attendre une validation à un nœud d’approbation humaine ou
+    avant une action qui l’exige.
+  </Step>
+  <Step title="Publier">
+    Sélectionnez **Publier** pour activer le workflow. Utilisez **Dépublier**
+    pour le remettre à l’état de brouillon.
+  </Step>
+</Steps>
+
+## Configurer les déclencheurs après l’enregistrement
+
+Le nœud Déclencheur prend en charge :
+
+- **Exécution manuelle**
+- **Planning**
+- **Webhook**
+- **Polling**
+- **Déclencheur d’application**
+
+Après l’enregistrement, ouvrez **Déclencheurs** pour créer et gérer les déclencheurs opérationnels. Vous pouvez ajouter des webhooks et des plannings à intervalles prédéfinis, copier une URL webhook, activer ou désactiver un déclencheur et le supprimer.
+
+<Info>
+  Les déclencheurs configurés ne sont actifs que lorsque le workflow est publié.
+</Info>
+
+Avant de publier, testez des entrées représentatives par rapport aux résultats attendus. Pour diagnostiquer un échec, ne modifiez qu’un élément de configuration à la fois et relancez la même entrée.
+
+## Guides associés
+
+<CardGroup cols={2}>
+  <Card title="Applications" icon="grid-2-plus" href="/fr/essentials/apps">
+    Connectez des applications Composio et serveurs MCP aux étapes Action et Déclencheur d’application.
+  </Card>
+  <Card title="Tâches" icon="list-check" href="/fr/essentials/tasks">
+    Découvrez le fonctionnement des exécutions et espaces de travail des tâches.
+  </Card>
+</CardGroup>

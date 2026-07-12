@@ -1,0 +1,93 @@
+---
+title: 'Architettura degli Agenti'
+description: 'Una visione concettuale di come richieste, configurazione dell’Agente, modelli, contesto, strumenti e Canali di distribuzione interagiscono.'
+icon: 'diagram-project'
+---
+
+# Architettura degli Agenti
+
+B-Bot Hub separa la definizione di un Agente IA dall'esperienza usata per accedervi. Questa pagina descrive tale relazione a livello concettuale. Non è una specifica dei servizi interni né dell'ordine di esecuzione.
+
+## Livelli principali
+
+<CardGroup cols={2}>
+  <Card title="Esperienza utente" icon="window">
+    Una chat o un altro Canale di distribuzione riceve l'input e presenta il risultato.
+  </Card>
+  <Card title="Configurazione dell'Agente" icon="user-robot">
+    Identità, istruzioni di sistema, abilità, scelta del modello e capacità consentite definiscono l'Agente.
+  </Card>
+  <Card title="Contesto e capacità" icon="toolbox">
+    Il contesto della conversazione, la conoscenza, le app, gli strumenti, le modalità e i membri del team forniscono input o azioni specifici per l'attività.
+  </Card>
+  <Card title="Modello" icon="microchip">
+    Il modello selezionato interpreta il contesto disponibile e genera una risposta o propone l'uso di uno strumento.
+  </Card>
+</CardGroup>
+
+## Flusso concettuale di una richiesta
+
+```text
+Utente o sistema
+  -> Canale di distribuzione
+  -> impostazioni della conversazione ed elaborazione dell'input
+  -> istruzioni dell'Agente e contesto disponibile
+  -> modello selezionato
+  -> conoscenza, strumenti, app o membri del team consentiti
+  -> risposta, file o azione proposta
+  -> Canale di distribuzione
+```
+
+Non tutte le richieste utilizzano ogni livello. Una domanda testuale diretta può richiedere solo istruzioni e un modello. Una richiesta DeepAgents in più fasi può usare anche attività, file dello spazio di lavoro e punti di revisione.
+
+## Configurazione e autorizzazione
+
+Le istruzioni indicano al modello come dovrebbe comportarsi. Le autorizzazioni determinano a cosa il sistema circostante gli consente di accedere o cosa gli consente di fare. Si tratta di controlli distinti.
+
+- Usa il prompt di sistema per ruolo, priorità e limiti comportamentali.
+- Usa le autorizzazioni di app, strumenti e account per il controllo degli accessi.
+- Usa la revisione human-in-the-loop per le azioni sensibili proposte.
+- Usa le impostazioni del Canale di distribuzione per definire come viene resa disponibile un'esperienza.
+
+<Warning>
+  Non considerare un'istruzione del prompt come "non accedere mai a dati privati" un sostituto delle autorizzazioni tecniche. Rimuovi gli accessi non necessari al workflow.
+</Warning>
+
+## Stato e contesto
+
+Il contesto disponibile per una richiesta può includere la conversazione corrente, le istruzioni dell'Agente, la conoscenza recuperata, i risultati degli strumenti e gli artefatti dello spazio di lavoro. Disponibilità e conservazione dipendono dalla funzionalità e dalla configurazione.
+
+Poiché il contesto è limitato e può cambiare:
+
+- Mantieni concise le istruzioni e risolvi eventuali conflitti.
+- Recupera solo il materiale di origine pertinente.
+- Archivia gli artefatti intermedi di grandi dimensioni nei file dello spazio di lavoro quando opportuno.
+- Verifica che lo stato importante sia presente prima di proseguire un'attività.
+- Non dare per scontato che le informazioni di un'altra sessione o di un altro canale siano disponibili.
+
+## Gestione degli errori
+
+Progetta ogni livello affinché gestisca gli errori in modo chiaro:
+
+- Un input non valido o non supportato deve produrre un messaggio che indichi come procedere.
+- La mancanza di conoscenza deve produrre un'espressione di incertezza o una richiesta di informazioni.
+- Un errore dello strumento non deve essere descritto come un successo.
+- Le azioni sensibili devono interrompersi nel punto di revisione configurato.
+- Il Canale di distribuzione deve comunicare lo stato finale all'utente.
+
+## Concetti correlati
+
+<CardGroup cols={2}>
+  <Card title="Agenti IA" icon="user-robot" href="/it/concepts/introduction">
+    Scopri la terminologia della configurazione di un Agente.
+  </Card>
+  <Card title="Ciclo di vita e configurazione" icon="sliders" href="/it/concepts/basics">
+    Progetta, testa, distribuisci e mantieni un Agente.
+  </Card>
+  <Card title="DeepAgents" icon="robot" href="/it/concepts/deepagents/introduction">
+    Comprendi gli spazi di lavoro in più fasi e i controlli di revisione.
+  </Card>
+  <Card title="Canali di distribuzione" icon="share-nodes" href="/essentials/distribution-channels">
+    Configura il modo in cui utenti e sistemi accedono a un Agente.
+  </Card>
+</CardGroup>

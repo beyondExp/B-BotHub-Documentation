@@ -1,0 +1,73 @@
+---
+title: 'Aufgaben'
+description: 'Automatisierungen mit Agenten planen, auslösen, prüfen und verwalten'
+icon: 'calendar-check'
+---
+
+# Aufgaben
+
+Aufgaben führen Anweisungen mit dem ausgewählten Agenten nach Zeitplan, per Webhook oder durch Polling aus. Wählen Sie vor dem Erstellen oder Anzeigen einen Agenten im Hub-Header.
+
+![Aufgabenbetrieb und Proaktiver Modus in B-Bot Hub](/images/documentation/tasks-overview.png)
+
+## Listen- und Kalenderansicht
+
+Verwalten Sie Aufgaben unter **Liste** und prüfen Sie geplante Läufe nach Datum unter **Kalender**. Die Liste zeigt Name, Anweisungen, Auslöser, nächsten Lauf und aktiven oder inaktiven Status. **Proaktiv** kennzeichnet die Systemaufgabe des Proaktiven Modus.
+
+Filtern Sie nach allen, aktiven oder inaktiven Aufgaben sowie nach allen, geplanten oder Webhook-Auslösern. **Aktualisieren** lädt die Daten neu; der Kalender verwendet dieselbe Filterung.
+
+## Aufgabe erstellen
+
+Wählen Sie **Neue Aufgabe** und geben Sie Folgendes an:
+
+1. Name und klare Anweisungen
+2. den Assistenten des ausgewählten Agenten
+3. Priorität: niedrig, mittel, hoch oder dringend
+4. optionale kommagetrennte Tags und ein Fälligkeitsdatum
+5. einen Auslösertyp
+
+### Zeitplan
+
+Wählen Sie einmalig, stündlich, täglich, wöchentlich, monatlich oder einen benutzerdefinierten Cron-Ausdruck. Der Zeitplan-Editor zeigt die relevanten Zeit-, Tages- oder Minutenfelder und eine Zusammenfassung.
+
+### Webhook
+
+Nach dem Speichern erstellt der Hub eine Webhook-URL, die ein externes System zum Auslösen aufrufen kann.
+
+### Polling
+
+Polling prüft eine Quelle im festgelegten Intervall:
+
+- **HTTP** ruft eine URL mit GET, POST oder PUT auf und bietet eine Testaktion.
+- **MCP** wählt ein Tool aus einer verbundenen MCP-App und übergibt JSON-Argumente.
+- **Composio** wählt eine Aktion aus einer verbundenen App und übergibt JSON-Argumente.
+
+Nur für den Agenten verfügbare verbundene Apps sind auswählbar. Ein erfolgreicher Quellentest garantiert nicht den Erfolg späterer Läufe.
+
+## Aufgaben verwalten
+
+In der Liste können Sie Details und Workspace öffnen, benutzerdefinierte Aufgaben bearbeiten, pausieren, fortsetzen oder löschen und bei Webhook-Aufgaben **Jetzt ausführen** verwenden. Lassen Sie neue Aufgaben inaktiv, bis Anweisungen und Auslöser geprüft sind.
+
+Details enthalten Job-ID, Auslöser, nächsten und letzten Lauf, Laufanzahl, Assistent, Priorität, Tags, Fälligkeit, Bereitschaft, Anzahl zugehöriger Threads und gegebenenfalls Webhook-URL.
+
+## Aufgaben-Workspace
+
+Jede Aufgabe besitzt drei Registerkarten:
+
+- **To-dos** zum Hinzufügen, Abschließen und Entfernen von Planungspunkten
+- **Dateien** zum Hinzufügen, Herunterladen und Entfernen kleiner Textdateien
+- **Generierte Dateien** für Dateien des letzten zugehörigen Laufs und den Link zu seiner Unterhaltung
+
+Manuell verwaltete To-dos und Dateien sind vom Live-Aufgabenstatus im Chat getrennt.
+
+## Betriebskonsole und Autonomie
+
+Die Betriebskonsole fasst offene Punkte, aktive Aufgaben, Läufe und letzte Aktivitäten zusammen. Der **Proaktive Modus** verwaltet eine Systemaufgabe im Sechs-Stunden-Rhythmus und kann nächsten Heartbeat, Bereitschaft, fehlenden Kontext, eine Rückfrage, **Jetzt ausführen**, **Autonomie zurücksetzen** und die Autonomie-Zeitleiste zeigen.
+
+Das Zurücksetzen startet den nächsten proaktiven Lauf neu. Der Modus steuert wiederkehrende Agentenarbeit, garantiert aber weder Erfolg noch die Zustellung an E-Mail, Chat-Kanäle, Datenbanken oder andere Ausgabesysteme.
+
+## Wo Ergebnisse erscheinen
+
+Läufe können Threads und Workspace-Dateien erzeugen. Prüfen Sie sie über Aufgabendetails, **Generierte Dateien** oder **Unterhaltung öffnen**. Webhooks und Polling sind Eingabeauslöser, keine garantierten Ausgabekanäle.
+
+Zu den Chat-Workspace-Panels siehe [DeepAgents Workspace](/de/essentials/deepagents-workspace).

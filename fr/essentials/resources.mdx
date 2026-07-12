@@ -1,0 +1,77 @@
+---
+title: "Ressources"
+description: "Retrouver les fichiers et projets créés dans les threads d’un Agent"
+icon: "folder-open"
+---
+
+# Ressources
+
+Ressources est un navigateur centré sur les threads pour les résultats créés dans les conversations avec un Agent. Il regroupe les fichiers sous le thread qui les a produits afin de rouvrir la conversation ou son résultat.
+
+![Navigateur de ressources dans B-Bot Hub](/images/documentation/resources-overview.png)
+
+Seuls les threads contenant des fichiers générés apparaissent. Les résultats sont regroupés en **Site web**, **Présentation** ou **Fichiers**.
+
+## Parcourir vos ressources
+
+Les boutons de portée permettent de choisir :
+
+- **Mes ressources :** threads et résultats associés à votre compte.
+- **Ressources de l’entreprise :** threads et résultats associés à l’entreprise active. Cette portée est indisponible sans entreprise active.
+
+La recherche porte sur le titre ou l’identifiant d’un thread. Activez **Agent sélectionné uniquement** pour limiter l’affichage aux threads de l’Agent actuel.
+
+Vous pouvez aussi actualiser la liste pour demander les dernières ressources disponibles.
+
+## Comprendre une carte de ressource
+
+Chaque carte représente un thread et affiche :
+
+- le type de résultat ;
+- le titre du thread ;
+- un identifiant abrégé et l’heure de mise à jour, si disponibles ;
+- les fichiers renvoyés ;
+- **Ouvrir le chat**, qui ouvre la conversation d’origine.
+
+Sélectionnez un fichier pour l’ouvrir. Le Markdown est mis en forme ; les autres textes pris en charge s’affichent dans une visionneuse. Un fichier doté d’une URL de téléchargement directe s’ouvre dans un nouvel onglet lorsqu’aucun chemin interne n’est disponible.
+
+Les fichiers Markdown peuvent être exportés en PDF. Si l’entreprise active possède un logo, le menu d’export permet de créer un PDF avec marque ou sans logo.
+
+## Prévisualiser les sites et présentations
+
+Les cartes Site web et Présentation proposent un aperçu de projet. Sélectionnez la zone d’aperçu pour l’ouvrir.
+
+- Un aperçu **Site web** peut afficher les paramètres **Déployer** et **Versions**.
+- Une **Présentation** fournit son aperçu sans paramètres de projet web.
+- Une ressource **Fichiers** affiche ses fichiers sans ouvrir d’aperçu de projet.
+
+Ces commandes n’apparaissent que pour les types compatibles.
+
+## Ouvrir Connaissances
+
+Sélectionnez le raccourci **Connaissances** en haut de Ressources pour gérer les domaines de récupération de l’Agent sélectionné. Les documents de connaissances sont distincts des fichiers générés dans les threads.
+
+Consultez [Connaissances](/fr/essentials/knowledge) pour la création de domaines, le traitement des documents, l’exploration du graphe et le partage.
+
+## Ouvrir Mémoires
+
+Sélectionnez **Mémoires** en haut de Ressources pour consulter les mémoires associées au contexte actuel ou à l’Agent sélectionné.
+
+Elles sont organisées en trois couches :
+
+- **Profil principal :** informations fondamentales associées au contexte de l’Agent.
+- **Long terme :** entrées persistantes qui peuvent être ajoutées et entretenues.
+- **Conversations :** résumés de conversation associés aux threads.
+
+Connaissances et Mémoires fournissent du contexte différemment : Connaissances récupère des informations depuis des documents gérés, tandis que Mémoires conserve un contexte en couches associé à l’Agent et à ses conversations.
+
+## Étapes suivantes
+
+<CardGroup cols={2}>
+  <Card title="Connaissances" icon="book-open" href="/fr/essentials/knowledge">
+    Créez des domaines et ajoutez des documents sources pour la récupération.
+  </Card>
+  <Card title="Entraînement" icon="graduation-cap" href="/fr/essentials/training">
+    Affinez un modèle à l’aide d’exemples de conversation.
+  </Card>
+</CardGroup>

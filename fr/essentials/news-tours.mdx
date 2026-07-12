@@ -1,0 +1,55 @@
+---
+title: 'Actualités, visites et intégration'
+description: 'Découvrir les nouveautés du produit et les parcours guidés du Hub'
+icon: 'compass'
+---
+
+# Actualités, visites et intégration
+
+B-Bot Hub propose trois expériences de découverte : les Actualités, les Visites et le processus d’intégration initial.
+
+![Visites guidées disponibles dans B-Bot Hub](/images/documentation/guided-tours.png)
+
+## Actualités
+
+Ouvrez **Actualités** pour parcourir les nouveautés du produit, annonces et notes de version.
+
+Vous pouvez :
+
+- rechercher dans les titres, résumés et contenus ;
+- filtrer par annonces, versions ou mises à jour ;
+- ouvrir les éléments épinglés ;
+- changer de page lorsque la pagination est disponible ;
+- ouvrir un élément pour lire sa page détaillée.
+
+Les Actualités réunissent des annonces intégrées et des éléments chargés depuis le service de contenu. Si la requête distante échoue, la page signale l’erreur et peut continuer d’afficher les annonces locales.
+
+Les routes actuelles sont `/news` pour la liste et `/news/:newsId` pour un élément.
+
+## Visites
+
+Ouvrez **Visites** pour parcourir les guides interactifs. Chaque carte affiche la durée estimée, la difficulté, les outils, la disponibilité et l’état d’achèvement.
+
+Les visites disponibles peuvent être lancées ou recommencées. Elles ouvrent la page concernée du Hub et mettent en évidence l’interface cible. Les cartes **Bientôt disponible** ne peuvent pas être lancées.
+
+Les routes actuelles sont `/tours` pour le catalogue et `/tour/:id` pour un lien direct.
+
+## Intégration
+
+Le processus d’intégration authentifié est accessible à l’adresse `/onboarding`. Il demande :
+
+1. le contexte de l’espace de travail, notamment la région, le secteur et éventuellement un site web ;
+2. un premier objectif ;
+3. une action de démarrage concernant un Agent, le Chat, les Tâches ou les clés fournisseurs.
+
+Vous pouvez ignorer l’intégration et continuer vers le tableau de bord.
+
+L’objectif sélectionné détermine la destination de **Démarrer le parcours principal**. Depuis le plan de démarrage, vous pouvez aussi ajouter une clé fournisseur ou ouvrir le Chat B-Bot.
+
+<Info>
+  Certains contenus de visite, commandes des Actualités et textes d’intégration
+  peuvent encore s’afficher en anglais lorsqu’une autre langue d’interface est
+  sélectionnée.
+</Info>
+
+Pour vos préférences, consultez [Paramètres](/fr/essentials/settings). Pour la page de départ principale, consultez [Tableau de bord](/fr/essentials/dashboard).

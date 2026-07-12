@@ -1,0 +1,108 @@
+---
+title: 'Creazione di contenuti'
+description: 'Progetta un workflow di contenuti ripetibile con brief chiari, verifica delle fonti e revisione editoriale umana.'
+icon: 'pen-to-square'
+---
+
+# Creazione di contenuti
+
+Un Agente IA per la creazione di contenuti può contribuire a sviluppare scalette, bozze, varianti e revisioni. I workflow più solidi separano la generazione dall'approvazione: le persone definiscono il brief, verificano le affermazioni fattuali, applicano il giudizio editoriale e autorizzano la pubblicazione.
+
+## Definisci l'accordo editoriale
+
+Configura l'Agente con:
+
+- Tipi di contenuti e pubblico destinatario
+- Voce del brand e terminologia richiesta
+- Argomenti, affermazioni ed espressioni vietati
+- Requisiti di formattazione e accessibilità
+- Requisiti relativi a fonti e citazioni
+- Un processo di revisione e approvazione
+
+Inserisci il comportamento stabile nel prompt di sistema. Mantieni i fatti soggetti a cambiamenti, i dettagli del prodotto e le informazioni sulle campagne in fonti aggiornate o nella richiesta.
+
+## Workflow consigliato
+
+<Steps>
+  <Step title="Brief">
+    Fornisci obiettivo, pubblico, canale, messaggio chiave, fatti richiesti, fonti, lunghezza, tono e invito all'azione.
+  </Step>
+  <Step title="Scaletta">
+    Chiedi una struttura prima di una bozza completa. Esamina ambito, enfasi e informazioni mancanti.
+  </Step>
+  <Step title="Bozza">
+    Genera il testo a partire dalla scaletta approvata. Richiedi all'Agente di segnalare le affermazioni non supportate e i segnaposto anziché colmare le lacune.
+  </Step>
+  <Step title="Revisione">
+    Verifica fatti, citazioni, regole del brand, requisiti legali, originalità, accessibilità e vincoli specifici del canale.
+  </Step>
+  <Step title="Modifica">
+    Fornisci feedback specifici legati al brief. Mantieni invariati i fatti approvati, a meno che una fonte non supporti la modifica.
+  </Step>
+  <Step title="Approva e pubblica">
+    Prevedi un passaggio di approvazione umana. La pubblicazione richiede un'integrazione configurata e autorizzata separatamente.
+  </Step>
+</Steps>
+
+## Esempio di brief
+
+```text
+Crea una scaletta per una guida di prodotto di 900 parole.
+
+Pubblico: amministratori che stanno valutando [prodotto]
+Obiettivo: spiegare il processo di configurazione senza avanzare affermazioni
+sulle prestazioni
+Tono: diretto, pacato e tecnico
+Fonti richieste: [link approvati o documenti allegati]
+Sezioni richieste: prerequisiti, configurazione, verifica, limitazioni
+Terminologia: usa "Agente IA" e "Canale di distribuzione"
+
+Non inventare funzionalità, esempi di clienti, citazioni o statistiche.
+Contrassegna le informazioni mancanti con [NEEDS INPUT].
+Restituisci solo una scaletta.
+```
+
+## Uso di DeepAgents
+
+Per un pacchetto di contenuti più ampio, DeepAgents può organizzare attività e file relativi a note di ricerca, scalette, bozze e commenti di revisione. Verifica quali strumenti sono disponibili prima di chiedere all'Agente di effettuare ricerche, creare contenuti multimediali o pubblicare.
+
+```text
+campaign/
+  source-notes.md
+  approved-claims.md
+  article-outline.md
+  article-draft.md
+  social-variations.md
+  review-checklist.md
+```
+
+## Checklist di qualità
+
+- Il contenuto soddisfa il brief approvato?
+- Nomi, date, link, citazioni e numeri sono stati verificati?
+- Ogni affermazione sostanziale può essere ricondotta a una fonte approvata?
+- Sono esclusi casi di studio o testimonianze inventati?
+- Il contenuto è appropriato per il pubblico e il canale?
+- Rispetta i requisiti del brand, di accessibilità, legali e di privacy?
+- Una persona ha approvato la versione finale?
+
+<Info>
+  Il fine-tuning può aiutare con schemi ripetuti di stile o formato, ma non rende aggiornati i fatti e non elimina la necessità della revisione.
+</Info>
+
+## Guide correlate
+
+<CardGroup cols={2}>
+  <Card title="Crea una persona IA" icon="masks-theater" href="/it/concepts/best_practices/ai-persona-with-b-bot">
+    Definisci ruolo, voce, limiti e set di valutazione.
+  </Card>
+  <Card title="Scrivi un prompt di sistema" icon="message" href="/it/concepts/best_practices/crafting-a-system-prompt">
+    Scrivi istruzioni per i contenuti chiare e facili da gestire.
+  </Card>
+  <Card title="Concetti di fine-tuning" icon="brain-circuit" href="/it/concepts/fine-tuning/introduction">
+    Scopri quando possono essere utili esempi o fine-tuning.
+  </Card>
+  <Card title="DeepAgents" icon="robot" href="/it/concepts/deepagents/introduction">
+    Organizza progetti di contenuti in più fasi.
+  </Card>
+</CardGroup>

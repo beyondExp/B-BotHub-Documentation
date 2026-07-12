@@ -1,0 +1,102 @@
+---
+title: 'Fine-tuning'
+description: 'Comprenez ce que modifie le fine-tuning, quand l’utiliser et comment évaluer un modèle entraîné en toute sécurité.'
+icon: 'brain-circuit'
+---
+
+# Fine-tuning
+
+Le fine-tuning poursuit l’entraînement d’un modèle de base pris en charge à partir d’exemples propres à une tâche. Il peut renforcer des schémas de réponse, une terminologie, un style ou une structure de sortie. Il n’ajoute pas automatiquement des connaissances fiables et actuelles, et ne garantit pas de meilleurs résultats.
+
+La prise en charge varie selon les modèles et les fournisseurs. Avant de préparer un jeu de données, vérifiez les modèles de base disponibles, le format des données, les limites et les coûts dans votre configuration B-Bot Hub.
+
+## Choisir la bonne méthode
+
+<CardGroup cols={3}>
+  <Card title="Prompt système" icon="message">
+    À utiliser pour les instructions, les priorités, le ton, les limites et les comportements susceptibles d’évoluer.
+  </Card>
+  <Card title="Recherche dans les connaissances" icon="book">
+    À utiliser pour les sources qui doivent rester actuelles, traçables ou faciles à remplacer.
+  </Card>
+  <Card title="Fine-tuning" icon="microchip">
+    À utiliser pour des exemples répétés du comportement ou du schéma de sortie que le modèle doit apprendre.
+  </Card>
+</CardGroup>
+
+Commencez par améliorer le prompt et les connaissances. Envisagez le fine-tuning lorsque la tâche est stable, que l’écart est mesurable, que vous disposez d’exemples représentatifs et qu’un modèle compatible est disponible.
+
+## Workflow de fine-tuning
+
+<Steps>
+  <Step title="Définir l’objectif">
+    Formulez un objectif d’amélioration précis, comme le respect d’un schéma de réponse ou l’application d’un style de support cohérent.
+  </Step>
+  <Step title="Créer un jeu d’évaluation">
+    Préparez des cas de test représentatifs avant l’entraînement. Séparez-les des exemples d’entraînement.
+  </Step>
+  <Step title="Préparer les exemples">
+    Utilisez des entrées claires et des sorties idéales validées. Incluez des cas normaux, des cas difficiles et des refus appropriés.
+  </Step>
+  <Step title="Examiner le jeu de données">
+    Supprimez les doublons, les contradictions, les données sensibles, les informations obsolètes et les exemples qui récompensent des affirmations non étayées.
+  </Step>
+  <Step title="Entraîner une version">
+    Sélectionnez un modèle de base pris en charge et utilisez les contrôles d’entraînement disponibles dans B-Bot Hub.
+  </Step>
+  <Step title="Comparer et décider">
+    Évaluez les versions de base et entraînée sur les mêmes cas réservés. N’adoptez la version entraînée que si elle améliore l’objectif défini sans régressions inacceptables.
+  </Step>
+</Steps>
+
+## Principes relatifs au jeu de données
+
+- **Représentatif :** correspond aux entrées réelles, y compris leur longueur et leur ambiguïté.
+- **Cohérent :** résout les contradictions de ton, de politique et de comportement attendu.
+- **Complet :** inclut suffisamment de contexte pour obtenir la réponse souhaitée.
+- **Actuel :** exclut les politiques, informations produit et liens obsolètes.
+- **Sûr :** exclut les secrets et données personnelles, sauf si leur collecte et leur utilisation sont approuvées.
+- **Équilibré :** inclut les cas où le bon comportement consiste à demander, refuser ou transmettre.
+
+Aucun nombre universel d’exemples ne garantit un modèle utile. Commencez par un jeu de données validé, mesurez le résultat, puis ajoutez des exemples qui corrigent les lacunes observées.
+
+## Évaluation
+
+Évaluez séparément les dimensions suivantes :
+
+- Réussite de la tâche et exactitude factuelle
+- Respect des instructions et du format
+- Expression appropriée de l’incertitude et refus
+- Robustesse face aux reformulations et aux cas limites
+- Régressions hors du comportement ciblé
+- Latence et coût dans l’environnement prévu
+
+Consignez la version du jeu de données, le modèle de base, la configuration et les résultats de l’évaluation afin que la décision puisse être reproduite.
+
+## Erreurs courantes
+
+<AccordionGroup>
+  <Accordion title="Utiliser le fine-tuning comme base de connaissances" icon="database">
+    Les informations qui changent fréquemment sont généralement plus faciles à maintenir dans une source de connaissances ou dans le contexte de la demande.
+  </Accordion>
+  <Accordion title="Entraîner et tester avec les mêmes exemples" icon="flask">
+    Cela mesure la mémorisation, et non les performances sur de nouvelles demandes. Conservez un jeu d’évaluation distinct.
+  </Accordion>
+  <Accordion title="Accepter des données synthétiques sans validation" icon="triangle-exclamation">
+    Les exemples générés peuvent contenir des erreurs et des schémas répétitifs. Examinez-les avant l’entraînement.
+  </Accordion>
+  <Accordion title="Présumer une amélioration" icon="chart-line">
+    La réussite d’une tâche d’entraînement ne prouve pas un meilleur comportement. Comparez le résultat au modèle de base.
+  </Accordion>
+</AccordionGroup>
+
+## Guides associés
+
+<CardGroup cols={2}>
+  <Card title="Guide d’entraînement" icon="graduation-cap" href="/essentials/training">
+    Utilisez l’interface d’entraînement de B-Bot Hub.
+  </Card>
+  <Card title="Distillation de modèle" icon="flask" href="/fr/concepts/fine-tuning/model-distillation">
+    Découvrez comment des exemples générés par un modèle enseignant peuvent enrichir un jeu de données de fine-tuning.
+  </Card>
+</CardGroup>

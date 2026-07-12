@@ -1,0 +1,98 @@
+---
+title: 'Attività'
+description: 'Pianifica, attiva, esamina e gestisci le automazioni degli Agenti'
+icon: 'calendar-check'
+---
+
+# Attività
+
+Le Attività eseguono istruzioni con l'Agente selezionato secondo una pianificazione, tramite webhook o polling. Prima di crearle o visualizzarle, seleziona un Agente nell'intestazione dell'Hub.
+
+![Operazioni delle Attività e Modalità proattiva in B-Bot Hub](/images/documentation/tasks-overview.png)
+
+## Viste Elenco e Calendario
+
+Usa **Elenco** per gestire le Attività e **Calendario** per controllare le esecuzioni pianificate per data.
+
+L'elenco mostra nome, istruzioni, trigger, prossima esecuzione e stato attivo o inattivo di ogni Attività. Il badge **Proattiva** identifica l'Attività di sistema usata dalla Modalità proattiva.
+
+Puoi filtrare l'elenco per:
+
+- stato: tutte, attive o inattive
+- trigger: tutti, pianificato o webhook
+
+**Aggiorna** ricarica i dati delle Attività. Il Calendario usa lo stesso insieme filtrato.
+
+## Creare un'Attività
+
+Seleziona **Nuova attività**, quindi specifica:
+
+1. Un nome e istruzioni chiare.
+2. L'assistente associato all'Agente selezionato.
+3. Una priorità: bassa, media, alta o urgente.
+4. Tag facoltativi separati da virgole e una data di scadenza.
+5. Un tipo di trigger.
+
+### Pianificazione
+
+Scegli un'esecuzione singola, oraria, giornaliera, settimanale, mensile o un'espressione cron personalizzata. Il generatore mostra i campi pertinenti per ora, giorno o minuto e presenta un riepilogo.
+
+### Webhook
+
+L'Hub crea un URL webhook dopo il salvataggio dell'Attività. Un sistema esterno può chiamarlo per avviarla.
+
+### Polling
+
+Il polling controlla una sorgente all'intervallo configurato:
+
+- **HTTP** chiama un URL con GET, POST o PUT e include un'azione di test.
+- **MCP** seleziona uno strumento da un'App MCP collegata e passa argomenti JSON.
+- **Composio** seleziona un'azione da un'App collegata e passa argomenti JSON.
+
+Sono selezionabili solo le App collegate disponibili per l'Agente. Il test di una sorgente conferma la richiesta, ma non garantisce la riuscita di ogni esecuzione successiva.
+
+## Gestire le Attività
+
+Dall'elenco puoi:
+
+- aprire i dettagli
+- aprire l'area di lavoro
+- modificare un'Attività creata dall'utente
+- sospenderla o riprenderla
+- eliminarla
+- usare **Esegui ora** per un'Attività webhook
+
+Mantieni inattiva una nuova Attività finché non ne hai verificato istruzioni e trigger. Attivala solo quando entrambi sono corretti.
+
+I dettagli includono ID del processo, trigger, prossima e ultima esecuzione, numero di esecuzioni, assistente, priorità, tag, scadenza, stato di preparazione, numero di conversazioni correlate e URL webhook, quando applicabile.
+
+## Area di lavoro dell'Attività
+
+Ogni Attività ha un pannello con tre schede:
+
+- **To-dos** consente di aggiungere, completare e rimuovere elementi di pianificazione.
+- **File** consente di aggiungere piccoli file di testo, scaricarli o rimuoverli.
+- **File generati** mostra i file dell'ultima esecuzione correlata e collega alla relativa conversazione.
+
+Le attività da fare e i file gestiti manualmente sono separati dallo stato in tempo reale dell'Agente in Chat. I file generati richiedono che un'esecuzione correlata produca file nell'area di lavoro.
+
+## Console operativa e autonomia
+
+La console operativa riepiloga elementi che richiedono attenzione, Attività attive, esecuzioni totali e attività recente per l'Agente selezionato.
+
+**Modalità proattiva** gestisce un'Attività di sistema con un ciclo di sei ore. Quando è attiva, la console può mostrare:
+
+- prossimo ciclo
+- punteggio di preparazione e contesto mancante
+- una domanda a cui rispondere per migliorare la preparazione
+- **Esegui ora**
+- **Reimposta autonomia**
+- sequenza temporale dell'autonomia
+
+La reimpostazione dell'autonomia fa ripartire da zero la successiva esecuzione proattiva. La Modalità proattiva controlla il lavoro ricorrente dell'Agente, ma non garantisce il completamento né la consegna tramite e-mail, canali di chat, database o altri sistemi di output.
+
+## Dove compaiono i risultati
+
+Le esecuzioni possono creare conversazioni e file correlati. Esaminali nei dettagli, in **File generati** o tramite **Apri conversazione**. Webhook e polling sono trigger di input, non canali di output garantiti.
+
+Per i pannelli dell'area di lavoro di Chat, consulta [Area di lavoro DeepAgents](/it/essentials/deepagents-workspace).

@@ -1,0 +1,50 @@
+---
+title: "Agent bearbeiten"
+description: "Einen gespeicherten Agenten über die fünf Editor-Registerkarten konfigurieren"
+icon: "pen-to-square"
+---
+
+# Agent bearbeiten
+
+Öffnen Sie **Agenten**, suchen Sie einen gespeicherten Agenten und wählen Sie **Bearbeiten**. Der Editor öffnet sich unter `/agents/{agentId}`. Wählen Sie nach Änderungen an Grundlagen oder Zielen **Speichern**; Steuerelemente auf den übrigen Registerkarten speichern ihre Änderungen bei der Verwendung selbst.
+
+## Grundlagen
+
+Legen Sie Name, Beruf und Beschreibung des Agenten fest. Aktivieren Sie **Pro-Modus**, um Systemnachricht, Funktionsname und Funktionsbeschreibung zu bearbeiten.
+
+Bei gespeicherten Agenten erscheint unter Grundlagen auch die Profilbildsteuerung.
+
+### Profilbildoptionen und Grenzen
+
+- **Hochladen:** Die Dateiauswahl akzeptiert Bilder. Ein quadratisches Bild wird empfohlen.
+- **Generieren:** Geben Sie eine Beschreibung ein und wählen Sie Professionell, Freundlich, Modern oder Kreativ. Generierte Bilder haben ein Seitenverhältnis von 1:1.
+- **URL:** Geben Sie eine direkte Bild-URL ein. Die Quelle muss dem Hub das Abrufen erlauben.
+
+Die Bildsteuerung zeigt keine Dateigrößenbegrenzung an. Nicht unterstützte oder zu große Uploads können dennoch abgelehnt werden.
+
+## Ziele
+
+Definieren Sie einen Northstar und optionale messbare Ziele. Jedes Ziel kann Titel, Metrik, Ausgangswert, Zielwert, Zeithorizont und Notizen enthalten.
+
+## Fähigkeiten
+
+Verwalten Sie zwei Arten von Prompt-Karten:
+
+- **Fähigkeiten:** Kurze Fähigkeitsanweisungen, die im Chat angewendet werden können.
+- **Beispielfragen:** Vorgeschlagene Prompts, die beim Öffnen eines Chats angezeigt werden.
+
+Fügen Sie Karten manuell hinzu oder generieren Sie eine Ausgangskarte. Bearbeiten oder entfernen Sie Karten anschließend nach Bedarf.
+
+## Modell
+
+Wählen Sie das Hauptmodell für Unterhaltungen und konfigurieren Sie unterstützte Ein- und Ausgabe-Modalitäten. Verfügbare Modelle hängen von der Provider-Konfiguration ab. Texteingabe und -ausgabe bleiben ohne zusätzliche Modalitäten verfügbar.
+
+## Team
+
+Fügen Sie weitere Agenten als Teammitglieder hinzu. Während eines Laufs stehen Teammitglieder als Tools zur Verfügung. Gibt es keine weiteren Agenten, kann auf dieser Registerkarte nichts hinzugefügt werden.
+
+Weisen Sie Teammitgliedern klar getrennte Rollen zu und testen Sie anschließend eine Anfrage, bei der die erwartete Weiterleitung eindeutig ist.
+
+## Ergebnis prüfen
+
+Definieren Sie vor dem Test, was eine erfolgreiche Antwort enthalten muss und was sie nicht erfinden darf. Kehren Sie zu **Chat** zurück, wählen Sie den bearbeiteten Agenten und verwenden Sie eine wiederholbare Anfrage, die die geänderten Einstellungen prüft. Ändern Sie bei Bedarf nur die kleinste relevante Einstellung und führen Sie dieselbe Anfrage erneut aus.

@@ -1,0 +1,99 @@
+---
+title: 'Distillazione del modello'
+description: 'Scopri come creare, revisionare e valutare esempi generati da un modello docente per un modello studente più piccolo.'
+icon: 'flask'
+---
+
+# Distillazione del modello
+
+La distillazione del modello è un approccio all'addestramento in cui gli output di un **modello docente** contribuiscono a creare esempi per un **modello studente**. L'obiettivo è insegnare un'attività più circoscritta a un modello che può adattarsi meglio ai vincoli di costo, latenza o distribuzione del workflow.
+
+La distillazione non copia tutte le capacità del modello docente. I risultati dipendono dall'attività, dai prompt del docente, dalla copertura dei dati, dalla capacità dello studente, dal metodo di addestramento e dalla qualità della valutazione.
+
+## Docente e studente
+
+- Il **docente** genera o migliora risposte candidate per input rappresentativi.
+- I revisori verificano le risposte candidate rispetto al materiale di origine e ai requisiti.
+- Gli esempi approvati entrano a far parte del set di dati per il fine-tuning dello studente.
+- Lo **studente** viene valutato su casi non utilizzati per l'addestramento.
+
+Docente e studente possono essere qualsiasi modello supportato dal workflow di addestramento scelto. Evita di inserire nomi di modelli in un progetto destinato a durare nel tempo, perché i cataloghi dei provider cambiano.
+
+## Workflow di distillazione
+
+<Steps>
+  <Step title="Definisci un'attività circoscritta">
+    Specifica input, output previsti, criteri di qualità e limiti. La distillazione è più facile da valutare quando l'obiettivo è ben definito.
+  </Step>
+  <Step title="Crea i casi di valutazione">
+    Crea un set escluso dall'addestramento a partire da utilizzi realistici. Includi casi comuni, casi limite e casi che richiedono incertezza o rifiuto.
+  </Step>
+  <Step title="Genera le risposte candidate">
+    Chiedi al docente di produrre output usando lo stesso contesto e le stesse regole previste in produzione. Genera input diversificati invece di modelli ripetitivi.
+  </Step>
+  <Step title="Revisiona e correggi">
+    Verifica fatti, ragionamento, sicurezza, tono e formato. Rimuovi o riscrivi gli esempi deboli; non dare per scontato che l'output del docente sia corretto.
+  </Step>
+  <Step title="Addestra lo studente">
+    Formatta gli esempi approvati per un workflow di fine-tuning supportato e addestra una versione del modello studente.
+  </Step>
+  <Step title="Confronta i modelli">
+    Confronta lo studente, il docente e il modello base dello studente non modificato sul set escluso dall'addestramento e rispetto ai requisiti operativi.
+  </Step>
+  <Step title="Monitora">
+    Esamina gli errori in produzione, la deriva dei dati e i cambiamenti dei provider. Ripeti l'addestramento solo quando nuovi elementi ne dimostrano la necessità.
+  </Step>
+</Steps>
+
+## Esempio di istruzione per il docente
+
+```text
+Crea una risposta candidata per il caso di assistenza riportato di seguito.
+
+Usa solo la policy e la documentazione del prodotto allegate.
+Rispetta lo schema di risposta richiesto.
+Se le fonti non supportano una risposta, restituisci "needs_review": true
+e spiega quali informazioni mancano.
+Non inventare azioni sull'account, eccezioni alle policy, link o risultati.
+```
+
+Considera l'output una risposta candidata da revisionare, non un dato di addestramento approvato.
+
+## Progettazione della valutazione
+
+Scegli misure adatte all'attività:
+
+- Rispetto esatto dello schema o del formato
+- Accuratezza rispetto alle fonti approvate
+- Scelta corretta dello strumento o dell'escalation
+- Punteggi della revisione umana basati su criteri scritti
+- Tasso di errore nei casi relativi a sicurezza e rifiuto
+- Latenza e costo misurato nell'ambiente previsto
+
+Non esprimere la qualità in percentuale a meno che il metodo di valutazione e il set di test rendano significativa tale percentuale. Non presumere un risparmio sui costi fisso: calcolalo in base ai prezzi correnti dei provider e all'uso misurato di token o risorse.
+
+## Quando la distillazione non è adatta
+
+- L'attività cambia di frequente
+- Le risposte dipendono principalmente da conoscenze aggiornate
+- Un modello più piccolo non supporta la modalità o il comportamento degli strumenti richiesti
+- Non puoi revisionare gli esempi generati
+- Non disponi di un set di valutazione rappresentativo
+- Gli errori hanno conseguenze che il workflow non può contenere in sicurezza
+
+## Sicurezza dei dati
+
+<Warning>
+  I prompt per il docente e i set di dati generati possono essere inviati ai provider dei modelli. Rimuovi dati personali e segreti non necessari e verifica che la gestione dei dati sia approvata per ogni provider coinvolto.
+</Warning>
+
+## Guide correlate
+
+<CardGroup cols={2}>
+  <Card title="Fine-tuning" icon="brain-circuit" href="/it/concepts/fine-tuning/introduction">
+    Esamina i principi fondamentali della preparazione e della valutazione dei set di dati.
+  </Card>
+  <Card title="Guida all'addestramento" icon="graduation-cap" href="/essentials/training">
+    Segui il workflow di addestramento disponibile in B-Bot Hub.
+  </Card>
+</CardGroup>

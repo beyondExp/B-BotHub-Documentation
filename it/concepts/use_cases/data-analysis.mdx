@@ -1,0 +1,113 @@
+---
+title: 'Analisi dei dati'
+description: 'Progetta un workflow di analisi dei dati tracciabile con un Agente IA e, facoltativamente, uno spazio di lavoro DeepAgents.'
+icon: 'chart-line'
+---
+
+# Analisi dei dati
+
+Un Agente IA per l'analisi dei dati può aiutare a strutturare le domande, esaminare i dati, preparare codice di analisi e spiegare i risultati. DeepAgents può supportare lavori in più fasi tramite attività e file dello spazio di lavoro. La responsabilità della qualità dei dati, della scelta del metodo e dell'interpretazione rimane in capo all'analista.
+
+## Definisci l'analisi
+
+Prima di fornire i dati, indica:
+
+- La decisione o la domanda che l'analisi deve supportare
+- Il significato, le unità e l'intervallo temporale dei campi importanti
+- I problemi di qualità noti e i valori mancanti
+- I filtri, i gruppi di confronto e le ipotesi richiesti
+- Il formato di output previsto
+- Le limitazioni relative a privacy o accesso
+
+Non caricare dati che il modello, il provider o l'ambiente selezionati non sono autorizzati a elaborare.
+
+## Un workflow verificabile
+
+<Steps>
+  <Step title="Esamina">
+    Identifica la struttura del file, il significato dei campi, il numero di righe, gli intervalli di date e i problemi di qualità evidenti. Non partire dalle conclusioni.
+  </Step>
+  <Step title="Pianifica">
+    Descrivi le trasformazioni, i calcoli e i controlli proposti. Usa le attività di DeepAgents quando il lavoro trae vantaggio da fasi visibili.
+  </Step>
+  <Step title="Prepara">
+    Gestisci valori mancanti, duplicati, tipi ed esclusioni. Conserva l'input originale e documenta ogni modifica.
+  </Step>
+  <Step title="Analizza">
+    Esegui i calcoli concordati. Salva codice o query riutilizzabili quando lo spazio di lavoro configurato supporta i file.
+  </Step>
+  <Step title="Convalida">
+    Riconcilia i totali, esamina i campioni, testa i casi limite e confronta i calcoli importanti con un metodo indipendente.
+  </Step>
+  <Step title="Comunica">
+    Presenta i risultati con ipotesi, limitazioni e dettagli sufficienti affinché un'altra persona possa riprodurre il lavoro.
+  </Step>
+</Steps>
+
+## Esempio di richiesta
+
+```text
+Analizza i dati delle vendite allegati da gennaio a giugno.
+
+Per prima cosa, descrivi lo schema e segnala i valori mancanti o non validi.
+Quindi proponi un piano di analisi dei ricavi per mese e area geografica.
+Non modificare il file di origine.
+Salva separatamente i passaggi di trasformazione e i calcoli.
+Per ogni risultato, includi il calcolo e i filtri pertinenti.
+Segnala ogni conclusione che dipende da dati incompleti.
+Attendi l'approvazione prima di aggiungere una previsione.
+```
+
+## Uso di DeepAgents
+
+DeepAgents è utile quando un'analisi richiede un piano visibile e diversi file intermedi. Uno spazio di lavoro potrebbe contenere:
+
+```text
+tasks
+  - inspect source data
+  - document cleaning rules
+  - calculate agreed metrics
+  - validate totals
+  - draft report
+
+files
+  - data-quality-notes.md
+  - cleaning-script.py
+  - metric-definitions.md
+  - validation-results.md
+  - report-draft.md
+```
+
+Questi nomi illustrano uno schema organizzativo. I tipi di file e le capacità di esecuzione effettivi dipendono dall'ambiente configurato.
+
+## Checklist di convalida
+
+- Sono registrati la fonte, il momento dell'estrazione e i filtri?
+- Unità, valute, fusi orari e limiti temporali sono espliciti?
+- I totali possono essere riconciliati con la fonte?
+- I valori mancanti e le esclusioni sono segnalati?
+- Le correlazioni sono presentate senza affermazioni causali non supportate?
+- Le previsioni sono separate dai risultati osservati?
+- Un altro analista può riprodurre le trasformazioni?
+- Una persona qualificata ha esaminato le conclusioni ad alto impatto?
+
+<Warning>
+  Il codice e i calcoli generati possono essere errati anche quando la spiegazione appare sicura. Esamina il codice prima di eseguirlo e verifica in modo indipendente i risultati importanti.
+</Warning>
+
+## Guide correlate
+
+<CardGroup cols={2}>
+  <Card title="Concetti di DeepAgents" icon="robot" href="/it/concepts/deepagents/introduction">
+    Comprendi attività, file dello spazio di lavoro e controlli di revisione.
+  </Card>
+  <Card title="Spazio di lavoro DeepAgents" icon="folder-tree" href="/essentials/deepagents-workspace">
+    Scopri come usare lo spazio di lavoro in B-Bot Hub.
+  </Card>
+  <Card title="IA multimodale" icon="layer-group" href="/it/concepts/multimodal/introduction">
+    Progetta workflow che utilizzano file, immagini e testo.
+  </Card>
+  <Card title="Attività" icon="calendar-check" href="/essentials/tasks">
+    Consulta la guida del prodotto per i lavori pianificati.
+  </Card>
+</CardGroup>

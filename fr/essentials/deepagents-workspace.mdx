@@ -1,0 +1,61 @@
+---
+title: 'Espace de travail DeepAgents'
+description: 'Comprendre les panneaux de tâches, fichiers, aperçu et mémoires utilisés par DeepAgents'
+icon: 'folder-tree'
+---
+
+# Espace de travail DeepAgents
+
+DeepAgents peut organiser un travail en plusieurs étapes dans l’espace de travail d’une conversation. Suivez ce travail au moyen des panneaux **Tâches**, **Fichiers**, **Aperçu** et **Mémoires** dans le volet droit du Chat.
+
+Il n’existe aucun bouton distinct pour un « mode Deep ». Le contenu de l’espace apparaît lorsque l’Agent sélectionné et ses outils en produisent.
+
+## Tâches
+
+Le panneau **Tâches** affiche en direct la liste des tâches communiquée par l’Agent. Il distingue les éléments en attente, actifs et terminés afin de suivre une exécution en plusieurs étapes.
+
+Cette liste est en lecture seule. Guidez le travail en écrivant à l’Agent ou en approuvant ou refusant une action demandée. Les automatisations planifiées se gèrent séparément sur la [page Tâches](/fr/essentials/tasks).
+
+## Fichiers
+
+Le panneau **Fichiers** réunit les fichiers reçus pendant l’exécution actuelle et ceux disponibles dans le thread ouvert.
+
+- Parcourez les dossiers dans l’arborescence.
+- Ouvrez le texte et le code dans la visionneuse intégrée.
+- Consultez les images, fichiers audio et autres médias pris en charge.
+- Copiez le contenu d’un fichier ou le chemin d’un média.
+- Exportez du Markdown au format PDF, avec le logo de l’entreprise si vous le souhaitez.
+
+Le premier fichier disponible s’ouvre automatiquement sur ordinateur. Sur un écran plus petit, sélectionnez un fichier, puis utilisez la commande de retour pour revenir à l’arborescence.
+
+Ces fichiers appartiennent à l’espace de travail de la conversation. Leur disponibilité lors d’une visite ultérieure dépend du thread et des services de l’espace de travail. Copiez ou exportez les résultats importants au lieu de considérer cet espace comme un stockage durable garanti.
+
+## Aperçu
+
+Le panneau **Aperçu** concerne les artefacts générés pris en charge :
+
+- les espaces de site web peuvent démarrer ou réactiver un aperçu en direct ;
+- les présentations peuvent afficher directement leur fichier d’entrée ;
+- les collections de fichiers ordinaires indiquent qu’aucun aperçu en direct n’est disponible.
+
+Vous pouvez actualiser l’aperçu ou ouvrir son URL dans un autre onglet. Son démarrage peut prendre du temps ; il peut être recréé après une période d’inactivité ou indisponible lorsque la capacité d’exécution est limitée. Le panneau ne garantit pas l’exécution de n’importe quel code ou type de fichier.
+
+## Mémoires
+
+Le panneau **Mémoires** regroupe les informations de l’Agent sélectionné et de l’utilisateur :
+
+- **Profil principal** : informations de profil structurées.
+- **Long terme** : faits et préférences durables.
+- **Conversations** : résumés par thread ; dans le Chat, cette couche est filtrée sur le thread ouvert.
+
+Vous pouvez ajouter une mémoire à long terme et gérer les entrées existantes. La création de mémoires est sélective : un message, fichier ou tâche ne devient pas automatiquement une mémoire durable, sauf si le comportement de mémoire de l’Agent le conserve.
+
+## Approbations et contrôle
+
+Lorsqu’un outil nécessite un contrôle humain, le Chat affiche une carte **Action requise** avec **Approuver** et **Refuser**. Le paramètre **Approuver automatiquement** peut ignorer ces demandes pour la configuration d’exécution actuelle.
+
+Les approbations régissent les actions demandées ; elles n’activent pas DeepAgents et ne garantissent pas l’achèvement autonome. Désactivez l’approbation automatique lorsque vous devez contrôler des opérations externes ou sensibles.
+
+## Espaces associés
+
+Les tâches planifiées disposent d’un volet distinct comprenant les éléments de planification et fichiers créés par l’utilisateur, ainsi que les fichiers produits lors de la dernière exécution. Il diffère de l’état des tâches affiché en direct dans le Chat. Consultez [Tâches](/fr/essentials/tasks).

@@ -1,0 +1,83 @@
+---
+title: 'App'
+description: 'Collega App Composio e server MCP a un Agente'
+icon: 'grid-2-plus'
+---
+
+# App
+
+Le App consentono all'Agente selezionato di accedere ad azioni ed eventi esterni. Dopo aver selezionato un Agente, apri **App** dalla barra laterale.
+
+![App collegate e catalogo delle App in B-Bot Hub](/images/documentation/apps-overview.png)
+
+## Esplorare le App
+
+La pagina App riunisce integrazioni Composio e server MCP in un unico catalogo:
+
+- **Collegato** mostra le integrazioni già associate all'Agente selezionato.
+- **In evidenza** e **Di tendenza** offrono suggerimenti ordinati.
+- **Tutte le app** supporta ricerca, filtri per categoria e stato MCP, viste dettagliata o a riquadri e caricamento incrementale.
+
+Le schede indicano se una voce proviene da Composio o MCP. Le voci MCP possono mostrare anche lo stato di verifica.
+
+## Collegare un'App Composio
+
+<Steps>
+  <Step title="Apri un'App">
+    Seleziona una voce Composio da In evidenza, Di tendenza o Tutte le app.
+  </Step>
+  <Step title="Controlla le capacità">
+    Apri **Cosa sa fare** per esaminare azioni e trigger disponibili.
+  </Step>
+  <Step title="Esegui l'autenticazione">
+    In **Collega**, avvia il flusso OAuth del provider o inserisci le credenziali richieste dall'App.
+  </Step>
+  <Step title="Prova il collegamento">
+    Dopo il collegamento, usa la scheda **Provala** per una breve Chat con l'Agente e verifica che possa chiamare l'App.
+  </Step>
+</Steps>
+
+Seleziona un'App Composio collegata per riaprirne i dettagli. Usa **Ricollega con altre credenziali** per sostituire l'autorizzazione. Usa il pulsante **Scollega** sulla scheda Collegato per rimuoverla dall'Agente.
+
+## Collegare un server MCP
+
+Le voci MCP aprono un'area di test prima del collegamento. Puoi:
+
+- modificare l'URL del server
+- scegliere il trasporto `streamable_http` o `sse`
+- aggiungere o rimuovere header della richiesta
+- caricare l'elenco di strumenti live del server
+- selezionare uno strumento, fornire argomenti JSON ed eseguire un test rapido
+- conversare con l'Agente mentre gli strumenti MCP sono disponibili per il test
+
+Quando il test riesce, collega il server MCP all'Agente selezionato.
+
+### Aggiungere un server MCP personalizzato
+
+Seleziona **Server MCP personalizzato** nella pagina App. Inserisci nome e URL, scegli `streamable_http` o `sse` e aggiungi le coppie nome-valore richieste per gli header. Seleziona **Collega** per salvare.
+
+<Warning>
+  Tratta i valori degli header come credenziali. Usa solo server MCP attendibili e concedi l'accesso minimo necessario.
+</Warning>
+
+## Controllare le autorizzazioni delle App
+
+Su una scheda Collegato, seleziona il pulsante delle autorizzazioni per configurare l'App per l'Agente corrente.
+
+- **App abilitata** attiva o disattiva l'intera integrazione senza scollegarla.
+- **Consentita** controlla se l'Agente può chiamare una singola azione.
+- **Richiede approvazione** sospende un'azione consentita per la verifica umana.
+- **Applica consigliato** abilita l'approvazione per le azioni contrassegnate come consigliate.
+- **Cancella approvazioni** rimuove tutte le richieste di approvazione senza cambiare le azioni consentite.
+
+Disabilitare un'azione ne rimuove anche la richiesta di approvazione. Controlla con attenzione le azioni di scrittura o distruttive, quindi salva le modifiche.
+
+Verifica la policy salvata nella Chat di test: un'azione consentita dovrebbe riuscire, una non consentita dovrebbe risultare indisponibile e una soggetta ad approvazione dovrebbe fermarsi per la verifica.
+
+## Guide correlate
+
+<CardGroup cols={2}>
+  <Card title="Workflow" icon="diagram-project" href="/it/essentials/workflows">
+    Usa azioni ed eventi delle App collegate nei Workflow automatizzati.
+  </Card>
+</CardGroup>

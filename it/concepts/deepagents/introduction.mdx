@@ -1,0 +1,120 @@
+---
+title: 'DeepAgents'
+description: 'Comprendi come DeepAgents utilizza attività, file dello spazio di lavoro, strumenti e revisione umana per lavori in più fasi.'
+icon: 'robot'
+---
+
+# DeepAgents
+
+DeepAgents è la modalità di B-Bot Hub dedicata ai lavori che traggono vantaggio dalla pianificazione e dagli artefatti intermedi. Un DeepAgent può usare un elenco di attività e i file dello spazio di lavoro mentre gestisce una richiesta in più fasi. Gli strumenti e le azioni effettivamente disponibili dipendono dall'Expert, dalla sessione e dall'ambiente.
+
+## Concetti fondamentali
+
+<CardGroup cols={2}>
+  <Card title="Attività" icon="list-check">
+    Un piano visibile può suddividere un obiettivo in passaggi più piccoli e mostrare l'avanzamento.
+  </Card>
+  <Card title="File dello spazio di lavoro" icon="folder-open">
+    Input, note, codice, dati e output possono essere organizzati nello spazio di lavoro.
+  </Card>
+  <Card title="Strumenti" icon="toolbox">
+    Gli strumenti configurati possono consentire al DeepAgent di recuperare informazioni, elaborare file, eseguire codice o interagire con servizi collegati.
+  </Card>
+  <Card title="Revisione umana" icon="hand">
+    I controlli human-in-the-loop possono richiedere una revisione prima di determinate azioni.
+  </Card>
+</CardGroup>
+
+## Workflow concettuale
+
+```text
+Obiettivo
+  -> chiarire i requisiti
+  -> creare o aggiornare le attività
+  -> usare gli strumenti consentiti e i file dello spazio di lavoro
+  -> verificare i risultati intermedi
+  -> richiedere l'approvazione dove necessario
+  -> presentare gli output e i problemi irrisolti
+```
+
+Un'attività contrassegnata come completata indica solo lo stato del workflow. Non dimostra che il risultato sia corretto.
+
+## Quando usare DeepAgents
+
+DeepAgents può essere utile per:
+
+- Progetti con diversi passaggi dipendenti
+- Lavori che producono o modificano più file
+- Analisi che richiedono ipotesi visibili e controlli intermedi
+- Richieste lunghe che traggono vantaggio da un elenco di attività aggiornato
+- Workflow in cui le persone devono esaminare le azioni proposte
+
+La chat standard può essere più semplice per una domanda diretta, una breve riscrittura o un'altra attività che non richiede uno spazio di lavoro.
+
+## Come formulare una buona richiesta per un DeepAgent
+
+Includi:
+
+- Il risultato richiesto e il pubblico destinatario
+- Gli input e il materiale che costituisce la fonte di verità
+- Vincoli, esclusioni e criteri di qualità
+- Strumenti e azioni consentiti
+- Nomi file o formati di output richiesti
+- Azioni che richiedono approvazione
+- Una definizione di completamento
+
+Esempio:
+
+```text
+Analizza il file CSV allegato e prepara un report verificabile.
+
+Crea attività per l'ispezione, la pulizia, l'analisi, la convalida
+dei dati e la stesura del report.
+Mantieni invariato il file di origine.
+Registra ogni trasformazione in un file separato.
+Chiedi l'approvazione prima di eseguire codice che scrive nuovi file di output.
+Non inviare dati a servizi esterni.
+Il lavoro è completo quando i totali sono riconciliati e il report elenca le ipotesi.
+```
+
+## Human-in-the-loop
+
+Usa la revisione umana per le azioni sensibili, irreversibili, visibili all'esterno o costose. Alcuni esempi:
+
+- Inviare messaggi o pubblicare contenuti
+- Modificare record o autorizzazioni
+- Eseguire codice sconosciuto
+- Usare dati privati con un servizio esterno
+- Avviare acquisti, pagamenti o distribuzioni
+
+Il sistema human-in-the-loop riduce il rischio, ma non rende un'azione sicura di per sé. Il revisore deve comunque disporre di un contesto sufficiente per comprendere la proposta.
+
+## Pratiche consigliate per lo spazio di lavoro
+
+- Mantieni gli input originali separati dai file generati.
+- Usa nomi file descrittivi.
+- Registra ipotesi e decisioni.
+- Esamina il codice generato prima di eseguirlo.
+- Scarica o conserva gli output importanti in conformità alla tua policy sui dati.
+- Verifica il comportamento e la conservazione dello spazio di lavoro per il workflow specifico.
+
+<Warning>
+  Concedi solo gli strumenti e le autorizzazioni necessari per l'attività. Un prompt di sistema non costituisce un limite di controllo degli accessi.
+</Warning>
+
+## Guide correlate
+
+<CardGroup cols={2}>
+  <Card title="Spazio di lavoro DeepAgents" icon="folder-tree" href="/essentials/deepagents-workspace">
+    Scopri come abilitare e usare le funzionalità dello spazio di lavoro.
+  </Card>
+  <Card title="Attività" icon="calendar-check" href="/essentials/tasks">
+    Scopri le attività pianificate e su richiesta.
+  </Card>
+  <Card title="Analisi dei dati" icon="chart-line" href="/it/concepts/use_cases/data-analysis">
+    Applica DeepAgents a un workflow di analisi verificabile.
+  </Card>
+  <Card title="Creazione di contenuti" icon="pen-to-square" href="/it/concepts/use_cases/content-creation">
+    Organizza un workflow editoriale in più fasi.
+  </Card>
+</CardGroup>

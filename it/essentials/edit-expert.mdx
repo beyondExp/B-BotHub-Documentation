@@ -1,0 +1,50 @@
+---
+title: "Modificare un Agente"
+description: "Configura un Agente salvato nelle cinque schede dell'editor"
+icon: "pen-to-square"
+---
+
+# Modificare un Agente
+
+Apri **Agenti**, trova un Agente salvato e seleziona **Modifica**. L'editor si apre in `/agents/{agentId}`. Seleziona **Salva** dopo aver modificato Generale o Obiettivi; i controlli nelle altre schede salvano le proprie modifiche quando li usi.
+
+## Generale
+
+Imposta nome, professione e descrizione dell'Agente. Attiva **Modalità pro** per modificare il messaggio di sistema, il nome e la descrizione della funzione.
+
+Per gli Agenti salvati, in Generale compare anche il controllo dell'immagine del profilo.
+
+### Opzioni e limiti dell'immagine del profilo
+
+- **Carica:** il selettore accetta immagini. Si consiglia un'immagine quadrata.
+- **Genera:** inserisci una descrizione e scegli Professionale, Amichevole, Moderno o Creativo. Le immagini generate hanno proporzioni 1:1.
+- **URL:** inserisci l'URL diretto di un'immagine. La sorgente deve consentire all'Hub di recuperarla.
+
+Il controllo non mostra un limite per la dimensione del file. I caricamenti non supportati o troppo grandi possono comunque essere rifiutati.
+
+## Obiettivi
+
+Definisci una northstar e obiettivi misurabili facoltativi. Ogni obiettivo può includere titolo, metrica, base di partenza, target, orizzonte temporale e note.
+
+## Abilità
+
+Gestisci due tipi di schede prompt:
+
+- **Abilità:** brevi istruzioni sulle capacità, applicabili in Chat.
+- **Domande di esempio:** prompt suggeriti quando un utente apre una Chat.
+
+Aggiungi le schede manualmente o genera una scheda iniziale, quindi modificale o rimuovile secondo necessità.
+
+## Modello
+
+Scegli il modello conversazionale principale e configura le modalità di input e output supportate. I modelli disponibili dipendono dalla configurazione dei provider. Input e output testuali restano disponibili senza modalità aggiuntive.
+
+## Team
+
+Aggiungi altri Agenti come membri del team. Durante un'esecuzione vengono resi disponibili come strumenti. Se non esistono altri Agenti, questa scheda non offre elementi da aggiungere.
+
+Assegna ruoli distinti ai membri del team, quindi prova una richiesta che renda chiaro l'instradamento previsto.
+
+## Verificare il risultato
+
+Prima della prova, definisci cosa deve contenere una risposta corretta e cosa non deve inventare. Torna a **Chat**, seleziona l'Agente modificato e usa una richiesta ripetibile che metta alla prova le impostazioni cambiate. Se il risultato va migliorato, modifica l'impostazione pertinente più piccola e ripeti la stessa richiesta.

@@ -1,0 +1,84 @@
+---
+title: 'Applications'
+description: 'Connecter des applications Composio et des serveurs MCP à un Agent'
+icon: 'grid-2-plus'
+---
+
+# Applications
+
+Les Applications donnent à l’Agent sélectionné accès à des actions et événements externes. Sélectionnez un Agent, puis ouvrez **Applications** dans la barre latérale.
+
+![Applications connectées et catalogue dans B-Bot Hub](/images/documentation/apps-overview.png)
+
+## Parcourir les applications
+
+La page réunit les intégrations Composio et serveurs MCP dans un même catalogue :
+
+- **Connecté** affiche les intégrations déjà associées à l’Agent.
+- **À la une** et **Tendances** proposent des recommandations classées.
+- **Toutes les apps** permet la recherche, le filtrage par catégorie et état MCP, les vues détaillée ou en tuiles et le chargement progressif.
+
+Les cartes précisent si l’entrée vient de Composio ou de MCP. Les entrées MCP peuvent aussi indiquer leur état de vérification.
+
+## Connecter une application Composio
+
+<Steps>
+  <Step title="Ouvrir une application">
+    Sélectionnez une entrée Composio dans À la une, Tendances ou Toutes les apps.
+  </Step>
+  <Step title="Examiner les capacités">
+    Ouvrez **Ce qu’elle sait faire** pour consulter les actions et déclencheurs.
+  </Step>
+  <Step title="S’authentifier">
+    Dans **Connecter**, lancez le processus OAuth du fournisseur ou renseignez
+    les identifiants demandés.
+  </Step>
+  <Step title="Tester la connexion">
+    Une fois connecté, utilisez l’onglet **Essayer** pour un Chat rapide avec
+    l’Agent et vérifiez qu’il peut appeler l’application.
+  </Step>
+</Steps>
+
+Sélectionnez une application Composio connectée pour rouvrir ses détails. Utilisez **Reconnecter avec d’autres identifiants** pour remplacer son autorisation, ou le bouton de déconnexion de sa carte pour la retirer de l’Agent.
+
+## Connecter un serveur MCP
+
+Les entrées MCP ouvrent un espace de test avant la connexion. Vous pouvez :
+
+- modifier l’URL du serveur ;
+- choisir le transport `streamable_http` ou `sse` ;
+- ajouter ou supprimer des en-têtes de requête ;
+- charger la liste d’outils en direct ;
+- sélectionner un outil, fournir des arguments JSON et lancer un test rapide ;
+- discuter avec l’Agent pendant que les outils MCP sont disponibles pour le test.
+
+Lorsque le test réussit, connectez le serveur MCP à l’Agent sélectionné.
+
+### Ajouter un serveur MCP personnalisé
+
+Sélectionnez **Serveur MCP personnalisé**. Indiquez un nom et une URL, choisissez `streamable_http` ou `sse`, puis ajoutez les paires nom-valeur d’en-tête requises. Sélectionnez **Connecter** pour enregistrer.
+
+<Warning>
+  Traitez les valeurs d’en-tête comme des identifiants. Utilisez uniquement des
+  serveurs MCP de confiance et accordez-leur l’accès minimal nécessaire.
+</Warning>
+
+## Contrôler les autorisations
+
+Sur une carte Connecté, sélectionnez le bouton d’autorisations pour configurer l’application de l’Agent actuel.
+
+- **App activée** active ou désactive toute l’intégration sans la déconnecter.
+- **Autorisée** détermine si l’Agent peut appeler une action.
+- **Approbation requise** suspend une action autorisée avant son exécution.
+- **Appliquer la recommandation** exige une approbation pour les actions recommandées par le catalogue.
+- **Effacer les approbations** retire ces exigences sans changer les actions autorisées.
+
+Interdire une action retire aussi son exigence d’approbation. Examinez attentivement les actions d’écriture et destructives, puis enregistrez.
+
+Vérifiez la politique dans le Chat de test : une action autorisée doit réussir, une action interdite doit être indisponible et une action soumise à approbation doit attendre votre contrôle.
+
+## Guide associé
+
+<Card title="Workflows" icon="diagram-project" href="/fr/essentials/workflows">
+  Utilisez les actions et événements des applications connectées dans des workflows automatisés.
+</Card>

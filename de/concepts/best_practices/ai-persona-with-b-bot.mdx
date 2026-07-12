@@ -1,0 +1,97 @@
+---
+title: 'Eine KI-Persona gestalten'
+description: 'Definiere eine nützliche Rolle, Stimme, Grenzen, Fähigkeiten und einen Bewertungsplan für einen KI-Agenten.'
+icon: 'masks-theater'
+---
+
+# Eine KI-Persona gestalten
+
+Eine KI-Persona ist die konsistente Rolle und der Kommunikationsstil, den Benutzer bei der Interaktion mit einem KI-Agenten erleben. Eine nützliche Persona unterstützt die Aufgabe. Sie sollte Erwartungen verdeutlichen und nicht vortäuschen, der Agent verfüge über menschliche Erfahrungen, Gefühle oder Autorität.
+
+## Mit der Aufgabe beginnen
+
+Leite die Persona aus den operativen Anforderungen ab:
+
+- Wer wird den Agenten nutzen?
+- Bei welchen Problemen soll er helfen?
+- Welche Informationen darf er verwenden?
+- Welche Aktionen darf er ausführen?
+- Was muss er ablehnen oder eskalieren?
+- Wie sieht ein erfolgreiches Ergebnis aus?
+
+Vermeide breite Rollen wie „Experte für alles“. Eine eng gefasste Rolle lässt sich leichter erklären, konfigurieren und bewerten.
+
+## Bestandteile einer Persona
+
+<CardGroup cols={2}>
+  <Card title="Identität" icon="id-card">
+    Name, Beruf und Kurzbeschreibung, die bei Benutzern zutreffende Erwartungen wecken.
+  </Card>
+  <Card title="Zweck" icon="bullseye">
+    Aufgaben und Ergebnisse, die der Agent unterstützen soll.
+  </Card>
+  <Card title="Stimme" icon="comments">
+    Wenige beobachtbare Schreibmerkmale wie knapp, ruhig und direkt.
+  </Card>
+  <Card title="Grenzen" icon="shield">
+    Nicht unterstützte Themen, verbotene Aktionen, Datenschutzregeln und Eskalationsbedingungen.
+  </Card>
+</CardGroup>
+
+## Verhalten und Fähigkeiten trennen
+
+Eine Persona kann einen Agenten zu umsichtigem Verhalten anweisen, ihm aber kein Wissen, keine Werkzeuge und keine Berechtigungen erteilen.
+
+- Lege Rolle und Verhalten im System-Prompt fest.
+- Speichere aktuelle Fakten in gepflegten Wissensquellen.
+- Konfiguriere Apps und Werkzeuge für benötigte Fähigkeiten.
+- Erzwinge den Zugriff durch technische Berechtigungen.
+- Steuere über Vertriebskanäle, wie das Erlebnis Benutzer erreicht.
+
+## Die Persona entwickeln
+
+<Steps>
+  <Step title="Rolle in einem Satz formulieren">
+    Beispiel: „Du bist ein Agent für die Ersteinschätzung im Support, der Benutzern hilft, freigegebene Schritte zur Fehlerbehebung zu finden und Übergaben an Menschen vorzubereiten.“
+  </Step>
+  <Step title="Beobachtbare Stimmregeln wählen">
+    Bevorzuge Anweisungen wie „Verwende kurze Sätze und erkläre Fachbegriffe“ gegenüber Beschreibungen wie „Klinge brillant“.
+  </Step>
+  <Step title="Grenzen hinzufügen">
+    Lege fest, was der Agent nicht tun darf, welche Informationen er nicht anfordern darf und wann er anhalten oder eskalieren soll.
+  </Step>
+  <Step title="Fähigkeiten bewusst hinzufügen">
+    Verbinde nur Wissen, Apps, Werkzeuge, Modalitäten und Teammitglieder, die für die Rolle erforderlich sind.
+  </Step>
+  <Step title="Persona testen">
+    Verwende häufige und mehrdeutige Anfragen, gegnerische Anweisungen, nicht verfügbare Informationen und Aufgaben außerhalb des Umfangs.
+  </Step>
+  <Step title="Anhand von Erkenntnissen überarbeiten">
+    Ändere jeweils nur einen Teil und wiederhole denselben Bewertungssatz.
+  </Step>
+</Steps>
+
+## Bewertungsfragen
+
+- Beschreibt der Agent seine Rolle zutreffend?
+- Ist die Stimme konsistent, ohne sich zu wiederholen?
+- Unterscheidet er klar zwischen Fakten, Vorschlägen und Unsicherheit?
+- Bleibt er im festgelegten Umfang, wenn ein Benutzer ihn auffordert, Anweisungen zu ignorieren?
+- Nutzt er die richtige Fähigkeit, wenn eine verfügbar ist?
+- Vermeidet er unbestätigte Behauptungen, eine Aktion sei erfolgt?
+- Eskaliert er an der definierten Grenze?
+
+## Irreführende Personas vermeiden
+
+Weise einen Agenten nicht an, menschliche Qualifikationen, persönliche Erfahrungen, Bewusstsein oder nicht überprüfbare Handlungen zu behaupten. Wenn Verwechslungsgefahr besteht, kennzeichne ihn als KI-Agenten und erläutere die für die Aufgabe relevanten Grenzen.
+
+## Zugehörige Leitfäden
+
+<CardGroup cols={2}>
+  <Card title="Einen System-Prompt erstellen" icon="message" href="/de/concepts/best_practices/crafting-a-system-prompt">
+    Überführe das Persona-Konzept in klare Anweisungen.
+  </Card>
+  <Card title="Einen Agenten bearbeiten" icon="pen-to-square" href="/essentials/edit-expert">
+    Konfiguriere den Agenten in B-Bot Hub.
+  </Card>
+</CardGroup>

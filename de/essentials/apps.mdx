@@ -1,0 +1,56 @@
+---
+title: 'Apps'
+description: 'Composio-Apps und MCP-Server mit einem Agenten verbinden'
+icon: 'grid-2-plus'
+---
+
+# Apps
+
+Apps geben dem ausgewählten Agenten Zugriff auf externe Aktionen und Ereignisse. Wählen Sie einen Agenten und öffnen Sie **Apps**.
+
+![Verbundene Apps und App-Katalog in B-Bot Hub](/images/documentation/apps-overview.png)
+
+## Apps durchsuchen
+
+Die Seite vereint Composio-Integrationen und MCP-Server:
+
+- **Verbunden** zeigt bereits verknüpfte Integrationen.
+- **Empfohlen** und **Trending** zeigen priorisierte Empfehlungen.
+- **Alle Apps** bietet Suche, Kategorie- und MCP-Statusfilter, Detail- oder Kachelansicht sowie schrittweises Laden.
+
+Karten kennzeichnen Composio oder MCP; MCP-Einträge können ihren Verifizierungsstatus anzeigen.
+
+## Composio-App verbinden
+
+<Steps>
+  <Step title="App öffnen">Wählen Sie einen Composio-Eintrag.</Step>
+  <Step title="Fähigkeiten prüfen">Prüfen Sie unter **Was sie kann** die Aktionen und Trigger.</Step>
+  <Step title="Authentifizieren">Starten Sie unter **Verbinden** OAuth oder geben Sie die angezeigten Zugangsdaten ein.</Step>
+  <Step title="Verbindung testen">Nutzen Sie **Ausprobieren** für einen kurzen Chat und prüfen Sie den App-Aufruf.</Step>
+</Steps>
+
+Öffnen Sie eine verbundene App erneut für Details. Verwenden Sie **Mit anderen Zugangsdaten neu verbinden** zum Ersetzen der Autorisierung oder **Trennen**, um sie vom Agenten zu entfernen.
+
+## MCP-Server verbinden
+
+MCP-Einträge öffnen vor dem Verbinden einen Test-Workspace. Dort können Sie URL bearbeiten, `streamable_http` oder `sse` wählen, Header verwalten, die Live-Tool-Liste laden, ein Tool mit JSON-Argumenten testen und mit dem Agenten chatten. Verbinden Sie den Server nach erfolgreichem Test.
+
+### Eigenen MCP-Server hinzufügen
+
+Wählen Sie **Eigener MCP-Server**, geben Sie Name und URL ein, wählen Sie den Transport und ergänzen Sie erforderliche Header-Paare. Wählen Sie **Verbinden**.
+
+<Warning>Behandeln Sie Header-Werte wie Zugangsdaten. Verwenden Sie nur vertrauenswürdige MCP-Server und gewähren Sie minimalen Zugriff.</Warning>
+
+## App-Berechtigungen steuern
+
+Öffnen Sie auf einer verbundenen Karte die Berechtigungen:
+
+- **App aktiviert** schaltet die Integration ohne Trennung ein oder aus.
+- **Erlaubt** steuert einzelne Aktionen.
+- **Freigabe nötig** hält erlaubte Aktionen zur menschlichen Genehmigung an.
+- **Empfehlung übernehmen** aktiviert empfohlene Genehmigungen.
+- **Freigaben löschen** entfernt Genehmigungspflichten, ohne erlaubte Aktionen zu ändern.
+
+Das Sperren einer Aktion entfernt auch ihre Genehmigungspflicht. Prüfen Sie Schreib- und Löschaktionen sorgfältig und speichern Sie. Testen Sie danach: Erlaubtes soll funktionieren, Gesperrtes nicht verfügbar sein und Genehmigungspflichtiges zur Prüfung anhalten.
+
+<Card title="Workflows" icon="diagram-project" href="/de/essentials/workflows">Verwenden Sie verbundene Aktionen und Ereignisse in automatisierten Workflows.</Card>

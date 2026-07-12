@@ -1,95 +1,62 @@
 ---
-title: 'Create Expert'
-description: 'Quick guide to creating your first AI expert'
-icon: 'plus'
+title: "Create an Agent"
+description: "Create an Agent from scratch or a template in B-Bot Hub"
+icon: "plus"
 ---
 
-# Create Your Expert
+# Create an Agent
 
-Creating an expert in B-Bot is now streamlined for a quick start. You only need to provide basic information - all advanced features are available when you **Edit** the expert afterward.
+Open **Agents** in the sidebar and select **Create agent**, or choose **Create agent** in the agent selector. Both open `/agents/new`.
 
-## Access Expert Manager
+![Create Agent basics in B-Bot Hub](/images/concepts/create-agent-basics.png)
 
-<CardGroup cols={2}>
-  <Card title="Method 1: Expert Card" icon="hand-pointer">
-    Click the **Expert Card** below the logo in the sidebar
-  </Card>
-  <Card title="Method 2: Sidebar" icon="list">
-    Click **Expert** in the navigation menu
-  </Card>
-</CardGroup>
+## Choose a starting point
 
-## Create New Expert
+- **From scratch:** Select **Create agent** and enter your own settings.
+- **From a template:** On the Agents page, select **Browse templates**, filter the list, and choose **Use template**. Review every prefilled value before saving.
 
-Click the **Create new Expert** button to open the creation modal.
+## Complete the initial setup
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/create-expert-modal.png"
-  alt="Create Expert Modal"
-/>
+The new-agent page starts with **Basics** and **Goals**.
 
-## Fill in Basic Information
+### Basics
 
-The simplified creation modal only requires three fields:
+- **Name:** Required.
+- **Profession:** The role shown with the agent.
+- **Description:** Required to be at least 50 characters for a new agent. The field accepts up to 250 characters.
 
-| Field | Description | Example |
-|-------|-------------|---------|
-| **Name** | Display name for your expert | `TechSupport AI` |
-| **Profession** | Role or specialty | `Customer Support Specialist` |
-| **Description** | Brief purpose description (max 250 chars) | `Friendly AI assistant for smart home support` |
+### Guided setup and Pro mode
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/create-expert-filled.png"
-  alt="Create Expert Filled"
-/>
+Guided setup uses the description to generate missing system and function metadata, selects a default model from available provider keys, and attempts to set up layered memory.
 
-<Info>
-  **Simplified Creation:** The system automatically selects a small, efficient model based on your available provider keys. You can customize everything else by editing the expert after creation.
-</Info>
+Turn on **Pro mode** when you want to write the system message, function name, and function description yourself. You can also generate a system message from the current description.
 
-### Pro Mode (Optional)
+### Goals
 
-Toggle **Pro Mode** for additional options during creation. Most users can leave this off and configure settings later via Edit Expert.
+Use **Goals** to add a northstar and measurable long-term goals when they are useful for the agent. Goals are optional during creation.
 
-## Save and Proceed
+## Save before continuing
 
-Click **Save and Proceed** to create your expert. A confirmation dialog will appear - click OK to finalize.
+Select **Save**. The Hub creates the agent and routes you to `/agents/{agentId}`.
 
-<Check>
-  **That's it!** Your expert is created with default settings. Now edit it to add:
-  - Profile picture
-  - Abilities
-  - Templates
-  - Custom model selection
-  - App connections
-  - Team members
-</Check>
+<Warning>
+  **Abilities**, **Model**, and **Team** are disabled until the agent has been
+  saved. The profile-image control is also available only for a saved agent.
+</Warning>
 
-## What Happens Automatically
+Creation can continue even if optional model attachment or memory setup is unavailable. Review the saved agent before relying on those settings.
 
-When you create an expert, B-Bot:
-- ✅ Selects an efficient default model (e.g., GPT-4o-mini)
-- ✅ Uses your primary provider key
-- ✅ Sets up basic conversation capabilities
-- ✅ Makes the expert ready for chat immediately
-
-## Next Steps
+## Next steps
 
 <CardGroup cols={2}>
   <Card
-    title="Edit Your Expert"
+    title="Edit the agent"
     icon="pen-to-square"
     href="/essentials/edit-expert"
   >
-    Add profile picture, abilities, templates, and more
+    Configure all five editor tabs and add a profile image.
   </Card>
-  <Card
-    title="🎯 Tutorial: First Expert"
-    icon="graduation-cap"
-    href="/workshops/02-first-expert/overview"
-  >
-    Complete hands-on guide to building your first expert
+  <Card title="Test in Chat" icon="comments" href="/essentials/chat">
+    Select the saved agent and verify its behavior in a conversation.
   </Card>
 </CardGroup>

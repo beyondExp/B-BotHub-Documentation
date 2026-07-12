@@ -1,0 +1,86 @@
+---
+title: 'Modalités d’entrée et de sortie'
+description: 'Configurer les options de voix, fichiers, images et résultats générés'
+icon: 'microphone-lines'
+---
+
+# Modalités d’entrée et de sortie
+
+Les modalités définissent les types d’entrée et de sortie supplémentaires associés au modèle principal d’un Agent.
+
+## Configurer les modalités
+
+1. Ouvrez un Agent enregistré.
+2. Ouvrez **Modèles et modalités**.
+3. Choisissez d’abord le modèle principal.
+4. Sélectionnez **Ajouter** sous les modalités d’entrée ou de sortie.
+5. Choisissez une option, vérifiez sa configuration et ajoutez-la.
+
+Le Hub enregistre les changements dans le modèle sélectionné. Il autorise une entrée de chaque type d’entrée et remplace toute modalité de sortie existante du même type.
+
+## Options d’entrée actuelles
+
+### Entrée vocale
+
+Les options de transcription affichées sont :
+
+- Local Whisper Tiny avec WebGPU
+- Local Whisper Base avec WebGPU
+- OpenAI Whisper
+- Groq Whisper Large V3
+- Utiliser le modèle principal, s’il le permet
+
+Vous pouvez activer la transcription automatique à la fin de l’enregistrement. Les formats audio configurés sont WebM, MP3 et WAV.
+
+### Caméra, images, audio et documents
+
+L’éditeur propose également :
+
+- **Entrée caméra / vidéo** avec le modèle principal ou les options de vision OpenAI, Anthropic ou Google ;
+- **Téléversement d’image** pour JPEG, PNG, GIF et WebP ;
+- **Téléversement audio** pour MP3, WAV, WebM et OGG ;
+- **Téléversement de document** pour PDF, DOC, DOCX et TXT.
+
+Les entrées d’image, audio et document proposent des options Base64 et de prise en charge des URL. Ces réglages décrivent la configuration ; leur bon fonctionnement dépend toujours du modèle et de l’environnement d’exécution.
+
+## Options de sortie actuelles
+
+### Synthèse vocale
+
+Les options affichées sont :
+
+- OpenAI TTS-1
+- OpenAI TTS-1-HD
+- Google Gemini 2.5 Flash Preview TTS
+- Google Gemini 2.5 Pro Preview TTS
+- Local Pocket TTS, signalé comme expérimental
+
+La configuration comprend **Lecture automatique des réponses** et **Diffuser l’audio pendant la génération**.
+
+### Génération d’images
+
+Les options de sortie d’image affichées sont :
+
+- OpenAI DALL·E 3
+- OpenAI GPT Image 1
+- Stability SD3
+- Google Imagen 3
+
+Vous pouvez activer la génération automatique lorsque l’Agent mentionne une image.
+
+## Conseils de compatibilité
+
+<Warning>
+  La présence d’une modalité dans l’éditeur ne garantit pas sa prise en charge
+  par tous les modèles principaux, navigateurs, appareils, clés fournisseurs ou
+  déploiements.
+</Warning>
+
+- Sélectionnez un modèle principal qui accepte le type d’entrée configuré.
+- Ajoutez la clé fournisseur requise par un modèle distant STT, TTS, de vision ou d’image.
+- Les options WebGPU locales nécessitent un navigateur et un appareil compatibles.
+- Les politiques du navigateur relatives au microphone, à la caméra et à la lecture automatique peuvent affecter le Chat.
+- Considérez les noms de modèles en aperçu ou expérimentaux comme susceptibles de changer.
+- Testez le parcours complet avec le même Agent, modèle, navigateur et déploiement que les utilisateurs.
+
+Pour les identifiants, consultez [Clés](/fr/essentials/provider-keys). Pour les images de profil et d’entreprise, consultez [Génération d’images par IA](/fr/essentials/ai-image-generation).

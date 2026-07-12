@@ -1,0 +1,93 @@
+---
+title: 'Architecture des Agents'
+description: 'Vue conceptuelle de la manière dont les demandes, la configuration des Agents, les modèles, le contexte, les outils et les canaux de distribution interagissent.'
+icon: 'diagram-project'
+---
+
+# Architecture des Agents
+
+B-Bot Hub sépare la définition d’un Agent IA de l’expérience qui permet d’y accéder. Cette page décrit cette relation sur le plan conceptuel. Elle ne constitue pas une spécification des services internes ni de leur ordre d’exécution.
+
+## Couches principales
+
+<CardGroup cols={2}>
+  <Card title="Expérience utilisateur" icon="window">
+    Un chat ou un autre canal de distribution reçoit les entrées et présente le résultat.
+  </Card>
+  <Card title="Configuration de l’Agent" icon="user-robot">
+    L’identité, les instructions système, les capacités, les choix de modèle et les capacités autorisées définissent l’Agent.
+  </Card>
+  <Card title="Contexte et capacités" icon="toolbox">
+    Le contexte de la conversation, les connaissances, les apps, les outils, les modalités et les membres de l’équipe fournissent des entrées ou des actions propres à la tâche.
+  </Card>
+  <Card title="Modèle" icon="microchip">
+    Le modèle sélectionné interprète le contexte disponible et génère une réponse ou propose l’utilisation d’un outil.
+  </Card>
+</CardGroup>
+
+## Flux conceptuel d’une demande
+
+```text
+Utilisateur ou système
+  -> Canal de distribution
+  -> Paramètres de conversation et traitement des entrées
+  -> Instructions de l’Agent et contexte disponible
+  -> Modèle sélectionné
+  -> Connaissances, outils, apps ou membres de l’équipe autorisés
+  -> Réponse, fichier ou action proposée
+  -> Canal de distribution
+```
+
+Toutes les demandes n’utilisent pas nécessairement chaque couche. Une question textuelle directe peut n’exiger que des instructions et un modèle. Une demande DeepAgents en plusieurs étapes peut aussi utiliser des tâches, des fichiers d’espace de travail et des points de validation.
+
+## Configuration et autorisations
+
+Les instructions indiquent au modèle comment se comporter. Les autorisations déterminent ce que le système environnant lui permet de consulter ou d’accomplir. Il s’agit de contrôles distincts.
+
+- Utilisez le prompt système pour le rôle, les priorités et les limites comportementales.
+- Utilisez les autorisations des apps, des outils et des comptes pour contrôler les accès.
+- Utilisez la validation humaine pour les actions sensibles proposées.
+- Utilisez les paramètres des canaux de distribution pour définir comment une expérience est exposée.
+
+<Warning>
+  Ne considérez pas une instruction de prompt telle que « ne jamais accéder aux données privées » comme un substitut aux autorisations techniques. Supprimez les accès dont le workflow n’a pas besoin.
+</Warning>
+
+## État et contexte
+
+Le contexte accessible à une demande peut inclure la conversation en cours, les instructions de l’Agent, les connaissances récupérées, les résultats des outils et les artefacts de l’espace de travail. Leur disponibilité et leur conservation dépendent de la fonctionnalité et de la configuration.
+
+Comme le contexte est limité et peut évoluer :
+
+- Gardez les instructions concises et résolvez les contradictions.
+- Récupérez uniquement les sources pertinentes.
+- Stockez les artefacts intermédiaires volumineux dans des fichiers d’espace de travail lorsque cela convient.
+- Vérifiez que les éléments d’état importants sont présents avant de poursuivre une tâche.
+- Ne supposez pas que les informations d’une autre session ou d’un autre canal sont disponibles.
+
+## Gestion des défaillances
+
+Concevez chaque couche pour gérer clairement les défaillances :
+
+- Une entrée non valide ou non prise en charge doit produire un message exploitable.
+- Des connaissances manquantes doivent entraîner l’expression d’une incertitude ou une demande d’informations.
+- L’échec d’un outil ne doit pas être présenté comme une réussite.
+- Les actions sensibles doivent s’arrêter au point de validation configuré.
+- Le canal de distribution doit communiquer le statut final à l’utilisateur.
+
+## Concepts associés
+
+<CardGroup cols={2}>
+  <Card title="Agents IA" icon="user-robot" href="/fr/concepts/introduction">
+    Découvrez le vocabulaire de la configuration des Agents.
+  </Card>
+  <Card title="Cycle de vie et configuration" icon="sliders" href="/fr/concepts/basics">
+    Concevez, testez, distribuez et maintenez un Agent.
+  </Card>
+  <Card title="DeepAgents" icon="robot" href="/fr/concepts/deepagents/introduction">
+    Comprenez les espaces de travail en plusieurs étapes et les contrôles de validation.
+  </Card>
+  <Card title="Canaux de distribution" icon="share-nodes" href="/essentials/distribution-channels">
+    Configurez la manière dont les utilisateurs et les systèmes accèdent à un Agent.
+  </Card>
+</CardGroup>

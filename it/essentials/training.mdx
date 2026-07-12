@@ -1,0 +1,102 @@
+---
+title: "Addestramento"
+description: "Crea conversazioni di esempio ed esegui il fine-tuning di un modello per un Agente"
+icon: "graduation-cap"
+---
+
+# Addestramento
+
+Addestramento trasforma conversazioni di esempio in un processo di fine-tuning per un Agente. Ogni sessione contiene passaggi ordinati dell'utente e dell'assistente e conserva lo stato del processo.
+
+<Warning>
+  Addestramento è diverso da Conoscenza. [Conoscenza](/it/essentials/knowledge)
+  recupera informazioni dai documenti caricati quando servono all'Agente.
+  Addestramento invia conversazioni di esempio a un provider per creare un modello sottoposto a fine-tuning.
+</Warning>
+
+## Prima di iniziare
+
+Seleziona l'Agente da addestrare. Una nuova sessione viene collegata all'Agente selezionato e può usare i modelli configurati per quell'Agente.
+
+## Creare o aprire una sessione
+
+1. Apri **Addestramento**.
+2. Seleziona **Nuova sessione di addestramento**.
+3. Inserisci un nome chiaro e, facoltativamente, una descrizione.
+4. Seleziona **Crea** per aprire la sessione.
+
+La pagina elenca le sessioni esistenti con nome, descrizione, numero di esempi e stato. Seleziona una scheda per aprirla. Usa l'azione di eliminazione per rimuovere una sessione non più necessaria.
+
+<Tip>
+  Usa una sessione per ogni comportamento o stile di risposta. Un nome mirato
+  come `Risposte per escalation dell'assistenza` è più facile da controllare di `Addestramento 1`.
+</Tip>
+
+## Scegliere un modello
+
+Nella sessione, scegli un **Modello base** tra quelli configurati per l'Agente selezionato. Se non è disponibile alcun modello, configurane uno prima di avviare il fine-tuning.
+
+Il modello scelto è il punto di partenza del processo. L'Hub non usa automaticamente i documenti di Conoscenza come esempi di addestramento.
+
+## Aggiungere conversazioni di esempio
+
+Ogni esempio è una conversazione ordinata composta da passaggi dell'utente e dell'assistente.
+
+```text
+Utente: Il mio ordine è arrivato danneggiato. Cosa devo fare?
+Assistente: Mi dispiace che il suo ordine sia arrivato danneggiato. Mi invii il numero dell'ordine e una foto del pacco, così potrò aiutarla con il passaggio successivo.
+```
+
+Seleziona **Aggiungi esempio** per creare un esempio con un passaggio Utente e uno Assistente. Quindi:
+
+- inserisci il testo in ogni passaggio
+- seleziona il ruolo Utente o Assistente
+- seleziona **Aggiungi passaggio** per continuare la conversazione
+- elimina i passaggi non necessari
+- duplica un esempio per creare una variante simile
+- elimina un esempio per rimuoverlo dalla sessione
+
+Scrivi la risposta che vuoi far apprendere all'Agente. Mantieni corretti i ruoli, fornisci contesto sufficiente nel passaggio dell'utente ed evita risposte contraddittorie dell'assistente.
+
+## Salvare e avviare il fine-tuning
+
+Seleziona **Salva** per memorizzare nome, descrizione ed esempi senza avviare un processo.
+
+Quando gli esempi sono pronti:
+
+1. Verifica che sia selezionato l'Agente corretto.
+2. Verifica il modello base.
+3. Controlla ogni passaggio Utente e Assistente.
+4. Seleziona **Avvia addestramento**.
+
+L'Hub salva la sessione corrente prima di avviare il fine-tuning. Puoi iniziare solo se almeno un passaggio contiene testo e nessun processo è attivo.
+
+## Seguire lo stato del processo
+
+La sessione mostra la fase corrente:
+
+- **Bozza**: non è stato avviato alcun processo.
+- **In coda**: il provider ha accettato e accodato il processo.
+- **Validazione dei dati**: il provider verifica i dati preparati.
+- **Addestramento**: il fine-tuning è in corso.
+- **Distribuzione**: il modello risultante viene preparato.
+- **Completato**: il fine-tuning è terminato e viene mostrato l'identificatore del modello.
+- **Non riuscito**: il processo si è interrotto con un errore.
+- **Annullato**: il processo attivo è stato annullato.
+
+Un processo attivo può essere annullato dal pannello di stato. Quando disponibili, vengono mostrati anche il numero di token addestrati o l'errore del provider.
+
+## Addestramento e Conoscenza
+
+Usa la funzionalità adatta:
+
+- Usa [Conoscenza](/it/essentials/knowledge) per fatti che devono restare modificabili e recuperabili dai documenti.
+- Usa Addestramento per esempi ripetuti di come deve rispondere un Agente.
+- Aggiorna un documento di Conoscenza quando cambiano le informazioni di origine.
+- Crea e controlla una nuova sessione quando serve un altro comportamento sottoposto a fine-tuning.
+
+## Passaggi successivi
+
+<Card title="Conoscenza" icon="book-open" href="/it/essentials/knowledge">
+  Aggiungi documenti che un Agente può recuperare come contesto verificato.
+</Card>

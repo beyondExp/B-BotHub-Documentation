@@ -1,53 +1,41 @@
 ---
-title: 'Roadmap'
-description: 'This is our Roadmap'
-icon: 'road'
+title: "Feature Availability"
+description: "What is available in B-Bot Hub, what depends on context, and what is coming soon"
+icon: "list-check"
 ---
 
-<Steps>
-  <Step title="CBV-ALPHA | We started completely over" icon="check">
-    we started with a blank space and added most of the functions we already had with our old approach (prototype).
-  </Step>
-  <Step title="CBV0.1 | AI Virtual Persona Creation" icon="check">
-    We created a multistep Form which helps creating Virtual Persona with the help of AI
-  </Step>
-  <Step title="CBV0.2 | LLM Fine Tuning with tools" icon="check">
-    We created a Fine Tuning Tool to Fine tune the LLMs of our Virtual Personas.
-  </Step>
-  <Step title="CBV1.1 | Versioning LLM Fine Tuning" icon="check">
-    These are instructions or content that only pertain to the second step.
-  </Step>
-  <Step title="CBV1.2 | Apps" icon="check">
-    We added the possibility for our users to connect Apps to it.
-  </Step>
-  <Step title="CBV2.1 | Fine Tuning with apps" icon="check">
-    We added Fine tuning for the use of the apps.
-  </Step>
-  <Step title="CBV2.2 | Thoughts in Chat" icon="check">
-    We added thoughts in chat so you can see what steps exactly the Virtual Persona did before responding.
-  </Step>
-  <Step title="CBV3.1 | Multiple LLMs and Providers" icon="check">
-    We added the possibility to choose from different LLMs and providers
-  </Step>
-  <Step title="CBV3.2 | Dashboard" icon="check">
-    We added the dashboard for you so you can keep track of your achievements and usage.
-  </Step>
-  <Step title="CBV3.3 | Appstore redone" icon="square-minus">
-    We will redo the Appstore and our approach of how apps are added, adding us a completely new universe of apps you can add to your experts
-  </Step>
-  <Step title="CBV3.4 | Memory redone" icon="square-minus">
-    We want to give you more control over what and how your Virtual Persona memorizes facts.
-  </Step>
-  <Step title="CBV4.1 | Workflows" icon="square-minus">
-    Define multistep workflows for your Experts and add workflows as tools, automate them or call them via API.
-  </Step>
-  <Step title="CBV4.2 | Distribution Channels" icon="square-minus">
-    Add Channels to your Experts like: your Website, Whatsapp, SMS and more
-  </Step>
-  <Step title="CBV4.3 | Avatars" icon="square-minus">
-    Create an Avatar for your Experts that will be live callable or usable to create content
-  </Step>
-  <Step title="CBV? | Missing something?" icon="question">
-    Suggest a feature you would like to have
-  </Step>
-</Steps>
+# Feature Availability
+
+Availability can depend on your selected Agent, account, company, browser, provider keys, or connected services.
+
+## Available
+
+- Sign-in and three-step onboarding
+- Dashboard, Chat, saved Threads, and scheduled Tasks
+- Agent creation from scratch or from a template
+- Agent editing for Basics, Goals, Abilities, Model, and Team
+- Resources, layered memories, and conversation files
+- Knowledge domains with documents, entities, relationships, and graph views
+- Training sessions built from example conversations
+- Workflow creation, publishing, triggers, and test runs
+- App connections, including remote MCP servers
+- Channels for B-Bot Chat, Embed, API, Tasks, and public templates
+- Companies, invitations, provider keys, profile settings, notifications, news, and guided tours
+
+## Context-dependent
+
+- **Selected agent:** Resources, Knowledge, Training, Apps, Channels, Threads, and Tasks require a saved agent. They are unavailable when the built-in B-Bot assistant is selected.
+- **Provider keys and services:** Model choices, AI-generated setup, image generation, app catalogs, training, and some chat tools depend on configured providers and available platform services.
+- **Company access:** Shared agents, company keys, seats, and company-only chats depend on company membership and permissions.
+- **Browser support:** Voice, notifications, clipboard actions, and some media behavior depend on browser permissions and supported browser APIs.
+- **Deployment configuration:** Billing, analytics, web push, third-party integrations, and workspace previews can report that they are unavailable when their backing service is not configured.
+
+## Coming soon
+
+The channel picker explicitly marks these channel types as coming soon:
+
+- Twilio
+- n8n
+- Zapier
+
+No release date is published for coming-soon features. Features not listed here should not be assumed to be available.

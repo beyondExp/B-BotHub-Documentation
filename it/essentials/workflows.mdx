@@ -1,0 +1,96 @@
+---
+title: 'Workflow'
+description: 'Crea, prova, esegui e pubblica Workflow con gli Agenti'
+icon: 'diagram-project'
+---
+
+# Workflow
+
+I Workflow collegano Agenti, azioni delle App, decisioni e verifiche umane in un'automazione visiva. Apri **Workflow** dalla barra laterale per visualizzare quelli salvati o crearne uno nuovo.
+
+![Modelli di Workflow in B-Bot Hub](/images/concepts/workflows-overview.png)
+
+## Partire dall'elenco o da un modello
+
+La pagina Workflow mostra:
+
+- Modelli iniziali per qualificazione dei lead, classificazione dei ticket di assistenza e acquisizione dei documenti.
+- Workflow salvati con stato bozza o attivo, numero di passaggi e tipo di trigger.
+- **Nuovo workflow** per un Workflow vuoto.
+
+Selezionando un modello si apre il generatore con i passaggi già disposti. Selezionando un Workflow salvato lo si apre per la modifica.
+
+Inizia dal percorso più breve che dimostra il risultato previsto. Aggiungi rami o integrazioni dopo che quel percorso funziona.
+
+## Creare nell'area di lavoro
+
+Aggiungi nodi dalla tavolozza e posizionali nell'area. Collega l'uscita di un nodo all'ingresso di un altro per definire ordine di esecuzione e rami. Seleziona un nodo per aprirne il pannello di configurazione.
+
+B-Bot Hub supporta questi tipi di nodo:
+
+- **Trigger**
+- **Passaggio Agente**
+- **Azione**
+- **Condizione If**
+- **Switch**
+- **For each**
+- **Ciclo While**
+- **Attesa**
+- **Merge**
+- **Approvazione umana**
+- **Aggiornamento Attività**
+- **Stop**
+
+Le impostazioni variano per tipo. Ad esempio, un passaggio Agente seleziona un Agente e un prompt, mentre un'Azione seleziona un Agente collegato, un collegamento App e un'azione.
+
+## Mappare i dati tra i nodi
+
+I nodi Agente e Azione definiscono campi di input e output. Usa l'editor di mappatura per associare ogni input all'output di un nodo precedente. Nomi chiari e output strutturati degli Agenti rendono più affidabili condizioni, switch e mappature successive.
+
+Per i nodi di diramazione, collega le uscite etichettate ai percorsi successivi corretti. Nei cicli, collega il percorso del ciclo ai passaggi ripetuti e quello completato ai passaggi successivi.
+
+## Salvare, provare ed esaminare le esecuzioni
+
+<Steps>
+  <Step title="Salva">
+    Salva il Workflow come bozza. Il Workflow riceve l'ID richiesto dalle esecuzioni e dai trigger configurati.
+  </Step>
+  <Step title="Esegui test">
+    Seleziona **Esegui test**. Il generatore salva prima le modifiche correnti e mette in coda un'esecuzione di test.
+  </Step>
+  <Step title="Esamina Esecuzioni">
+    Apri **Esecuzioni** per controllare stato e dettagli dei nodi. Un'esecuzione può attendere un'approvazione quando raggiunge un nodo Approvazione umana o un'azione che la richiede.
+  </Step>
+  <Step title="Pubblica">
+    Seleziona **Pubblica** per attivare il Workflow. Usa **Annulla pubblicazione** per riportarlo allo stato di bozza.
+  </Step>
+</Steps>
+
+## Configurare i trigger dopo il salvataggio
+
+Il nodo trigger supporta:
+
+- **Esecuzione manuale**
+- **Pianificazione**
+- **Webhook**
+- **Polling**
+- **Trigger App**
+
+Dopo aver salvato il Workflow, apri **Trigger** per creare e gestire i trigger operativi. Puoi aggiungere webhook e pianificazioni con intervalli predefiniti, copiare un URL webhook generato, attivare o disattivare un trigger configurato ed eliminarlo.
+
+<Info>
+  I trigger configurati sono attivi solo mentre il Workflow è pubblicato.
+</Info>
+
+Prima della pubblicazione, prova input rappresentativi rispetto ai risultati attesi. Per diagnosticare un errore, modifica un solo elemento di configurazione alla volta e ripeti lo stesso input.
+
+## Guide correlate
+
+<CardGroup cols={2}>
+  <Card title="App" icon="grid-2-plus" href="/it/essentials/apps">
+    Collega App Composio e server MCP per i passaggi Azione e Trigger App.
+  </Card>
+  <Card title="Attività" icon="list-check" href="/it/essentials/tasks">
+    Scopri come funzionano esecuzione e aree di lavoro delle Attività.
+  </Card>
+</CardGroup>

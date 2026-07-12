@@ -1,0 +1,121 @@
+---
+title: "Knowledge"
+description: "Manage retrieval domains, documents, graphs, and access for an Agent"
+icon: "book-open"
+---
+
+# Knowledge
+
+Knowledge organizes source documents into domains that an Agent can retrieve when it needs grounded information. Open Knowledge from the shortcut on the [Resources](/essentials/resources) page.
+
+<Info>
+  Knowledge retrieval does not fine-tune a model. To teach response patterns
+  with example conversations, use [Training](/essentials/training).
+</Info>
+
+## Select an Agent
+
+Select the Agent whose knowledge you want to manage before opening Knowledge. The page lists the domains available to that Agent.
+
+## Create, attach, or delete a domain
+
+Select **Add domain** to create a domain:
+
+1. Enter a name.
+2. Add an optional description.
+3. Select **Create**.
+
+The Hub normalizes the name for use as the domain key. Select the domain name on its card to open it.
+
+Select **Attach domain** to reuse a domain from another Agent. Choose the source Agent and one of its domains, then select **Attach**. The attached domain uses the same documents and graph.
+
+Use the delete action on a domain card to remove the domain from the selected Agent. Review the selected Agent and domain before deleting.
+
+## Work in a domain
+
+An editable domain has four tabs:
+
+- **Documents**: Upload, process, open, edit, and delete source documents.
+- **Graph**: Explore extracted entities and their relationships.
+- **Studio**: Create supported views and outputs from domain content.
+- **Settings**: Maintain domain details and the entity types used by the graph.
+
+Users with view-only access can inspect the domain content without editing controls.
+
+## Add and manage documents
+
+In **Documents**, drop files onto the upload area or select files from your device. Supported source formats are:
+
+- PDF (`.pdf`)
+- Markdown (`.md`)
+- Plain text (`.txt`)
+- Word (`.docx`)
+
+After upload, the document appears as processing while the Hub extracts its content. A processed document card shows its status and section count.
+
+Select a document to open it. If you can edit the domain, you can update the document content and save it. Saving updates the stored content and refreshes extracted graph information. You can also delete a document from its card.
+
+The document editor can export content as PDF. It can also open the domain sharing controls.
+
+## Explore entities and relationships
+
+The **Graph** tab visualizes entities extracted from the domain documents and the relationships between them.
+
+You can:
+
+- Filter the graph by entity type.
+- Adjust the maximum number of displayed nodes.
+- Select an entity to inspect its type, description, aliases, attributes, document count, confidence, and related entities.
+- Use the entity list to find and select a node.
+
+## Use Studio
+
+The **Studio** tab provides three domain tools:
+
+- **Podcast**: Create a podcast output from the domain documents.
+- **Table**: View graph entities in a table.
+- **Mindmap**: View entities and relationships as a mind map.
+
+Table and Mindmap use the domain graph. Add and process documents before using graph-based Studio views.
+
+## Update domain settings
+
+Use **Settings** to update the domain name and description. You can also select standard entity categories or add custom entity types for the graph to focus on.
+
+## Control visibility and member roles
+
+Open a document and select **Share** to manage access for its domain.
+
+Choose a visibility:
+
+- **Private**: Restricted domain access.
+- **Company**: Access through the active company.
+- **Public**: Public domain visibility.
+
+When company members are available, assign each member one of these roles:
+
+- **None**: No explicit member access.
+- **Viewer**: Can view the shared domain.
+- **Editor**: Can edit the shared domain.
+
+Sharing applies at the domain level, so the selected visibility and member roles cover the domain rather than only the open document.
+
+## Knowledge and Training
+
+Knowledge and Training solve different problems:
+
+- Knowledge retrieves current information from managed documents at response time.
+- Training fine-tunes a model from user and assistant conversation examples.
+- Knowledge documents can be edited or deleted when facts change.
+- Training runs create provider jobs and resulting fine-tuned models.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Resources" icon="folder-open" href="/essentials/resources">
+    Return to thread outputs, project previews, and Memories.
+  </Card>
+  <Card title="Training" icon="graduation-cap" href="/essentials/training">
+    Create conversation examples and start fine-tuning.
+  </Card>
+</CardGroup>

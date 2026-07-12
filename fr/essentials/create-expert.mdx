@@ -1,0 +1,59 @@
+---
+title: "Créer un Agent"
+description: "Créer un Agent depuis zéro ou à partir d’un modèle dans B-Bot Hub"
+icon: "plus"
+---
+
+# Créer un Agent
+
+Ouvrez **Agents** dans la barre latérale et sélectionnez **Créer un agent**, ou choisissez **Créer un agent** dans le sélecteur d’Agent. Les deux actions ouvrent `/agents/new`.
+
+![Configuration générale d’un Agent dans B-Bot Hub](/images/concepts/create-agent-basics.png)
+
+## Choisir un point de départ
+
+- **Depuis zéro :** sélectionnez **Créer un agent** et renseignez vos propres paramètres.
+- **À partir d’un modèle :** sur la page Agents, sélectionnez **Parcourir les modèles**, filtrez la liste, puis choisissez **Utiliser ce modèle**. Vérifiez chaque valeur préremplie avant d’enregistrer.
+
+## Terminer la configuration initiale
+
+La page du nouvel Agent commence par les sections **Général** et **Objectifs**.
+
+### Général
+
+- **Nom :** obligatoire.
+- **Profession :** rôle affiché avec l’Agent.
+- **Description :** au moins 50 caractères sont requis pour un nouvel Agent. Le champ accepte jusqu’à 250 caractères.
+
+### Configuration guidée et mode pro
+
+La configuration guidée utilise la description pour générer les métadonnées système et de fonction manquantes, sélectionne un modèle par défaut parmi les clés fournisseurs disponibles et tente de configurer la mémoire en couches.
+
+Activez le **Mode pro** pour rédiger vous-même le message système, le nom de fonction et sa description. Vous pouvez également générer un message système à partir de la description actuelle.
+
+### Objectifs
+
+Utilisez **Objectifs** pour ajouter un cap et des objectifs mesurables à long terme lorsqu’ils sont utiles à l’Agent. Ils restent facultatifs pendant la création.
+
+## Enregistrer avant de continuer
+
+Sélectionnez **Enregistrer**. Le Hub crée l’Agent et vous dirige vers `/agents/{agentId}`.
+
+<Warning>
+  **Capacités**, **Modèle** et **Équipe** restent désactivés jusqu’à
+  l’enregistrement de l’Agent. Le contrôle de la photo de profil n’est lui aussi
+  disponible que pour un Agent enregistré.
+</Warning>
+
+La création peut aboutir même si l’association facultative d’un modèle ou la configuration de la mémoire est indisponible. Vérifiez l’Agent enregistré avant de vous fier à ces paramètres.
+
+## Étapes suivantes
+
+<CardGroup cols={2}>
+  <Card title="Modifier l’Agent" icon="pen-to-square" href="/fr/essentials/edit-expert">
+    Configurez les cinq onglets de l’éditeur et ajoutez une photo de profil.
+  </Card>
+  <Card title="Tester dans le Chat" icon="comments" href="/fr/essentials/chat">
+    Sélectionnez l’Agent enregistré et vérifiez son comportement dans une conversation.
+  </Card>
+</CardGroup>

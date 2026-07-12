@@ -1,0 +1,107 @@
+---
+title: 'Content-Erstellung'
+description: 'Gestalte einen wiederholbaren Content-Workflow mit klaren Briefings, Quellenprüfungen und menschlicher redaktioneller Prüfung.'
+icon: 'pen-to-square'
+---
+
+# Content-Erstellung
+
+Ein KI-Agent für Content-Erstellung kann bei Gliederungen, Entwürfen, Varianten und Überarbeitungen helfen. Der beste Workflow trennt Erzeugung und Freigabe: Menschen definieren das Briefing, prüfen Tatsachenbehauptungen, treffen redaktionelle Entscheidungen und genehmigen die Veröffentlichung.
+
+## Redaktionelle Vereinbarung definieren
+
+Konfiguriere den Agenten mit:
+
+- Vorgesehenen Inhaltstypen und Zielgruppen
+- Markenstimme und erforderlicher Terminologie
+- Verbotenen Themen, Behauptungen und Formulierungen
+- Anforderungen an Formatierung und Barrierefreiheit
+- Anforderungen an Quellen und Zitate
+- Einem Prüf- und Freigabeprozess
+
+Lege stabiles Verhalten im System-Prompt fest. Bewahre wechselnde Fakten, Produktdetails und Kampagneninformationen in gepflegten Quellen oder in der Anfrage auf.
+
+## Empfohlener Workflow
+
+<Steps>
+  <Step title="Briefing">
+    Gib Ziel, Zielgruppe, Kanal, Kernaussage, erforderliche Fakten, Quellen, Länge, Tonalität und Handlungsaufforderung an.
+  </Step>
+  <Step title="Gliederung">
+    Fordere vor einem vollständigen Entwurf eine Struktur an. Prüfe Umfang, Schwerpunkte und fehlende Informationen.
+  </Step>
+  <Step title="Entwurf">
+    Erzeuge ihn anhand der freigegebenen Gliederung. Weise den Agenten an, unbelegte Behauptungen und Platzhalter zu markieren, statt Lücken zu füllen.
+  </Step>
+  <Step title="Prüfung">
+    Prüfe Fakten, Zitate, Markenregeln, rechtliche Anforderungen, Originalität, Barrierefreiheit und kanalspezifische Einschränkungen.
+  </Step>
+  <Step title="Überarbeitung">
+    Gib konkretes, auf das Briefing bezogenes Feedback. Lass freigegebene Fakten unverändert, sofern keine Quelle eine Überarbeitung stützt.
+  </Step>
+  <Step title="Freigabe und Veröffentlichung">
+    Nutze einen menschlichen Freigabeschritt. Die Veröffentlichung erfordert eine separat konfigurierte und autorisierte Integration.
+  </Step>
+</Steps>
+
+## Beispielbriefing
+
+```text
+Erstelle eine Gliederung für einen Produktleitfaden mit 900 Wörtern.
+
+Zielgruppe: Administratoren, die [Produkt] bewerten
+Ziel: den Einrichtungsprozess ohne Leistungsversprechen erklären
+Tonalität: direkt, ruhig und technisch
+Erforderliche Quellen: [freigegebene Links oder angehängte Dokumente]
+Erforderliche Abschnitte: Voraussetzungen, Einrichtung, Verifizierung, Einschränkungen
+Terminologie: Verwende „KI-Agent“ und „Vertriebskanal“
+
+Erfinde keine Funktionen, Kundenbeispiele, Zitate oder Statistiken.
+Markiere fehlende Informationen mit [EINGABE ERFORDERLICH].
+Gib ausschließlich eine Gliederung zurück.
+```
+
+## DeepAgents verwenden
+
+Bei einem größeren Content-Paket kann DeepAgents Aufgaben und Dateien für Recherche-Notizen, Gliederungen, Entwürfe und Prüfungskommentare organisieren. Prüfe die verfügbaren Werkzeuge, bevor du den Agenten bittest, zu recherchieren, Medien zu erstellen oder etwas zu veröffentlichen.
+
+```text
+campaign/
+  source-notes.md
+  approved-claims.md
+  article-outline.md
+  article-draft.md
+  social-variations.md
+  review-checklist.md
+```
+
+## Qualitätscheckliste
+
+- Erfüllt der Inhalt das freigegebene Briefing?
+- Sind Namen, Daten, Links, Zitate und Zahlen verifiziert?
+- Lässt sich jede wesentliche Behauptung auf eine freigegebene Quelle zurückführen?
+- Sind erfundene Fallstudien oder Kundenstimmen ausgeschlossen?
+- Passt der Inhalt zu Zielgruppe und Kanal?
+- Erfüllt er Marken-, Barrierefreiheits-, Rechts- und Datenschutzanforderungen?
+- Hat eine Person die endgültige Version freigegeben?
+
+<Info>
+  Fine-Tuning kann bei wiederkehrenden Stil- oder Formatmustern helfen, hält Fakten aber nicht aktuell und ersetzt keine Prüfung.
+</Info>
+
+## Zugehörige Leitfäden
+
+<CardGroup cols={2}>
+  <Card title="Eine KI-Persona entwickeln" icon="masks-theater" href="/de/concepts/best_practices/ai-persona-with-b-bot">
+    Definiere Rolle, Stimme, Grenzen und Bewertungssatz.
+  </Card>
+  <Card title="Einen System-Prompt erstellen" icon="message" href="/de/concepts/best_practices/crafting-a-system-prompt">
+    Verfasse klare und wartbare Content-Anweisungen.
+  </Card>
+  <Card title="Fine-Tuning-Konzepte" icon="brain-circuit" href="/de/concepts/fine-tuning/introduction">
+    Erfahre, wann Beispiele oder Fine-Tuning helfen können.
+  </Card>
+  <Card title="DeepAgents" icon="robot" href="/de/concepts/deepagents/introduction">
+    Organisiere mehrstufige Content-Projekte.
+  </Card>
+</CardGroup>

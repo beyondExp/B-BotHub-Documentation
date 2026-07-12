@@ -1,0 +1,97 @@
+---
+title: 'Tâches'
+description: 'Planifier, déclencher, examiner et gérer les automatisations d’un Agent'
+icon: 'calendar-check'
+---
+
+# Tâches
+
+Les Tâches exécutent des instructions avec l’Agent sélectionné selon un planning, à partir d’un webhook ou par polling. Sélectionnez un Agent dans l’en-tête du Hub avant de créer ou consulter ses tâches.
+
+![Opérations de tâches et mode Proactif dans B-Bot Hub](/images/documentation/tasks-overview.png)
+
+## Vues Liste et Calendrier
+
+Utilisez **Liste** pour gérer les tâches et **Calendrier** pour consulter les exécutions planifiées par date.
+
+La liste indique le nom, les instructions, le déclencheur, la prochaine exécution et l’état actif ou inactif de chaque tâche. Le badge **Proactif** identifie la tâche système du mode Proactif.
+
+Filtrez la liste par :
+
+- tous les états, actifs ou inactifs ;
+- tous les déclencheurs, planifiés ou webhook.
+
+**Actualiser** recharge les données. Le calendrier utilise le même ensemble filtré.
+
+## Créer une tâche
+
+Sélectionnez **Nouvelle tâche**, puis indiquez :
+
+1. un nom et des instructions claires ;
+2. l’assistant associé à l’Agent sélectionné ;
+3. une priorité : faible, moyenne, élevée ou urgente ;
+4. éventuellement des tags séparés par des virgules et une date d’échéance ;
+5. un type de déclencheur.
+
+### Planning
+
+Choisissez une exécution unique, horaire, quotidienne, hebdomadaire, mensuelle ou une expression cron personnalisée. Le générateur affiche les champs d’heure, de jour ou de minute pertinents et un résumé.
+
+### Webhook
+
+Le Hub crée une URL webhook après l’enregistrement. Un système externe peut l’appeler pour déclencher la tâche.
+
+### Polling
+
+Le polling vérifie une source à l’intervalle configuré :
+
+- **HTTP** appelle une URL en GET, POST ou PUT et propose une action de test.
+- **MCP** sélectionne un outil d’une application MCP connectée et lui transmet des arguments JSON.
+- **Composio** sélectionne une action d’une application connectée et lui transmet des arguments JSON.
+
+Seules les applications connectées disponibles pour l’Agent peuvent être sélectionnées. Tester une source confirme la requête sans garantir la réussite de toutes les exécutions ultérieures.
+
+## Gérer les tâches
+
+Depuis la liste, vous pouvez :
+
+- ouvrir les détails ou l’espace de travail ;
+- modifier une tâche créée par un utilisateur ;
+- la suspendre ou la reprendre ;
+- la supprimer ;
+- utiliser **Exécuter maintenant** pour une tâche webhook.
+
+Laissez une nouvelle tâche inactive jusqu’à la vérification de ses instructions et de son déclencheur. Ne l’activez que lorsqu’ils sont corrects.
+
+Les détails comprennent l’identifiant du job, le déclencheur, les prochaines et dernières exécutions, leur nombre, l’assistant, la priorité, les tags, l’échéance, l’état de préparation, le nombre de threads associés et, le cas échéant, l’URL webhook.
+
+## Espace de travail d’une tâche
+
+Chaque tâche possède un volet à trois onglets :
+
+- **À faire** permet d’ajouter, terminer et supprimer des éléments de planification.
+- **Fichiers** permet d’ajouter de petits fichiers texte, de les télécharger ou de les supprimer.
+- **Fichiers générés** affiche ceux de la dernière exécution associée et fournit un lien vers sa conversation.
+
+Ces éléments gérés manuellement sont distincts de l’état des tâches de l’Agent affiché en direct dans le Chat. Les fichiers générés nécessitent qu’une exécution associée produise des fichiers.
+
+## Console des opérations et autonomie
+
+La console résume les éléments nécessitant votre attention, les tâches actives, le total des exécutions et l’activité récente de l’Agent sélectionné.
+
+Le **mode Proactif** gère une tâche système exécutée toutes les six heures. Une fois activé, il peut afficher :
+
+- la prochaine exécution ;
+- le score de préparation et le contexte manquant ;
+- une question permettant d’améliorer cette préparation ;
+- **Exécuter maintenant** ;
+- **Réinitialiser l’autonomie** ;
+- la chronologie de l’autonomie.
+
+La réinitialisation reprend la prochaine exécution proactive depuis le début. Ce mode régit le travail récurrent de l’Agent, mais ne promet ni réussite ni livraison vers des e-mails, canaux de chat, bases de données ou autres systèmes de sortie.
+
+## Emplacement des résultats
+
+Les exécutions peuvent créer des threads et fichiers associés. Consultez-les dans les détails, **Fichiers générés** ou **Ouvrir la conversation**. Les webhooks et le polling sont ici des déclencheurs d’entrée, pas des canaux de sortie garantis.
+
+Pour les panneaux de l’espace de travail du Chat, consultez [Espace de travail DeepAgents](/fr/essentials/deepagents-workspace).

@@ -1,0 +1,61 @@
+---
+title: 'Area di lavoro DeepAgents'
+description: 'Comprendi i pannelli Attività, File, Anteprima e Memorie usati da DeepAgents'
+icon: 'folder-tree'
+---
+
+# Area di lavoro DeepAgents
+
+DeepAgents può organizzare lavori in più passaggi nell'area di lavoro di una conversazione. Puoi seguirli tramite **Attività**, **File**, **Anteprima** e **Memorie** nel pannello destro di Chat.
+
+Non esiste un interruttore separato per una modalità Deep. Il contenuto dell'area di lavoro compare quando viene prodotto dall'Agente selezionato e dai suoi strumenti.
+
+## Attività
+
+Il pannello **Attività** mostra in tempo reale lo stato delle attività segnalato dall'Agente. Distingue gli elementi in attesa, attivi e completati per consentirti di seguire un'esecuzione in più passaggi.
+
+L'elenco delle attività di Chat è di sola lettura. Guida il lavoro inviando messaggi all'Agente oppure approvando o rifiutando un'azione richiesta. Le automazioni pianificate vengono gestite separatamente nella pagina [Attività](/it/essentials/tasks).
+
+## File
+
+Il pannello **File** combina i file in arrivo durante l'esecuzione corrente con quelli disponibili per la conversazione aperta.
+
+- Esplora le cartelle nell'albero dei file.
+- Apri testo e codice nel visualizzatore integrato.
+- Visualizza immagini, audio e altri contenuti multimediali supportati.
+- Copia il contenuto o il percorso di un file multimediale.
+- Esporta Markdown in PDF, facoltativamente con il logo aziendale.
+
+Su desktop si apre automaticamente il primo file disponibile. Sugli schermi più piccoli, seleziona un file e usa il controllo Indietro per tornare all'albero.
+
+I file mostrati appartengono all'area di lavoro della conversazione. La loro disponibilità in una visita successiva dipende dai servizi della conversazione e dell'area di lavoro. Copia o esporta i risultati importanti invece di considerare l'area di lavoro un archivio garantito a lungo termine.
+
+## Anteprima
+
+Il pannello **Anteprima** è destinato agli artefatti generati supportati:
+
+- le aree di lavoro di siti web possono avviare o riattivare un'anteprima live
+- le presentazioni possono visualizzare direttamente il proprio file iniziale
+- le normali raccolte di file indicano che non è disponibile alcuna anteprima live
+
+Puoi aggiornare l'anteprima o aprirne l'URL in un'altra scheda. L'avvio può richiedere tempo, l'anteprima può essere ricreata dopo un periodo di inattività o risultare non disponibile quando la capacità di esecuzione è limitata. Il pannello non garantisce l'esecuzione di codice arbitrario o di ogni tipo di file.
+
+## Memorie
+
+Il pannello **Memorie** raggruppa le informazioni per l'Agente e l'utente selezionati:
+
+- **Profilo principale** contiene informazioni strutturate sul profilo.
+- **Lungo termine** contiene fatti e preferenze duraturi.
+- **Conversazioni** contiene riepiloghi per conversazione; in Chat questo livello è filtrato sulla conversazione aperta.
+
+Puoi aggiungere una memoria a lungo termine e gestire le voci esistenti. La creazione delle memorie è selettiva: messaggi, file o attività non diventano automaticamente memorie durature, a meno che il comportamento dell'Agente non li memorizzi.
+
+## Approvazioni e controllo
+
+Quando uno strumento richiede una verifica umana, Chat mostra una scheda **Azione richiesta** con **Approva** e **Rifiuta**. L'impostazione **Approva automaticamente** può ignorare queste richieste per la configurazione dell'esecuzione corrente.
+
+Le approvazioni regolano le azioni richieste; non attivano DeepAgents e non garantiscono il completamento autonomo. Lascia disattivata l'approvazione automatica quando devi verificare operazioni esterne o sensibili.
+
+## Aree di lavoro correlate
+
+Le Attività pianificate hanno un pannello separato con attività e file creati dall'utente, oltre ai file generati dall'ultima esecuzione. È diverso dallo stato in tempo reale mostrato in Chat. Consulta [Attività](/it/essentials/tasks).

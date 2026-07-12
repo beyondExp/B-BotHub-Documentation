@@ -1,564 +1,88 @@
 ---
 title: 'Distribution Channels'
-description: 'Deploy your experts across multiple platforms and channels'
+description: 'Publish an Agent through supported Hub channels'
 icon: 'share-nodes'
 ---
 
 # Distribution Channels
 
-Distribution channels allow you to deploy your experts to different platforms and integrate them into various workflows. Choose the right channel for your use case and reach your users wherever they are.
+Distribution channels publish the selected Agent for a specific audience or use case. Open **Channels** from the sidebar to view, create, edit, or delete channels.
 
-## Available Channels
+![Channel types available in B-Bot Hub](/images/documentation/channel-types.png)
 
-<CardGroup cols={3}>
-  <Card title="B-Bot Chat" icon="comments" color="#667eea">
-    Direct integration to the B-Bot Chat application
-  </Card>
-  <Card title="Embed Widget" icon="code" color="#764ba2">
-    Embeddable chat widget for websites
-  </Card>
-  <Card title="API" icon="plug" color="#f093fb">
-    REST API endpoints for custom integrations
-  </Card>
-  <Card title="Tasks" icon="calendar-check" color="#4facfe">
-    Scheduled and automated task execution
-  </Card>
-  <Card title="Template" icon="store" color="#00f2fe">
-    Share in the public template marketplace
-  </Card>
-  <Card title="Coming Soon" icon="clock" color="#cccccc">
-    Twilio, N8n, Zapier integrations
-  </Card>
-</CardGroup>
-
-## Selecting a Distribution Channel
-
-Distribution channels are configured when creating or editing an assistant:
+## Create a channel
 
 <Steps>
-  <Step title="Create Assistant">
-    Navigate to **Assistant Manager** for your expert
+  <Step title="Select an Agent">
+    Choose the Agent that the channel will publish.
   </Step>
-  
-  <Step title="Reach Distribution Step">
-    Proceed through the wizard to **Step 5: Distribution Channels**
+  <Step title="Open Channels">
+    Go to `/channels` and select **New channel**.
   </Step>
-  
-  <Step title="Choose Channel">
-    Select the distribution channel that fits your needs
+  <Step title="Name and choose a type">
+    Enter a channel name, then select one of the available channel types.
   </Step>
-  
-  <Step title="Configure Settings">
-    Each channel has specific configuration options
-  </Step>
-  
-  <Step title="Review & Deploy">
-    Finalize and deploy your assistant
+  <Step title="Configure and save">
+    Complete the controls shown for that channel. After saving, the channel appears with its channel ID and edit and delete controls.
   </Step>
 </Steps>
 
-## Channel Details
-
-### 1. B-Bot Chat
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/channel-chat.png"
-  alt="B-Bot Chat Channel"
-/>
-
-**Description:** Direct integration with the B-Bot Chat application. Your expert appears in the chat interface and can be accessed by authorized users.
-
-**Configuration:**
-- **Public/Private**: Control who can access the expert
-- **User Permissions**: Set access levels
-- **Visibility**: Show in expert list or keep hidden
-
-**Best for:**
-- Internal team communication
-- Customer support agents
-- Knowledge base queries
-- Quick access to AI assistance
-
-**Setup:**
-```
-Channel: B-Bot Chat
-Type: chat-integration
-Public: true/false
-```
-
-### 2. Embed Widget
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/channel-embed.png"
-  alt="Embed Widget Channel"
-/>
-
-**Description:** Embeddable chat widget that can be added to any website. Customizable appearance to match your brand.
-
-**Configuration Options:**
-
-<AccordionGroup>
-  <Accordion title="Appearance" icon="palette">
-    **Style Presets:**
-    - **Blank**: Clean, minimal design
-    - **Bubble**: Floating chat bubble
-    - **Sidebar**: Slide-out panel
-    - **Fullscreen**: Takes full page
-    
-    **Customization:**
-    - Primary color
-    - Header icon (Lucide icons)
-    - Bubble icon (profile image or custom icon)
-    - Font family
-    - Border radius
-  </Accordion>
-  
-  <Accordion title="Behavior" icon="sliders">
-    **Options:**
-    - Auto-open delay
-    - Welcome message
-    - Greeting behavior
-    - Mobile responsiveness
-    - Position (bottom-right, bottom-left, etc.)
-  </Accordion>
-  
-  <Accordion title="Integration" icon="code">
-    **Embed Code:**
-    ```html
-    <script>
-      (function(w,d,s,o,f,js,fjs){
-        w['B-BotWidget']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
-        js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
-        js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
-      }(window, document, 'script', 'bbot', 'https://embed.b-bot.ai/widget.js'));
-      bbot('init', {
-        assistantId: 'YOUR_ASSISTANT_ID',
-        color: '#c0b283',
-        style: 'bubble'
-      });
-    </script>
-    ```
-  </Accordion>
-</AccordionGroup>
-
-**Best for:**
-- Website chat support
-- Product demos
-- Lead generation
-- Customer onboarding
-- Help centers
-
-**Customization Examples:**
-
-<Tabs>
-  <Tab title="Minimal Style">
-    ```javascript
-    {
-      style: 'blank',
-      color: '#667eea',
-      position: 'bottom-right',
-      headerIcon: 'message-circle'
-    }
-    ```
-    Clean, professional look for corporate websites.
-  </Tab>
-  
-  <Tab title="Branded Bubble">
-    ```javascript
-    {
-      style: 'bubble',
-      color: '#f093fb',
-      bubbleIcon: 'custom-logo.png',
-      autoOpen: 3000,
-      greeting: 'Hi! How can I help you today?'
-    }
-    ```
-    Friendly, engaging for e-commerce sites.
-  </Tab>
-  
-  <Tab title="Support Sidebar">
-    ```javascript
-    {
-      style: 'sidebar',
-      color: '#4facfe',
-      headerIcon: 'headset',
-      position: 'bottom-right',
-      welcomeMessage: 'Welcome to support!'
-    }
-    ```
-    Professional support interface.
-  </Tab>
-</Tabs>
-
-### 3. API Integration
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/channel-api.png"
-  alt="API Channel"
-/>
-
-**Description:** REST API endpoints for custom integrations. Build your own interface or integrate with existing systems.
-
-**Endpoints:**
-
-```bash
-# Create a new conversation
-POST https://api.b-bot.ai/v1/threads
-
-# Send a message
-POST https://api.b-bot.ai/v1/threads/{thread_id}/messages
-
-# Stream responses
-GET https://api.b-bot.ai/v1/threads/{thread_id}/runs/{run_id}/stream
-
-# Get conversation history
-GET https://api.b-bot.ai/v1/threads/{thread_id}/messages
-```
-
-**Authentication:**
-```bash
-Authorization: Bearer YOUR_API_KEY
-```
-
-**Example Request:**
-```javascript
-const response = await fetch('https://api.b-bot.ai/v1/threads', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Bearer YOUR_API_KEY',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    assistant_id: 'asst_123',
-    messages: [{
-      role: 'user',
-      content: 'Hello, how can you help me?'
-    }]
-  })
-});
-```
-
-**Best for:**
-- Custom applications
-- Mobile apps
-- System integrations
-- Workflow automation
-- Advanced use cases
-
-**See also:** [API Reference](/api-reference/introduction)
-
-### 4. Tasks & Scheduling
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/channel-tasks.png"
-  alt="Tasks Channel"
-/>
-
-**Description:** Schedule your expert to run automatically at specific times or intervals.
-
-**Configuration:**
-- **Schedule**: Cron expressions or simple intervals
-- **Input Data**: Pre-defined prompts or dynamic data
-- **Output Handling**: Save results, send notifications, trigger webhooks
-- **Workspace**: Task-specific todos and files
-
-**Use Cases:**
-
-<CardGroup cols={2}>
-  <Card title="Daily Reports" icon="chart-line">
-    Generate and email daily analytics reports
-  </Card>
-  <Card title="Data Processing" icon="database">
-    Process and analyze data files on schedule
-  </Card>
-  <Card title="Monitoring" icon="bell">
-    Check systems and alert on issues
-  </Card>
-  <Card title="Content Generation" icon="pen-to-square">
-    Create scheduled blog posts or social media
-  </Card>
-</CardGroup>
-
-**Example Schedule:**
-```
-Daily at 9 AM: 0 9 * * *
-Every hour: 0 * * * *
-Weekdays at noon: 0 12 * * 1-5
-Monthly report: 0 0 1 * *
-```
-
-**Best for:**
-- Automated reporting
-- Scheduled maintenance
-- Regular data processing
-- Periodic notifications
-- Batch operations
-
-### 5. Template Marketplace
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/channel-template.png"
-  alt="Template Channel"
-/>
-
-**Description:** Share your expert as a public template that others can install and customize.
-
-**Configuration:**
-
-<AccordionGroup>
-  <Accordion title="Template Details" icon="info-circle">
-    - **Name**: Template display name
-    - **Description**: What your expert does
-    - **Category**: Classification (Sales, Support, etc.)
-    - **Featured**: Request to be featured in marketplace
-    - **Public**: Make available to all users
-  </Accordion>
-  
-  <Accordion title="Categories" icon="folder-tree">
-    - Sales & Marketing
-    - Customer Support
-    - Development
-    - Finance & Accounting
-    - HR & Recruitment
-    - Content Creation
-    - Project Management
-    - Data Analysis
-    - Education
-    - Other
-  </Accordion>
-  
-  <Accordion title="What's Included" icon="box">
-    When users install your template, they get:
-    - Expert configuration
-    - Abilities
-    - Templates (quick prompts)
-    - System prompt
-    - Model preferences
-    - App connections (if public)
-  </Accordion>
-  
-  <Accordion title="What's NOT Included" icon="shield-xmark">
-    Users must provide their own:
-    - API keys
-    - Private app credentials
-    - Custom data
-    - Training data
-  </Accordion>
-</AccordionGroup>
-
-**Best for:**
-- Sharing expertise
-- Building a brand
-- Monetization (future feature)
-- Community contribution
-- Showcasing capabilities
-
-**Featured Templates:**
-- Get more visibility
-- Appear on homepage
-- Increased installations
-- Community recognition
-
-## Combining Multiple Channels
-
-<Info>
-  You can create multiple assistants from the same expert, each with different distribution channels!
-</Info>
-
-**Example Multi-Channel Strategy:**
-
-```
-Expert: "Customer Support AI"
-
-├── Assistant 1: Live Chat (Embed Widget)
-│   └── For website visitors
-│
-├── Assistant 2: Internal Tool (B-Bot Chat)
-│   └── For support team
-│
-├── Assistant 3: API Integration (API)
-│   └── For mobile app
-│
-└── Assistant 4: Reports (Tasks)
-    └── Daily summary emails
-```
-
-## Coming Soon
-
-### Twilio Integration
-**Status:** In Development
-
-Connect your expert to SMS and WhatsApp:
-- Send/receive SMS messages
-- WhatsApp Business integration
-- Phone call handling (future)
-- Multi-number support
-
-### N8n.io Integration
-**Status:** Planned
-
-Integrate with N8n workflow automation:
-- Trigger expert from N8n workflows
-- Process expert responses in N8n
-- Complex automation scenarios
-- Data transformation
-
-### Zapier Integration
-**Status:** Planned
-
-Connect to 5,000+ apps via Zapier:
-- Trigger on new messages
-- Send expert responses to other apps
-- Automated workflows
-- No-code integration
-
-## Best Practices
-
-### Channel Selection
-
-<CardGroup cols={2}>
-  <Card title="Consider Your Users" icon="users">
-    - **Website visitors**: Embed widget
-    - **Mobile users**: API integration
-    - **Internal team**: B-Bot Chat
-    - **Automation**: Tasks
-    - **Sharing**: Template
-  </Card>
-  
-  <Card title="Scalability" icon="arrow-up-right-dots">
-    - Embed and API scale automatically
-    - B-Bot Chat limited by license
-    - Tasks limited by schedule frequency
-    - Templates grow organically
-  </Card>
-  
-  <Card title="Maintenance" icon="wrench">
-    - Embed requires website access
-    - API needs development resources
-    - Chat is low-maintenance
-    - Tasks need monitoring
-    - Templates are set-and-forget
-  </Card>
-  
-  <Card title="Costs" icon="dollar-sign">
-    - All channels share expert costs
-    - API may have higher usage
-    - Embed limited by traffic
-    - Tasks predictable costs
-    - Templates don't increase costs
-  </Card>
-</CardGroup>
-
-### Security Considerations
-
-<Warning>
-  **Important Security Notes:**
-</Warning>
-
-<AccordionGroup>
-  <Accordion title="Public vs Private" icon="lock">
-    - **Public channels**: Anyone can access (embed, templates)
-    - **Private channels**: Authenticated users only (chat, API)
-    - Consider data sensitivity
-    - Implement authentication where needed
-  </Accordion>
-  
-  <Accordion title="API Keys" icon="key">
-    - Keep API keys secure
-    - Use environment variables
-    - Rotate keys regularly
-    - Monitor API usage
-    - Implement rate limiting
-  </Accordion>
-  
-  <Accordion title="Data Privacy" icon="user-shield">
-    - Review data handling policies
-    - Consider GDPR/CCPA compliance
-    - Document data retention
-    - Implement user data deletion
-    - Secure conversation history
-  </Accordion>
-</AccordionGroup>
-
-## Troubleshooting
-
-<AccordionGroup>
-  <Accordion title="Embed Widget Not Loading" icon="exclamation-triangle">
-    **Check:**
-    1. Script tag copied correctly?
-    2. Assistant ID is valid?
-    3. No JavaScript errors in console?
-    4. CORS settings configured?
-    
-    **Solutions:**
-    - Verify embed code
-    - Check browser console
-    - Test in incognito mode
-    - Contact support with errors
-  </Accordion>
-  
-  <Accordion title="API Authentication Errors" icon="lock-open">
-    **401 Unauthorized:**
-    - API key missing or invalid
-    - Key expired or revoked
-    - Wrong authorization header
-    
-    **403 Forbidden:**
-    - Insufficient permissions
-    - Assistant not accessible
-    - Rate limit exceeded
-  </Accordion>
-  
-  <Accordion title="Task Not Running" icon="calendar-xmark">
-    **Verify:**
-    - Schedule syntax correct?
-    - Task enabled?
-    - No errors in last run?
-    - API keys valid?
-    
-    **Debug:**
-    - Check task execution logs
-    - Test with manual run
-    - Verify cron expression
-    - Review error messages
-  </Accordion>
-</AccordionGroup>
-
-## Next Steps
-
-<CardGroup cols={2}>
-  <Card
-    title="Create Assistant"
-    icon="robot"
-    href="/essentials/assistants"
-  >
-    Create an assistant and select a distribution channel
-  </Card>
-  <Card
-    title="API Documentation"
-    icon="book"
-    href="/api-reference/introduction"
-  >
-    Explore the API reference for custom integrations
-  </Card>
-  <Card
-    title="Tasks Guide"
-    icon="calendar"
-    href="/essentials/tasks"
-  >
-    Learn about scheduling automated tasks
-  </Card>
-  <Card
-    title="Template Marketplace"
-    icon="store"
-    href="/essentials/templates"
-  >
-    Browse or share expert templates
-  </Card>
-</CardGroup>
+The creation dialog currently supports **B-Bot Chat**, **Embed**, **API**, **Tasks**, and **Template**. **Twilio**, **n8n**, and **Zapier** are visible as coming soon and cannot be selected.
 
+## B-Bot Chat
+
+B-Bot Chat publishes the Agent in B-Bot Chat. Its visibility controls are:
+
+- **Company only**, which limits access to one company.
+- **Company**, which selects that company when company-only access is enabled.
+
+If no companies are available, company-only access is disabled.
+
+## Embed
+
+Embed creates a website experience and provides a live preview and generated code after the channel is saved.
+
+You can configure:
+
+- System tools: **Memory Search**, **Web Search**, **File Manager / Upload**, **Workspace Tools**, and **Task Scheduler**.
+- Whether tool calls are shown.
+- **Blank** or **Bubble** embed style.
+- Theme color.
+- A Lucide header icon.
+- A custom image URL for the bubble launcher.
+- Optional password protection.
+
+Save the channel before using its preview or copying its generated embed code. Edit the channel later to change these settings.
+
+## API
+
+The API channel exposes the Agent for programmatic use. The channel dialog controls which knowledge write actions are disabled:
+
+- Edit single line
+- Edit multiple lines
+- Create document
+
+The dialog does not display or generate example API endpoints. Use the API reference provided for your deployment when implementing a client.
+
+## Tasks
+
+The Tasks channel distributes the Agent to task execution. The current channel dialog has no additional Tasks-specific controls.
+
+See [Tasks](/essentials/tasks) for task setup and operation.
+
+## Template
+
+Template publishes the Agent as a reusable template. Configure:
+
+- A template category.
+- Whether the template is marked as featured.
+
+The dialog also lists the Agent's connected apps so you can review the resources associated with the template.
+
+## Manage existing channels
+
+Each saved channel card shows its name, type, and channel ID. You can copy the ID, edit the channel, or delete it. Embed channels also provide a shortcut to copy the generated embed code.
+
+<Card title="Apps" icon="grid-2-plus" href="/essentials/apps">
+  Connect the tools an Agent needs before publishing it.
+</Card>

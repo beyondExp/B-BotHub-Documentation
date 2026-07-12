@@ -1,427 +1,97 @@
 ---
 title: 'Chat'
-description: 'See what you can do with your Chat'
+description: 'Start, continue, and manage Agent conversations in B-Bot Hub'
 icon: 'comments'
 ---
-# Video Tutorial (coming soon)
 
-<iframe style={{ borderRadius: '0.5rem', width: '100%', height: '400px'}} src="https://www.youtube.com/embed/6bF5p01MXqQ?si=kd45_8HryDQMIMcZ"> </iframe>
+# Chat
 
+Chat is where you work with an Agent in a conversation thread. Select an Agent in the Hub header before you begin. The selected Agent supplies the available models, abilities, connected apps, memories, and workspace behavior.
 
-# Text Tutorial
+![New Chat screen in B-Bot Hub](/images/documentation/chat-start.png)
 
-## Chat with your Expert
+## Start or resume a conversation
 
-### Start to chat with your expert
+Open **Chat** and send a message to create a thread. Use **New chat** to return to an empty conversation without deleting existing threads.
 
-Firstly click on the "Chat" Menu button on the left. Then click on the "Chat" button of your desired Expert.
+To continue earlier work, open the conversation history button and select a recent conversation. Choose **All conversations** for the full [Threads page](/essentials/threads). When you open an existing thread, the Hub restores its messages and aligns the Agent selector with that thread.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-first.png"
-/>
+## Send messages
 
-### The Chat window
+Enter sends a message. Shift+Enter adds a new line.
 
-After you clicked on the "Chat" button you will see the chat window. Here you can chat with your expert.
+- Select the paperclip to attach one or more supported files.
+- Select the microphone to record and send a voice message.
+- Right-click the microphone to open **Live mode**. A short pause ends your turn while Live mode is listening.
+- Stop an active response with **Stop**.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-second.png"
-/>
+Attachment support and voice behavior depend on the selected model and its configured modalities. Your browser must allow microphone access.
 
-## The Thumbbar
+### Queue follow-up messages
 
-### The Thumbbar is the place where you can see all of the Chat functions
+You can send another message while the Agent is responding. The Hub adds it to the current thread's queue and sends it automatically after the active response finishes.
 
-You can see the following functions in the Thumbbar:
+In the queue panel, you can edit, reorder, remove, or clear waiting messages. Attachments are saved to the thread workspace when they are submitted or queued.
 
-- **Back Button**: Return to the Expert Overview
-- **Abilities Button**: See and activate your expert's abilities
-- **Chat History Button**: Browse previous conversations
-- **Model Selection Button**: Change the AI model being used
-- **Settings Button**: Configure chat settings (temperature, tokens, etc.)
-- **Memories Button**: View and manage conversation memories
-- **Tools & Connectors**: Enable/disable apps and integrations
-- **Delete History**: Clear messages and start fresh
-- **Save Chat**: Export conversation history
-- **Upload Files**: Add documents, images, or other files
-- **Voice Mode** 🎤: Enable voice input (new!)
-- **DeepAgents Workspace**: Access todos and files (in Deep Mode)
+## Review actions and responses
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-third.png"
-/>
+An Agent may pause before an action and display **Action required**. Review the action and its arguments, then choose **Approve** or **Reject**. In **Settings**, **Auto-approve actions** skips these approval prompts; use it only when you are comfortable with the Agent's configured tools.
 
-### The Abilities Window
+Message actions appear when you hover over or focus a message:
 
-You can see all of the abilities of your expert in the abilities window. You can see the name of the ability and the description of the ability.
-Choose your desired ability with the "use Ability" to activate it.
+- **Copy** copies message text.
+- **Edit & rerun** changes one of your messages and continues from that point.
+- **Regenerate** asks for another response from the preceding checkpoint.
+- Version arrows move between branches created by edits or regenerated responses.
+- **Message details** shows technical identifiers, time, checkpoint, and version information.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-fourth.png"
-/>
+Editing or regenerating creates an alternative branch. It does not overwrite the other version.
 
-### The Chat History
+## Share a conversation
 
-Search for a specific Chat in here and activate it by clicking on it.
+Select **Invite** in an open thread to share it with a teammate. Choose a company, teammate, and link expiry, then send the invitation or copy the generated link.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-fifth.png"
-/>
+Sharing converts the thread into an invite-only company conversation. Only company conversations can be shared. Accepted invitations open the same shared conversation, and shared threads carry a **Shared** badge.
 
-### The Model Selection Window
+## Use the right drawer
 
-Choose your desired model in here, if you have trained an expert before you can choose between the models you have trained here.
+The icon rail on the right opens five panels. On desktop, resize the open drawer by dragging its edge.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-sixth.png"
-/>
+### Settings
 
+Configure the current run:
 
-### The Settings Window
+- model and ability
+- temperature and Top-p
+- extra instructions
+- enabled connected apps
+- Web search, Wolfram Alpha, and Deep research
+- automatic action approval
+- voice autoplay
+- step limit
 
-Change your Settings in here:
+The options shown depend on the selected Agent and model.
 
-- Temperature: The temperature of the model
-- Max Tokens: The maximum tokens the model can use
-- Top P: The top P value of the model
-- Privat Session: If you want to have a private session with your expert, this will disable the tools of the expert and will use your private apps
+### Tasks
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-seventh.png"
-/>
+Shows the Agent's live to-do list for this thread. Items may be pending, active, or completed. This panel is read-only and appears only when the Agent produces task state.
 
-### The Tools and Connectors Window
+### Files
 
-You can see all of the tools and connectors of your expert in here. You can see the name of the tool and the description of the tool.
-you can also disable or enable the tool in here.
+Browse files produced during the current run and files available for the thread. Select a file to view text, code, or supported media. You can copy content or a media path. Markdown files can be exported as PDF, with a company logo when one is available.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-eight.png"
-/>
+### Preview
 
-## Chat Message functions
-
-### The Chat Message functions are in the context popup of every message
+Displays a supported website or presentation artifact. You can start or refresh a preview and open it in a new tab. Ordinary file collections do not have a live preview, and preview availability depends on the workspace output and runtime capacity.
 
+### Memories
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-ninth.png"
-/>
+Shows the selected Agent's memory layers:
 
-### The Context Popup for a User message
-by clicking on the three dots of a message you can see the following functions:
+- **Core profile** for structured, stable information
+- **Long-term** for durable facts and preferences
+- **Conversations** for summaries associated with the current thread
 
-- Start QA Marking: Start the QA Marking for this Chat Messages
-- Copy: Copy the message
+You can add a long-term memory and manage entries shown in the panel. Memory content is Agent- and user-specific; do not assume that every message becomes a memory.
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-tenth.png"
-/>
-
-### The Context Popup for a Expert message
-
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-eleventh.png"
-/>
-by clicking on the three dots of a message you can see the following functions:
-
-- Start QA Marking: Start the QA Marking for this Chat Messages
-- Copy: Copy the message
-- Thoughts: If the expert has thoughts about the message you can see them here, thoughts are sometimes tools or connectors the expert used for this message
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-twelfth.png"
-/>
-
-### QA Marking
-
-By enabling the QA Marking you can mark Messages for QA. These Marked QAs will be used to train the expert in the future.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-thirteen.png"
-/>
-Here you can see the QA Marking Window. You can see the message you marked and the QA you assigned to it.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-sixteen.png"
-/>
-
-### The Thoughts
-
-If you see an Icon like this in the chat window you can see that the expert had thoughts on this message.
-Thoughts are tools or connectors the expert used for this message.
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-twelfth.png"
-/>
-Here you can see the thoughts of the expert. Thoughts are tools or connectors the expert used for this message.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-seventeen.png"
-/>
-
-There can be multiple thoughts for one message.
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/chat-eighteen.png"
-/>
-
-## Voice Features
-
-### Voice Input 🎤
-
-Enable voice mode to speak to your expert instead of typing:
-
-<Steps>
-  <Step title="Enable Voice Mode">
-    Click the **microphone icon** to toggle voice mode
-  </Step>
-  
-  <Step title="Hold to Record">
-    Press and hold the microphone button while speaking
-  </Step>
-  
-  <Step title="Release to Send">
-    Release when done - your speech is transcribed and sent automatically
-  </Step>
-</Steps>
-
-**Voice Input Tips:**
-- Speak clearly at a normal pace
-- Minimize background noise
-- Use a good quality microphone
-- Voice is transcribed using AI (OpenAI Whisper or browser native)
-
-### Audio Output 🔊
-
-If text-to-speech is enabled, you'll hear your expert's responses:
-
-- **Auto-play**: Responses play automatically
-- **Manual play**: Click the play button to hear the response
-- **Speed control**: Adjust playback speed
-- **Voice selection**: Different voices available based on provider
-
-**Supported TTS Providers:**
-- OpenAI TTS (Alloy, Echo, Fable, Onyx, Nova, Shimmer)
-- ElevenLabs (Premium voices)
-- Google TTS (WaveNet voices)
-- Azure Speech (Neural voices)
-- Browser Native (Built-in)
-
-Learn more: [Input & Output Modalities](/essentials/modalities)
-
-## DeepAgents Workspace
-
-### What is Deep Mode?
-
-DeepAgents mode gives your expert a persistent workspace with tasks and files:
-
-<CardGroup cols={2}>
-  <Card title="Tasks Management" icon="tasks">
-    Create, track, and complete todos
-  </Card>
-  <Card title="File System" icon="folder-open">
-    Read, write, and manage files
-  </Card>
-</CardGroup>
-
-### Enabling Deep Mode
-
-<Steps>
-  <Step title="Open Settings">
-    Click the settings icon in the top bar
-  </Step>
-  
-  <Step title="Enable Deep Mode">
-    Toggle **"Deep Mode"** or **"Todo Mode"**
-  </Step>
-  
-  <Step title="View Workspace">
-    The workspace drawer appears on the right
-  </Step>
-</Steps>
-
-### Using the Workspace
-
-The workspace has two tabs:
-
-**Tasks Tab:**
-- View all todos created by the agent
-- Track progress with status indicators
-- Add manual tasks for the agent
-- Complete or delete tasks
-- Hierarchical task structure
-
-**Files Tab:**
-- View all files in the workspace
-- Edit file contents
-- Download files to your computer
-- Upload new files
-- Organize by type
-
-**Task Statuses:**
-- 🟢 **Completed**: Task finished successfully
-- 🔵 **In Progress**: Agent is working on this
-- ⚪ **Pending**: Not started yet
-- 🔴 **Failed**: Encountered errors
-- 🟠 **Cancelled**: Task was cancelled
-
-Learn more: [DeepAgents Workspace](/essentials/deepagents-workspace)
-
-## Multimodal Content
-
-Your expert can handle multiple types of content:
-
-<CardGroup cols={3}>
-  <Card title="Text" icon="font">
-    Traditional text messages
-  </Card>
-  <Card title="Voice" icon="microphone">
-    Speak your questions
-  </Card>
-  <Card title="Images" icon="image">
-    Upload and discuss images
-  </Card>
-  <Card title="Documents" icon="file">
-    PDFs, Word docs, text files
-  </Card>
-  <Card title="Code" icon="code">
-    Source code files
-  </Card>
-  <Card title="Data" icon="database">
-    CSV, JSON, Excel files
-  </Card>
-</CardGroup>
-
-### Combining Modalities
-
-You can mix different input types in a single message:
-
-**Example 1: Voice + Image**
-```
-[Voice] "What's in this image?"
-[Image] screenshot.png
-```
-
-**Example 2: Text + File**
-```
-[Text] "Analyze this data and create a report"
-[File] sales_data.csv
-```
-
-**Example 3: Multiple Files**
-```
-[Text] "Compare these documents"
-[File] version1.pdf
-[File] version2.pdf
-```
-
-## Advanced Chat Features
-
-### HITL (Human-in-the-Loop) Mode
-
-In Deep Mode with HITL enabled, the agent will ask for approval before taking actions:
-
-**Auto Mode:**
-```
-Agent: ✓ Creating task...
-Agent: ✓ Generating file...
-Agent: ✓ Complete!
-```
-
-**HITL Mode:**
-```
-Agent: ❓ I propose to create 3 tasks and 2 files. Approve?
-User: [Approve] [Reject] [Modify]
-```
-
-Toggle HITL in settings or say: *"Switch to HITL mode"*
-
-### Private Session Mode
-
-Enable private session to:
-- Use your personal app credentials instead of expert's
-- Keep conversations separate from expert's learning
-- Override tool access
-
-**When to use:**
-- Accessing personal accounts
-- Sensitive operations
-- Testing without affecting expert
-- Using different API keys
-
-### Memory System
-
-Your expert can remember information across conversations:
-
-**Viewing Memories:**
-1. Click the **brain icon** in the top bar
-2. See all remembered facts and preferences
-3. Edit or delete memories
-4. Add new memories manually
-
-**What gets remembered:**
-- User preferences
-- Important facts
-- Project context
-- Previous decisions
-
-### Tool Events
-
-When your expert uses tools, you'll see:
-
-<CardGroup cols={2}>
-  <Card title="Web Search" icon="magnifying-glass">
-    Beautiful search result cards with titles, snippets, and relevance scores
-  </Card>
-  <Card title="API Calls" icon="plug">
-    Clean display of API requests and responses
-  </Card>
-  <Card title="File Operations" icon="file-pen">
-    Visual feedback for file reads/writes
-  </Card>
-  <Card title="Calculations" icon="calculator">
-    Math and data processing results
-  </Card>
-</CardGroup>
-
-**Expandable Tool Calls:**
-- Click any tool call to expand/collapse
-- See request details
-- View full responses
-- Copy data for your use
-
-# Next Steps
-<CardGroup cols={2}>
-  <Card
-    title="Train your Expert"
-    icon="gauge"
-    href="/essentials/training"
-  >
-    Train your expert to make it smarter
-  </Card>
-  <Card
-    title="Add Apps to your Expert"
-    icon="messages"
-    href="/essentials/apps"
-  >
-    Add Apps to your expert to open more possibilities
-  </Card>
-</CardGroup>
+For workspace details, see [DeepAgents Workspace](/essentials/deepagents-workspace).

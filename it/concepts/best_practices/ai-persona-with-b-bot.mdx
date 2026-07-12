@@ -1,0 +1,97 @@
+---
+title: 'Progettare una persona IA'
+description: 'Definisci un ruolo, una voce, limiti, capacità e un piano di valutazione efficaci per un Agente IA.'
+icon: 'masks-theater'
+---
+
+# Progettare una persona IA
+
+Una persona IA è il ruolo e lo stile comunicativo coerenti che gli utenti sperimentano quando interagiscono con un Agente IA. Una persona efficace è funzionale all'attività. Deve rendere più chiare le aspettative, senza fingere che l'Agente possieda esperienze, sentimenti o autorità umani.
+
+## Parti dal compito
+
+Definisci la persona a partire dai requisiti operativi:
+
+- Chi userà l'Agente?
+- Quali problemi dovrebbe contribuire a risolvere?
+- Quali informazioni può usare?
+- Quali azioni può eseguire?
+- Cosa deve rifiutare o sottoporre a escalation?
+- Quali caratteristiche deve avere un risultato efficace?
+
+Evita ruoli generici come "esperto di tutto". Un ruolo circoscritto è più facile da spiegare, configurare e valutare.
+
+## Componenti della persona
+
+<CardGroup cols={2}>
+  <Card title="Identità" icon="id-card">
+    Un nome, una professione e una breve descrizione che definiscono aspettative accurate per gli utenti.
+  </Card>
+  <Card title="Scopo" icon="bullseye">
+    Le attività e i risultati per cui è progettato l'Agente.
+  </Card>
+  <Card title="Voce" icon="comments">
+    Un piccolo insieme di caratteristiche di scrittura osservabili, come concisa, pacata e diretta.
+  </Card>
+  <Card title="Limiti" icon="shield">
+    Argomenti non supportati, azioni vietate, regole sulla privacy e condizioni di escalation.
+  </Card>
+</CardGroup>
+
+## Separa il comportamento dalle capacità
+
+Una persona può indicare a un Agente di agire con cautela, ma non può concedergli conoscenza, strumenti o autorizzazioni.
+
+- Inserisci ruolo e comportamento nel prompt di sistema.
+- Inserisci i fatti aggiornati in fonti di conoscenza mantenute.
+- Configura app e strumenti per le capacità richieste.
+- Applica l'accesso tramite autorizzazioni tecniche.
+- Usa i Canali di distribuzione per controllare il modo in cui l'esperienza raggiunge gli utenti.
+
+## Costruisci la persona
+
+<Steps>
+  <Step title="Descrivi il ruolo in una frase">
+    Esempio: "Sei un Agente di triage dell'assistenza che aiuta gli utenti a trovare procedure di risoluzione dei problemi approvate e prepara il passaggio a un operatore."
+  </Step>
+  <Step title="Scegli regole di voce osservabili">
+    Preferisci istruzioni come "usa frasi brevi e definisci i termini specialistici" a etichette come "sembra brillante".
+  </Step>
+  <Step title="Aggiungi i limiti">
+    Indica cosa non deve fare l'Agente, quali informazioni non deve richiedere e quando deve fermarsi o avviare un'escalation.
+  </Step>
+  <Step title="Aggiungi le capacità in modo intenzionale">
+    Collega solo la conoscenza, le app, gli strumenti, le modalità e i membri del team necessari per il ruolo.
+  </Step>
+  <Step title="Testa la persona">
+    Usa richieste comuni, richieste ambigue, istruzioni avversarie, informazioni non disponibili e attività fuori ambito.
+  </Step>
+  <Step title="Rivedi in base ai risultati">
+    Modifica una parte alla volta e ripeti lo stesso set di valutazione.
+  </Step>
+</Steps>
+
+## Domande di valutazione
+
+- L'Agente descrive accuratamente il proprio ruolo?
+- La voce è coerente senza diventare ripetitiva?
+- Distingue chiaramente fatti, suggerimenti e incertezza?
+- Rimane nel proprio ambito quando l'utente gli chiede di ignorare le istruzioni?
+- Usa la capacità corretta quando è disponibile?
+- Evita di affermare che un'azione è avvenuta senza averne conferma?
+- Avvia l'escalation al limite definito?
+
+## Evita persone ingannevoli
+
+Non indicare a un Agente di dichiarare credenziali umane, esperienze personali, coscienza o azioni che non può verificare. Dove possa sorgere confusione, identificalo come Agente IA e spiega i limiti pertinenti all'attività.
+
+## Guide correlate
+
+<CardGroup cols={2}>
+  <Card title="Scrivi un prompt di sistema" icon="message" href="/it/concepts/best_practices/crafting-a-system-prompt">
+    Trasforma il progetto della persona in istruzioni chiare.
+  </Card>
+  <Card title="Modifica un Agente" icon="pen-to-square" href="/essentials/edit-expert">
+    Configura l'Agente in B-Bot Hub.
+  </Card>
+</CardGroup>

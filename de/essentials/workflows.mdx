@@ -1,0 +1,55 @@
+---
+title: 'Workflows'
+description: 'Agenten-Workflows erstellen, testen, ausführen und veröffentlichen'
+icon: 'diagram-project'
+---
+
+# Workflows
+
+Workflows verbinden Agenten, App-Aktionen, Entscheidungen und menschliche Prüfung in einer visuellen Automatisierung. Öffnen Sie **Workflows**, um gespeicherte Workflows anzuzeigen oder einen neuen zu beginnen.
+
+![Workflow-Vorlagen in B-Bot Hub](/images/concepts/workflows-overview.png)
+
+## Mit Liste oder Vorlage beginnen
+
+Die Seite zeigt Startvorlagen für Lead-Qualifizierung, Support-Ticket-Triage und Dokumentenannahme, gespeicherte Workflows mit Entwurfs- oder Aktivstatus, Schrittanzahl und Auslöser sowie **Neuer Workflow**.
+
+Eine Vorlage öffnet den Editor mit angeordneten Schritten; ein gespeicherter Workflow wird zur Bearbeitung geöffnet. Beginnen Sie mit dem kürzesten Pfad, der das gewünschte Ergebnis belegt, und ergänzen Sie erst danach Verzweigungen oder Integrationen.
+
+## Auf der Arbeitsfläche erstellen
+
+Fügen Sie Knoten aus der Palette hinzu, platzieren Sie sie und verbinden Sie Ausgabe- mit Eingabeanschlüssen, um Reihenfolge und Zweige festzulegen. Wählen Sie einen Knoten für seine Konfiguration.
+
+B-Bot Hub unterstützt **Trigger**, **Agentenschritt**, **Aktion**, **Wenn-Bedingung**, **Switch**, **Für jedes**, **While-Schleife**, **Warten**, **Zusammenführen**, **Menschliche Genehmigung**, **Aufgabe aktualisieren** und **Stopp**.
+
+Die Einstellungen hängen vom Typ ab. Ein Agentenschritt wählt Agent und Prompt, eine Aktion dagegen verbundenen Agenten, App-Verbindung und Aktion.
+
+## Daten zwischen Knoten zuordnen
+
+Agenten- und Aktionsknoten definieren Ein- und Ausgabefelder. Ordnen Sie jede Eingabe einer Ausgabe eines vorgelagerten Knotens zu. Klare Feldnamen und strukturierte Agentenausgaben verbessern Bedingungen, Switches und spätere Zuordnungen.
+
+Verbinden Sie bei Verzweigungen die beschrifteten Ausgänge mit den richtigen Pfaden. Verbinden Sie bei Schleifen den Schleifenpfad mit den wiederholten und den Abschluss-Pfad mit den folgenden Schritten.
+
+## Speichern, testen und Läufe prüfen
+
+<Steps>
+  <Step title="Speichern">Speichern Sie den Workflow als Entwurf. Er erhält die für Läufe und konfigurierte Trigger erforderliche ID.</Step>
+  <Step title="Testlauf">Wählen Sie **Testlauf**. Der Editor speichert Änderungen und reiht eine Testausführung ein.</Step>
+  <Step title="Läufe prüfen">Öffnen Sie **Läufe**, um Status und Knotendetails zu prüfen. Läufe können bei menschlicher Genehmigung oder genehmigungspflichtigen Aktionen warten.</Step>
+  <Step title="Veröffentlichen">Mit **Veröffentlichen** wird der Workflow aktiv; **Zurückziehen** setzt ihn auf Entwurf zurück.</Step>
+</Steps>
+
+## Trigger nach dem Speichern konfigurieren
+
+Der Trigger-Knoten unterstützt **Manueller Lauf**, **Zeitplan**, **Webhook**, **Polling** und **App-Trigger**. Nach dem Speichern können Sie unter **Trigger** Webhook- und Zeitplan-Trigger anlegen, URLs kopieren, Trigger aktivieren oder deaktivieren und löschen.
+
+<Info>Konfigurierte Trigger sind nur aktiv, solange der Workflow veröffentlicht ist.</Info>
+
+Testen Sie vor der Veröffentlichung repräsentative Eingaben gegen erwartete Ergebnisse. Ändern Sie bei der Fehlersuche jeweils nur ein Konfigurationselement und wiederholen Sie dieselbe Eingabe.
+
+## Zugehörige Anleitungen
+
+<CardGroup cols={2}>
+  <Card title="Apps" icon="grid-2-plus" href="/de/essentials/apps">Verbinden Sie Composio-Apps und MCP-Server für Aktions- und App-Trigger-Schritte.</Card>
+  <Card title="Aufgaben" icon="list-check" href="/de/essentials/tasks">Erfahren Sie, wie Aufgabenausführung und Aufgaben-Workspaces funktionieren.</Card>
+</CardGroup>

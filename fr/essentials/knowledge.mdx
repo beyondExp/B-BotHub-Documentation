@@ -1,0 +1,122 @@
+---
+title: "Connaissances"
+description: "Gérer les domaines de récupération, documents, graphes et accès d’un Agent"
+icon: "book-open"
+---
+
+# Connaissances
+
+Connaissances organise des documents sources en domaines qu’un Agent peut consulter lorsqu’il a besoin d’informations fiables. Ouvrez cette page depuis le raccourci de [Ressources](/fr/essentials/resources).
+
+<Info>
+  La récupération de connaissances n’affine pas un modèle. Pour enseigner des
+  schémas de réponse avec des exemples de conversation, utilisez
+  [Entraînement](/fr/essentials/training).
+</Info>
+
+## Sélectionner un Agent
+
+Sélectionnez l’Agent dont vous souhaitez gérer les connaissances avant d’ouvrir la page. Elle répertorie les domaines disponibles pour cet Agent.
+
+## Créer, associer ou supprimer un domaine
+
+Sélectionnez **Nouveau domaine** :
+
+1. saisissez un nom ;
+2. ajoutez éventuellement une description ;
+3. sélectionnez **Créer**.
+
+Le Hub normalise le nom pour en faire la clé du domaine. Sélectionnez le nom sur sa carte pour l’ouvrir.
+
+Sélectionnez **Associer un domaine** pour réutiliser celui d’un autre Agent. Choisissez l’Agent source et l’un de ses domaines, puis **Associer**. Le domaine associé utilise les mêmes documents et le même graphe.
+
+Utilisez l’action de suppression d’une carte pour retirer le domaine de l’Agent sélectionné. Vérifiez l’Agent et le domaine avant de supprimer.
+
+## Travailler dans un domaine
+
+Un domaine modifiable possède quatre onglets :
+
+- **Documents :** téléverser, traiter, ouvrir, modifier et supprimer les sources.
+- **Graphe :** explorer les entités extraites et leurs relations.
+- **Studio :** créer des vues et résultats pris en charge à partir du contenu.
+- **Paramètres :** gérer les détails du domaine et les types d’entités du graphe.
+
+Les utilisateurs disposant d’un accès en lecture seule peuvent consulter le contenu sans commandes de modification.
+
+## Ajouter et gérer des documents
+
+Dans **Documents**, déposez des fichiers dans la zone de téléversement ou sélectionnez-les sur votre appareil. Les formats pris en charge sont :
+
+- PDF (`.pdf`)
+- Markdown (`.md`)
+- texte brut (`.txt`)
+- Word (`.docx`)
+
+Après le téléversement, le document est signalé comme en cours de traitement pendant l’extraction. Une fois traité, sa carte affiche son état et son nombre de sections.
+
+Sélectionnez un document pour l’ouvrir. Si vous pouvez modifier le domaine, mettez son contenu à jour puis enregistrez-le. L’enregistrement actualise le contenu stocké et les informations extraites du graphe. Vous pouvez aussi supprimer un document depuis sa carte.
+
+L’éditeur peut exporter le contenu en PDF et ouvrir les commandes de partage du domaine.
+
+## Explorer les entités et relations
+
+L’onglet **Graphe** visualise les entités extraites des documents et les relations qui les relient.
+
+Vous pouvez :
+
+- filtrer le graphe par type d’entité ;
+- régler le nombre maximal de nœuds affichés ;
+- sélectionner une entité pour examiner son type, sa description, ses alias, attributs, nombre de documents, niveau de confiance et entités liées ;
+- utiliser la liste des entités pour trouver et sélectionner un nœud.
+
+## Utiliser Studio
+
+L’onglet **Studio** propose trois outils :
+
+- **Podcast :** créer un podcast à partir des documents.
+- **Tableau :** afficher les entités du graphe sous forme de tableau.
+- **Carte mentale :** afficher les entités et relations sous forme de carte mentale.
+
+Tableau et Carte mentale utilisent le graphe du domaine. Ajoutez et traitez des documents avant d’utiliser ces vues.
+
+## Mettre à jour les paramètres
+
+Utilisez **Paramètres** pour modifier le nom et la description. Vous pouvez aussi sélectionner des catégories d’entités standard ou ajouter des types personnalisés sur lesquels le graphe doit se concentrer.
+
+## Contrôler la visibilité et les rôles
+
+Ouvrez un document et sélectionnez **Partager** pour gérer l’accès au domaine.
+
+Choisissez une visibilité :
+
+- **Privé :** accès restreint.
+- **Entreprise :** accès via l’entreprise active.
+- **Public :** domaine visible publiquement.
+
+Lorsque des membres sont disponibles, attribuez à chacun un rôle :
+
+- **Aucun accès :** aucun accès explicite.
+- **Peut consulter :** peut voir le domaine partagé.
+- **Peut modifier :** peut modifier le domaine partagé.
+
+Le partage s’applique à tout le domaine, pas seulement au document ouvert.
+
+## Connaissances et Entraînement
+
+Ces fonctionnalités répondent à des besoins différents :
+
+- Connaissances récupère au moment de la réponse les informations actuelles des documents gérés.
+- Entraînement affine un modèle à partir d’exemples utilisateur et assistant.
+- Les documents peuvent être modifiés ou supprimés lorsque les faits changent.
+- Les entraînements créent des jobs fournisseur et les modèles affinés correspondants.
+
+## Étapes suivantes
+
+<CardGroup cols={2}>
+  <Card title="Ressources" icon="folder-open" href="/fr/essentials/resources">
+    Revenez aux résultats des threads, aperçus de projet et Mémoires.
+  </Card>
+  <Card title="Entraînement" icon="graduation-cap" href="/fr/essentials/training">
+    Créez des exemples de conversation et lancez un fine-tuning.
+  </Card>
+</CardGroup>

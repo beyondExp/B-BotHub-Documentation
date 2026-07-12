@@ -1,0 +1,85 @@
+---
+title: 'KI-Agenten und zentrale Begriffe'
+description: 'Erfahre, was ein KI-Agent ist und wie B-Bot Hub Identität, Verhalten, Fähigkeiten und Zugriff beschreibt.'
+icon: 'user-robot'
+---
+
+# KI-Agenten und zentrale Begriffe
+
+Ein **KI-Agent** ist ein konfiguriertes KI-Erlebnis für eine klar definierte Rolle. In der Benutzeroberfläche und Dokumentation wird er auch kurz **Agent** genannt. Die Konfiguration verleiht dem Agenten eine wiedererkennbare Identität, Anweisungen, optionale Fähigkeiten und ein Modell.
+
+Ein Agent ist nicht automatisch korrekt oder autonom. Seine Ergebnisse hängen von seinen Anweisungen, dem Modell, dem verfügbaren Kontext, den verbundenen Werkzeugen und der Qualität der Benutzeranfrage ab.
+
+<Note>
+  In älteren Leitfäden oder API-Oberflächen wird ein KI-Agent möglicherweise noch als **Expert** bezeichnet.
+</Note>
+
+![Grundlagen zum Erstellen eines Agenten in der B-Bot Hub-Benutzeroberfläche](/images/concepts/create-agent-basics.png)
+
+## Agentenkonfiguration
+
+<CardGroup cols={2}>
+  <Card title="Identität" icon="id-card">
+    Name, Beruf, Beschreibung und Profilbild, die Benutzern angezeigt werden.
+  </Card>
+  <Card title="Anweisungen" icon="message">
+    Der System-Prompt und weitere Vorgaben, die Rolle, Prioritäten, Tonalität und Grenzen definieren.
+  </Card>
+  <Card title="Modell und Modalitäten" icon="microchip">
+    Das ausgewählte Modell und die konfigurierten Ein- und Ausgabeformen wie Text, Sprache, Bilder oder Dateien.
+  </Card>
+  <Card title="Fähigkeiten" icon="toolbox">
+    Fähigkeiten, verbundene Apps, Wissensquellen und Teammitglieder, die dem Agenten zur Verfügung stehen können.
+  </Card>
+</CardGroup>
+
+## Produktbegriffe
+
+### Fähigkeiten
+
+Fähigkeiten sind wiederverwendbare Verhaltensanweisungen. Sie helfen Benutzern, einen Modus oder Ansatz für eine Unterhaltung auszuwählen. Halte jede Fähigkeit fokussiert und beschreibe das erwartete Verhalten eindeutig.
+
+### Vorlagen
+
+Vorlagen sind vorbereitete Prompts, die Benutzern den Einstieg in häufige Aufgaben erleichtern. Sie sind Beispiele für mögliche Anfragen, keine Garantie für das Ergebnis.
+
+### Wissen
+
+Wissensquellen stellen Informationen bereit, auf die ein Agent zurückgreifen kann. Nutze sie für Inhalte, die getrennt vom System-Prompt gepflegt werden müssen, etwa Produktdokumentation oder Richtlinien.
+
+### Apps und Werkzeuge
+
+Verbundene Apps und Werkzeuge können Informationen oder Aktionen bereitstellen, die über das Modell selbst hinausgehen. Ihre Verfügbarkeit und Berechtigungen hängen von der Konfiguration des Agenten und der Benutzersitzung ab.
+
+### Team
+
+Sofern die Funktion verfügbar ist, kann ein Agent mit anderen Agenten als Teammitgliedern konfiguriert werden. Behandle jedes Teammitglied als Spezialisten mit klarer Zuständigkeit.
+
+### Vertriebskanäle
+
+**Vertriebskanäle** legen fest, wie ein auf einem Agenten basierendes Erlebnis Benutzer oder Systeme erreicht. Die Kanalkonfiguration ist von der Kernidentität und dem Verhalten des Agenten getrennt.
+
+### DeepAgents
+
+**DeepAgents** ist ein Modus für mehrstufige Arbeiten mit Aufgaben und Workspace-Dateien. Human-in-the-Loop-Kontrollen können Prüfpunkte vor Aktionen einfügen.
+
+## Ein hilfreiches Denkmodell
+
+```text
+Agent = Identität + Anweisungen + Modell + erlaubte Fähigkeiten
+
+Erlebnis = Agent + Unterhaltungseinstellungen + Vertriebskanal
+```
+
+Ein und derselbe Agent kann sich anders verhalten, wenn sich Modell, aktivierte Werkzeuge, verfügbarer Kontext oder Kanal ändern. Teste das vollständige Erlebnis, das Benutzer erhalten werden.
+
+## Nächste Schritte
+
+<CardGroup cols={2}>
+  <Card title="Lebenszyklus und Konfiguration" icon="sliders" href="/de/concepts/basics">
+    Erfahre, wie die Konfigurationsbausteine im Laufe der Zeit zusammenspielen.
+  </Card>
+  <Card title="Einen Agenten erstellen" icon="plus" href="/essentials/create-expert">
+    Folge dem Produktleitfaden, um deinen ersten Agenten zu erstellen.
+  </Card>
+</CardGroup>

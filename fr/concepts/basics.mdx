@@ -1,0 +1,107 @@
+---
+title: 'Cycle de vie et configuration d’un Agent'
+description: 'Comprenez les principaux éléments de configuration et le cycle de vie d’un Agent IA dans B-Bot Hub.'
+icon: 'book-open'
+---
+
+# Cycle de vie et configuration d’un Agent
+
+Un Agent IA efficace se construit par itérations. Commencez par un rôle précis, configurez uniquement les capacités nécessaires, testez des demandes représentatives, puis révisez la configuration lorsque les résultats ne répondent pas à vos critères.
+
+## Cycle de vie
+
+<Steps>
+  <Step title="Définir">
+    Précisez la mission de l’Agent, ses utilisateurs cibles, les tâches prises en charge et ses limites. Déterminez à quoi ressemble une réponse réussie.
+  </Step>
+  <Step title="Configurer">
+    Définissez l’identité, le prompt système, le modèle, les capacités, les modèles de prompt, les modalités, les connaissances, les apps et les membres de l’équipe requis par le cas d’usage.
+  </Step>
+  <Step title="Tester">
+    Testez les demandes courantes, les cas limites, les demandes ambiguës et celles que l’Agent doit refuser ou transmettre. Évaluez séparément l’exactitude factuelle, l’utilisation des outils et le ton.
+  </Step>
+  <Step title="Distribuer">
+    Sélectionnez et configurez le canal de distribution approprié. Testez à nouveau les autorisations, les entrées, les sorties et l’expérience utilisateur dans ce canal.
+  </Step>
+  <Step title="Maintenir">
+    Analysez les retours et les échecs. Mettez à jour les instructions et les connaissances lorsque les exigences évoluent, puis rejouez le jeu de tests.
+  </Step>
+</Steps>
+
+## Workflows
+
+![Modèles de workflows dans B-Bot Hub](/images/concepts/workflows-overview.png)
+
+Un **Agent** définit un comportement et des capacités. Un **workflow** est une automatisation en plusieurs étapes exécutée sur un serveur. **DeepAgents** prend en charge le travail en plusieurs étapes au sein d’une interaction avec un Agent.
+
+## Éléments de configuration
+
+### Identité et prompt système
+
+Les champs d’identité expliquent aux utilisateurs qui est l’Agent. Le prompt système définit sa manière de travailler. Conservez les informations produit et les données qui changent fréquemment dans des sources de connaissances maintenues, plutôt que de les intégrer à un long prompt.
+
+### Modèle
+
+Le modèle assure le traitement du langage et le raisonnement. Les modèles disponibles et les fonctionnalités prises en charge dépendent des fournisseurs configurés. Sélectionnez un modèle en le testant selon vos propres exigences de qualité, de latence et de coût, plutôt qu’en vous fiant à un classement général.
+
+### Capacités et modèles de prompt
+
+- Les **capacités** proposent des modes de comportement réutilisables.
+- Les **modèles de prompt** proposent des points de départ réutilisables.
+
+À eux seuls, ni les uns ni les autres n’ajoutent de données externes ou d’autorisations.
+
+### Connaissances
+
+Les connaissances peuvent ancrer les réponses dans des documents maintenus ou des sources structurées. La recherche ne garantit pas que chaque élément pertinent sera sélectionné : testez donc les questions importantes et tenez les sources à jour.
+
+### Apps, outils et membres de l’équipe
+
+Les apps et outils étendent ce qu’un Agent peut consulter ou accomplir. Les membres de l’équipe répartissent le travail entre plusieurs Agents. Accordez uniquement les autorisations nécessaires et définissez quelle capacité doit prendre en charge chaque tâche.
+
+### Modalités
+
+Les modalités déterminent les formes d’entrée et de sortie prises en charge. Vérifiez que le modèle, le fournisseur et le canal de distribution sélectionnés prennent en charge la combinaison requise.
+
+### Paramètres de conversation
+
+Les paramètres propres à une conversation peuvent modifier le comportement d’un Agent pour une session. Pour diagnostiquer un résultat, consignez la configuration de l’Agent ainsi que toute substitution appliquée à la session.
+
+## Couches de configuration
+
+```text
+Demande de l’utilisateur
+  -> Canal de distribution et paramètres de session
+  -> Identité et instructions de l’Agent
+  -> Modèle, connaissances, apps et outils
+  -> Réponse ou action
+```
+
+Il s’agit d’un flux conceptuel. Une capacité doit être configurée et autorisée avant que l’Agent puisse l’utiliser.
+
+## Liste de contrôle pour l’évaluation
+
+- L’Agent reste-t-il dans le cadre de son rôle ?
+- Les affirmations factuelles sont-elles étayées par le contexte disponible ?
+- Demande-t-il les informations manquantes ?
+- Évite-t-il d’inventer des résultats d’outils ou des actions prétendument réalisées ?
+- Les actions sensibles ou irréversibles font-elles l’objet d’une validation ?
+- L’expérience complète du canal de distribution fonctionne-t-elle comme prévu ?
+- Une personne chargée de la maintenance peut-elle comprendre et mettre à jour la configuration ?
+
+## Guides associés
+
+<CardGroup cols={2}>
+  <Card title="Modifier un Agent" icon="pen-to-square" href="/essentials/edit-expert">
+    Configurez l’identité, les capacités, les modèles, les apps et les membres de l’équipe.
+  </Card>
+  <Card title="Entraînement" icon="graduation-cap" href="/essentials/training">
+    Ajoutez des documents, des paires question-réponse ou du fine-tuning lorsque le cas d’usage l’exige.
+  </Card>
+  <Card title="Modalités" icon="microphone-lines" href="/essentials/modalities">
+    Configurez les types d’entrée et de sortie pris en charge.
+  </Card>
+  <Card title="Canaux de distribution" icon="share-nodes" href="/essentials/distribution-channels">
+    Rendez une expérience fondée sur un Agent accessible aux utilisateurs ou aux systèmes.
+  </Card>
+</CardGroup>

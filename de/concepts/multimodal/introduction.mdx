@@ -1,0 +1,106 @@
+---
+title: 'Multimodale KI'
+description: 'Verstehe, wie Text, Sprache, Bilder und Dateien Teil eines KI-Agenten-Workflows sein können.'
+icon: 'layer-group'
+---
+
+# Multimodale KI
+
+Eine Modalität ist eine Form der Ein- oder Ausgabe. Ein multimodaler Workflow kombiniert mehrere Formen, etwa eine Textfrage zu einem hochgeladenen Bild oder eine gesprochene Anfrage mit einer Textantwort.
+
+In B-Bot Hub hängt die Unterstützung von Modalitäten vom ausgewählten Modell, Anbieter, der Agentenkonfiguration und dem Vertriebskanal ab. Konfiguriere und teste die vollständige Kombination, bevor du dich darauf verlässt.
+
+## Gängige Modalitäten
+
+<CardGroup cols={2}>
+  <Card title="Text" icon="keyboard">
+    Anweisungen, Fragen, formatierte Antworten und Code.
+  </Card>
+  <Card title="Sprache" icon="microphone">
+    Gesprochene Sprache kann als Eingabe transkribiert und Text bei entsprechender Konfiguration als Audio synthetisiert werden.
+  </Card>
+  <Card title="Bilder" icon="image">
+    Unterstützte Modelle können ein zusammen mit einer Frage bereitgestelltes Bild untersuchen oder über eine konfigurierte Fähigkeit ein Bild erzeugen.
+  </Card>
+  <Card title="Dateien" icon="file">
+    Unterstützte Dateien können Kontext liefern oder in Workflows mit Dateiverarbeitung als Ausgabe entstehen.
+  </Card>
+</CardGroup>
+
+## Ein- und Ausgabe sind getrennt
+
+Ein Agent, der Bilder annimmt, kann nicht zwangsläufig Bilder erzeugen. Spracheingabe und Audioausgabe müssen ebenfalls separat konfiguriert werden. Dokumentiere für jeden Workflow:
+
+- Akzeptierte Eingabetypen
+- Erwartete Ausgabetypen
+- Einschränkungen bei Größe, Format und Sprache
+- Erforderliche Anbieterschlüssel
+- Einschränkungen des Kanals
+- Fallback-Verhalten bei Verarbeitungsfehlern
+
+## Beispielmuster
+
+### Bild und Text
+
+Der Benutzer lädt ein Bild hoch und stellt eine konkrete Frage. Der Agent liefert eine Textbeschreibung oder Analyse. Das Ergebnis sollte als Interpretation behandelt werden, insbesondere bei kleinem Text, Messungen oder sicherheitskritischen Bildern.
+
+### Datei und Text
+
+Der Benutzer stellt ein Dokument oder einen Datensatz mit Anweisungen bereit. Der Agent extrahiert oder analysiert unterstützte Inhalte. Vergewissere dich bei wichtigen Arbeiten, dass die vollständige Datei verarbeitet wurde, und prüfe das Ergebnis anhand der Quelle.
+
+### Sprache und Text
+
+Sprache wird transkribiert und anschließend als Benutzernachricht verarbeitet. Transkriptionsfehler können die Bedeutung verändern. Zeige oder bestätige daher kritische Details, bevor eine Aktion erfolgt.
+
+### Text und Audio
+
+Eine Textantwort wird in Sprache umgewandelt. Stelle eine Textalternative bereit und teste Aussprache, Sprache und Anforderungen an die Barrierefreiheit.
+
+## Konzeptionscheckliste
+
+<Steps>
+  <Step title="Unterstützung prüfen">
+    Vergewissere dich, dass Modell, Anbieter und Vertriebskanal die benötigten Ein- und Ausgabetypen unterstützen.
+  </Step>
+  <Step title="Daten minimieren">
+    Sende nur die für die Aufgabe benötigten Inhalte. Entferne unnötige personenbezogene oder vertrauliche Informationen.
+  </Step>
+  <Step title="Fehlerverhalten definieren">
+    Informiere Benutzer, wenn eine Eingabe nicht verarbeitet werden kann, und biete eine sichere Alternative an, etwa Texteingabe oder ein anderes Dateiformat.
+  </Step>
+  <Step title="Reale Eingaben testen">
+    Teste repräsentative Akzente, Bilder, Dokumentlayouts, Dateigrößen, Geräte und Netzwerkbedingungen.
+  </Step>
+  <Step title="Sensible Ergebnisse prüfen">
+    Verlange eine qualifizierte Prüfung bei medizinischen, rechtlichen, finanziellen sowie sicherheits-, identitäts- oder barrierefreiheitsbezogenen Entscheidungen.
+  </Step>
+</Steps>
+
+## Einschränkungen
+
+- Spracherkennung kann Namen, Zahlen und Fachbegriffe falsch verstehen.
+- Bildanalyse kann Details übersehen oder nicht vorhandene Objekte ableiten.
+- Dokumentextraktion kann Layout, Tabellen, Anmerkungen oder gescannten Text verlieren.
+- Erzeugte Dateien können fehlerhaft formatiert sein oder falsche Daten enthalten.
+- Verhalten, Grenzen und Preise von Anbietern können sich ändern.
+
+<Warning>
+  Nutze einen KI-Agenten nicht als alleinige Instanz für Identitätsprüfung, Diagnose, Compliance oder andere folgenschwere Entscheidungen auf Grundlage multimodaler Eingaben.
+</Warning>
+
+## Zugehörige Leitfäden
+
+<CardGroup cols={2}>
+  <Card title="Modalitäten konfigurieren" icon="sliders" href="/essentials/modalities">
+    Prüfe die aktuellen Ein- und Ausgabeeinstellungen in B-Bot Hub.
+  </Card>
+  <Card title="Anbieterschlüssel" icon="key" href="/essentials/provider-keys">
+    Konfiguriere Zugangsdaten für unterstützte Anbieter.
+  </Card>
+  <Card title="Chat" icon="comments" href="/essentials/chat">
+    Erfahre, wie Benutzer Text, Sprache, Bilder und Dateien im Chat bereitstellen.
+  </Card>
+  <Card title="DeepAgents" icon="robot" href="/de/concepts/deepagents/introduction">
+    Nutze Workspace-Dateien in mehrstufigen Workflows.
+  </Card>
+</CardGroup>

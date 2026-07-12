@@ -1,0 +1,69 @@
+---
+title: 'Chiavi'
+description: 'Gestisci credenziali provider personali e aziendali e chiavi API B-Bot'
+icon: 'key'
+---
+
+# Chiavi
+
+Apri **Chiavi** dalla navigazione dell'Hub. La pagina separa le credenziali in base al proprietario.
+
+## Scheda Personale
+
+La scheda **Personale** contiene due sezioni.
+
+### Chiavi provider
+
+Aggiungi una chiave selezionando un provider e inserendo la credenziale. Puoi inoltre:
+
+- aggiungere un nome facoltativo
+- contrassegnare la chiave come primaria
+- contrassegnarla come fallback
+- mostrare o nascondere il valore durante l'inserimento
+- modificare o eliminare una chiave esistente
+- controllare lo stato o l'errore mostrato dall'Hub
+
+L'elenco nella finestra include provider di modelli, voce, infrastruttura e integrazioni e può cambiare nel tempo.
+
+### Chiavi API B-Bot personali
+
+Le chiavi API B-Bot personali sono separate dalle credenziali dei provider. Quando ne crei una, puoi aggiungere un'etichetta e contrassegnarla come primaria.
+
+<Warning>
+  Copia una nuova chiave API B-Bot quando l'Hub la mostra. Conservala in un
+  gestore di segreti adeguato. Non incollarla in Chat, non inserirla nel
+  controllo versione o nella documentazione e non esporla nel codice lato client.
+</Warning>
+
+Le voci esistenti mostrano etichetta, stato, indicatore Primaria e caratteri finali. Puoi eliminare le chiavi non più necessarie.
+
+## Scheda Azienda
+
+La scheda **Azienda** è disponibile solo se appartieni ad almeno un'azienda. Gestisce le chiavi provider dell'azienda attiva.
+
+L'ambito aziendale presenta questi limiti:
+
+- è associato all'azienda attiva
+- contiene solo chiavi provider
+- le chiavi API B-Bot personali non vengono create nell'ambito aziendale
+- le azioni disponibili possono dipendere dal ruolo aziendale e dalle autorizzazioni dell'account
+
+Puoi raggiungere lo stesso pannello anche dalla scheda **Chiavi** nella pagina Azienda.
+
+## Precauzioni minime
+
+Tratta ogni chiave come un segreto:
+
+1. Usa solo le autorizzazioni necessarie all'integrazione.
+2. Mantieni le credenziali personali e aziendali nell'ambito corretto.
+3. Rimuovi le chiavi non più necessarie.
+4. Se una chiave potrebbe essere stata esposta, revocala o ruotala presso il provider e sostituiscila nell'Hub.
+5. Controlla utilizzo e accessi presso il provider secondo le esigenze dell'organizzazione.
+
+L'interfaccia dell'Hub non costituisce una garanzia di sicurezza o disponibilità per una credenziale. Consulta la documentazione aggiornata del provider per creazione, limitazione, rotazione e gestione degli incidenti specifiche dell'account.
+
+## Guide correlate
+
+- [Azienda e Fatturazione](/it/essentials/company-billing)
+- [Modalità di input e output](/it/essentials/modalities)
+- [Crea un Agente](/it/essentials/create-expert)

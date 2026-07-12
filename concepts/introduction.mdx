@@ -1,73 +1,85 @@
 ---
-title: Concept Introduction
-description: 'Welcome to our new documentation'
+title: 'AI Agents and Core Vocabulary'
+description: 'Learn what an AI Agent is and how B-Bot Hub describes identity, behavior, capabilities, and access.'
+icon: 'user-robot'
 ---
 
-<img
-  className="block dark:hidden"
-  style={{ width: '100%' }}
-  src="/images/hero-light.svg"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  style={{ width: '100%' }}
-  alt="Hero Dark"
-/>
+# AI Agents and Core Vocabulary
 
-    ## Setting up
+An **AI Agent** is a configured AI experience for a defined role. In the interface and documentation, it may also be called an **Agent**. The configuration gives the Agent a recognizable identity, instructions, optional capabilities, and a model.
 
-The first step to world-class virtual experts is easy. Just follow these steps to get started.
+An Agent is not automatically correct or autonomous. Its results depend on its instructions, model, available context, connected tools, and the quality of the user's request.
+
+<Note>
+  Older guides or API surfaces may still use **Expert** to refer to an AI Agent.
+</Note>
+
+![Create Agent basics in the B-Bot Hub interface](/images/concepts/create-agent-basics.png)
+
+## Agent Configuration
 
 <CardGroup cols={2}>
-  <Card
-    title="Create Your Expert"
-    icon="plus"
-    href="/essentials/create-expert"
-  >
-    Create your first expert and chat with it.
+  <Card title="Identity" icon="id-card">
+    The name, profession, description, and profile image shown to users.
   </Card>
-    <Card
-      title="Edit Your Expert"
-      icon="pen-to-square"
-      href="/essentials/edit-expert"
-    >
-      Edit your expert and add Apps to it.
-    </Card>
+  <Card title="Instructions" icon="message">
+    The system prompt and other guidance that define the role, priorities, tone, and boundaries.
+  </Card>
+  <Card title="Model and Modalities" icon="microchip">
+    The selected model and the configured forms of input or output, such as text, voice, images, or files.
+  </Card>
+  <Card title="Capabilities" icon="toolbox">
+    Abilities, connected apps, knowledge sources, and team members that may be available to the Agent.
+  </Card>
 </CardGroup>
 
-## Advanced Features
+## Product Vocabulary
 
-Update your docs to your brand and add valuable content for the best user conversion.
+### Abilities
+
+Abilities are reusable behavior instructions. They help users select a mode or approach for a conversation. Keep each ability focused and describe the expected behavior clearly.
+
+### Templates
+
+Templates are prepared prompts that help users start common tasks. They are examples of what to ask, not guarantees about the result.
+
+### Knowledge
+
+Knowledge sources provide information that an Agent can reference. Use them for material that must be maintained separately from the system prompt, such as product documentation or policies.
+
+### Apps and Tools
+
+Connected apps and tools can provide information or actions beyond the model itself. Their availability and permissions depend on how the Agent and the user's session are configured.
+
+### Team
+
+An Agent can be configured with other Agents as team members where that feature is available. Treat each team member as a specialist with a clear responsibility.
+
+### Distribution Channels
+
+**Distribution Channels** define how an Agent-based experience reaches users or systems. Channel configuration is separate from the Agent's core identity and behavior.
+
+### DeepAgents
+
+**DeepAgents** is a mode for multi-step work that uses tasks and workspace files. Human-in-the-loop controls can add review points before actions.
+
+## A Useful Mental Model
+
+```text
+Agent = identity + instructions + model + permitted capabilities
+
+Experience = Agent + conversation settings + Distribution Channel
+```
+
+The same Agent may behave differently when the model, enabled tools, available context, or channel changes. Test the complete experience that users will receive.
+
+## Next Steps
 
 <CardGroup cols={2}>
-  <Card
-    title="Fine tune your Virtual Expert"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Fine tune your expert to your brand and add valuable content
+  <Card title="Lifecycle and Configuration" icon="sliders" href="/concepts/basics">
+    Learn how the configuration pieces fit together over time.
   </Card>
-  <Card
-    title="API Reference"
-    icon="code"
-    href="/api-reference/introduction"
-  >
-    Check out our API reference for more advanced features
-  </Card>
-  <Card
-    title="Add Applications"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Add applications to your expert to make it even smarter
-  </Card>
-  <Card
-    title="Get Inspired"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    See how our customers use B-Bot to create amazing experiences
+  <Card title="Create an Agent" icon="plus" href="/essentials/create-expert">
+    Follow the product guide to create your first Agent.
   </Card>
 </CardGroup>

@@ -1,0 +1,72 @@
+---
+title: 'Entreprise et facturation'
+description: 'Gérer les entreprises, membres, Agents partagés, identifiants, offres et licences'
+icon: 'building'
+---
+
+# Entreprise et facturation
+
+Les pages Entreprise et Facturation séparent les ressources partagées de l’organisation de votre abonnement personnel.
+
+## Créer une entreprise ou en changer
+
+Sous **Entreprise**, sélectionnez **Créer une entreprise**, puis saisissez un nom et, si vous le souhaitez, une description. Le créateur en devient le propriétaire.
+
+Si vous appartenez à plusieurs entreprises, utilisez le sélecteur pour changer d’entreprise active. Les Agents, invitations, clés, éléments de facturation et licences d’entreprise utilisent ce contexte actif.
+
+Sélectionnez l’image de l’entreprise pour téléverser un fichier, générer une image ou utiliser une URL.
+
+## Onglets de l’entreprise
+
+### Membres
+
+L’onglet Membres répertorie le nom, l’adresse e-mail, l’image et le rôle de chaque membre. Il permet de :
+
+- inviter un membre par e-mail ;
+- choisir son rôle ;
+- ajouter un message personnel facultatif ;
+- modifier le rôle d’un membre existant.
+
+Le sélecteur affiche les rôles disponibles pour l’entreprise active. Un nom de rôle ne décrit pas à lui seul toutes les autorisations ; les actions disponibles dépendent aussi de celles attribuées au compte.
+
+### Agents
+
+L’onglet Agents répertorie ceux qui sont partagés avec l’entreprise. Vous pouvez ajouter l’un de vos Agents à l’entreprise ou retirer un Agent partagé. L’assistant intégré à la plateforme est exclu.
+
+### Invitations
+
+L’onglet Invitations affiche l’adresse e-mail, le rôle, la date et l’état. Une invitation en attente peut être annulée. Son destinataire peut l’accepter ou la refuser dans le processus d’invitation.
+
+### Clés
+
+L’onglet Clés gère les clés fournisseurs de l’entreprise active. La portée Entreprise ne crée pas de clés API B-Bot. Consultez [Clés](/fr/essentials/provider-keys).
+
+## Facturation personnelle et d’entreprise
+
+La page Facturation s’ouvre dans la portée **Personnel**. Si vous appartenez à une entreprise, utilisez les onglets de portée pour passer de la facturation personnelle à celle de l’entreprise active.
+
+La page peut afficher :
+
+- l’abonnement et son état ;
+- les informations d’essai ou de renouvellement lorsqu’elles sont disponibles ;
+- les actions liées au paiement et à l’annulation lorsque la facturation est configurée ;
+- le portail externe pour les factures et changements d’offre ;
+- les offres mensuelles et annuelles disponibles dans l’environnement.
+
+Le nom, le prix, la devise, la périodicité et la disponibilité des offres proviennent du service de facturation et peuvent varier selon l’environnement.
+
+## Licences d’entreprise
+
+La facturation d’entreprise comprend les commandes de licences pour les produits affichés dans le Hub. Vous pouvez :
+
+- consulter le nombre de licences utilisées et total ;
+- augmenter ou réduire leur quantité ;
+- attribuer ou retirer des licences produit à chaque membre.
+
+Le Hub empêche de réduire le total sous le nombre déjà attribué.
+
+## Mode ouvert
+
+Si Stripe n’est pas configuré, la page Facturation indique un fonctionnement en **mode ouvert**. Dans cet environnement, le Hub signale que les fonctionnalités sont débloquées et qu’aucun paiement n’est requis.
+
+Le mode ouvert est un état de l’environnement, pas une offre achetée ni une déclaration applicable à d’autres déploiements. Suivez le message affiché dans votre Hub.

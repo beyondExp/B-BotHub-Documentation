@@ -1,0 +1,100 @@
+---
+title: "Entraînement"
+description: "Créer des exemples de conversation et affiner un modèle pour un Agent"
+icon: "graduation-cap"
+---
+
+# Entraînement
+
+L’Entraînement transforme des exemples de conversation en job de fine-tuning pour un Agent. Chaque session contient une suite ordonnée d’échanges utilisateur et assistant et conserve l’état du job.
+
+<Warning>
+  L’Entraînement diffère des [Connaissances](/fr/essentials/knowledge), qui
+  récupèrent des informations dans des documents lorsque l’Agent en a besoin.
+  L’Entraînement transmet des exemples à un fournisseur afin de créer un modèle
+  affiné.
+</Warning>
+
+## Avant de commencer
+
+Sélectionnez l’Agent à entraîner. Toute nouvelle session lui est liée et peut utiliser les modèles configurés pour lui.
+
+## Créer ou ouvrir une session
+
+1. Ouvrez **Entraînement**.
+2. Sélectionnez **Nouvelle session d’entraînement**.
+3. Saisissez un nom clair et, si vous le souhaitez, une description.
+4. Sélectionnez **Créer**.
+
+La page répertorie les sessions existantes avec leur nom, description, nombre d’exemples et état actuel. Sélectionnez une carte pour l’ouvrir ou utilisez son action de suppression si elle n’est plus nécessaire.
+
+<Tip>
+  Consacrez chaque session à un seul comportement ou style de réponse. Un nom
+  précis comme `Réponses d’escalade du support` est plus facile à examiner que
+  `Entraînement 1`.
+</Tip>
+
+## Choisir un modèle
+
+Dans la session, choisissez un **Modèle de base** parmi ceux configurés pour l’Agent. Si aucun n’est disponible, configurez-en un avant de lancer le fine-tuning.
+
+Ce modèle est le point de départ du job. Le Hub n’utilise pas automatiquement les documents de Connaissances comme exemples d’entraînement.
+
+## Ajouter des exemples de conversation
+
+Chaque exemple est une conversation ordonnée composée de tours utilisateur et assistant.
+
+```text
+Utilisateur : Ma commande est arrivée endommagée. Que dois-je faire ?
+Assistant : Je suis désolé que votre commande soit arrivée endommagée. Envoyez-moi le numéro de commande et une photo du colis afin que je puisse vous indiquer la prochaine étape.
+```
+
+Sélectionnez **Ajouter un exemple** pour créer un échange initial, puis :
+
+- saisissez le texte de chaque tour ;
+- choisissez le rôle utilisateur ou assistant ;
+- sélectionnez **Ajouter un échange** pour poursuivre ;
+- supprimez les tours inutiles ;
+- dupliquez un exemple pour créer une variante ;
+- supprimez un exemple pour le retirer.
+
+Rédigez la réponse que l’Agent doit apprendre. Respectez les rôles, fournissez assez de contexte dans le tour utilisateur et évitez les réponses contradictoires.
+
+## Enregistrer et lancer le fine-tuning
+
+Sélectionnez **Enregistrer** pour conserver le nom, la description et les exemples sans démarrer de job.
+
+Lorsque les exemples sont prêts :
+
+1. confirmez l’Agent prévu ;
+2. confirmez le modèle de base ;
+3. vérifiez tous les tours ;
+4. sélectionnez **Lancer l’entraînement**.
+
+Le Hub enregistre la session avant de lancer le job. Le lancement exige qu’au moins un tour contienne du texte et qu’aucun job ne soit déjà actif.
+
+## Suivre l’état
+
+- **Brouillon :** aucun job n’a démarré.
+- **En file d’attente :** le fournisseur a accepté et mis le job en file.
+- **Validation des données :** le fournisseur valide les données préparées.
+- **Entraînement :** le fine-tuning est en cours.
+- **Déploiement :** le modèle obtenu est en préparation.
+- **Terminé :** le fine-tuning est achevé et l’identifiant du modèle est affiché.
+- **Échec :** le job s’est arrêté sur une erreur.
+- **Annulé :** le job actif a été annulé.
+
+Un job actif peut être annulé depuis son panneau d’état. Celui-ci peut aussi afficher le nombre de tokens entraînés ou l’erreur du fournisseur.
+
+## Entraînement et Connaissances
+
+- Utilisez [Connaissances](/fr/essentials/knowledge) pour des faits modifiables et récupérables depuis des documents.
+- Utilisez Entraînement pour des exemples répétés de la manière dont l’Agent doit répondre.
+- Mettez à jour un document lorsque l’information source change.
+- Créez et vérifiez une nouvelle session pour obtenir un autre comportement affiné.
+
+## Étape suivante
+
+<Card title="Connaissances" icon="book-open" href="/fr/essentials/knowledge">
+  Ajoutez des documents que l’Agent peut récupérer comme contexte fiable.
+</Card>

@@ -1,49 +1,83 @@
 ---
 title: 'Apps'
-description: 'Add Apps to your Expert'
+description: 'Connect Composio apps and MCP servers to an Agent'
 icon: 'grid-2-plus'
 ---
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/apps-first.png"
-/>
+# Apps
 
-## Add Apps to your Expert
+Apps give the selected Agent access to external actions and events. Open **Apps** from the sidebar after selecting an Agent.
 
-To add Apps to your Expert you have to go to the App Store. You can find the App Store in the sidebar.
+![Connected apps and app catalog in B-Bot Hub](/images/documentation/apps-overview.png)
 
-## App Types
+## Browse apps
 
-There are three types of Apps you can add to your Expert:
+The Apps page combines Composio integrations and MCP servers in one catalog:
 
-### Database Apps
-Database Apps are Apps that can store data. You can use them to store data for your Expert.
+- **Connected** shows integrations already attached to the selected Agent.
+- **Featured** and **Trending** provide ranked recommendations.
+- **All apps** supports search, category and MCP health filters, card or tile views, and incremental loading.
 
-### Connector Apps
+Catalog cards identify whether an entry comes from Composio or MCP. MCP entries can also show their verification state.
 
-Connector Apps are Apps that can connect to other services. You can use them to connect your Expert to other services that store data
+## Connect a Composio app
 
-### Tool Apps
+<Steps>
+  <Step title="Open an app">
+    Select a Composio entry from Featured, Trending, or All apps.
+  </Step>
+  <Step title="Review capabilities">
+    Open **Capabilities** to inspect the available actions and triggers.
+  </Step>
+  <Step title="Authenticate">
+    In **Connect**, start the provider's OAuth flow or enter the credential fields shown by the app.
+  </Step>
+  <Step title="Test the connection">
+    After connecting, use the **Test** tab for a quick chat with the Agent and confirm that it can call the app.
+  </Step>
+</Steps>
 
-Tool apps are Apps are apps that can run Actions or provide tools for your Expert.
-For example Tavilysearch is a Tool App that can search for information on the internet.
-Wolfram Alpha is a Tool App that can calculate mathematical problems.
+Select a connected Composio app to reopen its details. Use **Reconnect** when its authorization needs to be replaced. Use the disconnect button on its Connected card to remove it from the Agent.
 
-## Add an App to your Account
-Sometimes you need an app on your account. for example if you want to test an App before you add it to your Expert.
-You can add an App to your Account by ticking the "public" checkbox when you add an App window.
+## Connect an MCP server
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/apps-second.png"
-/>
+MCP entries open a test workspace before you connect them. You can:
 
-## Add an App to your Expert
+- Edit the server URL.
+- Choose `streamable_http` or `sse` transport.
+- Add or remove request headers.
+- Load the server's live tool list.
+- Select a tool, provide JSON arguments, and run a quick tool test.
+- Chat with the Agent while the MCP tools are available for the test.
 
-To add an App to your Expert you have to go to the App Store and click on the "connect" Button of the App you want to add.
-normally you need to tick the "private" checkbox after that there will be your list of Experts you can add the App to.
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/apps-third.png"
-/>
+When the test succeeds, connect the MCP server to the selected Agent.
+
+### Add a custom MCP server
+
+Select **Custom MCP** on the Apps page. Enter a name and URL, choose `streamable_http` or `sse`, and add any required header name and value pairs. Select **Connect** to save it.
+
+<Warning>
+  Treat header values as credentials. Use only trusted MCP servers and provide the minimum access they require.
+</Warning>
+
+## Control app permissions
+
+On a Connected card, select the permissions button to configure the app for the current Agent.
+
+- **App enabled** turns the whole integration on or off without disconnecting it.
+- **Allowed** controls whether the Agent may call an individual action.
+- **Requires approval** pauses an allowed action for human approval before execution.
+- **Apply recommended** enables approval for actions marked as recommended by the catalog.
+- **Clear approvals** removes all approval requirements without changing which actions are allowed.
+
+Disallowing an action also removes its approval requirement. Review write and destructive actions carefully, then save the permission changes.
+
+Verify the saved policy in the test chat: an allowed action should succeed, a disallowed action should be unavailable, and an approval-gated action should pause for review.
+
+## Related guides
+
+<CardGroup cols={2}>
+  <Card title="Workflows" icon="diagram-project" href="/essentials/workflows">
+    Use connected app actions and events in automated workflows.
+  </Card>
+</CardGroup>

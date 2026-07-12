@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "B-Bot Hub",
   "colors": {
-    "primary": "#731f7d",
-    "light": "#731f7d",
-    "dark": "#731f7d"
+    "primary": "#171717",
+    "light": "#171717",
+    "dark": "#f5f5f5"
   },
   "appearance": {
     "default": "light",
@@ -13,282 +13,425 @@
   },
   "favicon": "/favicon.png",
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Documentation",
-        "groups": [
+        "language": "en",
+        "default": true,
+        "tabs": [
           {
-            "group": "Getting Started",
-            "pages": [
-              "introduction",
-              "workshops/01-getting-started/overview",
-              "roadmap"
+            "tab": "Documentation",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "introduction",
+                  "roadmap"
+                ]
+              },
+              {
+                "group": "Agents",
+                "pages": [
+                  "essentials/create-expert",
+                  "essentials/edit-expert"
+                ]
+              },
+              {
+                "group": "Chat & Workspaces",
+                "pages": [
+                  "essentials/chat",
+                  "essentials/threads",
+                  "essentials/deepagents-workspace"
+                ]
+              },
+              {
+                "group": "Tasks & Automation",
+                "pages": [
+                  "essentials/tasks",
+                  "essentials/workflows"
+                ]
+              },
+              {
+                "group": "Resources & Knowledge",
+                "pages": [
+                  "essentials/resources",
+                  "essentials/knowledge",
+                  "essentials/training"
+                ]
+              },
+              {
+                "group": "Apps & Publishing",
+                "pages": [
+                  "essentials/apps",
+                  "essentials/distribution-channels"
+                ]
+              },
+              {
+                "group": "Account & Settings",
+                "pages": [
+                  "essentials/dashboard",
+                  "essentials/profile",
+                  "essentials/settings",
+                  "essentials/provider-keys",
+                  "essentials/company-billing",
+                  "essentials/ai-image-generation"
+                ]
+              },
+              {
+                "group": "Discover & Advanced",
+                "pages": [
+                  "essentials/news-tours",
+                  "essentials/modalities"
+                ]
+              },
+              {
+                "group": "Declarations",
+                "pages": [
+                  "declarations/hosting"
+                ]
+              }
             ]
           },
           {
-            "group": "Experts",
-            "pages": [
-              "essentials/create-expert",
-              "essentials/edit-expert",
-              "workshops/02-first-expert/overview"
+            "tab": "Concepts",
+            "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "concepts"
+                ]
+              },
+              {
+                "group": "Core Concepts",
+                "pages": [
+                  "concepts/introduction",
+                  "concepts/basics",
+                  "concepts/architecture/agent-architecture"
+                ]
+              },
+              {
+                "group": "Capabilities",
+                "pages": [
+                  "concepts/deepagents/introduction",
+                  "concepts/multimodal/introduction"
+                ]
+              },
+              {
+                "group": "Training",
+                "pages": [
+                  "concepts/fine-tuning/introduction",
+                  "concepts/fine-tuning/model-distillation"
+                ]
+              },
+              {
+                "group": "Use Cases",
+                "pages": [
+                  "concepts/use_cases/customer-support",
+                  "concepts/use_cases/data-analysis",
+                  "concepts/use_cases/content-creation"
+                ]
+              },
+              {
+                "group": "Best Practices",
+                "pages": [
+                  "concepts/best_practices/ai-persona-with-b-bot",
+                  "concepts/best_practices/crafting-a-system-prompt"
+                ]
+              }
             ]
           },
           {
-            "group": "Chat",
-            "pages": [
-              "essentials/chat",
-              "workshops/03-chat-mastery/overview"
+            "tab": "SDKs",
+            "groups": [
+              {
+                "group": "SDKs",
+                "pages": [
+                  "sdks/javascript"
+                ]
+              }
             ]
           },
           {
-            "group": "Training & Knowledge",
-            "pages": [
-              "essentials/training",
-              "workshops/04-training/overview"
-            ]
-          },
-          {
-            "group": "Apps & Integrations",
-            "pages": [
-              "essentials/apps",
-              "workshops/06-integrations/overview"
-            ]
-          },
-          {
-            "group": "DeepAgents",
-            "pages": [
-              "essentials/deepagents-workspace",
-              "essentials/tasks",
-              "workshops/05-deepagents/overview"
-            ]
-          },
-          {
-            "group": "Distribution",
-            "pages": [
-              "essentials/distribution-channels",
-              "workshops/07-distribution/overview"
-            ]
-          },
-          {
-            "group": "Account & Settings",
-            "pages": [
-              "essentials/dashboard",
-              "essentials/profile",
-              "essentials/settings",
-              "essentials/provider-keys",
-              "essentials/ai-image-generation"
-            ]
-          },
-          {
-            "group": "Advanced Features",
-            "pages": [
-              "essentials/modalities",
-              "workshops/08-advanced/overview"
-            ]
-          },
-          {
-            "group": "Declarations",
-            "pages": [
-              "declarations/hosting"
+            "tab": "Main API",
+            "groups": [
+              {
+                "group": "API User Memories",
+                "pages": [
+                  "mainapi-reference/api-user-memories/get-memories",
+                  "mainapi-reference/api-user-memories/upsert-memory",
+                  "mainapi-reference/api-user-memories/delete-memory"
+                ]
+              },
+              {
+                "group": "Distribution Channels",
+                "pages": [
+                  "mainapi-reference/distribution-channels-metadata",
+                  "mainapi-reference/distribution-channels/create-distribution-channel",
+                  "mainapi-reference/distribution-channels/search-distribution-channels",
+                  "mainapi-reference/distribution-channels/count-distribution-channels",
+                  "mainapi-reference/distribution-channels/get-distribution-channel",
+                  "mainapi-reference/distribution-channels/delete-distribution-channel",
+                  "mainapi-reference/distribution-channels/patch-distribution-channel",
+                  "mainapi-reference/distribution-channels/get-distribution-channel-graph",
+                  "mainapi-reference/distribution-channels/get-distribution-channel-subgraphs",
+                  "mainapi-reference/distribution-channels/get-distribution-channel-subgraphs-by-namespace",
+                  "mainapi-reference/distribution-channels/get-distribution-channel-schemas",
+                  "mainapi-reference/distribution-channels/get-distribution-channel-versions",
+                  "mainapi-reference/distribution-channels/set-latest-distribution-channel-version"
+                ]
+              },
+              {
+                "group": "Knowledge Domains",
+                "pages": [
+                  "mainapi-reference/knowledge-domains/list-documents",
+                  "mainapi-reference/knowledge-domains/list-entities",
+                  "mainapi-reference/knowledge-domains/list-relationships"
+                ]
+              },
+              {
+                "group": "Experts (Agencies & Partners Only)",
+                "pages": [
+                  "mainapi-reference/experts/get-experts",
+                  "mainapi-reference/experts/get-expert-by-id",
+                  "mainapi-reference/experts/create-expert",
+                  "mainapi-reference/experts/update-expert",
+                  "mainapi-reference/experts/delete-expert",
+                  "mainapi-reference/experts/get-template-experts"
+                ]
+              },
+              {
+                "group": "Threads",
+                "pages": [
+                  "mainapi-reference/threads/create-thread",
+                  "mainapi-reference/threads/search-threads",
+                  "mainapi-reference/threads/count-threads",
+                  "mainapi-reference/threads/get-thread-state",
+                  "mainapi-reference/threads/update-thread-state",
+                  "mainapi-reference/threads/get-thread-state-at-checkpoint",
+                  "mainapi-reference/threads/get-thread-state-at-checkpoint-1",
+                  "mainapi-reference/threads/get-thread-history",
+                  "mainapi-reference/threads/get-thread-history-post",
+                  "mainapi-reference/threads/copy-thread",
+                  "mainapi-reference/threads/get-thread",
+                  "mainapi-reference/threads/delete-thread",
+                  "mainapi-reference/threads/patch-thread",
+                  "mainapi-reference/threads/join-thread-stream"
+                ]
+              },
+              {
+                "group": "Thread Runs",
+                "pages": [
+                  "mainapi-reference/thread-runs/list-runs",
+                  "mainapi-reference/thread-runs/create-background-run",
+                  "mainapi-reference/thread-runs/create-run-stream-output",
+                  "mainapi-reference/thread-runs/create-run-wait-for-output",
+                  "mainapi-reference/thread-runs/get-run",
+                  "mainapi-reference/thread-runs/delete-run",
+                  "mainapi-reference/thread-runs/join-run",
+                  "mainapi-reference/thread-runs/join-run-stream",
+                  "mainapi-reference/thread-runs/cancel-run",
+                  "mainapi-reference/thread-runs/cancel-runs"
+                ]
+              },
+              {
+                "group": "Stateless Runs",
+                "pages": [
+                  "mainapi-reference/stateless-runs/create-run-stream-output",
+                  "mainapi-reference/stateless-runs/create-run-wait-for-output",
+                  "mainapi-reference/stateless-runs/create-background-run",
+                  "mainapi-reference/stateless-runs/create-run-batch"
+                ]
+              },
+              {
+                "group": "Store",
+                "pages": [
+                  "mainapi-reference/store/retrieve-a-single-item",
+                  "mainapi-reference/store/store-or-update-an-item",
+                  "mainapi-reference/store/delete-an-item",
+                  "mainapi-reference/store/search-for-items-within-a-namespace-prefix",
+                  "mainapi-reference/store/list-namespaces-with-optional-match-conditions"
+                ]
+              },
+              {
+                "group": "A2A",
+                "pages": [
+                  "mainapi-reference/a2a/a2a-post"
+                ]
+              },
+              {
+                "group": "MCP",
+                "pages": [
+                  "mainapi-reference/mcp/mcp-get",
+                  "mainapi-reference/mcp/mcp-post",
+                  "mainapi-reference/mcp/terminate-session"
+                ]
+              },
+              {
+                "group": "System",
+                "pages": [
+                  "mainapi-reference/system/server-information",
+                  "mainapi-reference/system/system-metrics",
+                  "mainapi-reference/system/health-check"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Concepts",
-        "groups": [
+        "language": "de",
+        "tabs": [
           {
-            "group": "Get Started",
-            "pages": [
-              "concepts"
-            ]
-          },
-          {
-            "group": "Concepts",
-            "pages": [
-              "concepts/introduction"
-            ]
-          },
-          {
-            "group": "Key Concepts",
-            "pages": [
-              "concepts/basics"
-            ]
-          },
-          {
-            "group": "Use Cases",
-            "pages": [
-              "concepts/use_cases/customer-support",
-              "concepts/use_cases/data-analysis",
-              "concepts/use_cases/content-creation"
-            ]
-          },
-          {
-            "group": "Fine-Tuning & Training",
-            "pages": [
-              "concepts/fine-tuning/introduction",
-              "concepts/fine-tuning/model-distillation"
-            ]
-          },
-          {
-            "group": "DeepAgents",
-            "pages": [
-              "concepts/deepagents/introduction"
-            ]
-          },
-          {
-            "group": "Multimodal AI",
-            "pages": [
-              "concepts/multimodal/introduction"
-            ]
-          },
-          {
-            "group": "Architecture",
-            "pages": [
-              "concepts/architecture/agent-architecture"
-            ]
-          },
-          {
-            "group": "Best practices",
-            "pages": [
-              "concepts/best_practices/ai-persona-with-b-bot",
-              "concepts/best_practices/crafting-a-system-prompt"
+            "tab": "Konzepte",
+            "groups": [
+              {
+                "group": "Überblick",
+                "pages": [
+                  "de/concepts"
+                ]
+              },
+              {
+                "group": "Kernkonzepte",
+                "pages": [
+                  "de/concepts/introduction",
+                  "de/concepts/basics",
+                  "de/concepts/architecture/agent-architecture"
+                ]
+              },
+              {
+                "group": "Funktionen",
+                "pages": [
+                  "de/concepts/deepagents/introduction",
+                  "de/concepts/multimodal/introduction"
+                ]
+              },
+              {
+                "group": "Training",
+                "pages": [
+                  "de/concepts/fine-tuning/introduction",
+                  "de/concepts/fine-tuning/model-distillation"
+                ]
+              },
+              {
+                "group": "Anwendungsfälle",
+                "pages": [
+                  "de/concepts/use_cases/customer-support",
+                  "de/concepts/use_cases/data-analysis",
+                  "de/concepts/use_cases/content-creation"
+                ]
+              },
+              {
+                "group": "Bewährte Methoden",
+                "pages": [
+                  "de/concepts/best_practices/ai-persona-with-b-bot",
+                  "de/concepts/best_practices/crafting-a-system-prompt"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "SDKs",
-        "groups": [
+        "language": "fr",
+        "tabs": [
           {
-            "group": "SDKs",
-            "pages": [
-              "sdks/javascript"
+            "tab": "Concepts",
+            "groups": [
+              {
+                "group": "Vue d’ensemble",
+                "pages": [
+                  "fr/concepts"
+                ]
+              },
+              {
+                "group": "Concepts fondamentaux",
+                "pages": [
+                  "fr/concepts/introduction",
+                  "fr/concepts/basics",
+                  "fr/concepts/architecture/agent-architecture"
+                ]
+              },
+              {
+                "group": "Fonctionnalités",
+                "pages": [
+                  "fr/concepts/deepagents/introduction",
+                  "fr/concepts/multimodal/introduction"
+                ]
+              },
+              {
+                "group": "Entraînement",
+                "pages": [
+                  "fr/concepts/fine-tuning/introduction",
+                  "fr/concepts/fine-tuning/model-distillation"
+                ]
+              },
+              {
+                "group": "Cas d’usage",
+                "pages": [
+                  "fr/concepts/use_cases/customer-support",
+                  "fr/concepts/use_cases/data-analysis",
+                  "fr/concepts/use_cases/content-creation"
+                ]
+              },
+              {
+                "group": "Bonnes pratiques",
+                "pages": [
+                  "fr/concepts/best_practices/ai-persona-with-b-bot",
+                  "fr/concepts/best_practices/crafting-a-system-prompt"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Main API",
-        "groups": [
+        "language": "it",
+        "tabs": [
           {
-            "group": "API User Memories",
-            "pages": [
-              "mainapi-reference/api-user-memories/get-memories",
-              "mainapi-reference/api-user-memories/upsert-memory",
-              "mainapi-reference/api-user-memories/delete-memory"
-            ]
-          },
-          {
-            "group": "Distribution Channels",
-            "pages": [
-              "mainapi-reference/distribution-channels-metadata",
-              "mainapi-reference/distribution-channels/create-distribution-channel",
-              "mainapi-reference/distribution-channels/search-distribution-channels",
-              "mainapi-reference/distribution-channels/count-distribution-channels",
-              "mainapi-reference/distribution-channels/get-distribution-channel",
-              "mainapi-reference/distribution-channels/delete-distribution-channel",
-              "mainapi-reference/distribution-channels/patch-distribution-channel",
-              "mainapi-reference/distribution-channels/get-distribution-channel-graph",
-              "mainapi-reference/distribution-channels/get-distribution-channel-subgraphs",
-              "mainapi-reference/distribution-channels/get-distribution-channel-subgraphs-by-namespace",
-              "mainapi-reference/distribution-channels/get-distribution-channel-schemas",
-              "mainapi-reference/distribution-channels/get-distribution-channel-versions",
-              "mainapi-reference/distribution-channels/set-latest-distribution-channel-version"
-            ]
-          },
-          {
-            "group": "Knowledge Domains",
-            "pages": [
-              "mainapi-reference/knowledge-domains/list-documents",
-              "mainapi-reference/knowledge-domains/list-entities",
-              "mainapi-reference/knowledge-domains/list-relationships"
-            ]
-          },
-          {
-            "group": "Experts (Agencies & Partners Only)",
-            "pages": [
-              "mainapi-reference/experts/get-experts",
-              "mainapi-reference/experts/get-expert-by-id",
-              "mainapi-reference/experts/create-expert",
-              "mainapi-reference/experts/update-expert",
-              "mainapi-reference/experts/delete-expert",
-              "mainapi-reference/experts/get-template-experts"
-            ]
-          },
-          {
-            "group": "Threads",
-            "pages": [
-              "mainapi-reference/threads/create-thread",
-              "mainapi-reference/threads/search-threads",
-              "mainapi-reference/threads/count-threads",
-              "mainapi-reference/threads/get-thread-state",
-              "mainapi-reference/threads/update-thread-state",
-              "mainapi-reference/threads/get-thread-state-at-checkpoint",
-              "mainapi-reference/threads/get-thread-state-at-checkpoint-1",
-              "mainapi-reference/threads/get-thread-history",
-              "mainapi-reference/threads/get-thread-history-post",
-              "mainapi-reference/threads/copy-thread",
-              "mainapi-reference/threads/get-thread",
-              "mainapi-reference/threads/delete-thread",
-              "mainapi-reference/threads/patch-thread",
-              "mainapi-reference/threads/join-thread-stream"
-            ]
-          },
-          {
-            "group": "Thread Runs",
-            "pages": [
-              "mainapi-reference/thread-runs/list-runs",
-              "mainapi-reference/thread-runs/create-background-run",
-              "mainapi-reference/thread-runs/create-run-stream-output",
-              "mainapi-reference/thread-runs/create-run-wait-for-output",
-              "mainapi-reference/thread-runs/get-run",
-              "mainapi-reference/thread-runs/delete-run",
-              "mainapi-reference/thread-runs/join-run",
-              "mainapi-reference/thread-runs/join-run-stream",
-              "mainapi-reference/thread-runs/cancel-run",
-              "mainapi-reference/thread-runs/cancel-runs"
-            ]
-          },
-          {
-            "group": "Stateless Runs",
-            "pages": [
-              "mainapi-reference/stateless-runs/create-run-stream-output",
-              "mainapi-reference/stateless-runs/create-run-wait-for-output",
-              "mainapi-reference/stateless-runs/create-background-run",
-              "mainapi-reference/stateless-runs/create-run-batch"
-            ]
-          },
-          {
-            "group": "Store",
-            "pages": [
-              "mainapi-reference/store/retrieve-a-single-item",
-              "mainapi-reference/store/store-or-update-an-item",
-              "mainapi-reference/store/delete-an-item",
-              "mainapi-reference/store/search-for-items-within-a-namespace-prefix",
-              "mainapi-reference/store/list-namespaces-with-optional-match-conditions"
-            ]
-          },
-          {
-            "group": "A2A",
-            "pages": [
-              "mainapi-reference/a2a/a2a-post"
-            ]
-          },
-          {
-            "group": "MCP",
-            "pages": [
-              "mainapi-reference/mcp/mcp-get",
-              "mainapi-reference/mcp/mcp-post",
-              "mainapi-reference/mcp/terminate-session"
-            ]
-          },
-          {
-            "group": "System",
-            "pages": [
-              "mainapi-reference/system/server-information",
-              "mainapi-reference/system/system-metrics",
-              "mainapi-reference/system/health-check"
+            "tab": "Concetti",
+            "groups": [
+              {
+                "group": "Panoramica",
+                "pages": [
+                  "it/concepts"
+                ]
+              },
+              {
+                "group": "Concetti fondamentali",
+                "pages": [
+                  "it/concepts/introduction",
+                  "it/concepts/basics",
+                  "it/concepts/architecture/agent-architecture"
+                ]
+              },
+              {
+                "group": "Funzionalità",
+                "pages": [
+                  "it/concepts/deepagents/introduction",
+                  "it/concepts/multimodal/introduction"
+                ]
+              },
+              {
+                "group": "Addestramento",
+                "pages": [
+                  "it/concepts/fine-tuning/introduction",
+                  "it/concepts/fine-tuning/model-distillation"
+                ]
+              },
+              {
+                "group": "Casi d’uso",
+                "pages": [
+                  "it/concepts/use_cases/customer-support",
+                  "it/concepts/use_cases/data-analysis",
+                  "it/concepts/use_cases/content-creation"
+                ]
+              },
+              {
+                "group": "Buone pratiche",
+                "pages": [
+                  "it/concepts/best_practices/ai-persona-with-b-bot",
+                  "it/concepts/best_practices/crafting-a-system-prompt"
+                ]
+              }
             ]
           }
         ]

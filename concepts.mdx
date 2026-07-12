@@ -1,352 +1,68 @@
 ---
-title: 'Concepts'
-description: 'Understanding B-Bot Hub AI Expert system and capabilities'
+title: 'B-Bot Hub Concepts'
+description: 'An overview of AI Agents, DeepAgents, multimodal workflows, training, and Distribution Channels in B-Bot Hub.'
 icon: 'brain'
 ---
 
 # B-Bot Hub Concepts
 
-B-Bot Hub is a comprehensive platform for creating, training, and deploying AI experts that can interact through multiple channels and modalities. This section explains the core concepts that power the platform.
+B-Bot Hub helps you configure AI Agents for focused roles and make them available through Distribution Channels. This section explains the ideas behind the product. For step-by-step setup instructions, use the linked Essentials guides.
 
-## What are AI Experts?
-
-AI Experts are sophisticated AI agents designed to perform specific roles with consistent behavior, domain knowledge, and customizable personalities. Unlike generic chatbots, experts are:
+## Start with the Core Concepts
 
 <CardGroup cols={2}>
-  <Card title="Specialized" icon="graduation-cap">
-    Trained for specific domains, industries, or tasks
+  <Card title="AI Agents" icon="user-robot" href="/concepts/introduction">
+    Learn the vocabulary used for an Agent's identity, instructions, capabilities, and access.
   </Card>
-  <Card title="Customizable" icon="sliders">
-    Configurable personality, tone, and behavior
+  <Card title="Lifecycle and Configuration" icon="sliders" href="/concepts/basics">
+    Understand how to define, test, connect, publish, and maintain an Agent.
   </Card>
-  <Card title="Persistent" icon="database">
-    Remember context and learn from interactions
+  <Card title="Agent Architecture" icon="diagram-project" href="/concepts/architecture/agent-architecture">
+    See the conceptual flow from a user request to a model, tools, and a response.
   </Card>
-  <Card title="Multimodal" icon="layer-group">
-    Handle text, voice, images, and files
-  </Card>
-</CardGroup>
-
-## Core Components
-
-### Experts
-
-**The Foundation:**
-Experts are your AI agents with:
-- **Identity**: Name, profession, personality
-- **Knowledge**: Training data and fine-tuning
-- **Capabilities**: Apps, tools, and modalities
-- **Behavior**: System prompts and abilities
-
-**Key features:**
-- Create unlimited experts
-- Each with unique personality
-- Train on custom data
-- Connect different apps per expert
-
-### Distribution Channels
-
-**Deployment Options:**
-Once you create an expert, deploy it through various channels:
-
-<Tabs>
-  <Tab title="B-Bot Chat">
-    **Direct chat interface**
-    - Internal team access
-    - User management
-    - Full feature access
-    - Real-time conversations
-  </Tab>
-  
-  <Tab title="Embed Widget">
-    **Website integration**
-    - Customizable appearance
-    - Brand matching
-    - Easy integration
-    - Works anywhere
-  </Tab>
-  
-  <Tab title="API">
-    **Custom applications**
-    - REST endpoints
-    - Streaming support
-    - Full control
-    - Build anything
-  </Tab>
-  
-  <Tab title="Tasks">
-    **Scheduled automation**
-    - Cron scheduling
-    - Automated reports
-    - Background processing
-    - Recurring tasks
-  </Tab>
-  
-  <Tab title="Templates">
-    **Share publicly**
-    - Template marketplace
-    - Help others
-    - Community sharing
-    - Build reputation
-  </Tab>
-</Tabs>
-
-**Flow:** Expert → Distribution Channel → Users
-
-## Key Capabilities
-
-### 1. Fine-Tuning
-
-Train your experts to behave exactly as you want:
-
-<AccordionGroup>
-  <Accordion icon="brain" title="Behavior Training">
-    Fine-tune models on your specific use cases
-    - Mark quality interactions (QA marking)
-    - Build training datasets
-    - Create custom model versions
-    - Deploy fine-tuned models
-    
-    Learn more: [Fine-Tuning Introduction](/concepts/fine-tuning/introduction)
-  </Accordion>
-  
-  <Accordion icon="flask" title="Model Distillation">
-    Use powerful models to train smaller, cost-effective ones
-    - GPT-4 teaches GPT-3.5
-    - 90-95% quality retention
-    - 85-95% cost reduction
-    - 2-5x faster responses
-    
-    Learn more: [Model Distillation](/concepts/fine-tuning/model-distillation)
-  </Accordion>
-</AccordionGroup>
-
-### 2. DeepAgents Mode
-
-Advanced autonomous capabilities:
-
-<AccordionGroup>
-  <Accordion icon="list-check" title="Task Management">
-    Experts can break down complex goals into subtasks
-    - Hierarchical todo structures
-    - Status tracking
-    - Progress monitoring
-    - Autonomous execution
-  </Accordion>
-  
-  <Accordion icon="folder" title="File System">
-    Persistent workspace for each conversation
-    - Create and edit files
-    - Store outputs
-    - Organize data
-    - Download results
-  </Accordion>
-  
-  <Accordion icon="hand" title="Human-in-the-Loop">
-    Control automation with approval workflows
-    - Review before execution
-    - Approve or reject
-    - Guide decisions
-    - Safety and control
-  </Accordion>
-</AccordionGroup>
-
-Learn more: [DeepAgents Introduction](/concepts/deepagents/introduction)
-
-### 3. Multimodal Capabilities
-
-Beyond text interactions:
-
-<AccordionGroup>
-  <Accordion icon="microphone" title="Voice Input">
-    Speak to your experts
-    - Real-time transcription
-    - Multiple languages
-    - Multiple providers
-    - Hands-free operation
-  </Accordion>
-  
-  <Accordion icon="volume-high" title="Voice Output">
-    Experts can speak responses
-    - Natural-sounding voices
-    - Multiple providers (OpenAI, ElevenLabs, Google, Azure)
-    - Streaming TTS
-    - Auto-play options
-  </Accordion>
-  
-  <Accordion icon="image" title="Image Processing">
-    Understand and generate images
-    - AI-generated profile pictures
-    - Image analysis
-    - Visual Q&A
-    - Diagram understanding
-  </Accordion>
-  
-  <Accordion icon="file" title="File Handling">
-    Process documents and data
-    - PDF, Word, Excel
-    - Code files
-    - CSV data analysis
-    - Document Q&A
-  </Accordion>
-</AccordionGroup>
-
-Learn more: [Multimodal AI](/concepts/multimodal/introduction)
-
-### 4. App Integrations
-
-Connect to external services:
-
-<CardGroup cols={3}>
-  <Card title="Google Workspace" icon="google">
-    Gmail, Drive, Calendar, Sheets
-  </Card>
-  <Card title="Development" icon="github">
-    GitHub, GitLab, APIs
-  </Card>
-  <Card title="Productivity" icon="list">
-    Slack, Notion, Trello
-  </Card>
-  <Card title="Search" icon="magnifying-glass">
-    Web search, knowledge bases
-  </Card>
-  <Card title="Data" icon="database">
-    Databases, APIs, webhooks
-  </Card>
-  <Card title="Custom" icon="plug">
-    Your own integrations
+  <Card title="Distribution Channels" icon="share-nodes" href="/essentials/distribution-channels">
+    Learn how configured experiences make an Agent available to users and systems.
   </Card>
 </CardGroup>
 
-## How It All Works Together
-
-### The Expert Lifecycle
-
-```
-1. Create Expert
-   ├─ Define personality
-   ├─ Set capabilities
-   └─ Configure settings
-        ↓
-2. Train (Optional)
-   ├─ Collect examples (QA marking)
-   ├─ Fine-tune model
-   └─ Validate performance
-        ↓
-3. Configure Channels
-   ├─ Choose distribution method
-   ├─ Customize appearance
-   └─ Set permissions
-        ↓
-4. Deploy
-   ├─ Make available to users
-   ├─ Monitor performance
-   └─ Iterate and improve
-        ↓
-5. Continuous Improvement
-   ├─ Collect feedback
-   ├─ Refine training
-   └─ Update configuration
-```
-
-### Expert → Distribution Channel Flow
-
-```
-User Request
-    ↓
-Distribution Channel (Chat/Embed/API/Tasks)
-    ↓
-Expert (with personality, knowledge, tools)
-    ↓
-Model Processing (fine-tuned or base)
-    ↓
-Tool Usage (if needed: search, apps, etc.)
-    ↓
-Response Generation
-    ↓
-Output Modalities (text, voice, files)
-    ↓
-Back to User
-```
-
-## Explore Concepts
+## Specialized Concepts
 
 <CardGroup cols={2}>
-  <Card
-    title="Fine-Tuning & Training"
-    icon="brain-circuit"
-    href="/concepts/fine-tuning/introduction"
-  >
-    Learn how to train experts on your data
+  <Card title="Fine-Tuning" icon="brain-circuit" href="/concepts/fine-tuning/introduction">
+    Decide when examples and model fine-tuning are appropriate.
   </Card>
-  <Card
-    title="Model Distillation"
-    icon="flask"
-    href="/concepts/fine-tuning/model-distillation"
-  >
-    Use big models to train smaller ones
+  <Card title="Model Distillation" icon="flask" href="/concepts/fine-tuning/model-distillation">
+    Learn how teacher-generated examples can be used to train and evaluate a smaller model.
   </Card>
-  <Card
-    title="DeepAgents"
-    icon="robot"
-    href="/concepts/deepagents/introduction"
-  >
-    Autonomous agents with workspaces
+  <Card title="DeepAgents" icon="robot" href="/concepts/deepagents/introduction">
+    Understand task planning, workspace files, and human review for multi-step work.
   </Card>
-  <Card
-    title="Multimodal AI"
-    icon="layer-group"
-    href="/concepts/multimodal/introduction"
-  >
-    Voice, images, and file processing
-  </Card>
-  <Card
-    title="System Architecture"
-    icon="diagram-project"
-    href="/concepts/architecture/agent-architecture"
-  >
-    How the platform works
-  </Card>
-  <Card
-    title="Best Practices"
-    icon="star"
-    href="/concepts/best_practices/ai-persona-with-b-bot"
-  >
-    Tips for creating great experts
+  <Card title="Multimodal AI" icon="layer-group" href="/concepts/multimodal/introduction">
+    Plan interactions that use text, voice, images, or files.
   </Card>
 </CardGroup>
 
-## Start Building
-
-Ready to create your first expert?
+## Design an Agent
 
 <CardGroup cols={2}>
-  <Card
-    title="Create Your Expert"
-    icon="plus"
-    href="/essentials/create-expert"
-  >
-    Step-by-step expert creation guide
+  <Card title="Build an AI Persona" icon="masks-theater" href="/concepts/best_practices/ai-persona-with-b-bot">
+    Define a useful role, boundaries, tone, and evaluation scenarios.
   </Card>
-  <Card
-    title="Distribution Channels"
-    icon="share-nodes"
-    href="/essentials/distribution-channels"
-  >
-    Deploy your expert everywhere
-  </Card>
-  <Card
-    title="Fine-Tune Your Expert"
-    icon="brain"
-    href="/essentials/training"
-  >
-    Train on your specific use case
-  </Card>
-  <Card
-    title="Configure Modalities"
-    icon="microphone-lines"
-    href="/essentials/modalities"
-  >
-    Add voice and multimodal features
+  <Card title="Craft a System Prompt" icon="message" href="/concepts/best_practices/crafting-a-system-prompt">
+    Write clear instructions that are easier to test and maintain.
   </Card>
 </CardGroup>
+
+## Explore Use Cases
+
+- [Customer support](/concepts/use_cases/customer-support): plan grounded answers, escalation, and review.
+- [Data analysis](/concepts/use_cases/data-analysis): structure data checks, analysis, and result validation.
+- [Content creation](/concepts/use_cases/content-creation): create repeatable drafting and editorial workflows.
+
+<Info>
+  Available models, tools, modalities, and Distribution Channels depend on your B-Bot Hub configuration and connected providers. Confirm availability before designing a production workflow.
+</Info>
+
+## Put the Concepts into Practice
+
+Use [Create Agent](/essentials/create-expert) to create the initial Agent, then continue with [Edit Agent](/essentials/edit-expert) to configure its behavior and capabilities.

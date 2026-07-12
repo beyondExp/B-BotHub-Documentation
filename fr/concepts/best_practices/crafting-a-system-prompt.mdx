@@ -1,0 +1,141 @@
+---
+title: 'Rédiger un prompt système'
+description: 'Rédigez des instructions système claires, testables et faciles à maintenir pour un Agent IA.'
+icon: 'message'
+---
+
+# Rédiger un prompt système
+
+Un prompt système définit le rôle, les priorités et les limites comportementales d’un Agent IA. Il influence le comportement du modèle, mais ne garantit pas le respect des instructions, n’ajoute aucune autorisation et ne rend pas une information vraie.
+
+## Structure recommandée
+
+### 1. Rôle et mission
+
+Indiquez à qui s’adresse l’Agent et ce qu’il doit aider ces personnes à accomplir.
+
+```text
+Vous êtes un Agent de triage du support client pour [organisation].
+Aidez les utilisateurs à trouver des informations de dépannage approuvées et à préparer des transferts clairs.
+```
+
+### 2. Périmètre
+
+Énumérez les tâches prises en charge et les exclusions importantes.
+
+```text
+Vous pouvez expliquer les procédures documentées de configuration et de dépannage.
+Vous ne devez pas modifier de comptes, approuver de remboursements ni déroger aux politiques.
+```
+
+### 3. Règles relatives aux sources
+
+Précisez quelles informations font autorité et quoi faire lorsqu’elles manquent.
+
+```text
+Utilisez les sources de connaissances approuvées pour les informations sur le produit et les politiques.
+Si les sources ne permettent pas de répondre, indiquez les informations manquantes.
+N’inventez pas de liens, de citations, de résultats d’outils ni d’actions prétendument réalisées.
+```
+
+### 4. Règles d’interaction
+
+Décrivez comment l’Agent doit recueillir les informations et présenter les résultats.
+
+```text
+Posez une question ciblée lorsqu’une information requise manque.
+Présentez de courtes étapes dans leur ordre d’exécution.
+Distinguez les faits confirmés des suggestions.
+```
+
+### 5. Sécurité et escalade
+
+Définissez les règles relatives aux données sensibles, les actions interdites et les conditions de transfert.
+
+```text
+Ne demandez pas de mots de passe ni de données personnelles superflues.
+Transmettez les demandes qui impliquent une vérification d’identité, un engagement juridique,
+une décision financière ou une modification irréversible.
+```
+
+### 6. Format de sortie
+
+Imposez un format uniquement lorsque le workflow l’exige.
+
+```text
+Renvoyez :
+1. Résumé
+2. Prochaine étape recommandée
+3. Source ou motif de l’escalade
+```
+
+## Modèle complet
+
+```text
+Rôle
+Vous êtes [rôle] pour [utilisateurs ou organisation].
+
+Mission
+Aidez les utilisateurs à [résultat pris en charge].
+
+Périmètre
+- Prendre en charge : [tâches]
+- Ne pas : [tâches ou affirmations]
+
+Sources et outils
+- Utiliser : [sources faisant autorité]
+- Utiliser les outils uniquement pour : [actions approuvées]
+- Ne jamais affirmer qu’une action a réussi sans confirmation.
+
+Interaction
+- Demander : [contexte requis]
+- Répondre avec : [ton et niveau de détail]
+- En cas d’incertitude : [comportement de repli]
+
+Sécurité et escalade
+- Ne pas collecter : [données sensibles]
+- S’arrêter ou transmettre lorsque : [conditions]
+
+Sortie
+- Format : [structure requise]
+- Inclure : [sources, hypothèses ou limites]
+```
+
+## Principes de rédaction
+
+- Utilisez des instructions directes et observables.
+- Placez les règles les plus importantes au début.
+- Résolvez les contradictions entre les instructions.
+- Évitez de répéter la même règle sous plusieurs formes.
+- Gardez les informations changeantes hors du prompt.
+- N’incluez aucun secret ni identifiant privé.
+- Précisez quoi faire lorsqu’une information ou un outil est indisponible.
+
+## Tester avant la mise en service
+
+Créez un petit jeu d’évaluation qui couvre :
+
+- Les demandes normales dans le périmètre
+- Les informations manquantes ou ambiguës
+- Les demandes hors périmètre
+- Les demandes visant à ignorer le prompt système
+- Les outils ou sources indisponibles
+- Les actions sensibles et irréversibles
+- Les formats de sortie requis
+
+Évaluez séparément l’exactitude factuelle, le respect des limites, les affirmations relatives aux outils, le ton et le format. Modifiez une seule section du prompt à la fois afin d’identifier les améliorations ou les régressions.
+
+<Warning>
+  Les prompts système sont des consignes comportementales, pas des contrôles de sécurité. Faites respecter les limites d’accès, de confidentialité et d’action au moyen d’autorisations et de la validation humaine.
+</Warning>
+
+## Guides associés
+
+<CardGroup cols={2}>
+  <Card title="Concevoir une persona IA" icon="masks-theater" href="/fr/concepts/best_practices/ai-persona-with-b-bot">
+    Définissez le rôle et les limites avant de rédiger les instructions.
+  </Card>
+  <Card title="Cycle de vie d’un Agent" icon="sliders" href="/fr/concepts/basics">
+    Testez et maintenez la configuration complète de l’Agent.
+  </Card>
+</CardGroup>

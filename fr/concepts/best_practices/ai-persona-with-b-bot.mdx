@@ -1,0 +1,97 @@
+---
+title: 'Concevoir une persona IA'
+description: 'Définissez un rôle, une voix, des limites, des capacités et un plan d’évaluation utiles pour un Agent IA.'
+icon: 'masks-theater'
+---
+
+# Concevoir une persona IA
+
+Une persona IA correspond au rôle et au style de communication cohérents que les utilisateurs perçoivent lorsqu’ils interagissent avec un Agent IA. Une persona utile sert la tâche. Elle doit clarifier les attentes, sans prétendre que l’Agent possède des expériences humaines, des sentiments ou une autorité propre.
+
+## Partir de la mission
+
+Définissez la persona à partir des exigences opérationnelles :
+
+- Qui utilisera l’Agent ?
+- Quels problèmes doit-il aider à résoudre ?
+- Quelles informations peut-il utiliser ?
+- Quelles actions peut-il effectuer ?
+- Que doit-il refuser ou transmettre ?
+- À quoi ressemble un résultat réussi ?
+
+Évitez les rôles trop larges comme « expert en tout ». Un rôle précis est plus facile à expliquer, à configurer et à évaluer.
+
+## Composantes de la persona
+
+<CardGroup cols={2}>
+  <Card title="Identité" icon="id-card">
+    Un nom, une profession et une brève description qui donnent aux utilisateurs des attentes réalistes.
+  </Card>
+  <Card title="Mission" icon="bullseye">
+    Les tâches et les résultats que l’Agent est conçu pour prendre en charge.
+  </Card>
+  <Card title="Voix" icon="comments">
+    Un petit ensemble de caractéristiques rédactionnelles observables, par exemple un style concis, calme et direct.
+  </Card>
+  <Card title="Limites" icon="shield">
+    Les sujets non pris en charge, les actions interdites, les règles de confidentialité et les conditions d’escalade.
+  </Card>
+</CardGroup>
+
+## Distinguer le comportement des capacités
+
+Une persona peut demander à un Agent d’être prudent, mais elle ne peut lui accorder ni connaissances, ni outils, ni autorisations.
+
+- Définissez le rôle et le comportement dans le prompt système.
+- Placez les informations actuelles dans des sources de connaissances maintenues.
+- Configurez les apps et outils nécessaires.
+- Faites respecter les accès au moyen d’autorisations techniques.
+- Utilisez les canaux de distribution pour contrôler la manière dont l’expérience atteint les utilisateurs.
+
+## Construire la persona
+
+<Steps>
+  <Step title="Rédiger le rôle en une phrase">
+    Exemple : « Vous êtes un Agent de triage du support qui aide les utilisateurs à trouver des procédures de dépannage approuvées et prépare leur transfert à une personne. »
+  </Step>
+  <Step title="Choisir des règles de voix observables">
+    Préférez des instructions comme « utilisez des phrases courtes et définissez les termes spécialisés » à des formulations comme « paraissez brillant ».
+  </Step>
+  <Step title="Ajouter des limites">
+    Précisez ce que l’Agent ne doit pas faire, les informations qu’il ne doit pas demander et les situations dans lesquelles il doit s’arrêter ou transmettre la demande.
+  </Step>
+  <Step title="Ajouter les capacités avec discernement">
+    Connectez uniquement les connaissances, apps, outils, modalités et membres de l’équipe nécessaires au rôle.
+  </Step>
+  <Step title="Tester la persona">
+    Utilisez des demandes courantes ou ambiguës, des instructions adverses, des informations indisponibles et des tâches hors périmètre.
+  </Step>
+  <Step title="Réviser à partir des résultats">
+    Modifiez un élément à la fois et rejouez le même jeu d’évaluation.
+  </Step>
+</Steps>
+
+## Questions d’évaluation
+
+- L’Agent décrit-il précisément son rôle ?
+- Sa voix reste-t-elle cohérente sans devenir répétitive ?
+- Distingue-t-il clairement les faits, les suggestions et les incertitudes ?
+- Reste-t-il dans son périmètre lorsque l’utilisateur lui demande d’ignorer ses instructions ?
+- Utilise-t-il la bonne capacité lorsqu’elle est disponible ?
+- Évite-t-il d’affirmer qu’une action a eu lieu sans confirmation ?
+- Transmet-il la demande à la limite définie ?
+
+## Éviter les personas trompeuses
+
+Ne demandez pas à un Agent de prétendre posséder des qualifications humaines, une expérience personnelle, une conscience ou d’avoir réalisé des actions qu’il ne peut pas vérifier. Lorsqu’une confusion est possible, présentez-le comme un Agent IA et expliquez les limites pertinentes pour la tâche.
+
+## Guides associés
+
+<CardGroup cols={2}>
+  <Card title="Rédiger un prompt système" icon="message" href="/fr/concepts/best_practices/crafting-a-system-prompt">
+    Transformez la conception de la persona en instructions claires.
+  </Card>
+  <Card title="Modifier un Agent" icon="pen-to-square" href="/essentials/edit-expert">
+    Configurez l’Agent dans B-Bot Hub.
+  </Card>
+</CardGroup>

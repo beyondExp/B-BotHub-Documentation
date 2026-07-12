@@ -1,47 +1,97 @@
 ---
-title: 'AI Persona with B-Bot'
-description: 'Start Creating an AI Persona with B-Bot, see our concept of how and why we do things like we do them'
-icon: 'microsoft'
+title: 'Design an AI Persona'
+description: 'Define a useful role, voice, boundaries, capabilities, and evaluation plan for an AI Agent.'
+icon: 'masks-theater'
 ---
 
+# Design an AI Persona
 
-### Overview
+An AI persona is the consistent role and communication style users experience when interacting with an AI Agent. A useful persona supports the task. It should make expectations clearer, not pretend that the Agent has human experiences, feelings, or authority.
 
-Creating an AI persona with B-Bot involves a distinct, methodical approach that prioritizes control and precision. This method ensures that the persona behaves in alignment with desired characteristics and responds accurately to a wide range of queries and tasks. The process can be divided into three key phases: **Characteristic Behavior Formation**, **Informational and Actionable Behavior Training**, and **Context Optimization**.
+## Start with the Job
 
-### 1. Characteristic Behavior Formation
+Define the persona from operational requirements:
 
-**Objective:** Develop a foundational personality and behavior for the AI persona that aligns with the intended use case and user expectations.
+- Who will use the Agent?
+- What problems should it help solve?
+- What information can it use?
+- Which actions may it take?
+- What must it refuse or escalate?
+- What does a successful result look like?
 
-**Steps:**
+Avoid broad roles such as "an expert in everything." A narrow role is easier to explain, configure, and evaluate.
 
-1. **Crafting a System Prompt:** The system prompt acts as a "wake word" for the AI persona, serving as a constant anchor for its identity, tone, and purpose throughout all interactions. It is crucial that this prompt remains consistent across all training and fine-tuning activities to ensure stability in the persona’s behavior.
+## Persona Components
 
-    [Crafting a System Prompt](/concepts/best_practices/crafting-a-system-prompt)
+<CardGroup cols={2}>
+  <Card title="Identity" icon="id-card">
+    A name, profession, and short description that set accurate user expectations.
+  </Card>
+  <Card title="Purpose" icon="bullseye">
+    The tasks and outcomes the Agent is designed to support.
+  </Card>
+  <Card title="Voice" icon="comments">
+    A small set of observable writing traits, such as concise, calm, and direct.
+  </Card>
+  <Card title="Boundaries" icon="shield">
+    Unsupported topics, prohibited actions, privacy rules, and escalation conditions.
+  </Card>
+</CardGroup>
 
-2. **Initial Testing:** Begin by testing the persona using the system prompt. Ask simple questions such as, "Who are you?" and "What is your name?" The AI’s responses should align closely with the system prompt. If the persona should identify as "B-Bot, a specialized business assistant," but instead responds generically as "an assistant," it indicates a need for further fine-tuning.
+## Separate Behavior from Capability
 
-    [Initial Testing](https://www.notion.so/Initial-Testing-020008b45da14024bc738ca6ba545e69?pvs=21)
+A persona can instruct an Agent to be careful, but it cannot grant knowledge, tools, or permissions.
 
-3. **Fine-Tuning with the Hub:** Use the fine-tuning feature in the Hub to adjust the AI’s behavior. Rather than altering the system prompt, introduce new training sets that reinforce the desired behavior. These training sets should provide clear examples that guide the AI in how to respond appropriately, based on the fixed system prompt.
-    1. [Fine-Tuning with the Hub](https://www.notion.so/Fine-Tuning-with-the-Hub-9f2c016b403d4d399808cf7a7162f5f7?pvs=21)
+- Put role and behavior in the system prompt.
+- Put current facts in maintained knowledge sources.
+- Configure apps and tools for required capabilities.
+- Enforce access through technical permissions.
+- Use Distribution Channels to control how the experience reaches users.
 
-### 2. Informational and Actionable Behavior Training
+## Build the Persona
 
-**Objective:** Equip the AI with the ability to provide accurate information and perform specific actions by integrating relevant tools and knowledge bases.
+<Steps>
+  <Step title="Write a One-Sentence Role">
+    Example: "You are a support triage Agent that helps users find approved troubleshooting steps and prepares human handoffs."
+  </Step>
+  <Step title="Choose Observable Voice Rules">
+    Prefer instructions such as "use short sentences and define specialist terms" over labels such as "sound brilliant."
+  </Step>
+  <Step title="Add Boundaries">
+    State what the Agent must not do, what information it must not request, and when it should stop or escalate.
+  </Step>
+  <Step title="Add Capabilities Deliberately">
+    Connect only the knowledge, apps, tools, modalities, and team members required for the role.
+  </Step>
+  <Step title="Test the Persona">
+    Use common requests, ambiguous requests, adversarial instructions, unavailable information, and out-of-scope tasks.
+  </Step>
+  <Step title="Revise from Evidence">
+    Change one part at a time and repeat the same evaluation set.
+  </Step>
+</Steps>
 
-**Steps:**
+## Evaluation Questions
 
-1. **Tool Integration:** Once the persona’s characteristics are solidified, train the AI to use various tools to gather information or perform tasks. This keeps the context window optimized and ensures the AI remains focused on delivering relevant content.
-2. **Actionable Training:** Train the AI using scenarios where it must decide when to utilize specific tools or access certain knowledge bases, all while maintaining the behavior and tone set by the system prompt.
-3. **Testing for Relevance:** Verify that the AI can effectively gather information or execute tasks with the correct tools, and that it does so in a manner consistent with the established persona.
+- Does the Agent describe its role accurately?
+- Is the voice consistent without becoming repetitive?
+- Does it clearly distinguish facts, suggestions, and uncertainty?
+- Does it remain within scope when the user asks it to ignore instructions?
+- Does it use the correct capability when one is available?
+- Does it avoid claiming that an action happened without confirmation?
+- Does it escalate at the defined boundary?
 
-### 3. Context Optimization
+## Avoid Deceptive Personas
 
-**Objective:** Maintain an efficient context window by ensuring the AI operates with only the necessary information for any given task.
+Do not instruct an Agent to claim human credentials, personal experience, consciousness, or actions it cannot verify. Where confusion is possible, identify it as an AI Agent and explain the limits relevant to the task.
 
-**Steps:**
+## Related Guides
 
-1. **Context Window Management:** Regularly monitor how the AI uses its context window during interactions, ensuring that it remains compact and focused on relevant information.
-2. **Dense Information Training:** Fine-tune the AI to prioritize and retain the most critical information, reinforcing this with focused training examples that align with the system prompt.
-3. **Iterative Refinement:** Continuously review the AI’s performance, making necessary adjustments to its training sets and tool usage to maintain optimal performance and relevance.
+<CardGroup cols={2}>
+  <Card title="Craft a System Prompt" icon="message" href="/concepts/best_practices/crafting-a-system-prompt">
+    Turn the persona design into clear instructions.
+  </Card>
+  <Card title="Edit an Agent" icon="pen-to-square" href="/essentials/edit-expert">
+    Configure the Agent in B-Bot Hub.
+  </Card>
+</CardGroup>

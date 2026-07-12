@@ -1,0 +1,97 @@
+---
+title: 'Chat'
+description: 'Avvia, continua e gestisci le conversazioni con gli Agenti in B-Bot Hub'
+icon: 'comments'
+---
+
+# Chat
+
+Chat è lo spazio in cui lavori con un Agente all'interno di una conversazione. Prima di iniziare, seleziona un Agente nell'intestazione dell'Hub. L'Agente selezionato determina modelli, abilità, App collegate, memorie e comportamento dell'area di lavoro disponibili.
+
+![Schermata Nuova chat in B-Bot Hub](/images/documentation/chat-start.png)
+
+## Avviare o riprendere una conversazione
+
+Apri **Chat** e invia un messaggio per creare una conversazione. Usa **Nuova chat** per tornare a una conversazione vuota senza eliminare quelle esistenti.
+
+Per continuare un lavoro precedente, apri il pulsante della cronologia e seleziona una conversazione recente. Scegli **Tutte le conversazioni** per aprire la pagina completa [Conversazioni](/it/essentials/threads). Quando apri una conversazione esistente, l'Hub ne ripristina i messaggi e allinea il selettore degli Agenti.
+
+## Inviare messaggi
+
+Invio spedisce il messaggio. Maiusc+Invio aggiunge una nuova riga.
+
+- Seleziona la graffetta per allegare uno o più file supportati.
+- Seleziona il microfono per registrare e inviare un messaggio vocale.
+- Fai clic con il pulsante destro sul microfono per aprire **Modalità Live**. Durante l'ascolto, una breve pausa conclude il tuo turno.
+- Interrompi una risposta attiva con **Ferma**.
+
+Il supporto degli allegati e il comportamento della voce dipendono dal modello selezionato e dalle modalità configurate. Il browser deve consentire l'accesso al microfono.
+
+### Mettere in coda messaggi successivi
+
+Puoi inviare un altro messaggio mentre l'Agente sta rispondendo. L'Hub lo aggiunge alla coda della conversazione corrente e lo invia automaticamente al termine della risposta attiva.
+
+Nel pannello della coda puoi modificare, riordinare, rimuovere o cancellare i messaggi in attesa. Gli allegati vengono salvati nell'area di lavoro della conversazione quando sono inviati o messi in coda.
+
+## Controllare azioni e risposte
+
+Un Agente può fermarsi prima di un'azione e mostrare **Azione richiesta**. Controlla l'azione e i relativi argomenti, quindi scegli **Approva** o **Rifiuta**. In **Impostazioni chat**, **Approva automaticamente** evita queste richieste: usalo solo se conosci e accetti gli strumenti configurati per l'Agente.
+
+Le azioni dei messaggi compaiono al passaggio del mouse o quando un messaggio riceve lo stato attivo:
+
+- **Copia** copia il testo.
+- **Modifica e riesegui** cambia un tuo messaggio e prosegue da quel punto.
+- **Rigenera** richiede un'altra risposta dal checkpoint precedente.
+- Le frecce delle versioni passano tra i rami creati dalle modifiche o dalle risposte rigenerate.
+- **Dettagli messaggio** mostra identificatori tecnici, ora, checkpoint e versione.
+
+La modifica o la rigenerazione crea un ramo alternativo senza sovrascrivere l'altra versione.
+
+## Condividere una conversazione
+
+Seleziona **Invite** in una conversazione aperta per condividerla con un collega. Scegli azienda, collega e scadenza del link, quindi invia l'invito o copia il link generato.
+
+La condivisione trasforma la conversazione in una conversazione aziendale accessibile solo su invito. Solo le conversazioni aziendali possono essere condivise. Gli inviti accettati aprono la stessa conversazione, contrassegnata dal badge **Condivisa**.
+
+## Usare il pannello laterale destro
+
+La barra di icone a destra apre cinque pannelli. Su desktop puoi ridimensionare il pannello aperto trascinandone il bordo.
+
+### Impostazioni chat
+
+Configura l'esecuzione corrente:
+
+- modello e abilità
+- temperatura e Top-p
+- istruzioni aggiuntive
+- App collegate abilitate
+- Ricerca web, Wolfram Alpha e Ricerca approfondita
+- approvazione automatica delle azioni
+- riproduzione automatica della voce
+- limite di passi
+
+Le opzioni mostrate dipendono dall'Agente e dal modello selezionati.
+
+### Attività
+
+Mostra l'elenco delle attività in tempo reale dell'Agente per questa conversazione. Gli elementi possono essere in attesa, attivi o completati. Il pannello è di sola lettura e compare solo quando l'Agente produce uno stato delle attività.
+
+### File
+
+Esplora i file prodotti durante l'esecuzione corrente e quelli disponibili per la conversazione. Seleziona un file per visualizzare testo, codice o contenuti multimediali supportati. Puoi copiarne il contenuto o il percorso. I file Markdown possono essere esportati in PDF, con il logo aziendale quando disponibile.
+
+### Anteprima
+
+Mostra un sito web o una presentazione supportati. Puoi avviare o aggiornare l'anteprima e aprirla in una nuova scheda. Le normali raccolte di file non hanno un'anteprima live; la disponibilità dipende dall'output dell'area di lavoro e dalla capacità di esecuzione.
+
+### Memorie
+
+Mostra i livelli di memoria dell'Agente selezionato:
+
+- **Profilo principale** per informazioni strutturate e stabili
+- **Lungo termine** per fatti e preferenze duraturi
+- **Conversazioni** per i riepiloghi associati alla conversazione corrente
+
+Puoi aggiungere una memoria a lungo termine e gestire le voci mostrate. Le memorie sono specifiche per Agente e utente: non presumere che ogni messaggio diventi una memoria.
+
+Per maggiori dettagli, consulta [Area di lavoro DeepAgents](/it/essentials/deepagents-workspace).

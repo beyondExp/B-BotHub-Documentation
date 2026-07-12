@@ -1,0 +1,119 @@
+---
+title: 'DeepAgents'
+description: 'Verstehe, wie DeepAgents Aufgaben, Workspace-Dateien, Werkzeuge und menschliche Prüfung für mehrstufige Arbeiten nutzen.'
+icon: 'robot'
+---
+
+# DeepAgents
+
+DeepAgents ist der Modus von B-Bot Hub für Arbeiten, die von Planung und Zwischenergebnissen profitieren. Ein DeepAgent kann eine Aufgabenliste und Workspace-Dateien nutzen, während er eine mehrstufige Anfrage bearbeitet. Welche Werkzeuge und Aktionen genau verfügbar sind, hängt vom Agenten, der Sitzung und der Umgebung ab.
+
+## Kernkonzepte
+
+<CardGroup cols={2}>
+  <Card title="Aufgaben" icon="list-check">
+    Ein sichtbarer Plan kann ein Ziel in kleinere Schritte unterteilen und den Fortschritt darstellen.
+  </Card>
+  <Card title="Workspace-Dateien" icon="folder-open">
+    Eingaben, Notizen, Code, Daten und Ausgaben können im Workspace organisiert werden.
+  </Card>
+  <Card title="Werkzeuge" icon="toolbox">
+    Konfigurierte Werkzeuge können dem DeepAgent ermöglichen, Informationen abzurufen, Dateien zu verarbeiten, Code auszuführen oder mit verbundenen Diensten zu interagieren.
+  </Card>
+  <Card title="Menschliche Prüfung" icon="hand">
+    Human-in-the-Loop-Kontrollen können vor ausgewählten Aktionen eine Prüfung verlangen.
+  </Card>
+</CardGroup>
+
+## Konzeptioneller Workflow
+
+```text
+Ziel
+  -> Anforderungen klären
+  -> Aufgaben erstellen oder aktualisieren
+  -> erlaubte Werkzeuge und Workspace-Dateien verwenden
+  -> Zwischenergebnisse prüfen
+  -> erforderliche Freigaben anfordern
+  -> Ergebnisse und ungelöste Probleme präsentieren
+```
+
+Eine als abgeschlossen markierte Aufgabe zeigt lediglich den Workflow-Status an. Sie beweist nicht, dass das Ergebnis korrekt ist.
+
+## Wann DeepAgents sinnvoll ist
+
+DeepAgents kann nützlich sein für:
+
+- Projekte mit mehreren voneinander abhängigen Schritten
+- Arbeiten, die mehrere Dateien erzeugen oder überarbeiten
+- Analysen, die sichtbare Annahmen und Zwischenprüfungen benötigen
+- Lange Anfragen, die von einer gepflegten Aufgabenliste profitieren
+- Workflows, in denen Menschen vorgeschlagene Aktionen prüfen müssen
+
+Für eine direkte Frage, eine kurze Überarbeitung oder eine andere Aufgabe ohne Workspace kann ein Standard-Chat einfacher sein.
+
+## Eine gute Anfrage an einen DeepAgent
+
+Gib Folgendes an:
+
+- Benötigtes Ergebnis und Zielgruppe
+- Eingaben und maßgebliche Quellen
+- Einschränkungen, Ausschlüsse und Qualitätskriterien
+- Erlaubte Werkzeuge und Aktionen
+- Erforderliche Dateinamen oder Ausgabeformate
+- Aktionen, die eine Freigabe erfordern
+- Eine Definition für den Abschluss
+
+Beispiel:
+
+```text
+Analysiere die angehängte CSV-Datei und erstelle einen prüfbaren Bericht.
+
+Erstelle Aufgaben für Datenprüfung, Bereinigung, Analyse, Validierung und Berichterstellung.
+Lass die Quelldatei unverändert.
+Dokumentiere jede Transformation in einer separaten Datei.
+Bitte um Freigabe, bevor du Code ausführst, der neue Ausgabedateien schreibt.
+Sende keine Daten an externe Dienste.
+Die Arbeit ist abgeschlossen, wenn die Summen abgeglichen sind und der Bericht die Annahmen aufführt.
+```
+
+## Human-in-the-Loop
+
+Nutze menschliche Prüfungen für sensible, unumkehrbare, extern sichtbare oder kostspielige Aktionen. Beispiele:
+
+- Nachrichten senden oder Inhalte veröffentlichen
+- Datensätze oder Berechtigungen ändern
+- Unbekannten Code ausführen
+- Private Daten mit einem externen Dienst verwenden
+- Käufe, Zahlungen oder Deployments auslösen
+
+Human-in-the-Loop reduziert Risiken, macht eine Aktion aber nicht automatisch sicher. Die prüfende Person benötigt weiterhin ausreichend Kontext, um den Vorschlag zu verstehen.
+
+## Bewährte Workspace-Verfahren
+
+- Trenne ursprüngliche Eingaben von erzeugten Dateien.
+- Verwende aussagekräftige Dateinamen.
+- Halte Annahmen und Entscheidungen fest.
+- Prüfe erzeugten Code vor der Ausführung.
+- Lade wichtige Ergebnisse entsprechend deiner Datenrichtlinie herunter oder bewahre sie auf.
+- Prüfe Workspace-Verhalten und Aufbewahrung für den konkreten Workflow.
+
+<Warning>
+  Vergib nur die für die Aufgabe benötigten Werkzeuge und Berechtigungen. Ein System-Prompt ist keine Zugriffskontrollgrenze.
+</Warning>
+
+## Zugehörige Leitfäden
+
+<CardGroup cols={2}>
+  <Card title="DeepAgents-Workspace" icon="folder-tree" href="/essentials/deepagents-workspace">
+    Erfahre, wie du Workspace-Funktionen aktivierst und nutzt.
+  </Card>
+  <Card title="Aufgaben" icon="calendar-check" href="/essentials/tasks">
+    Erfahre mehr über geplante und bei Bedarf ausgeführte Aufgaben.
+  </Card>
+  <Card title="Datenanalyse" icon="chart-line" href="/de/concepts/use_cases/data-analysis">
+    Setze DeepAgents in einem prüfbaren Analyse-Workflow ein.
+  </Card>
+  <Card title="Content-Erstellung" icon="pen-to-square" href="/de/concepts/use_cases/content-creation">
+    Organisiere einen mehrstufigen redaktionellen Workflow.
+  </Card>
+</CardGroup>
